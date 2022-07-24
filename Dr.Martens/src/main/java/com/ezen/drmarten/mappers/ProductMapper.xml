@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.ezen.drmarten.mappers.ProductMapper">
+
+	<select id="getList" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT
+	</select>
+
+	<insert id="add_upload" parameterType="com.ezen.drmarten.model.Product">
+		
+
+		insert into product
+			(PRODUCT_CODE,NAME,MADE,MATERIAL,GENDER,
+			NEW_TAG,COLOR,SELL_COUNT,VIEW_COUNT,CATEGORY,PRICE)
+		VALUES
+			((#{product_code}+PRODUCT_NUM.nextval),#{name},#{made},#{material},#{gender},
+			'NEW',#{color},'0','1',#{category},#{price})
+		
+	</insert>
+	
+	<insert id="add_attach" parameterType="com.ezen.drmarten.model.Product_attach">
+		INSERT INTO PRODUCT_ATTACH VALUES(#{product_code}+PRODUCT_NUM.CURRVAL, #{fname}, #{fpath})
+	</insert>
+	
+	<insert id="add_attach2" parameterType="com.ezen.drmarten.model.Product_attach">
+		INSERT INTO PRODUCT_ATTACH VALUES(#{product_code}, #{fname}, #{fpath})
+	</insert>
+	
+	<select id="getCodeByName" resultType="Integer" parameterType="String">
+		SELECT PRODUCT_CODE FROM PRODUCT where NAME=#{name}
+	</select>
+	
+	<update id="addStock" parameterType="java.util.List">
+    INSERT INTO PRODUCT_SIZE (PRODUCT_CODE, PRODUCT_SIZE, PRODUCT_COUNT)
+    SELECT t.* FROM
+    (
+        <foreach collection="list" item="item" index="index" separator="union all">
+             SELECT #{item.product_code}, #{item.product_size}, #{item.product_count} FROM DUAL
+        </foreach>
+    ) t
+	</update>
+
+	<select id="searchLikeName" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT where name LIKE '%' || #{name} || '%'
+	</select>
+	
+	
+	<select id="searchAttachByCode" resultType="com.ezen.drmarten.model.Product_attach" parameterType="Integer">
+		SELECT * FROM PRODUCT_ATTACH where PRODUCT_CODE = #{product_code}
+	</select>
+	
+	<select id="serachSizeByCode" resultType="com.ezen.drmarten.model.Product_size" parameterType="Integer">
+		SELECT * FROM PRODUCT_SIZE where PRODUCT_CODE = #{product_code}
+	</select>
+	
+	
+	<select id="categorySearch" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT
+		WHERE 
+		<choose>
+			<when test='category.equalsIgnoreCase("male")'>
+				GENDER != '여' 
+			</when>
+			<when test='category.equalsIgnoreCase("female")'>
+				GENDER != '남' 
+			</when>
+			<when test='category.equalsIgnoreCase("boots")'>
+				CATEGORY = 'BOOTS'
+			</when>
+			<when test='category.equalsIgnoreCase("sandals")'>
+				CATEGORY = 'SANDALS'
+			</when>
+		</choose>
+	</select>
+	
+	<!-- 삭제 XML sql 만들면돼! -->
+	<delete id="delete" parameterType="Integer">
+		SELECT * FROM PRODUCT
+		WHERE 
+		<choose>
+			<when test='category.equalsIgnoreCase("male")'>
+				GENDER != '여' 
+			</when>
+			<when test='category.equalsIgnoreCase("female")'>
+				GENDER != '남' 
+			</when>
+			<when test='category.equalsIgnoreCase("boots")'>
+				CATEGORY = 'BOOTS'
+			</when>
+			<when test='category.equalsIgnoreCase("sandals")'>
+				CATEGORY = 'SANDALS'
+			</when>
+		</choose>
+	</delete>
+</mapper>
