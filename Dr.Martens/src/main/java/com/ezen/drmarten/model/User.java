@@ -1,4 +1,4 @@
-package com.ezen.DrMartin.model;
+package com.ezen.drmarten.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,12 +1,12 @@
-package com.ezen.DrMartin.service;
+package com.ezen.drmarten.service;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.DrMartin.model.User;
-import com.ezen.DrMartin.repository.UserTableRepository;
+import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.repository.UserTableRepository;
 
 @Service
 public class UserService {

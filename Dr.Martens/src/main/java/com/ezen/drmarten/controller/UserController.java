@@ -1,4 +1,4 @@
-package com.ezen.DrMartin.controller;
+package com.ezen.drmarten.controller;
 
 import java.sql.Date;
 import java.util.HashMap;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ezen.DrMartin.model.User;
-import com.ezen.DrMartin.service.UserService;
+import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 

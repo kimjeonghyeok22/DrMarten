@@ -1,4 +1,4 @@
-package com.ezen.DrMartin.repository;
+package com.ezen.drmarten.repository;
 
 import javax.transaction.Transactional;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.ezen.DrMartin.model.User;
+import com.ezen.drmarten.model.User;
 
 public interface UserTableRepository extends JpaRepository<User, Object>{
 
