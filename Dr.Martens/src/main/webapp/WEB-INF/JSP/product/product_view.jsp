@@ -48,7 +48,6 @@
 				<td><a href="/product/detail_product/${product.product_code}">${product.name}</a></td>
 				<td>${product.price}</td>
 				<td>${product.category}
-				<td>${product.score}</td>
 				<td>${product.view_count}</td>
 			</tr>
 		</c:forEach>

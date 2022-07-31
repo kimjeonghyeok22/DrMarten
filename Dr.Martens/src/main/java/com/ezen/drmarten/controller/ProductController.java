@@ -39,13 +39,13 @@ public class ProductController {
 	private ProductMapper dao;
 	@Autowired
 	private ProductService svc;
-
+ 
 	@GetMapping("")
 	public String index(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
 		PageHelper.startPage(page, 5);
 		PageInfo<Product> productList = new PageInfo<Product>(svc.getList());
 		model.addAttribute("product", productList);
-		return "/product_view";
+		return "/product/product_view";
 	}
 
 	@PostMapping("/files/add")
@@ -176,7 +176,7 @@ public class ProductController {
 		model.addAttribute("list", likeNameList);
 		 
 		
-		return "/listView";
+		return "/product/listView";
 	}
 	
 	@GetMapping("/category/{String}")
@@ -186,12 +186,12 @@ public class ProductController {
 		
 		model.addAttribute("list", list);
 		
-		return "/listView";
+		return "/product/listView";
 	}
 	
 	@GetMapping("/product/erase")
 	public String delete(Product pro) throws Exception {
 		svc.delete(pro);
-		return "listView";
+		return "/product/listView";
 	}
 }
