@@ -39,4 +39,6 @@ public interface ProductMapper {
 	int deleteSize(int product_code);
 
 	int deleteProduct(int product_code);
+
+	int sellProduct(int product_code,int sellCount,int size);
 }

@@ -120,7 +120,15 @@
 </form>
 <form action="/product/erase" method="post">
 	[제품이름]<input type="text" name="name" value="willsmith3">
-	<button>삭제하기</button>
+	<button type="submit">삭제하기</button>
+</form>
+
+<form action="/product/sell" method="post">
+	<h3>[[x]제품[x]사이즈[x]갯수가 판매 되었습니다.]</h3>
+	[제품이름]<input type="text" name="name" value="willsmith">
+<br>	[사이즈]<input type="text" name="product_size" value="240">
+<br>	[판매된 갯수]<input type="text" name="sellCount" value="1">
+	<button type="submit">삭제하기</button>
 </form>
 </body>
 </html>

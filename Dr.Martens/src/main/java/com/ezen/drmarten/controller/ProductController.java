@@ -194,4 +194,14 @@ public class ProductController {
 		svc.delete(pro);
 		return "/product/listView";
 	}
+	
+	@PostMapping("/sell") 
+	public String sell(Product pro
+			,@RequestParam(name = "sellCount", required = false, defaultValue = "1") int sellCount
+			,@RequestParam(name = "product_size")int product_size) throws Exception {
+		System.out.println("");
+		boolean res = svc.sell(pro,sellCount,product_size);
+		System.out.println(res);
+		return "/product/listView";
+	}
 } 

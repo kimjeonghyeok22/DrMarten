@@ -85,4 +85,9 @@
 	<delete id="deleteProduct" parameterType="Integer">
 		DELETE FROM PRODUCT WHERE PRODUCT_CODE = #{product_code}
 	</delete>
-</mapper>
+	<update id="sellProduct" parameterType="Integer">
+		UPDATE Product_size
+		SET PRODUCT_COUNT = (PRODUCT_COUNT - #{sellCount})
+		WHERE PRODUCT_CODE = #{product_code} AND PRODUCT_SIZE=#{size}
+	</update>   
+</mapper> 

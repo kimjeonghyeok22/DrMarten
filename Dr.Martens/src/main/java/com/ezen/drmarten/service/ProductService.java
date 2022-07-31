@@ -97,7 +97,7 @@ public class ProductService {
 	}
 
 	@Transactional(rollbackFor = {Exception.class})
-	public void delete(Product pro) throws Exception {
+	public boolean delete(Product pro) throws Exception {
 		int code = dao.getCodeByName(pro.getName());
 		boolean delAtt = dao.deleteAtt(code)>0;
 		if(!delAtt){throw new Exception("첨부파일 삭제하다 발생한 오류");}
@@ -105,6 +105,16 @@ public class ProductService {
 		if(!delSize){throw new Exception("사이즈 및 재고 삭제하다 발생한 오류");}
 		boolean delProduct = dao.deleteProduct(code)>0;
 		if(!delProduct){throw new Exception("제품 삭제하다 발생한 오류");}
+		
+		return delAtt&delSize&delProduct==true;
+	}
+
+
+	public boolean sell(Product pro,Integer sellCount,Integer size) {
+		//이름을 입력 받아야 함.
+		Integer code = dao.getCodeByName(pro.getName());
+		boolean sellPoduct = dao.sellProduct(code,sellCount,size)>0;
+		return sellPoduct;
 	}
 	
 	
