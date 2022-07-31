@@ -34,9 +34,9 @@ public interface ProductMapper {
 
 	List<Product> categorySearch(String category);
 
-	int deleteAtt(int code);
+	int deleteAtt(int product_code);
 
-	int deleteSize(int code);
+	int deleteSize(int product_code);
 
-	int deleteProduct(int code);
+	int deleteProduct(int product_code);
 }

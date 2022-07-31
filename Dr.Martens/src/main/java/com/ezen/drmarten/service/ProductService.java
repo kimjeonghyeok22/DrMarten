@@ -105,7 +105,6 @@ public class ProductService {
 		if(!delSize){throw new Exception("사이즈 및 재고 삭제하다 발생한 오류");}
 		boolean delProduct = dao.deleteProduct(code)>0;
 		if(!delProduct){throw new Exception("제품 삭제하다 발생한 오류");}
-		
 	}
 	
 	

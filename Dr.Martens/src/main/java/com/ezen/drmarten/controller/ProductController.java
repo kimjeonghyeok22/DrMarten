@@ -189,9 +189,9 @@ public class ProductController {
 		return "/product/listView";
 	}
 	
-	@GetMapping("/product/erase")
+	@PostMapping("/erase")
 	public String delete(Product pro) throws Exception {
 		svc.delete(pro);
 		return "/product/listView";
 	}
-}
+} 

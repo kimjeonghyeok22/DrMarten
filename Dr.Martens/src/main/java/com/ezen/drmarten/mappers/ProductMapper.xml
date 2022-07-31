@@ -76,22 +76,13 @@
 	</select>
 	
 	<!-- 삭제 XML sql 만들면돼! -->
-	<delete id="delete" parameterType="Integer">
-		SELECT * FROM PRODUCT
-		WHERE 
-		<choose>
-			<when test='category.equalsIgnoreCase("male")'>
-				GENDER != '여' 
-			</when>
-			<when test='category.equalsIgnoreCase("female")'>
-				GENDER != '남' 
-			</when>
-			<when test='category.equalsIgnoreCase("boots")'>
-				CATEGORY = 'BOOTS'
-			</when>
-			<when test='category.equalsIgnoreCase("sandals")'>
-				CATEGORY = 'SANDALS'
-			</when>
-		</choose>
+	<delete id="deleteAtt" parameterType="Integer">
+		DELETE FROM PRODUCT_ATTACH WHERE PRODUCT_CODE = #{product_code}
+	</delete>
+	<delete id="deleteSize" parameterType="Integer">
+		DELETE FROM PRODUCT_SIZE WHERE PRODUCT_CODE = #{product_code}
+	</delete>
+	<delete id="deleteProduct" parameterType="Integer">
+		DELETE FROM PRODUCT WHERE PRODUCT_CODE = #{product_code}
 	</delete>
 </mapper>

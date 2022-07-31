@@ -118,5 +118,9 @@
 	</oi>
 </ul>
 </form>
+<form action="/product/erase" method="post">
+	[제품이름]<input type="text" name="name" value="willsmith3">
+	<button>삭제하기</button>
+</form>
 </body>
 </html>
