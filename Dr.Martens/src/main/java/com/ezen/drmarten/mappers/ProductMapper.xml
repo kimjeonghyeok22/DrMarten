@@ -87,7 +87,7 @@
 	</delete>
 	<update id="sellProduct" parameterType="Integer">
 		UPDATE Product_size
-		SET PRODUCT_COUNT = (PRODUCT_COUNT - #{sellCount})
+		SET PRODUCT_COUNT = (PRODUCT_COUNT - #{sellCount})a
 		WHERE PRODUCT_CODE = #{product_code} AND PRODUCT_SIZE=#{size}
 	</update>   
 </mapper> 
