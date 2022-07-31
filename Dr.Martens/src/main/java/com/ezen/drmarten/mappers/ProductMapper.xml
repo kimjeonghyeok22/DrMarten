@@ -7,6 +7,10 @@
 	<select id="getList" resultType="com.ezen.drmarten.model.Product">
 		SELECT * FROM PRODUCT
 	</select>
+	
+	<select id="getProductByCode" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT WHERE PRODUCT_CODE = #{product_code}
+	</select>
 
 	<insert id="add_upload" parameterType="com.ezen.drmarten.model.Product">
 		
@@ -87,7 +91,12 @@
 	</delete>
 	<update id="sellProduct" parameterType="Integer">
 		UPDATE Product_size
-		SET PRODUCT_COUNT = (PRODUCT_COUNT - #{sellCount})a
+		SET PRODUCT_COUNT = (PRODUCT_COUNT - #{sellCount})
 		WHERE PRODUCT_CODE = #{product_code} AND PRODUCT_SIZE=#{size}
+	</update>   
+	<update id="addViewCount" parameterType="Integer">
+		UPDATE Product
+		SET VIEW_COUNT = (VIEW_COUNT + 1)
+		WHERE PRODUCT_CODE = #{product_code}
 	</update>   
 </mapper> 

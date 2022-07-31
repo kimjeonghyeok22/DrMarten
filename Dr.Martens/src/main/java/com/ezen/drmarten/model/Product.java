@@ -13,12 +13,12 @@ public class Product {
 	private String made;
 	private String material;
 	private String new_tag;
-	private String color;
+	private String color; 
 	private int sell_count;
 	private int view_count;
 	private String category;
 	private int price;
-	private String gender;
+	private String gender; 
 	private List<Product_attach> attach = new ArrayList<>();
 	private List<Product_size> size = new ArrayList<>();
 	

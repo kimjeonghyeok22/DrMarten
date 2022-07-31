@@ -8,10 +8,13 @@ import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,18 +22,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.drmarten.mappers.ProductMapper;
 import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.Product_attach;
+import com.ezen.drmarten.model.Product_size;
 import com.ezen.drmarten.service.ProductService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
+
+@SessionAttributes("itemCart")
 @Controller
 @RequestMapping("/product")
 public class ProductController {
@@ -47,7 +55,31 @@ public class ProductController {
 		model.addAttribute("product", productList);
 		return "/product/product_view";
 	}
-
+	@GetMapping("detail_product/{product_code}")
+	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if(session.getAttribute(String.valueOf(product_code))!=null){
+				Product product = svc.getProduct(product_code);
+				model.addAttribute("product", product);
+				return "/product/detail_view";
+			}else {
+				session.setAttribute(String.valueOf(product_code), product_code);
+				
+				svc.addViewCount(product_code); 
+				Product product = svc.getProduct(product_code);
+				//
+				model.addAttribute("product", product);
+				return "/product/detail_view";
+				}
+		}catch (Exception e) {
+			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
+			svc.addViewCount(product_code); 
+			Product product = svc.getProduct(product_code);
+			model.addAttribute("product", product);
+			return "/product/detail_view";
+		}
+	}
 	@PostMapping("/files/add")
 	@ResponseBody
 	public String add(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
@@ -188,14 +220,14 @@ public class ProductController {
 		
 		return "/product/listView";
 	}
-	
+	 
 	@PostMapping("/erase")
 	public String delete(Product pro) throws Exception {
 		svc.delete(pro);
 		return "/product/listView";
 	}
-	
-	@PostMapping("/sell") 
+	 
+	@PostMapping("/sell")  
 	public String sell(Product pro
 			,@RequestParam(name = "sellCount", required = false, defaultValue = "1") int sellCount
 			,@RequestParam(name = "product_size")int product_size) throws Exception {
@@ -203,5 +235,29 @@ public class ProductController {
 		boolean res = svc.sell(pro,sellCount,product_size);
 		System.out.println(res);
 		return "/product/listView";
+	}
+	@PostMapping("/cartAdd")  
+	@ResponseBody
+	//장바니에 담기를 위한 메소드 장바구니가 어떤형식으로 진행되는지 파악 후 작업 가능.
+	public Map<String, Object> cartAdd(Model model,Product pro
+			,@RequestParam("number")int count
+			,@RequestParam("sized")int size)throws Exception {
+		System.out.println(count);
+		System.out.println(size);
+		List<Product_size> list = new ArrayList<>();
+		Product_size temp = new Product_size();
+		temp.setProduct_count(count);
+		temp.setProduct_size(size);
+		list.add(temp);
+		pro.setSize(list);
+		
+//		model.addAttribute("itemCart",pro);
+		//코드 , 이름, 갯수, 사이즈
+		
+		Map<String,Object> map = new HashMap<>();
+		map.put("product", pro);
+		map.put("saved", true);
+		
+		return map; 
 	}
 } 

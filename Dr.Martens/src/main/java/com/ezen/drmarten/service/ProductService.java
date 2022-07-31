@@ -116,6 +116,18 @@ public class ProductService {
 		boolean sellPoduct = dao.sellProduct(code,sellCount,size)>0;
 		return sellPoduct;
 	}
+
+
+	public Product getProduct(int product_code) {
+		Product product = new Product();
+		product = dao.getProductByCode(product_code);
+		return product;
+	}
+
+
+	public boolean addViewCount(int product_code) {
+		return dao.addViewCount(product_code)>0;
+	}
 	
 	
 }
