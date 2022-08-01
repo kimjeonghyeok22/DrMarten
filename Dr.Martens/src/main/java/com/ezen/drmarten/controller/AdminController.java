@@ -6,12 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,23 +33,47 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 @Controller
-@RequestMapping("/dr")
-public class BoardController {
+@RequestMapping("/admin")
+public class AdminController {
+	
+	@Autowired
+	private HttpSession session;
 
 	@Autowired
 	private BoardMapper dao;
-
+	
 	@GetMapping("")
-	public String index() {
-		return "dr/index";
+	public String loginForm() {
+		return "thymeleaf/admin/loginForm";
 	}
-
-	// 공지사항
+	
+	@PostMapping("/login")
+	public String login(@RequestParam("id")String id, @RequestParam("pw")String pw, Model model) {
+		if(id.equals("admin")&&pw.equals("dr1234")) {
+			java.time.LocalDateTime time = LocalDateTime.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/mm/dd HH시 mm분 ss초");
+			String sTime = time.format(formatter);
+			session.setAttribute("time", sTime);
+			return "redirect:/admin/main";
+			//카카오톡으로 보안코드 보내서 보안코드 인증하는것도 추가하고싶었습니다
+		}else {
+			model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요 : (");
+		}
+		return "thymeleaf/admin/loginForm";
+	} 
+	
+	@GetMapping("/main")
+	public String main(Model model) {
+		String sTime = (String) session.getAttribute("time");
+		model.addAttribute("time", sTime);
+		return "thymeleaf/admin/admin";
+	}
+	
 	@GetMapping("/notice/write")
-	public String notice_form() {
+	public String notice_list() {
 		return "dr/notice_form";
 	}
-
+	
 	@GetMapping("/notice/list")
 	public String notice_list(Model model) {
 		List<Board> list = dao.getNoticeList();
@@ -389,4 +416,5 @@ public class BoardController {
 		map.put("updated", saved);
 		return map;
 	}
+	
 }
