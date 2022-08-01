@@ -5,7 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품 상세 보기</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 상세보기</title>
+    <style>
+      .imgClass{
+			height:900px;
+			width: 900px;
+      }
+	 img { 
+	 	width : 100%;
+	 	height: 100%;
+	 }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/resources/css/admin.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 function addCart(){
@@ -27,6 +42,36 @@ function addCart(){
 </head>
 <body>
 <h3>제품 상세보기 페이지</h3>
+<!--   </header>까지 이거... 잘 분석해보고 어케할지.. -->
+<header id="header">
+        <div class="inner">
+            <div class="img_wrap"> <a href="/admin/main" ><img src="/resources/img/logo.svg" alt=""> </a></div>
+            <div class="title_wrap"> <span>닥터마틴 관리자페이지</span> </div>
+            <div class="controller_wrap">
+                <div class="log_out">
+                    <div class="welcome">
+                    	<span class="time sml gray">로그인 : [[${time}]]</span>
+                        <span>관리자님 안녕하세요 : )</span>
+                    </div>
+                    <button type="button">로그아웃</button>
+                </div>
+                <div class="search_box">
+                    <div class="dmField_input_box">
+                        <input name="userid" type="text" class="dmField_input" placeholder="검색" >
+                        <button type="button" class="cmBtn line yellow">검색</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<c:forEach items="${att}" var="att">
+<div class="imgClass">
+
+<img id = "imgs" src="http://localhost/${att.fpath}${att.fname}"/>
+
+</div>
+</c:forEach>
+
 이름 ${product.name}<br>
 가격${product.price}<br>
 색 ${product.color}<br>
@@ -38,6 +83,8 @@ function addCart(){
 
 장바구니에 추가//코드 , 이름 ,수량 사이즈, 세션.
 <form id="addCartForm" action="/product/cartAdd" method="post">
+
+	<input type="hidden" name ="price" value="${product.price}">
 	<input type="hidden" name="name" value="${product.name}">
 	<input type="hidden" name="product_code" value="${product.product_code}">
 	<input type="number" name="number" min="0">

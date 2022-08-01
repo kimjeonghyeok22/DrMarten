@@ -45,4 +45,5 @@ public interface ProductMapper {
 	Product getProductByCode(int product_code);
 
 	int addViewCount(int product_code);
+
 }

@@ -128,6 +128,12 @@ public class ProductService {
 	public boolean addViewCount(int product_code) {
 		return dao.addViewCount(product_code)>0;
 	}
+
+
+	public List<Product_attach> getAttByCode(int product_code) {
+		
+		return dao.searchAttachByCode(product_code);
+	}
 	
 	
 }

@@ -61,22 +61,31 @@ public class ProductController {
 		try {
 			if(session.getAttribute(String.valueOf(product_code))!=null){
 				Product product = svc.getProduct(product_code);
+				List<Product_attach> att = svc.getAttByCode(product_code);
+				//제품이름_comments.png 는 제품설명의 이미지 파일 이기 때문에 배제하는 코드.
+				for(int i =0;i<att.size();i++) {
+					String[] temp = att.get(i).getFname().split("_");
+					String[] temp2 = temp[1].split(".png");
+					if(temp2[0].contentEquals("comments")) {
+						model.addAttribute("attComment",att.get(i));
+						att.remove(i);
+					}
+				}
+				model.addAttribute("att",att);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
 			}else {
 				session.setAttribute(String.valueOf(product_code), product_code);
-				
+				    
 				svc.addViewCount(product_code); 
 				Product product = svc.getProduct(product_code);
-				//
+				List<Product_attach> att = svc.getAttByCode(product_code);
+				model.addAttribute("att",att);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
 				}
 		}catch (Exception e) {
 			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
-			svc.addViewCount(product_code); 
-			Product product = svc.getProduct(product_code);
-			model.addAttribute("product", product);
 			return "/product/detail_view";
 		}
 	}
@@ -242,14 +251,12 @@ public class ProductController {
 	public Map<String, Object> cartAdd(Model model,Product pro
 			,@RequestParam("number")int count
 			,@RequestParam("sized")int size)throws Exception {
-		System.out.println(count);
-		System.out.println(size);
-		List<Product_size> list = new ArrayList<>();
-		Product_size temp = new Product_size();
-		temp.setProduct_count(count);
-		temp.setProduct_size(size);
-		list.add(temp);
-		pro.setSize(list);
+		String imgPath = "resources/img/"+pro.getName()+"/"+pro.getName()+"_main.png";
+		
+		int price = pro.getPrice();
+		int product_code = pro.getProduct_code();
+		String name = pro.getName();
+		
 		
 //		model.addAttribute("itemCart",pro);
 		//코드 , 이름, 갯수, 사이즈

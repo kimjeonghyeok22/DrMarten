@@ -15,7 +15,7 @@ public class Product_attach {
 		return fname;
 	}
 	public void setFname(String fname) {
-		this.fname = fname;
+		this.fname = fname; 
 	}
 	public String getFpath() {
 		return fpath;
