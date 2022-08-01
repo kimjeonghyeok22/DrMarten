@@ -40,15 +40,16 @@ public class UserController {
 	public String login_form() {
 		return"/user/login";
 	}
-	@PostMapping("/login")
-	@ResponseBody
-	public String login(@RequestParam("u_email") String u_email, @RequestParam("u_pw")String u_pw, HttpSession session) {
-		
-	
-		String  checked = svc.login(u_email,u_pw, session);
-		log.debug("session = {}", session.getAttribute("u_email"));
-		return  checked;
-	}
+// 현지 : 서버가 안돌아가서 잠시 주석처리해뒀어요
+//	@PostMapping("/login")
+//	@ResponseBody
+//	public String login(@RequestParam("u_email") String u_email, @RequestParam("u_pw")String u_pw, HttpSession session) {
+//		
+//	
+//		String  checked = svc.login(u_email,u_pw, session);
+//		log.debug("session = {}", session.getAttribute("u_email"));
+//		return  checked;
+//	}
 	@GetMapping("/find_id")
 	public String find_id_form() {
 		return"/user/find_id";

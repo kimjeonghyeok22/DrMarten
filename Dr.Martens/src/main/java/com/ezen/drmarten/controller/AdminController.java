@@ -51,7 +51,7 @@ public class AdminController {
 	public String login(@RequestParam("id")String id, @RequestParam("pw")String pw, Model model) {
 		if(id.equals("admin")&&pw.equals("dr1234")) {
 			java.time.LocalDateTime time = LocalDateTime.now();
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/mm/dd HH시 mm분 ss초");
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH시 mm분 ss초");
 			String sTime = time.format(formatter);
 			session.setAttribute("time", sTime);
 			return "redirect:/admin/main";
