@@ -42,14 +42,12 @@ public class UserController {
 	}
 	@PostMapping("/login")
 	@ResponseBody
-	public Map<String, Object> login(HttpSession session,
-									 @RequestParam("u_id")String u_id,
-									 @RequestParam("u_pw")String u_pw){
-
-		boolean checked = svc.login(u_id,u_pw);
-		Map<String, Object>map = new HashMap<>();
-		map.put("checked", checked);
-		return map;
+	public String login(@RequestParam("u_email") String u_email, @RequestParam("u_pw")String u_pw, HttpSession session) {
+		
+	
+		String  checked = svc.login(u_email,u_pw, session);
+		log.debug("session = {}", session.getAttribute("u_email"));
+		return  checked;
 	}
 	@GetMapping("/find_id")
 	public String find_id_form() {

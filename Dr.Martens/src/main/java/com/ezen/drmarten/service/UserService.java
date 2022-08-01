@@ -13,13 +13,17 @@ public class UserService {
 
 	@Autowired
 	UserTableRepository rep;
-	public boolean login(String u_id, String u_pw) {
-		if(rep.findById(u_id).equals(rep.findById(u_pw)))  {
-			return true;
-			
-		}
-		
-		return false;
+	public String login(String u_email,String pw , HttpSession session) {
+		Optional<User> user = rep.findById(u_email);
+		User chek = user.get();
+		 if(chek != null && chek.getU_pw().equals(pw)) {
+			 session.setAttribute("u_email", u_email);
+			 System.out.println(session.getAttribute("u_email"));
+			 return "<script>" + "alert('성공');"  + "</script>";
+			 }
+		 if(chek != null && !(chek.getU_pw().equals(pw)))  
+			 return "<script>" + "alert('비밀번호 틀림 ');"  + "</script>";
+		 return "<script>" + "alert('없는 아이디 ');"  + "</script>";
 	}
 	public boolean id_check(String u_id) {
 		int i = rep.findByU_id(u_id);
