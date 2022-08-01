@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ë¦¬ë·° ëª©ë¡</title>
+<meta charset="EUC-KR">
+<title>¸®ºä ¸ñ·Ï</title>
 <Style type="text/css">
 a{text-decoration: none; color: black;}
 main{width : fit-content; margin :  60px auto;}
@@ -18,19 +18,18 @@ tr:last-of-type{border-bottom :  2px solid black; }
 td.center{text-align: center;}
 td.contents{padding: 30px;}
 .btn_wrap {width: fit-contentl; margin : 20px; text-align : right;}
-img{height:180px;}
 </Style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 function deleteThis(e){
-	if (!confirm('ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?')) return false;
+	if (!confirm('»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')) return false;
 	$.ajax({
 		url : '/dr/review/delete/'+e,
 		method : 'get',
 		cacht : false,
 		dataType : 'json',
 		success : function(res){
-			alert(res.deleted?'ì‚­ì œì„±ê³µ':'ì‚­ì œì‹¤íŒ¨');
+			alert(res.deleted?'»èÁ¦¼º°ø':'»èÁ¦½ÇÆĞ');
 			location.href='/dr/review/list';
 		},
 		error : function(xhr,status, err){
@@ -43,14 +42,14 @@ function deleteThis(e){
 </head>
 <body>
 <main>
-		<h3>ë¦¬ë·° ëª©ë¡</h3>
+		<h3>¸®ºä ¸ñ·Ï</h3>
 		<table>
 			<tr>
-				<th style="width:60px;">ë²ˆí˜¸</th>
-				<th>ì œëª©</th>
-				<th style="width:60px;">ì ìˆ˜</th>
-				<th style="width:120px;">ì‘ì„±ì¼</th>
-				<th style="width:100px;">ì‘ì„±ì</th>
+				<th style="width:60px;">¹øÈ£</th>
+				<th>Á¦¸ñ</th>
+				<th style="width:60px;">Á¡¼ö</th>
+				<th style="width:120px;">ÀÛ¼ºÀÏ</th>
+				<th style="width:100px;">ÀÛ¼ºÀÚ</th>
 			</tr>
 			<c:forEach var="b" items="${list}">
 				<tr class="dotted_border">
@@ -62,15 +61,15 @@ function deleteThis(e){
 				</tr>
 				<tr>
 					<td class="img">
-						<img src="../../../resources/static/${b.fname}" class="img">
+						<img src="${b.fpath}">
 					</td>
 					<td colspan="3" class="contents">${b.contents}</td>
-					<td><button type="button" onclick="deleteThis(${b.board_num});">ì‚­ì œ</button></td>
+					<td><button type="button" onclick="deleteThis(${b.board_num});">»èÁ¦</button></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<div class="btn_wrap">
-<button type="button" onclick="location.href='/dr/review/write';">ì‘ì„±</button>
+<button type="button" onclick="location.href='/dr/review/write';">ÀÛ¼º</button>
 </div>
 	</main>
 </body>

@@ -30,6 +30,4 @@ public interface BoardMapper {
 	Board getQa(int num);
 	int updateQa(Board board);
 	int updateMyQna(Board board);
-	int noticeView(int num);
-	int qaView(int num);
 }

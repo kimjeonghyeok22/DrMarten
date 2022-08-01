@@ -72,10 +72,4 @@ UPDATE QA SET title=#{title}, contents=#{contents}, category=#{category} WHERE b
 <insert id="updateMyQna"  parameterType="com.ezen.drmarten.model.Board">
 UPDATE MYQNA SET title=#{title}, contents=#{contents}  WHERE board_num=#{board_num}
 </insert>
-<insert id="noticeView" parameterType="Integer">
-update NOTICE  set view_count = view_count + 1 where board_num = #{num}
-</insert>
-<insert id="qaView" parameterType="Integer">
-update QA  set view_count = view_count + 1 where board_num = #{num}
-</insert>
 </mapper>

@@ -1,11 +1,7 @@
 package com.ezen.drmarten.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.FileChannel;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +53,6 @@ public class BoardController {
 	@GetMapping("/notice/detail/{num}")
 	public String notice_detail(@PathVariable("num") int num, Model model) {
 		Board board = dao.getNotice(num);
-		dao.noticeView(num);
 		model.addAttribute("board", board);
 		return "dr/notice_detail";
 	}
@@ -185,7 +180,6 @@ public class BoardController {
 	@GetMapping("/qa/detail/{num}")
 	public String qa_detail(@PathVariable("num") int num, Model model) {
 		Board board = dao.getQa(num);
-		dao.qaView(num);
 		model.addAttribute("board", board);
 		return "dr/qna_detail";
 	}
@@ -245,7 +239,7 @@ public class BoardController {
 			@RequestParam("contents") String contents, 
 			@RequestParam("score") int score) {
 		ServletContext context = request.getServletContext();
-		String savePath = context.getRealPath("WEB-INF/JSP/dr/img");
+		String savePath = context.getRealPath("../resources");
 		
 		Board board = new Board();
 		board.setFpath(savePath);
@@ -262,47 +256,9 @@ public class BoardController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		boolean saved = dao.saveReview(board) > 0;
-		Map<String, Object> map = new HashMap<>();
-		map.put("saved", saved);
-		
-	    boolean result = false;
-        
-	    FileInputStream inputStream = null;//파일
-	    FileOutputStream outputStream = null;//경로
-	    String savePath2 = context.getRealPath("./resources/static");
-	    System.out.println(savePath2);
-	    try {
-	        inputStream = new FileInputStream(savePath + "/" + changed_pName);
-	        outputStream = new FileOutputStream(savePath2 + "/"+changed_pName);
-	    } catch (FileNotFoundException e) {
-	        e.printStackTrace();
-	        result = false;
-	    }
-	        
-	    FileChannel fcin = inputStream.getChannel();
-	    FileChannel fcout = outputStream.getChannel();
-	        
-	    long size = 0;
-	    try {
-	        size = fcin.size();
-	        fcin.transferTo(0, size, fcout);
-	            
-	        fcout.close();
-	        fcin.close();
-	        outputStream.close();
-	        inputStream.close();
-	            
-	        result = true;
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	        result = false;
-	    }
-	        
-	    File f = new File(savePath + "/" + changed_pName);
-	    if (f.delete()) {
-	        result = true;
-	    }
+//		boolean saved = dao.saveReview(board) > 0;
+//		Map<String, Object> map = new HashMap<>();
+//		map.put("saved", saved);
 		return "redirect:/dr/review/list";
 	}
 	
