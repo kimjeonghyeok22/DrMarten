@@ -16,7 +16,6 @@ public class AdminController {
 	private BoardMapper dao;
 
 	@GetMapping("")
-	@ResponseBody
 	public String loginForm() {
 		return "thymeleaf/admin/login";
 	}
