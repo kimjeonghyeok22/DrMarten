@@ -63,8 +63,8 @@
 .main_search_form .mainSearchForm_input_box{position: relative;width: 100%;-ms-flex: 1 1 auto;flex: 1 1 auto;margin-right: 16px;}
 .main_search_form .mainSearchForm_input{width: calc(100% - 50px);font-size: 20px;}
 .main_search_form .mainSearchForm_input::placeholder{color: #aaa;letter-spacing: -0.015em;}
-.main_search_form .mainSearchForm_button{position: relative;display: block;width: auto;height: auto;padding: 0;font-size: 0;}
-.main_search_form .mainSearchForm_cancel{position: absolute;top: 0;right: 16px;bottom: 0;margin: auto;}
+.main_search_form .mainSearchForm_button{position: relative;display: block;width: auto;height: auto;padding: 0;font-size: 0;cursor: pointer;}
+.main_search_form .mainSearchForm_cancel{position: absolute;top: 0;right: 16px;bottom: 0;margin: auto;cursor: pointer;}
 .main_search_form .mainSearchForm_button_icon{width: 32px;height: 32px;}
 
 /********** 상단 메뉴 : 아이콘 */
