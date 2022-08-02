@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>회원 상세 정보</title>
+</head>
+<body>
+<div id="container" th:object="${user}">
+	<div th:text="'번호 ' + *{num}"></div>
+	<div th:text="'이름 ' + *{name}"></div>
+	<div th:text="'메일 ' + *{email}"></div>
+	<div th:text="'주소 ' + *{adress}"></div>
+	<div th:text="'나이 ' + *{birth}"></div>
+	<div th:text="'성별 ' + *{gender}"></div>
+	<div th:text="'전화번호 ' + *{phone_num}"></div>
+	<nav>
+		[<a th:href="@{/admin/user/index}">리스트로</a>]
+	</nav>
+</div>
+</body>
+</html>
