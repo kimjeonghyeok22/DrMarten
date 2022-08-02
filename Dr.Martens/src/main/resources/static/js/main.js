@@ -6,7 +6,6 @@ $(function () {
     
     $('#visual1 .next').on('click', function(){
         var num = $('.slide_on').index();
-        console.log(num);
         $('.img_wrap').removeClass('slide_on');
         $('#visual1 .pgn').removeClass('on');
         if(num<2){
@@ -19,7 +18,6 @@ $(function () {
     });
     $('#visual1 .prev').on('click', function(){
         var num = $('.slide_on').index();
-        console.log(num);
         $('.img_wrap').removeClass('slide_on');
         $('#visual1 .pgn').removeClass('on');
         if(num>0){
@@ -33,5 +31,64 @@ $(function () {
     visualAuto = setInterval(function(){
         $('#visual1 .next').click();
     }, 5000);
+
+    $('#category1 li').on('click', function(){
+        $('#category1 li').removeClass('on');
+        $(this).addClass('on');
+        $('.category_detail').removeClass('on');
+        $(this).children('.category_detail').addClass('on');
+    });
+    
+    $('#sec1 .next').on('click', function(){
+        var num = $('#category1 li.on .eq1').index();
+        console.log(num);
+        $('#category1 li.on .slide').removeClass('eq1'); 
+        $('#category1 li.on .slide').removeClass('eq2');
+        $('#category1 li.on .slide').removeClass('eq3');
+        $('#category1 li.on .pgn').removeClass('on');
+        if(num==0){
+            $('#sec1 li.on .slide').eq(num+1).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num+2).addClass('eq2');
+            $('#sec1 li.on .slide').eq(num).addClass('eq3');
+            $('#sec1 li.on .pgn').eq(num+1).addClass('on');
+        } else if(num==1){
+            $('#sec1 li.on .slide').eq(num+1).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num-1).addClass('eq2');
+            $('#sec1 li.on .slide').eq(num).addClass('eq3');
+            $('#sec1 li.on .pgn').eq(num+1).addClass('on');
+        } else if (num==2){
+            $('#sec1 li.on .slide').eq(num-2).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num-1).addClass('eq2');
+            $('#sec1 li.on .slide').eq(num).addClass('eq3');
+            $('#sec1 li.on .pgn').eq(num-2).addClass('on');
+        }
+    });
+    $('#sec1 .prev').on('click', function(){
+        var num = $('#category1 li.on .eq1').index();
+        console.log(num);
+        $('#category1 li.on .slide').removeClass('eq1');
+        $('#category1 li.on .slide').removeClass('eq2');
+        $('#category1 li.on .slide').removeClass('eq3');
+        $('#category1 li.on .pgn').removeClass('on');
+        if(num==0){
+            $('#sec1 li.on .slide').eq(num+2).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num+1).addClass('eq3');
+            $('#sec1 li.on .slide').eq(num).addClass('eq2');
+            $('#sec1 li.on .pgn').eq(num+2).addClass('on');
+        } else if(num==2){
+            $('#sec1 li.on .slide').eq(num-1).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num-2).addClass('eq3');
+            $('#sec1 li.on .slide').eq(num).addClass('eq2');
+            $('#sec1 li.on .pgn').eq(num-1).addClass('on');
+        } else if (num==1){
+            $('#sec1 li.on .slide').eq(num-1).addClass('eq1');
+            $('#sec1 li.on .slide').eq(num+1).addClass('eq3');
+            $('#sec1 li.on .slide').eq(num).addClass('eq2');
+            $('#sec1 li.on .pgn').eq(num-1).addClass('on');
+        }
+    });
+
+
+
     
   });
