@@ -3,11 +3,15 @@ package com.ezen.drmarten.model;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,7 +30,8 @@ public class Cart {
 	private String uerEmail;
 	private java.sql.Date buyTime;
 
-	@ElementCollection
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="cart_Num",referencedColumnName = "cartNum")
 	private List<CartItemList> cart;
 
 }

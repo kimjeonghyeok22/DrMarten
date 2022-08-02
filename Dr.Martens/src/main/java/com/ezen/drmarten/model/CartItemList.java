@@ -1,10 +1,14 @@
 package com.ezen.drmarten.model;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -26,7 +30,10 @@ public class CartItemList {
 	@SequenceGenerator(sequenceName="LIST_NUM_SEQ",allocationSize=1,name="LIST_NUM_SEQ")
 	private int listNum;
 	
-	private int cartNum;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="cart_Num",referencedColumnName = "cartNum")
+	private Cart cart;
+	
 	private int productCood;
 	private String productName;
 	private int productNumbers;
