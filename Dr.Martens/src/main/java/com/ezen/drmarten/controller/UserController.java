@@ -158,7 +158,6 @@ public class UserController {
 	@PostMapping("/emailSendAction")
 	@ResponseBody
 	private String emailSendAction(@RequestParam("u_email") String u_email) {
-		System.out.println(u_email);
 		if (u_email == null || u_email == "") {
 			return "<script>" + "alert('아이디를 입력해주세요');" + "location.href='/user/signUp'" + "</script>";
 		}
