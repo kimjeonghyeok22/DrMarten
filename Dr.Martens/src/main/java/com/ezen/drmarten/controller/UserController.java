@@ -32,11 +32,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.DrMarten.model.User;
-import com.ezen.DrMarten.repository.UserTableRepository;
-import com.ezen.DrMarten.service.UserService;
-import com.ezen.DrMarten.util.Gmail;
-import com.ezen.DrMarten.util.SHA256;
+import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.repository.UserTableRepository;
+import com.ezen.drmarten.service.UserService;
+import com.ezen.drmarten.util.Gmail;
+import com.ezen.drmarten.util.SHA256;
 
 import lombok.extern.slf4j.Slf4j;
 

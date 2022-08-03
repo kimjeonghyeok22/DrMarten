@@ -9,8 +9,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.DrMarten.model.User;
-import com.ezen.DrMarten.repository.UserTableRepository;
+import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.repository.UserTableRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
