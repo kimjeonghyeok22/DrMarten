@@ -430,7 +430,7 @@ public class AdminController {
 		return mv;
 	}
 	
-	@GetMapping("/user/detail/{num}")
+	@GetMapping("/user/detail/{u_email}")
 	public ModelAndView detail(@PathVariable("u_email")String u_email)
 	{
 		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_detail");
