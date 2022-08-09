@@ -46,7 +46,7 @@
         <div class="hd_content">
             <div class="hd_inner hd_content_box">
                 <div class="logo">
-                    <a href="/" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
+                    <a href="/DrMarten" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
                 </div>
                 <button type="button" tabindex="2" class="HamburgerButton category_menu"> <span class="category_btn_line"></span> <span class="category_btn_text text_hiden">카테고리 열기</span> </button>
                 <!-- 검색 -->
@@ -134,7 +134,7 @@
 				<th style="width:120px;">작성일</th>
 				<th style="width:60px;">조회수</th>
 			</tr>
-			<c:forEach var="b" items="${list}">
+			<c:forEach var="b" items="${pageInfo.list}">
 				<tr>
 					<td class="center">${b.board_num}</td>
 					<td><a href="/DrMarten/notice/detail/${b.board_num}">[${b.category}] ${b.title}</a></td>
@@ -143,6 +143,18 @@
 				</tr>
 			</c:forEach>
 		</table>
+				<div class="pgn_wrap qna">
+		<c:forEach var="i" items="${pageInfo.navigatepageNums}">
+				<c:choose>
+					<c:when test="${i==pageInfo.pageNum}">
+				<span class="pgn pgn_on">${i}</span>
+			</c:when>
+					<c:otherwise>
+				<span class="pgn"><a href="/DrMarten/notice/page/${i}">${i}</a></span>
+			</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			</div>
                 </div>
                 </div>
         </div>

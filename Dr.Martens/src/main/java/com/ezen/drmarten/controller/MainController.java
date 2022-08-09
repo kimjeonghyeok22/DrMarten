@@ -47,10 +47,25 @@ public class MainController {
 	
 	@GetMapping("/notice")
 	public String noticeList(Model model) {
-		List<Board> list = dao.getNoticeList();
-		model.addAttribute("list", list);
+		int pageNum = 1;
+		int pageSize = 5;
+		PageHelper.startPage(pageNum, pageSize);
+		PageInfo<Board> pageInfo = new PageInfo<>(dao.getNoticeList());
+		List<Board> list = pageInfo.getList();
+		model.addAttribute("pageInfo", pageInfo);
 		return "main/notice";
 	}
+	@GetMapping("/notice/page/{page}")
+	public String notice_listByPage(@PathVariable("page") int page, Model model) {
+		int pageNum = page;
+		int pageSize = 5;
+		PageHelper.startPage(pageNum, pageSize);
+		PageInfo<Board> pageInfo = new PageInfo<>(dao.getNoticeList());
+		List<Board> list = pageInfo.getList();
+		model.addAttribute("pageInfo", pageInfo);
+		return "main/notice";
+	}
+	
 	
 	@GetMapping("/qna/list/page/{page}")
 	public String qa_listByPage(@PathVariable("page") int page, Model model) {
@@ -90,6 +105,8 @@ public class MainController {
 			@RequestParam(name = "psize", defaultValue = "8") int pageSize, Model model) {
 		PageHelper.startPage(page, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.searchQnaList(search));
+		List <String> btnlist = categoryBtnForQna("전체");
+		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("search", search);
 		return "main/qna";

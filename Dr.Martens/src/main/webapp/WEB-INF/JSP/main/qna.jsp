@@ -71,7 +71,7 @@ $(function(){
         <div class="hd_content">
             <div class="hd_inner hd_content_box">
                 <div class="logo">
-                    <a href="/" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
+                    <a href="/DrMarten" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
                 </div>
                 <button type="button" tabindex="2" class="HamburgerButton category_menu"> <span class="category_btn_line"></span> <span class="category_btn_text text_hiden">카테고리 열기</span> </button>
                 <!-- 검색 -->
@@ -152,7 +152,7 @@ $(function(){
        </div>
                 <div class="inner qna">
                    <h1>자주 묻는 질문</h1>
-		<form id="search_input" method="post" action="/dr/qa/search">
+		<form id="search_input" method="post" action="/DrMarten/qna/search">
 			<div class="search_wrap">
 			<input type="text" value="" name="search" id="search" placeholder="검색어를 입력해주세요."><button type="submit" id="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
