@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
+body {padding-top : 180px;}
+
 /* header */
 #header{position: fixed;top: 0;z-index: 100;width: 100%;-webkit-box-shadow: 0 3px 7px 0 rgb(0 0 0 / 10%);-moz-box-shadow: 0 3px 7px 0 rgb(0 0 0 / 10%);box-shadow: 0 3px 7px 0 rgb(0 0 0 / 10%);}
 #header .hd_inner{position: relative;width: 1140px;margin: 0 auto;}

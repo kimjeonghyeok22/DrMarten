@@ -98,12 +98,12 @@ function deleteThis(){
         </div>
         <div id="main">
             <div class="container">
-                <div class="inner">
+                <div class="inner auto">
       
 <h3>공지사항 상세보기</h3>
 <table>
 <tr>
-	<td class="title">[${board.category}] ${board.title}</td>
+	<td class="title_tb">[${board.category}] ${board.title}</td>
 	<td>${board.wdate }</td>
 </tr>
 <tr>
