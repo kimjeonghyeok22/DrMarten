@@ -5,39 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-function find_id(){
-	var data = $('#find_pw_form').serialize();
-	alert(data);
-	$.ajax({
-		url:'/user/find_pw',
-		method:'post',
-		cache:false,
-		data:data,
-		dataType:'json',
-		success:function(res){
-			if(res.ufPw == null){
-				alert('잘못된 회원정보 입니다');
-			}else{
-				alert('귀하의 아이디는 '+res.ufId+' 입니다');
-			}
-		},
-		error:function(xhr,status,err){
-			alert("dpfj");
-		}
-	});
-	return false;
-}
-</script>
 </head>
 <body>
 <main>
-<form id="find_pw_form" onsubmit="find_pw()">
-<div>아이디<input type="text" name="u_id" id="u_id"></div>
+<form id="find_pw_form" action="/user/find_pw" method="post">
+<div>아이디<input type="text" name="u_email" id="u_email"></div>
 <div>이름<input type="text" name="name" id="name"></div>
-<div>주소<input type="text" name="adress" id="adress"></div>
+<div>전화번호<input type="text" name="phone_num" id="phone_num"></div>
 <button type="submit">비밀번호 찾기</button>
+<a href="/user/login"><button type="button">로그인 창으로</button></a>
 </form>
 </main>
 </body>

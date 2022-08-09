@@ -15,20 +15,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table(name="User_Table")
+@Table(name = "User_Table")
 public class User {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_NUM_SEQ")
-	@SequenceGenerator(sequenceName="USER_NUM_SEQ",allocationSize=1,name="USER_NUM_SEQ")
-	private Long num;
-	
-	private String u_id;
+	private String u_email;
 	private String u_pw;
 	private String name;
 	private String gender;
 	private String adress;
 	private int phone_num;
 	private java.sql.Date birth;
-	private String email;
+
+	private int userEmailChecked;
 }

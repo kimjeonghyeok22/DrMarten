@@ -5,37 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-function find_id(){
-	var data = $('#find_id_form').serialize();
-	alert(data);
-	$.ajax({
-		url:'/user/find_id',
-		method:'post',
-		cache:false,
-		data:data,
-		dataType:'json',
-		success:function(res){
-			if(res.ufId == null){
-				alert('잘못된 회원정보 입니다');
-			}else{
-				alert('귀하의 아이디는 '+res.ufId+' 입니다');
-			}
-		},
-		error:function(xhr,status,err){
-			alert("dpfj");
-		}
-	});
-	return false;
-}
-</script>
 </head>
 <body>
-<form id="find_id_form" onsubmit="find_id()">
+<form id="find_id_form" action="/user/find_id" method="post">
 <div>이름<input type="text" name="name" id="name"></div>
-<div>주소<input type="text" name="adress" id="adress"></div>
-<button type="submit">비밀번호 찾기</button>
+<div>전화번호<input type="text" name="phone_num" id="phone_num" placeholder="숫자만 입력"></div>
+<button type="submit">아이디 찾기</button>
+<a href="/user/login"><button type="button">로그인 창으로</button></a>
 </form>
 </body>
 </html>

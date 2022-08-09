@@ -26,7 +26,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.drmarten.repository.UserTableRepository;
 import com.ezen.drmarten.mappers.BoardMapper;
 import com.ezen.drmarten.model.Board;
 import com.github.pagehelper.PageHelper;
@@ -41,6 +44,9 @@ public class AdminController {
 
 	@Autowired
 	private BoardMapper dao;
+	
+	@Autowired
+	private UserTableRepository rep;
 	
 	@GetMapping("")
 	public String loginForm() {
@@ -416,5 +422,19 @@ public class AdminController {
 		map.put("updated", saved);
 		return map;
 	}
+	//회원정보 인덱스
+	@GetMapping("/user/index")
+	public ModelAndView admin_index() {
+		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_index");
+		mv.addObject("list", rep.findAll());
+		return mv;
+	}
 	
+	@GetMapping("/user/detail/{u_email}")
+	public ModelAndView detail(@PathVariable("u_email")String u_email)
+	{
+		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_detail");
+		mv.addObject("user", rep.findById(u_email));
+		return mv;
+	}
 }

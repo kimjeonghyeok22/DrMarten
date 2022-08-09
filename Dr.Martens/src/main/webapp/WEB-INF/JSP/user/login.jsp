@@ -5,10 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-
-</script>
 </head>
 <body>
 <main>
@@ -18,7 +14,8 @@
 <button type="submit">로그인</button>
 <a href="/user/find_id"><button type="button">아이디 찾기</button></a>
 <a href="/user/find_pw"><button type="button">비밀번호 찾기</button></a>
-<a href="/user/sign_up_form"><button type="button">회원가입</button></a>
+<a href="/user/signUp"><button type="button">회원가입</button></a>
+<a href="/user/edit"><button type="button">회원 정보 수정</button></a>
 </form>
 </main>
 </body>
