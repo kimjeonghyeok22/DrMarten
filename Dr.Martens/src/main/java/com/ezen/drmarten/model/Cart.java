@@ -1,5 +1,7 @@
 package com.ezen.drmarten.model;
 
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
