@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,7 +51,7 @@ public class ProductController {
  
 	@GetMapping("")
 	public String index(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
-		PageHelper.startPage(page, 5);
+		PageHelper.startPage(page, 10);
 		PageInfo<Product> productList = new PageInfo<Product>(svc.getList());
 		model.addAttribute("product", productList);
 		return "/product/product_view";
@@ -210,25 +211,39 @@ public class ProductController {
 	}
 	@PostMapping("/files/searchName")
 	public String searchLikeName( HttpServletRequest request,
-			Product pro,Model model) {
+			@RequestParam(name = "name")String pName,Model model) {
 		//서비스로 짬때리기
-		List<Product> likeNameList = svc.searchLikeName(pro);
+		List<Product> likeNameList = svc.searchLikeName(pName);
 		//유사이름으로 검색된 List정보를 view페이지로 전송
+		model.addAttribute("searchKey",pName);
 		model.addAttribute("list", likeNameList);
-		 
+		
 		
 		return "/product/listView";
 	}
 	
-	@GetMapping("/category/{String}")
-	public String categorySearch(HttpServletRequest request,Model model,
-								@PathVariable("String") String search) {
-		List<Product> list = svc.categorySearch(search);
+	@GetMapping("/category/{cate}")
+	public String categorySearch(Model model,@PathVariable(name = "cate")String key) {
 		
-		model.addAttribute("list", list);
+		PageInfo<Product> productList = new PageInfo<Product>(svc.categorySearch(key));
+		model.addAttribute("product", productList);
+		return "/product/product_view";
+	} 
+	@GetMapping("/category/{category}/{discount}")
+	public String categoryAndDiscount(Model model,@PathVariable(name = "category")String category
+			,@PathVariable(name = "discount")Integer discount) {
 		
-		return "/product/listView";
-	}
+		PageInfo<Product> productList = new PageInfo<Product>(svc.duelCategorySearch(category,discount));
+		model.addAttribute("product", productList);
+		return "/product/product_view";
+	} 
+	@GetMapping("/best")
+	public String bestTop3(Model model) {
+		
+		PageInfo<Product> productList = new PageInfo<Product>(svc.bestSearch());
+		model.addAttribute("product", productList);
+		return "/product/product_view";
+	} 
 	 
 	@PostMapping("/erase")
 	public String delete(Product pro) throws Exception {

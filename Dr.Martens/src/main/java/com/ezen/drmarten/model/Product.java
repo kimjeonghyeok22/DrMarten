@@ -19,6 +19,10 @@ public class Product {
 	private String category;
 	private int price;
 	private String gender; 
+	private String onlineonly;
+	private String vegan;
+	
+	private Integer discount;
 	private List<Product_attach> attach = new ArrayList<>();
 	private List<Product_size> size = new ArrayList<>();
 	
@@ -100,5 +104,22 @@ public class Product {
 	public void setSize(List<Product_size> size) {
 		this.size = size;
 	}
-	
+	public String getOnlineonly() {
+		return onlineonly;
+	}
+	public void setOnlineonly(String onlineonly) {
+		this.onlineonly = onlineonly;
+	}
+	public String getVegan() {
+		return vegan;
+	}
+	public void setVegan(String vegan) {
+		this.vegan = vegan;
+	}
+	public Integer getDiscount() {
+		return discount;
+	}
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
+	}
 }
