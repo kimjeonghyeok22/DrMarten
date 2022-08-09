@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,10 +57,10 @@
 							<legend class="text_hiden">검색</legend>
 							<div class="mainSearchForm_wrapper">
 								<div class="mainSearchForm_input_box">
-									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해 주세요." class="mainSearchForm_input">
+									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해주세요." class="mainSearchForm_input">
 									<!-- x버튼 -->
-									<button type="button">
-										<svg version="1.1" viewBox="0 0 24 24" class="mainSearchForm_cancel svg-icon svg-fill" style="width: 24px; height: 24px;">
+									<button type="button" class="mainSearchForm_cancel">
+										<svg version="1.1" viewBox="0 0 24 24" class="" style="width: 24px; height: 24px;">
 											<path pid="0" class="bg" fill="#DDD" fill-rule="evenodd" d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0z"></path>
 											<path pid="1" class="white" fill="#FFF" fill-rule="evenodd" d="M17.998 7.092L7.093 17.998l-1.091-1.091L16.907 6.002l1.091 1.09z"></path>
 											<path pid="2" class="white" fill="#FFF" fill-rule="evenodd" d="M16.907 17.998L6.002 7.092l1.091-1.09 10.905 10.905-1.091 1.091z"></path>
@@ -85,7 +85,7 @@
 				</div>
 				<!-- //검색 -->
 				<!-- 위시리스트 -->
-				<a href="javascript:;" class="hdBtn ml0">
+				<a href="javascript:;" class="hdBtn hdBtn_wish ml0">
 					<!-- 위시리스트 아이콘 -->
 					<svg version="1.1" viewBox="0 0 35 29" width="35" height="29"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--wish-pc">
@@ -96,7 +96,7 @@
 				</a>
 				<!-- //위시리스트 -->
 				<!-- 장바구니 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="javascript:;" class="hdBtn hdBtn_cart">
 					<!-- 장바구니 아이콘 -->
 					<svg version="1.1" viewBox="0 0 28 33" width="28" height="33"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
@@ -107,7 +107,7 @@
 				</a>
 				<!-- //장바구니 -->
 				<!-- 최근 본 상품 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="javascript:;" class="hdBtn hdBtn_timeline">
 					<!-- 최근 본 상품 아이콘 -->
 					<svg version="1.1" viewBox="0 0 39 28" width="39" height="28"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--timeline-pc">
@@ -118,7 +118,7 @@
 				</a>
 				<!-- //최근 본 상품 -->
 				<!-- 마이페이지 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="javascript:;" class="hdBtn hdBtn_mypage">
 					<!-- 마이페이지 아이콘 -->
 					<svg version="1.1" viewBox="0 0 33 32" width="33" height="32"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
@@ -133,110 +133,38 @@
 	</header>
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
+		<div class="gnb_top">
+			<a href="javascript:;" class="gnbTop_item gnb_cart">
+				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
+				</svg>
+				<span class="text_hiden">장바구니 열기</span>
+			</a>
+			<button type="button" class="gnbTop_item gnb_close">
+				<svg version="1.1" viewBox="0 0 56 56" width="28" height="28">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M55.994 4.213L51.769-.011l-23.78 23.779L4.21-.011-.015 4.213l23.78 23.78-23.78 23.78 4.225 4.225 23.779-23.78 23.78 23.78 4.225-4.225-23.78-23.78 23.78-23.78z"></path>
+				</svg>
+				<span class="text_hiden">카테고리 닫기</span>
+			</button>
+		</div>
+		<div class="gnb_search">
+			<div class="gnb_inner">
+				<div class="">
+					<form action="" method="get">
+						<div class="">
+							<input type="text" name="search_text" placeholder="검색어를 입력해주세요." class="">
+						</div>
+						<button type="submit" class="">
+							<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
+							<span class="text_hiden">검색하기</span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div id="gnb">
-			gnb
-			<div class="category_close">close</div>
+						
 		</div>
 	</nav>
 	<!-- //메뉴 카테고리 -->
 	<!-- //상단영역 -->
-	<!--  -->
-	<!-- 페이지 영역 -->
-	<div id="container">
-		<div id="content">
-			<main id="main">
-				<p style="height:1000px;background:#f9f9f9;padding-top:50px;text-align:center;">main</p>
-				<div class="new_join_wrap">
-					<div class="main_inner cf">
-						<div class="new_join_left">
-							<p class="new_join_tit fz36 fw700 cfff">신규가입 혜택</p>
-							<p class="new_join_txt fz18 c999">신규 회원으로 가입하고 10% 쿠폰과 최신 소식을 받아보세요.</p>
-						</div>
-						<div class="new_join_right">
-							<a href="javascript:;" class="cmBtn yellow fz18 fw700">회원가입</a>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	</div>
-	<!-- //페이지 영역 -->
-	<!--  -->
-	<!-- 하단 영역 -->
-	<footer id="footer">
-		<!-- top btn -->
-		<div class="gotoTop">
-			<button class="gotoTop_btn">
-				<!-- <img src="/resources/img/floating_top.png" alt="맨위로 가기" /> -->
-			</button>
-		</div>
-		<!-- //top btn -->
-		<div class="ft_inner">
-			<div class="ft_top cf">
-				<div class="ft_left">
-					<h3 class="ft_top_tit">닥터마틴코리아프로젝트</h3>
-					<p class="ft_top_info_row">
-						<span class="ft_top_info_column">신림이젠컴퓨터아카데미</span>
-						<span class="ft_top_info_column">사업자번호 : 000-00-00000</span>
-					</p>
-					<p class="ft_top_info_row">
-						<span class="ft_top_info_column">통신판매업 신고 : 0000 - 서울관악 - 0000호</span>
-						<span class="ft_top_info_column">개인정보관리책임자 : 홍길동</span>
-						<span class="ft_top_info_column">대표이사 : 스프링부트</span>
-					</p>
-					<p class="ft_top_info_row">
-						<span class="ft_top_info_column"><strong>문의전화 : 0000-0000</strong> (9:30AM ~ 6PM 점심시간 13:10~14:10)</span>
-						<span class="ft_top_info_column">이메일 : hello@email.co.kr</span>
-					</p>
-					<p class="ft_top_info_row">
-						<span class="ft_top_info_column">팩스 : 02-000-0000</span>
-						<span class="ft_top_info_column">호스팅 제공 : localhost</span>
-					</p>
-					<p class="ft_top_info_row">
-						<span class="ft_top_info_column">All Images and Contents Copyright (c) 2022 Dr. Martens-Airwair Korea Ltd. All Rights Reserved.</span>
-					</p>
-				</div>
-				<div class="ft_right ml0">
-					<h3 class="ft_tit">고객센터</h3>
-					<ul class="ft_top_menu">
-						<li><a href="javascript:;" class="">챗봇 상담</a></li>
-						<li><a href="javascript:;" class="">1 : 1 문의</a></li>
-						<li><a href="javascript:;" class="">자주 묻는 질문</a></li>
-						<li><a href="javascript:;" class="">공지사항</a></li>
-					</ul>
-				</div>
-				<div class="ft_right">
-					<h3 class="ft_tit">닥터마틴에 대하여</h3>
-					<ul class="ft_top_menu">
-						<li><a href="javascript:;" class="">브랜드 헤리티지</a></li>
-						<li><a href="javascript:;" class="">이벤트</a></li>
-						<li><a href="javascript:;" class="">SUSTAINABILITY</a></li>
-						<li><a href="javascript:;" class="">MODERN SLAVERY ACT</a></li>
-						<li><a href="javascript:;" class="">SOCIAL RESPONSIBILITY</a></li>
-						<li><a href="javascript:;" class="">사이즈가이드</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="ft_btm">
-				<div class="ft_nav">
-					<ul class="ft_btm_list">
-						<li class="ft_btm_list_item"><a href="javascript:;">이용약관</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">개인정보취급방침</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">매장찾기</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">CONTACT</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">사이트 맵</a></li>
-					</ul>
-				</div>
-				
-				<div class="sns_box">
-					<a href="javascript:;" class="ml0"><i class="fa-brands fa-twitter"></i><span class="text_hiden">트위터</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-youtube"></i><span class="text_hiden">유투브</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-facebook-f"></i><span class="text_hiden">페이스북</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-instagram"></i><span class="text_hiden">인스타그램</span></a>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- //하단 영역 -->
-</body>
-</html>

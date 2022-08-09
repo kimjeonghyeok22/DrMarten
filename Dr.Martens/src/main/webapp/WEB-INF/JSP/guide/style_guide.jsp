@@ -1,26 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Dr.Martens Style Guide</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/resources/css/reset.css" />
-<link rel="stylesheet" href="/resources/css/style_guide.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="/resources/js/style_action.js" type="text/javascript"></script>
-</head>
-<body>
+<jsp:include page="/WEB-INF/JSP/include/header.jsp" />
+	
 	<div id="container">
 		<div id="Guide">
-			<h2 class="top_tit mb80">
-				<img src="/resources/img/logo.svg" alt="logo" class="logo" />
-				<strong class="fz30 fw700">닥터마틴 스타일 가이드</strong>
-			</h2>
 			<div class="gui_box ml80 mb60">
+				<h2 class="gui_tit"><strong>닥터마틴 스타일 가이드</strong></h2><br />
 				<p class="gui_title fz30 fw700">1. 폰트</p>
 				<ul>
 					<li class="fz36 fw900 c111 mb20">닥터마틴 스타일 fz36 fw900 c111</li>
@@ -134,5 +119,5 @@
 			</div>
 		</div>		
 	</div>
-</body>
-</html>
+
+<jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
