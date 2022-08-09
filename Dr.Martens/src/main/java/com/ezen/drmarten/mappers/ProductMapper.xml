@@ -7,6 +7,9 @@
 	<select id="getList" resultType="com.ezen.drmarten.model.Product">
 		SELECT * FROM PRODUCT
 	</select>
+	<select id="bestSearch" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT WHERE ROWNUM >= 1 AND 3 >= ROWNUM ORDER BY SELL_COUNT DESC
+	</select>
 	
 	<select id="getProductByCode" resultType="com.ezen.drmarten.model.Product">
 		SELECT * FROM PRODUCT WHERE PRODUCT_CODE = #{product_code}
@@ -76,9 +79,30 @@
 			<when test='category.equalsIgnoreCase("sandals")'>
 				CATEGORY = 'SANDALS'
 			</when>
+			<when test='category.equalsIgnoreCase("vegan")'>
+				VEGAN = 'yes'
+			</when>
+			<when test='category.equalsIgnoreCase("online_only")'>
+				ONLINEONLY = 'yes'
+			</when>
+			<when test='category.equalsIgnoreCase("vietnam")'>
+				MADE = '베트남 외 기타'
+			</when>
 		</choose>
 	</select>
-	
+	<select id="duelCategorySearch" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT
+		WHERE 
+		<choose>
+			<when test='category.equalsIgnoreCase("boots")'>
+				CATEGORY = 'BOOTS'
+			</when>
+			<when test='category.equalsIgnoreCase("sandals")'>
+				CATEGORY = 'SANDALS'
+			</when>
+		</choose>
+		AND DISCOUNT = #{discount}
+	</select>
 	<!-- 삭제 XML sql 만들면돼! -->
 	<delete id="deleteAtt" parameterType="Integer">
 		DELETE FROM PRODUCT_ATTACH WHERE PRODUCT_CODE = #{product_code}

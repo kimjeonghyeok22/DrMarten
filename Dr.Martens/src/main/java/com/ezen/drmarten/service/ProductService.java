@@ -42,9 +42,10 @@ public class ProductService {
 	}
 
 
-	public List<Product> searchLikeName(Product pro) {
+	public List<Product> searchLikeName(String pName) {
 		//DB에서 유사이름 검색에 대한 상품의 정보를 호출.
-		List<Product> list = dao.searchLikeName(pro.getName());
+		pName=pName.toUpperCase();
+		List<Product> list = dao.searchLikeName(pName);
 		//사진 정보 불러오기
 		List<Product_attach> attList;
 		List<Product_size> sizeList;
@@ -91,7 +92,37 @@ public class ProductService {
 			sizeList = dao.serachSizeByCode(list.get(i).getProduct_code());
 			//list에 해당 객체들을 추가.
 			list.get(i).setAttach(attList);
-			list.get(i).setSize(sizeList);
+			list.get(i).setSize(sizeList); 
+		}
+		return list;
+	}
+	public List<Product> duelCategorySearch(String category, Integer discount) {
+		List<Product> list = dao.duelCategorySearch(category,discount);
+		List<Product_attach> attList;
+		List<Product_size> sizeList;
+		for(int i =0;i<list.size();i++) {
+			//list 로 불러온 값 중 code를 이용해 AttList 를 생성
+			attList = dao.searchAttachByCode(list.get(i).getProduct_code());
+			//마찬가지로 code를 이용해 SizeList를 생성
+			sizeList = dao.serachSizeByCode(list.get(i).getProduct_code());
+			//list에 해당 객체들을 추가.
+			list.get(i).setAttach(attList);
+			list.get(i).setSize(sizeList); 
+		}
+		return list;
+	}
+	public List<Product> bestSearch() {
+		List<Product> list = dao.bestSearch();
+		List<Product_attach> attList;
+		List<Product_size> sizeList;
+		for(int i =0;i<list.size();i++) {
+			//list 로 불러온 값 중 code를 이용해 AttList 를 생성
+			attList = dao.searchAttachByCode(list.get(i).getProduct_code());
+			//마찬가지로 code를 이용해 SizeList를 생성
+			sizeList = dao.serachSizeByCode(list.get(i).getProduct_code());
+			//list에 해당 객체들을 추가.
+			list.get(i).setAttach(attList);
+			list.get(i).setSize(sizeList); 
 		}
 		return list;
 	}
@@ -134,6 +165,11 @@ public class ProductService {
 		
 		return dao.searchAttachByCode(product_code);
 	}
+
+
+	
+
+
 	
 	
 }

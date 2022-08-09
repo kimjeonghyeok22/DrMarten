@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+ul{
+	font-weight:540;
+	list-style-type: none;
+}
+  li {
+    cursor: pointer;
+    color: black;
+    margin: 20px 0px;
+    list-style-type: none;
+  }
+  li:hover {
+    text-decoration: none;
+  }
+  .closeList{
+  	display : none;
+  }
+  .openList{
+  	display : block;
+  }
+  .cate{
+ 	 color: black;
+ 	 text-decoration-line: none;
+ 	 font-weight:200;
+  }
+  .rowV{
+ 	position:relative;
+	left:-15%;
+	top:10.2px;
+  	float: right;
+  	width: 7.5%;
+  }
+  #goCart{
+ 	 background-color:transparent;
+  }
+<!-- -->
+#ser{
+	width: 100%;
+	height: 100px;
+	background-color: black;
+	color:white;
+} 
+#ser_input{
+	position:relative;
+	left:15%;
+	top:25%;
+	background-color: black;
+	color:white;
+	text-align: left;
+	width: 65%;
+	height: 45px;
+	border:rgba(0,0,0,0); background-color:transparent;
+}
+#ser_input::placeholder {
+	color:white;
+}
+#ser_input:focus {outline: none;}
+#ser_icon{
+	background-color: rgba(0,0,0,0);
+	float: right;
+	position:relative;
+	left:-20%;
+	top:25%;
+	width: 20px;
+	height: 20px;
+}
+#ser_img{
+	cursor: pointer;
+	width: 1300%;
+	height: 350%;
+}
+
+.left_menu{
+	display:inline-block;
+	position:absolute;
+	left:10%;
+	width: 25%;
+	overflow:auto;
+	height: 400px;
+}
+#right_list{
+	display:inline-block;
+	position:absolute;
+	left:40%;
+	height: 120%;
+	width: 60%;
+	overflow:auto;
+	
+	text-transform : uppercase;
+}
+.test_mode{
+	position:absolute;
+	top:150%;
+	left:40%;
+	height: 100%;
+	width: 65%;
+}
+#list{
+	display:inline-block;
+	width: 45%;
+	cursor: pointer;
+}
+#list>img{
+	width: 70%;
+}
+.priceRight{
+	position:relative;
+	float: right;
+	width: 50%;
+}
+/*-------------------ListView.jsp----------------------*/
+#searchRes{
+	position:relative;
+	left:12%;
+	height: 100%;
+	width: 100%;
+	overflow:auto;
+	
+	text-transform : uppercase;
+}
+#productList{
+	display:inline-block;
+	position:absolute;
+	left:12%;
+	height: 100%;
+	width: 75%;
+	overflow:auto;
+	
+	text-transform : uppercase;
+}

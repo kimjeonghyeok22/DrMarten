@@ -43,27 +43,7 @@ function addCart(){
 <body>
 <h3>제품 상세보기 페이지</h3>
 <!--   </header>까지 이거... 잘 분석해보고 어케할지.. -->
-<header id="header">
-        <div class="inner">
-            <div class="img_wrap"> <a href="/admin/main" ><img src="/resources/img/logo.svg" alt=""> </a></div>
-            <div class="title_wrap"> <span>닥터마틴 관리자페이지</span> </div>
-            <div class="controller_wrap">
-                <div class="log_out">
-                    <div class="welcome">
-                    	<span class="time sml gray">로그인 : [[${time}]]</span>
-                        <span>관리자님 안녕하세요 : )</span>
-                    </div>
-                    <button type="button">로그아웃</button>
-                </div>
-                <div class="search_box">
-                    <div class="dmField_input_box">
-                        <input name="userid" type="text" class="dmField_input" placeholder="검색" >
-                        <button type="button" class="cmBtn line yellow">검색</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+
 <c:forEach items="${att}" var="att">
 <div class="imgClass">
 

@@ -34,6 +34,8 @@ public interface ProductMapper {
 
 	List<Product> categorySearch(String category);
 
+	List<Product> duelCategorySearch(String category,Integer discount);
+
 	int deleteAtt(int product_code);
 
 	int deleteSize(int product_code);
@@ -45,5 +47,8 @@ public interface ProductMapper {
 	Product getProductByCode(int product_code);
 
 	int addViewCount(int product_code);
+
+	List<Product> bestSearch();
+
 
 }
