@@ -72,6 +72,8 @@ public class ProductController {
 						att.remove(i);
 					}
 				}
+				List<Product_size> size = dao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
 				model.addAttribute("att",att);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
@@ -81,6 +83,8 @@ public class ProductController {
 				svc.addViewCount(product_code); 
 				Product product = svc.getProduct(product_code);
 				List<Product_attach> att = svc.getAttByCode(product_code);
+				List<Product_size> size = dao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
 				model.addAttribute("att",att);
 				model.addAttribute("product", product);
 				return "/product/detail_view";

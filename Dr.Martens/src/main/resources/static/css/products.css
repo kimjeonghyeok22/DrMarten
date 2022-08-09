@@ -129,3 +129,58 @@ ul{
 	
 	text-transform : uppercase;
 }
+/*-------------------detail.jsp----------------------*/
+.inline{
+	display:inline-block;
+}
+.pngList{
+	display:inline-block;
+	position:relative;
+	left:12%;
+	height: 50%;
+	width: 38%;
+	overflow:auto;
+}
+.topleft{
+	background-color: #d5d5d5;
+	text-align: center;
+	margin-bottom: 1px;
+	width:94.5%;
+}
+.sizefix{
+	position:relative;
+	bottom:-10px;
+	width: 30px;
+	height: 40px;
+}
+.rightInfo{
+	display:block;
+	position:relative;
+	float: right;
+	left:-15%;
+	width: 35%;
+	text-transform : uppercase;
+}
+.underline{
+	 text-decoration-line: underline;
+	 text-underline-offset : 5px;
+	  text-decoration-thickness: 1px;
+}
+.haveSize{
+	border: 1px solid gray;
+	background-color: white;
+	width: 30%;
+	padding: 5px 0px;
+	margin-bottom: 10px;
+	margin-right: 10px;	
+	text-align: left;
+}
+.haveSize:focus {
+	background-color: black;
+	color: white;
+	
+}
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
