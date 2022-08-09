@@ -36,6 +36,7 @@ html, body{min-width: 1140px;}
 .fz26{font-size: 26px !important;}
 .fz30{font-size: 30px !important;}
 .fz36{font-size: 36px !important;}
+.fz64{font-size: 64px !important;}
 
 /* 폰트 - 굵기 */
 .fw100{font-weight: 100 !important;}
@@ -118,6 +119,10 @@ html, body{min-width: 1140px;}
 .cmBtn.mid{font-size: 18px;height: 52px;}
 .cmBtn.sml{font-size: 16px;height: 41px;}
 
+.cmBtn.hover:hover {color: #fff;}
+.cmBtn.hover:hover i {color: #fff;}
+.cmBtn.hover:hover:after {width: 100%;}
+
 .cmBtn.hover,
 .cmBtn.hover::after {
 	-webkit-transition: all .5s;
@@ -127,8 +132,8 @@ html, body{min-width: 1140px;}
 }
 .cmBtn.hover {
 	background: none;
-	color: #111;
 	position: relative;
+	z-index: 1;
 }
 .cmBtn.hover::after {
 	background: #111;
@@ -140,11 +145,14 @@ html, body{min-width: 1140px;}
 	top: 0;
 	width: 0;
 }
-.cmBtn.hover:hover {color: #fff;}
-.cmBtn.hover:hover i {color: #fff;}
-.cmBtn.hover:hover:after {width: 100%;}
-.cmBtn.hover.white::after{background: #fff;}
 .cmBtn.hover i{z-index: 10;transition: all .5s;}
+
+.cmBtn.hover.white{color: #fff;}
+.cmBtn.hover.white i{color: #fff;}
+.cmBtn.hover.white:hover {color: #111;}
+.cmBtn.hover.white:hover i {color: #111;}
+.cmBtn.hover.white::after{background: #fff;}
+
 
 .link{
 	height: 0;

@@ -32,12 +32,25 @@ $(function () {
         $('#visual1 .next').click();
     }, 5000);
 
-    $('#category1 li').on('click', function(){
+
+	//카테고리 슬라이드
+    /*$('#category1 li').on('click', function(){
         $('#category1 li').removeClass('on');
         $(this).addClass('on');
         $('.category_detail').removeClass('on');
         $(this).children('.category_detail').addClass('on');
     });
+    */
+    
+    $('ul.cateBtn_wrap li').on('click', function() {
+		var active = $(this).attr('data-tab');
+		$('ul.cateBtn_wrap li a').removeClass('black');
+		$('#category1 li').removeClass('on');
+		$('.category_detail').removeClass('on');
+		$(this).find('a').addClass('black');
+		$('#' + active).addClass('on');
+		$('#' + active).children('.category_detail').addClass('on');
+	})
     
     $('#sec1 .next').on('click', function(){
         var num = $('#category1 li.on .eq1').index();

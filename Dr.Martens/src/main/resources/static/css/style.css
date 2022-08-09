@@ -85,7 +85,9 @@
 /****************************************************/
 
 /* 페이지 영역 */
-#container{margin-top: 160px !important;}
+#container{position: relative;margin-top: 160px !important;overflow: hidden;}
+#content{}
+
 .main_inner{width: 1140px;margin: 0 auto;}
 
 .new_join_wrap{height: 161px;background: #191919;border-bottom: 1px solid #333;}
