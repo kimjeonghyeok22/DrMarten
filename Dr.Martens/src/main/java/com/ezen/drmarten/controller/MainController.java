@@ -116,6 +116,7 @@ public class MainController {
 	}
 	@GetMapping("/notice/detail/{num}")
 	public String notice_detail(@PathVariable("num") int num, Model model) {
+		dao.noticeView(num);
 		Board board = dao.getNotice(num);
 		model.addAttribute("board", board);
 		return "main/notice_detail";
