@@ -4,36 +4,36 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.drmarten.mappers.BoardMapper">
 <insert id="saveNotice" parameterType="com.ezen.drmarten.model.Board">
-INSERT INTO NOTICE (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, CATEGORY)
+INSERT INTO NOTICE (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, CATEGORY, VIEW_COUNT)
 VALUES (
-	1, #{title}, #{contents}, SYSDATE, '관리자', #{category})
+	(select count(*)from NOTICE)+1, #{title}, #{contents}, SYSDATE, '관리자', #{category}, 0)
 </insert>
 <insert id="saveQA" parameterType="com.ezen.drmarten.model.Board">
-INSERT INTO QA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, CATEGORY)
+INSERT INTO QA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, CATEGORY, VIEW_COUNT)
 VALUES (
-	1, #{title}, #{contents}, SYSDATE, '관리자', #{category})
+	(select count(*)from QA)+1, #{title}, #{contents}, SYSDATE, '관리자', #{category}, 0)
 </insert>
 <insert id="saveReview" parameterType="com.ezen.drmarten.model.Board">
 INSERT INTO REVIEW (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, SCORE, FNAME, FPATH)
 VALUES (
-	1, #{title}, #{contents}, SYSDATE, 'uid', '123123', #{score}, #{fname}, #{fpath})
+	(select count(*)from REVIEW)+1, #{title}, #{contents}, SYSDATE, 'uid', '123123', #{score}, #{fname}, #{fpath})
 </insert>
 <insert id="saveMyQna" parameterType="com.ezen.drmarten.model.Board">
 INSERT INTO MYQNA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, PCODE, ORDER_NUM, CATEGORY)
 VALUES (
-	1, #{title}, #{contents}, SYSDATE, 'uid', '123123',#{pcode}, #{order_num}, #{category})
+	(select count(*)from MYQNA)+1, #{title}, #{contents}, SYSDATE, 'uid', '123123',#{pcode}, #{order_num}, #{category})
 </insert>
 <select id="getNoticeList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM NOTICE order By Board_num
+SELECT * FROM NOTICE order By Board_num DESC
 </select>
 <select id="getQnaList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM QA order By Board_num
+SELECT * FROM QA order By Board_num DESC
 </select>
 <select id="getReviewList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM REVIEW order By Board_num
+SELECT * FROM REVIEW order By Board_num DESC
 </select>
 <select id="getMyQnaList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM MYQNA order By Board_num
+SELECT * FROM MYQNA order By Board_num DESC
 </select>
 <select id="getQnaListByCategory"  parameterType="String"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM QA WHERE category=#{category} order By Board_num 

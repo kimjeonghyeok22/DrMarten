@@ -14,7 +14,7 @@
 <link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="/resources/css/reset.css" />
-<link rel="stylesheet" href="/resources/css/style_guide.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/main.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
@@ -140,7 +140,7 @@ $(function(){
             </div>
         </div>
     </header>
-       <div id="main">
+       <div id="main" style="margin-top : 180px;">
        <div class="wrap qna">
        <div class="left_menu">
        		<strong>CS center</strong><br>

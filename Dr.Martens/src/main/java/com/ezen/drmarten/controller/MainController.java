@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.drmarten.mappers.BoardMapper;
 import com.ezen.drmarten.model.Board;
+import com.ezen.drmarten.service.MainService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -26,6 +27,8 @@ public class MainController {
 
 	@Autowired
 	private BoardMapper dao;
+	@Autowired
+	private MainService svc;
 	
 	@GetMapping("")
 	public String index() {
@@ -39,7 +42,7 @@ public class MainController {
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getQnaList());
 		List<Board> list = pageInfo.getList();
-		List <String> btnlist = categoryBtnForQna("전체");
+		List <String> btnlist = svc.categoryBtnForQna("전체");
 		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		return "main/qna";
@@ -74,7 +77,7 @@ public class MainController {
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getQnaList());
 		List<Board> list = pageInfo.getList();
-		List <String> btnlist = categoryBtnForQna("전체");
+		List <String> btnlist = svc.categoryBtnForQna("전체");
 		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		return "main/qna";
@@ -95,7 +98,7 @@ public class MainController {
 			List<Board> list = pageInfo.getList();
 			model.addAttribute("pageInfo", pageInfo);
 		}
-		List <String> btnlist = categoryBtnForQna(category);
+		List <String> btnlist = svc.categoryBtnForQna(category);
 		 model.addAttribute("btnlist", btnlist);
 		return "main/qna";
 	}
@@ -105,7 +108,7 @@ public class MainController {
 			@RequestParam(name = "psize", defaultValue = "8") int pageSize, Model model) {
 		PageHelper.startPage(page, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.searchQnaList(search));
-		List <String> btnlist = categoryBtnForQna("전체");
+		List <String> btnlist = svc.categoryBtnForQna("전체");
 		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("search", search);
@@ -116,31 +119,6 @@ public class MainController {
 		Board board = dao.getNotice(num);
 		model.addAttribute("board", board);
 		return "main/notice_detail";
-	}
-	
-	private List <String>  categoryBtnForQna(String category) {
-		String [] arr = {"전체","회원정보관련", "주문결제","배송안내", "주문취소", "교환/반품/환불","상품관련","포인트 및 이벤트", "기타","AS"};
-		List <String> btnlist = new ArrayList<>();
-		if(category.equals("교환•반품•환불")) category = arr[5];
-		String startOn = "<div class=\"category_btn on\">";
-		String start = "<div class=\"category_btn\">";
-		String end = "</div>";
-		for(int i = 0; i<arr.length; i++) {
-			if(arr[i].equals(category)) {
-				if(arr[i].equals("주문취소")) {
-					btnlist.add(startOn + arr[i] + end+"<br>");
-				} else {
-					btnlist.add(startOn + arr[i] + end);
-				}
-			} else {
-				if(arr[i].equals("주문취소")) {
-					btnlist.add(start + arr[i] + end+"<br>");
-				} else {
-					btnlist.add(start + arr[i] + end);
-				}
-			}
-		}
-		return btnlist;
 	}
 	
 }

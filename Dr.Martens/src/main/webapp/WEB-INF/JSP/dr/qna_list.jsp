@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="/resources/css/admin.css">
     <script src="/resources/js/main.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -30,7 +30,10 @@ $(function(){
 $(function(){
 	$('.category_btn').on('click', function(){
 		var category = $(this).text();
-		var str =  '/dr/qa/category/'+category;
+		if(category=="교환/반품/환불"){
+			category = "교환•반품•환불";
+		}
+		var str =  '/admin/qa/category/'+category;
 		$('#table').load(location.href=str , '#table');
 		$(this).addClass('on');
 	});
@@ -141,21 +144,14 @@ text-align: center; font-size : 20px; margin : 0 5px;}
             <div class="container">
                 <div class="inner">
                    <h1>자주 묻는 질문</h1>
-		<form id="search_input" method="post" action="/dr/qa/search">
+		<form id="search_input" method="post" action="/admin/qa/search">
 			<div class="search_wrap">
 			<input type="text" value="" name="search" id="search" placeholder="검색어를 입력해주세요."><button type="submit" id="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
 		</form>
-		<button class="category_btn on">전체</button>
-		<button class="category_btn" >회원정보관련</button>
-		<button class="category_btn">주문결제</button>
-		<button class="category_btn" >배송안내</button>
-		<button class="category_btn">주문취소</button><br>
-		<button class="category_btn" >교환 • 반품 • 환불</button>
-		<button class="category_btn" >상품관련</button>
-		<button class="category_btn" >포인트 및 이벤트</button>
-		<button class="category_btn" >기타</button>
-		<button class="category_btn">AS</button>	
+		<c:forEach var="btn" items="${btnlist}">
+		${btn}
+		</c:forEach>
 		<table id="table">
 		<thead>
 			<tr>

@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.drmarten.repository.UserTableRepository;
+import com.ezen.drmarten.service.MainService;
 import com.ezen.drmarten.mappers.BoardMapper;
 import com.ezen.drmarten.model.Board;
 import com.github.pagehelper.PageHelper;
@@ -41,12 +42,12 @@ public class AdminController {
 	
 	@Autowired
 	private HttpSession session;
-
 	@Autowired
 	private BoardMapper dao;
-	
 	@Autowired
 	private UserTableRepository rep;
+	@Autowired
+	private MainService svc;
 	
 	@GetMapping("")
 	public String loginForm() {
@@ -159,6 +160,8 @@ public class AdminController {
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getQnaList());
 		List<Board> list = pageInfo.getList();
+		List <String> btnlist = svc.categoryBtnForQna("전체");
+		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		return "dr/qna_list";
 	}
@@ -170,12 +173,16 @@ public class AdminController {
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getQnaList());
 		List<Board> list = pageInfo.getList();
+		List <String> btnlist = svc.categoryBtnForQna("전체");
+		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		return "dr/qna_list";
 	}
 
 	@GetMapping("/qa/category/{category}")
 	public String qa_listByCategory(@PathVariable("category") String category, Model model) {
+		if(category.equals("교환•반품•환불")) category = "교환/반품/환불";
+
 		int pageNum = 1;
 		int pageSize = 5;
 		PageHelper.startPage(pageNum, pageSize);
@@ -188,6 +195,8 @@ public class AdminController {
 			List<Board> list = pageInfo.getList();
 			model.addAttribute("pageInfo", pageInfo);
 		}
+		List <String> btnlist = svc.categoryBtnForQna(category);
+		model.addAttribute("btnlist", btnlist);
 		return "dr/qna_list";
 	}
 
@@ -211,6 +220,8 @@ public class AdminController {
 			@RequestParam(name = "psize", defaultValue = "8") int pageSize, Model model) {
 		PageHelper.startPage(page, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.searchQnaList(search));
+		List <String> btnlist = svc.categoryBtnForQna("전체");
+		 model.addAttribute("btnlist", btnlist);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("search", search);
 		return "dr/qna_list";
