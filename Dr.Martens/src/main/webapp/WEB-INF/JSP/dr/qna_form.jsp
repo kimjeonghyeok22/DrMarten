@@ -111,7 +111,7 @@ function save(){
 		<option>주문결제</option>
 		<option>배송안내</option>
 		<option>주문취소</option>
-		<option value="교환•반품•환불">교환/반품/환불</option>
+		<option>교환/반품/환불</option>
 		<option>상품관련</option>
 		<option>포인트 및 이벤트</option>
 		<option>기타</option>

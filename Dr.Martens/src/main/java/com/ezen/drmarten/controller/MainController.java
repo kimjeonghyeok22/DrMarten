@@ -122,4 +122,10 @@ public class MainController {
 		return "main/notice_detail";
 	}
 	
+	
+	//로그인
+	@GetMapping("/loginForm")
+	public String loginForm() {
+		return "main/loginForm";
+	}
 }

@@ -34,7 +34,7 @@ $(function(){
 			category = "교환•반품•환불";
 		}
 		var str =  '/admin/qa/category/'+category;
-		$('#table').load(location.href=str , '#table');
+		$('#main').load(location.href=str , '#table');
 		$(this).addClass('on');
 	});
 });

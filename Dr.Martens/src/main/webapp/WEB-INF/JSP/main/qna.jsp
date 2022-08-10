@@ -59,7 +59,7 @@ $(function(){
             <div class="hd_inner">
                 <nav class="util_menu">
                     <ul class="util_menu_box">
-                        <li class="util_item"><a href="javascript:;">로그인</a></li>
+                        <li class="util_item"><a href="/	DrMarten/loginForm">로그인</a></li>
                         <li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
                         <li class="util_item"><a href="javascript:;">매장찾기</a></li>
                         <li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
