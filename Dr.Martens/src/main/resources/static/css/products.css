@@ -1,185 +1,223 @@
 @charset "UTF-8";
 
-ul{
-	font-weight:540;
-	list-style-type: none;
+*{box-sizing :  border-box;}
+.inner { width :  1140px; margin : 0 auto; padding : 30px 0;}
+.wrap {width : inherit; display : flex; flex-direction: row; justify-content: space-between;}
+
+
+
+ul {
+    font-weight: 540;
+    list-style-type: none;
 }
-  li {
+
+li {
     cursor: pointer;
     color: black;
     margin: 20px 0px;
     list-style-type: none;
-  }
-  li:hover {
-    text-decoration: none;
-  }
-  .closeList{
-  	display : none;
-  }
-  .openList{
-  	display : block;
-  }
-  .cate{
- 	 color: black;
- 	 text-decoration-line: none;
- 	 font-weight:200;
-  }
-  .rowV{
- 	position:relative;
-	left:-15%;
-	top:10.2px;
-  	float: right;
-  	width: 7.5%;
-  }
-  #goCart{
- 	 background-color:transparent;
-  }
-<!-- -->
-#ser{
-	width: 100%;
-	height: 100px;
-	background-color: black;
-	color:white;
-} 
-#ser_input{
-	position:relative;
-	left:15%;
-	top:25%;
-	background-color: black;
-	color:white;
-	text-align: left;
-	width: 65%;
-	height: 45px;
-	border:rgba(0,0,0,0); background-color:transparent;
-}
-#ser_input::placeholder {
-	color:white;
-}
-#ser_input:focus {outline: none;}
-#ser_icon{
-	background-color: rgba(0,0,0,0);
-	float: right;
-	position:relative;
-	left:-20%;
-	top:25%;
-	width: 20px;
-	height: 20px;
-}
-#ser_img{
-	cursor: pointer;
-	width: 1300%;
-	height: 350%;
 }
 
-.left_menu{
-	display:inline-block;
-	position:absolute;
-	left:10%;
-	width: 25%;
-	overflow:auto;
-	height: 400px;
+li:hover {
+    text-decoration: none;
 }
-#right_list{
-	display:inline-block;
-	position:absolute;
-	left:40%;
-	height: 120%;
-	width: 60%;
-	overflow:auto;
-	
-	text-transform : uppercase;
+
+.closeList {
+    display: none;
 }
-.test_mode{
-	position:absolute;
-	top:150%;
-	left:40%;
-	height: 100%;
-	width: 65%;
+
+.openList {
+    display: block;
 }
-#list{
-	display:inline-block;
-	width: 45%;
-	cursor: pointer;
+
+.cate {
+    color: black;
+    text-decoration-line: none;
+    font-weight: 200;
 }
-#list>img{
-	width: 70%;
+
+.rowV {
+    position: relative;
+    left: -15%;
+    top: 10.2px;
+    float: right;
+    width: 7.5%;
 }
-.priceRight{
-	position:relative;
-	float: right;
-	width: 50%;
+
+#goCart {
+    background-color: transparent;
 }
+
+ #ser {
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+#ser_input {
+    position: relative;
+    left: 15%;
+    top: 25%;
+    background-color: black;
+    color: white;
+    text-align: left;
+    width: 65%;
+    height: 45px;
+    border: rgba(0, 0, 0, 0);
+    background-color: transparent;
+}
+
+#ser_input::placeholder {
+    color: white;
+}
+
+#ser_input:focus {
+    outline: none;
+}
+
+#ser_icon {
+    background-color: rgba(0, 0, 0, 0);
+    float: right;
+    position: relative;
+    left: -20%;
+    top: 25%;
+    width: 20px;
+    height: 20px;
+}
+
+#ser_img {
+    cursor: pointer;
+    width: 1300%;
+    height: 350%;
+}
+
+.left_menu {
+    display: inline-block;
+    position: absolute;
+    left: 10%;
+    width: 25%;
+    overflow: auto;
+    height: 400px;
+}
+
+#right_list {
+    display: inline-block;
+    position: absolute;
+    left: 40%;
+    height: 120%;
+    width: 60%;
+    overflow: auto;
+
+    text-transform: uppercase;
+}
+
+.test_mode {
+    position: absolute;
+    top: 150%;
+    left: 40%;
+    height: 100%;
+    width: 65%;
+}
+
+#list {
+    display: inline-block;
+    width: 45%;
+    cursor: pointer;
+}
+
+#list > img {
+    width: 70%;
+}
+
+.priceRight {
+    position: relative;
+    float: right;
+    width: 50%;
+}
+
 /*-------------------ListView.jsp----------------------*/
-#searchRes{
-	position:relative;
-	left:12%;
-	height: 100%;
-	width: 100%;
-	overflow:auto;
-	
-	text-transform : uppercase;
+#searchRes {
+    position: relative;
+    left: 12%;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    text-transform: uppercase;
 }
-#productList{
-	display:inline-block;
-	position:absolute;
-	left:12%;
-	height: 100%;
-	width: 75%;
-	overflow:auto;
-	
-	text-transform : uppercase;
+
+#productList {
+    display: inline-block;
+    position: absolute;
+    left: 12%;
+    height: 100%;
+    width: 75%;
+    overflow: auto;
+
+    text-transform: uppercase;
 }
+
 /*-------------------detail.jsp----------------------*/
-.inline{
-	display:inline-block;
+.inline {
+    display: inline-block;
 }
-.pngList{
-	display:inline-block;
-	position:relative;
-	left:12%;
-	height: 50%;
-	width: 38%;
-	overflow:auto;
+
+#main .half {width : 48%;}
+.half.pd30{padding: 30px;}
+#main .cmBtn.mid{width : 48%;}
+#main .price{margin : 10px 0;}
+#main .product_detail { padding : 30px 0; }
+.topleft {
+    background-color: #F7F7F7;
+    text-align: center;
+    margin-bottom: 1px;
+    width: 100%;
+   display : inline-block;
 }
-.topleft{
-	background-color: #d5d5d5;
-	text-align: center;
-	margin-bottom: 1px;
-	width:94.5%;
+.topleft>img {display:inline-block; width: 30px;}
+
+.sizefix {
+    position: relative;
+    bottom: -10px;
+    width: 30px;
+    height: 40px;
 }
-.sizefix{
-	position:relative;
-	bottom:-10px;
-	width: 30px;
-	height: 40px;
+
+.rightInfo {
+	width : 100%; height : 700px; overflow-y:scroll;
 }
-.rightInfo{
-	display:block;
-	position:relative;
-	float: right;
-	left:-15%;
-	width: 35%;
-	text-transform : uppercase;
+.rightInfo img.detail_img {
+	display : inline-block;
+	width : 100%;
+	margin : 0 auto;
+	margin-bottom : 10px;
 }
-.underline{
-	 text-decoration-line: underline;
-	 text-underline-offset : 5px;
-	  text-decoration-thickness: 1px;
+
+
+.underline {
+    text-decoration-line: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
+    margin : 8px 0;
 }
-.haveSize{
-	border: 1px solid gray;
-	background-color: white;
-	width: 30%;
-	padding: 5px 0px;
-	margin-bottom: 10px;
-	margin-right: 10px;	
-	text-align: left;
+
+.haveSize {
+    border: 1px solid #e6e6e6;
+    background-color: white;
+    width: 30%;
+    padding: 5px 0px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    text-align: left;
 }
+
 .haveSize:focus {
-	background-color: black;
-	color: white;
-	
+    background-color: black;
+    color: white;
+
 }
+
 .disabled {
     opacity: 0.6;
     cursor: not-allowed;
