@@ -121,9 +121,9 @@
     </header>
        <div id="main"  class="loginForm" style="margin-top : 180px;">
 			<div class="inner">
-				<strong style="font-size : 36px; color:#000; font-weight: bold;">로그인</strong>
+				<strong style="font-size : 28px; color:#000; font-weight: bold;">로그인</strong>
 									<div class="welcome">
-										<strong style="font-size : 36px; color:#000; font-weight: bold;">어서오세요</strong><br>
+										<strong style="font-size : 28px; color:#000; font-weight: bold;">어서오세요</strong><br>
 										<span style="font-size: 18px; color : #000">닥터마틴에 오신걸 환영합니다</span>
 					</div>
 				<div class="wrap">
@@ -143,8 +143,8 @@
 							</div>
 						</div>
 						<a href="#" class="findIDPW">아이디/비밀번호찾기</a><br>
-						<button type="submit" class="cmBtn line big2 black cfff mb30">로그인</button><br>
-												<a href="#" class="findIDPW">회원가입</a>
+						<button type="submit" class="cmBtn fullWidth black large fw700 mb10">로그인</button><br>
+												<a href="#" class="cmBtn fullWidth yellow large fw700">회원가입</a>
 						</form>
 					</div>
 					<div class="login_wrap not_mem">						
@@ -163,7 +163,7 @@
 							</div>
 						</div>
 						<a href="#" class="findIDPW"></a><br>
-						<button type="submit" class="cmBtn line big2 mb30 ml10">비회원 주문조회</button>
+						<button type="submit" class="cmBtn fullWidth line large fw700 mb10">비회원 주문조회</button>
 						</form>
 					</div>
 				</div>
