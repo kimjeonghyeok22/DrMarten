@@ -153,6 +153,26 @@ public class UserController {
 		String ufPw = svc.findPw(u_email, name, phone_num);
 		return "<script>" + "alert('귀하의 비밀번호는 " + ufPw + "입니다.');" + "location.href='/user/login'" + "</script>";
 	}
+	@GetMapping("/recommend")
+	public String reco_page() {
+		return "/user/reco_page";
+	}
+	@PostMapping("/recommend")
+	@ResponseBody
+	public String recommend(@RequestParam("recommender")String recommender,
+			HttpSession session) {
+		String ses = (String)session.getAttribute("u_email");
+		if(ses== null)
+			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/user/login'" + "</script>";
+		if(ses== recommender)
+			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/user/login'" + "</script>";
+		if(rep.findById(recommender).isPresent()) {
+			svc.updatepoint(ses,recommender);
+			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "opener.parent.location='/user/login'" + "</script>";
+		}else {
+			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/user/recommend'" + "</script>";
+		}
+	}
 
 	// 이메일 확인
 	@PostMapping("/emailSendAction")
