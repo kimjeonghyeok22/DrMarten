@@ -33,4 +33,10 @@ public interface UserTableRepository extends JpaRepository<User, Object>{
 	@Modifying
 	@Query("select u_pw from User where u_email = ?1")
 	User findByU_email(String u_email);
+
+
+	@Transactional
+	@Modifying
+	@Query("update User set point = point +500 where u_email = ?1")
+	void updatePoint(String ses);
 }

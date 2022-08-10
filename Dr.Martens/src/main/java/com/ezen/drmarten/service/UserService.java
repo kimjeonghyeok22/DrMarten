@@ -52,7 +52,7 @@ public class UserService {
 
 		if (chek != null && chek.getU_pw().equals(pw)) {
 			session.setAttribute("u_email", u_email);
-			return "<script>" + "alert('성공');" + "location.href='/user/login'" + "</script>";
+			return "<script>" + "alert('성공');" + "location.href='/user/main'" + "</script>";
 		}
 
 		if (chek != null && !(chek.getU_pw().equals(pw))) {
@@ -65,5 +65,11 @@ public class UserService {
 	public boolean deleteById(Object attribute) {
 		rep.deleteById(attribute);
 		return true;
+	}
+	
+	public String updatepoint(String ses, String recommender) {
+		rep.updatePoint(ses);
+		rep.updatePoint(recommender);
+		return "<script>" + "alert('포인트가 추가 되었습니다');" + "opener.parent.location='/user/login'" + "</script>";
 	}
 }
