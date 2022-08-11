@@ -19,7 +19,15 @@
 <link rel="stylesheet" href="/resources/css/style_guide.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-
+function showPopUp() {
+	var width = 500;
+	var height = 500;
+	var left = (window.screen.width / 2) - (width/2);
+	var top = (window.screen.height / 4);
+	var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
+    const url = "http://localhost/user/recommend";
+	window.open(url, "hello popup", windowStatus);
+}
 </script>
 </head>
 <body>
@@ -38,8 +46,9 @@
             <div class="hd_inner">
                 <nav class="util_menu">
                     <ul class="util_menu_box">
-                        <li class="util_item"><a href="/	DrMarten/loginForm">로그인</a></li>
-                        <li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
+                        <li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
+                        <li class="util_item"><a href="/user/signUp" class="fw500">회원가입</a></li>
+                        <li class="util_item"><a href="javascript:showPopUp()">추천인 입력</a></li>
                         <li class="util_item"><a href="javascript:;">매장찾기</a></li>
                         <li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
                         <li class="util_item"><a href="javascript:;">고객센터</a></li>
@@ -109,7 +118,7 @@
                     <!-- //최근 본 상품 아이콘 --><span class="text_hiden">최근 본 상품</span> </a>
                 <!-- //최근 본 상품 -->
                 <!-- 마이페이지 -->
-                <a href="javascript:;" class="hdBtn">
+                <a href="/user/mypage" class="hdBtn">
                     <!-- 마이페이지 아이콘 -->
                     <svg version="1.1" viewBox="0 0 33 32" width="33" height="32" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
                         <path pid="0" fill="#111" fill-rule="evenodd" d="M25.187 17.783h-6.918a8.942 8.942 0 004.595-2.458A8.906 8.906 0 0025.5 8.977a8.913 8.913 0 00-2.636-6.351A8.949 8.949 0 0016.5-.003a8.947 8.947 0 00-6.363 2.629A8.915 8.915 0 007.5 8.977a9.03 9.03 0 002.637 6.348 9.067 9.067 0 004.629 2.458H7.813L0 25.456v6.545h33v-6.545l-7.813-7.673zM10.5 8.977c0-1.576.641-3.12 1.758-4.234A6.047 6.047 0 0116.5 2.99c1.604 0 3.11.622 4.243 1.753A5.94 5.94 0 0122.5 8.977a6.023 6.023 0 01-1.757 4.232 6.048 6.048 0 01-4.243 1.754 6.046 6.046 0 01-4.242-1.754A6.021 6.021 0 0110.5 8.977zM30 29.008H3v-2.299l6.042-5.932h14.917L30 26.709v2.299z"></path>
@@ -129,22 +138,22 @@
 				<div class="wrap">
 					<div class="login_wrap mem">
 						<span>로그인</span>
-						<form>
+						<form id="login_form" action="/user/login" method="post">
 							<div class="dmField dmInput mb30">
 							<label class="dmField_label">아이디</label>
 							<div class="dmField_input_box">
-								<input name="uid" type="text" class="dmField_input" placeholder="" >
+								<input name="u_email" type="text" class="dmField_input" placeholder="이메일 형식 입력" >
 							</div>
 						</div>
 												<div class="dmField dmInput mb30">
 							<label class="dmField_label">비밀번호</label>
 							<div class="dmField_input_box">
-								<input name="upw" type="text" class="dmField_input" placeholder="" >
+								<input name="u_pw" type="password" class="dmField_input" placeholder="" >
 							</div>
 						</div>
-						<a href="#" class="findIDPW">아이디/비밀번호찾기</a><br>
+						<a href="/user/find_id" class="findIDPW">아이디</a>/<a href="/user/find_pw" class="findIDPW">비밀번호 찾기</a><br>
 						<button type="submit" class="cmBtn fullWidth black large fw700 mb10">로그인</button><br>
-												<a href="#" class="cmBtn fullWidth yellow large fw700">회원가입</a>
+												<a href="/user/signUp" class="cmBtn fullWidth yellow large fw700">회원가입</a>
 						</form>
 					</div>
 					<div class="login_wrap not_mem">						

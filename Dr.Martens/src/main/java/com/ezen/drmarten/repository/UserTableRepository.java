@@ -37,6 +37,6 @@ public interface UserTableRepository extends JpaRepository<User, Object>{
 
 	@Transactional
 	@Modifying
-	@Query("update User set point = point +500 where u_email = ?1")
-	void updatePoint(String ses);
+	@Query("update User set point = point + ?2 where u_email = ?1")
+	int updatePoint(String ses, int point);
 }

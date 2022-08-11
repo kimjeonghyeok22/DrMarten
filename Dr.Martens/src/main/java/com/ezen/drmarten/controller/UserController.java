@@ -51,28 +51,36 @@ public class UserController {
 	HttpSession session;
 	@Autowired
 	UserTableRepository rep;
+	//메인 페이지 이동
+	@GetMapping("")
+	public String main() {
+		return "/user/main";
+	}
 
+	//회원가입 페이지 이동
 	@GetMapping("/signUp")
 	public String signUpForm() {
 		return "/user/signUp";
 	}
-
+	//로그인 페이지 이동
 	@GetMapping("/login")
 	public String login_form() {
-		return "/user/login";
+		return "/DrMartin/loginForm";
 	}
-
+	//이메일 확인 버튼 누르고 갈 페이지
 	@GetMapping("/emailwaitingroom")
 	public String emailwaitingroom() {
 		return "/user/emailwaitingroom";
 	}
-
+	
+	//이메일 확인 후 나머지 회원가입 페이지
 	@GetMapping("/restSignUp")
 	public String restSignUp(@RequestParam("u_email") String u_email, Model model) {
 		model.addAttribute("u_email", u_email);
 		return "/user/restSignUp";
 	}
-
+	
+	//로그인 메소드
 	@PostMapping("/login")
 	@ResponseBody
 	public String login(@RequestParam("u_email") String u_email, @RequestParam("u_pw") String u_pw,
@@ -81,16 +89,19 @@ public class UserController {
 		return checked;
 	}
 
+	//아이디 찾기 페이지 이동
 	@GetMapping("/find_id")
 	public String find_id_form() {
 		return "/user/find_id";
 	}
 
+	//비밀번호 찾기 페이지 이동
 	@GetMapping("find_pw")
 	public String find_pw_form() {
 		return "/user/find_pw";
 	}
 
+	//수정 페이지 이동
 	@GetMapping("/edit")
 	public String edit_form(HttpSession session, Model model) {
 		if (session.getAttribute("u_email") == null) {
@@ -103,6 +114,7 @@ public class UserController {
 		}
 	}
 
+	//수정 메소드
 	@PostMapping("/edit")
 	@ResponseBody
 	public String edit(@Valid User user, BindingResult result, Model model, HttpSession session,
@@ -118,6 +130,7 @@ public class UserController {
 		}
 	}
 
+	//회원가입 메소드
 	@PostMapping("/sign_Up")
 	@ResponseBody
 	public String signUp(@Valid User user, BindingResult result, Model model, @RequestParam("u_pw2") String u_pw2) {
@@ -130,7 +143,8 @@ public class UserController {
 					+ "'" + "</script>";
 		}
 	}
-
+	
+	//아이디 찾기 메소드
 	@PostMapping("/find_id")
 	@ResponseBody
 	public String findId(@RequestParam("name") String name, @RequestParam("phone_num") int phone_num) {
@@ -138,6 +152,7 @@ public class UserController {
 		return "<script>" + "alert('귀하의 아이디는 " + ufId + "입니다.');" + "location.href='/user/login'" + "</script>";
 	}
 
+	//아이디 삭제 메소드-
 	@PostMapping("/deleteId")
 	@ResponseBody
 	public boolean deleteId(HttpSession session) {
@@ -145,7 +160,7 @@ public class UserController {
 		session.removeAttribute("u_email");
 		return deleted;
 	}
-
+	//패스워드 찾기 메소드
 	@PostMapping("/find_pw")
 	@ResponseBody
 	public String findPw(@RequestParam("u_email") String u_email, @RequestParam("name") String name,
@@ -153,21 +168,36 @@ public class UserController {
 		String ufPw = svc.findPw(u_email, name, phone_num);
 		return "<script>" + "alert('귀하의 비밀번호는 " + ufPw + "입니다.');" + "location.href='/user/login'" + "</script>";
 	}
+	//마이페이지 이동
+	@GetMapping("/mypage")
+	public String mypage(HttpSession session,Model model) {
+		if (session.getAttribute("u_email") == null) {
+			return "/user/login";
+		} else {
+			Optional<User> op= rep.findById(session.getAttribute("u_email"));
+			User user = op.get();
+			model.addAttribute("user",user);
+			return "/user/mypage";
+		}
+	}
+	//추천인 이동(팝업창)
 	@GetMapping("/recommend")
 	public String reco_page() {
 		return "/user/reco_page";
 	}
+	//추천인 메소드
 	@PostMapping("/recommend")
 	@ResponseBody
 	public String recommend(@RequestParam("recommender")String recommender,
 			HttpSession session) {
 		String ses = (String)session.getAttribute("u_email");
-		if(ses== null)
+		if(ses == null)
 			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/user/login'" + "</script>";
-		if(ses== recommender)
-			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/user/login'" + "</script>";
+		if(ses.equals(recommender))
+			return "<script>" + "alert('자기 자신을 추천할 수 없습니다.');" + "opener.parent.location='/user/login'" + "</script>";
 		if(rep.findById(recommender).isPresent()) {
-			svc.updatepoint(ses,recommender);
+			rep.updatePoint(ses,500);
+			rep.updatePoint(recommender,500);
 			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "opener.parent.location='/user/login'" + "</script>";
 		}else {
 			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/user/recommend'" + "</script>";

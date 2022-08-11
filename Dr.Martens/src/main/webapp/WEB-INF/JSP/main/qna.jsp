@@ -61,7 +61,7 @@ $(function(){
                     <ul class="util_menu_box">
 <<<<<<< HEAD
                         <li class="util_item"><a href="/	DrMarten/loginForm">로그인</a></li>
-                        <li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
+                        <li class="util_item"><a href="/user/singUp" class="fw500">회원가입</a></li>
 =======
                         <li class="util_item"><a href="/user/login">로그인</a></li>
                         <li class="util_item"><a href="/user/singUp" class="fw500">회원가입</a></li>

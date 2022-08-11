@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>기다려</title>
+<title>이메일 인증</title>
 </head>
 <body>
 입력하신 이메일 주소로 인증 메일을 보냈습니다.

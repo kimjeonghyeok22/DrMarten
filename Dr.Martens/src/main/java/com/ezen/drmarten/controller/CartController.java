@@ -43,10 +43,10 @@ public class CartController {
 	@ResponseBody
 	// 장바니에 담기를 위한 메소드 장바구니가 어떤형식으로 진행되는지 파악 후 작업 가능.
 	public String cartAdd(Product pro, @RequestParam("number") int count, @RequestParam("sized") int size,
-			@SessionAttribute(name = "u_eamil", required = false) String eamil,
+			@SessionAttribute(name = "u_email", required = false) String email,
 			@SessionAttribute(name = "u_cart", required = false) ItemCartService svc) {
 
-		if (eamil == null && svc == null) {
+		if (email == null && svc == null) {
 			String script = "<script>" + "alert('로그인을 먼저해주세요');" + "location.href='/user/login'" + "</script>";
 			return script;
 		}
@@ -86,13 +86,13 @@ public class CartController {
 	@ResponseBody
 	//물건 구매확정시 사용할 메서드
 	public String buyItem(@SessionAttribute(name = "u_cart") ItemCartService svc,
-			@SessionAttribute(name = "u_eamil") String eamil) {
+			@SessionAttribute(name = "u_email") String email) {
 
 		try {
 			
 			// cart 객체에 회원정보들과 지금까지 가지고있는 바구니 들을 넣어준다
 			Cart cart = new Cart();
-			cart.setUerEmail(eamil);
+			cart.setUerEmail(email);
 			cart.setCart(svc.getCart());
 			cartRepository.save(cart);
 
