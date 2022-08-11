@@ -14,7 +14,7 @@
     <script type="text/javascript">
         function addCart() {
             $.ajax({
-                url: '/product/addCart/',
+                url: '/cart/cartAdd',
                 method: 'post',
                 cache: false,
                 dataType: 'json',
@@ -78,7 +78,7 @@
                                 </button>
                             </c:otherwise>
                         </c:choose>
-                    </c:forEach>
+                    </c:forEach> 
                     <div class="fz26 fw700 price" style="text-align:right;">
                         <c:set value="${product.price}" var="priceNum" />
                         <%Integer price = (Integer)pageContext.getAttribute("priceNum");
@@ -90,7 +90,7 @@
 
 <div>
                 <!-- 장바구니에 추가//코드 , 이름 ,수량 사이즈, 세션. -->
-                <form id="addCartForm" action="/product/cartAdd" method="post">
+                <form id="addCartForm" action="/cart/cartAdd" method="post">
 
                     <input type="hidden" name="price" value="${product.price}">
                     <input type="hidden" name="name" value="${product.name}">

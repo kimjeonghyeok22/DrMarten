@@ -16,15 +16,13 @@ import com.ezen.drmarten.model.CartItemList;
 import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.repository.CartRepository;
 import com.ezen.drmarten.service.ItemCartService;
+
 @Controller
 @RequestMapping("/cart/")
 public class CartController {
-	
+
 	@Autowired
 	CartRepository cartRepository;
-	
-	
-	
 
 	@GetMapping("getmycart") // 내가지금 무슨 물건을 카트에 담았는지 보는 페이지
 	public String getMyCart(@SessionAttribute(name = "u_cart", required = false) ItemCartService svc, Model model) {
@@ -37,12 +35,13 @@ public class CartController {
 		model.addAttribute("Cart", svc.getCart());
 		return "/cart/CartPage";
 	}
-	
 
 	@PostMapping("cartAdd")
 	@ResponseBody
 	// 장바니에 담기를 위한 메소드 장바구니가 어떤형식으로 진행되는지 파악 후 작업 가능.
-	public String cartAdd(Product pro, @RequestParam("number") int count, @RequestParam("sized") int size,
+	public String cartAdd(Product pro,
+			/* @RequestParam("number") int count, */
+			/* @RequestParam("sized") int size, */
 			@SessionAttribute(name = "u_email", required = false) String email,
 			@SessionAttribute(name = "u_cart", required = false) ItemCartService svc) {
 
@@ -51,18 +50,36 @@ public class CartController {
 			return script;
 		}
 
-		CartItemList item = new CartItemList();
-		item.setProductCood(pro.getProduct_code());
-		item.setProductName(pro.getName());
-		item.setProductNumbers(count);
-		item.setProductSize(size);
-		item.setPrice(pro.getPrice());
+		// item.setProductNumbers(count); item.setProductSize(size);
+
+		try {
+			CartItemList item = new CartItemList();
+			item.setProductCood(pro.getProduct_code());
+			item.setProductName(pro.getName());
+			item.setPrice(pro.getPrice());
+			item.setProductNumbers(pro.getPrice());
+			svc.addCartItem(item);
+			Cart cart = new Cart();
+			cart.setUerEmail(email);
+
+			cartRepository.save(cart);
+
+			for (int i = 0; i < svc.getCart().size(); i++) {
+				cart.getCart().add(svc.getCart().get(i));
+			}
+
+			boolean addChek = svc.addCartItem(item);
+			return "{\" addChek\":" + addChek + "}";
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			String script = "<script>" + "alert('디비 오류 살려줘');" + "location.href='/user/login'" + "</script>";
+			return script;
+		}
 
 		// 값을 저장후에 불리언값 오류나거나 저장 실패시 false
-		boolean addChek = svc.addCartItem(item);
-		return "{\" addChek\":" + addChek + "}";
+
 	}
-	
 
 	@GetMapping("cartremove/{product_code}")
 	@ResponseBody
@@ -84,12 +101,12 @@ public class CartController {
 
 	@PostMapping
 	@ResponseBody
-	//물건 구매확정시 사용할 메서드
+	// 물건 구매확정시 사용할 메서드
 	public String buyItem(@SessionAttribute(name = "u_cart") ItemCartService svc,
 			@SessionAttribute(name = "u_email") String email) {
 
 		try {
-			
+
 			// cart 객체에 회원정보들과 지금까지 가지고있는 바구니 들을 넣어준다
 			Cart cart = new Cart();
 			cart.setUerEmail(email);
@@ -97,9 +114,9 @@ public class CartController {
 			cartRepository.save(cart);
 
 			return "{\"buyItem\":" + true + "}";
-			
+
 		} catch (Exception e) {
-			
+
 			String script = "<script>" + "alert('이상한 행동이 감지되었습니다');" + "location.href='/user/login'" + "</script>";
 			return script;
 		}
