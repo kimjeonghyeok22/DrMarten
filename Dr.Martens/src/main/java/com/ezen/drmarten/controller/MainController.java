@@ -35,6 +35,11 @@ public class MainController {
 		return "thymeleaf/main/index";
 	}
 	
+	@GetMapping("/sendal")
+	public String sendal() {
+		return "main/sendal";
+	}
+	
 	@GetMapping("/qna")
 	public String qnaList(Model model) {
 		int pageNum = 1;
@@ -51,7 +56,7 @@ public class MainController {
 	@GetMapping("/notice")
 	public String noticeList(Model model) {
 		int pageNum = 1;
-		int pageSize = 5;
+		int pageSize = 10;
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getNoticeList());
 		List<Board> list = pageInfo.getList();
@@ -61,7 +66,7 @@ public class MainController {
 	@GetMapping("/notice/page/{page}")
 	public String notice_listByPage(@PathVariable("page") int page, Model model) {
 		int pageNum = page;
-		int pageSize = 5;
+		int pageSize = 10;
 		PageHelper.startPage(pageNum, pageSize);
 		PageInfo<Board> pageInfo = new PageInfo<>(dao.getNoticeList());
 		List<Board> list = pageInfo.getList();
