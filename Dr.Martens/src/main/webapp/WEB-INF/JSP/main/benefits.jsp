@@ -33,7 +33,7 @@
                 </div>
                 <div class="img_wrap"> <img src="/resources/img/benefit/8.jpeg" style="display:inline-block; width:950px; margin : 0 auto;"> </div>
                 <div class="img_wrap">
-                    <a href="/DrMarten/membership_event" style="width:100%; display:inline-block; border : 1px solid blue;"> <img src="/resources/img/benefit/9.jpeg" style="display:inline-block; width:950px; margin : 0 auto;"> </a>
+                    <a href="/DrMarten/membership_event" style="width:100%; display:inline-block;"> <img src="/resources/img/benefit/9.jpeg" style="display:inline-block; width:950px; margin : 0 auto;"> </a>
                 </div>
                 <div class="img_wrap"> <img src="/resources/img/benefit/10.jpeg" style="display:inline-block; width:950px; margin : 0 auto;"> </div>
                 <div class="img_wrap" style="width:49.5%; display: inline-block; text-align : right;">
