@@ -51,7 +51,9 @@ public class UserService {
 		User chek = user.get();
 
 		if (chek != null && chek.getU_pw().equals(pw)) {
+			 ItemCartService ics = new ItemCartService();
 			session.setAttribute("u_email", u_email);
+			session.setAttribute("u_cart", ics);
 			return "<script>" + "alert('성공');" + "location.href='/user/main'" + "</script>";
 		}
 
@@ -67,9 +69,5 @@ public class UserService {
 		return true;
 	}
 	
-	public String updatepoint(String ses, String recommender) {
-		rep.updatePoint(ses);
-		rep.updatePoint(recommender);
-		return "<script>" + "alert('포인트가 추가 되었습니다');" + "opener.parent.location='/user/login'" + "</script>";
-	}
+	
 }

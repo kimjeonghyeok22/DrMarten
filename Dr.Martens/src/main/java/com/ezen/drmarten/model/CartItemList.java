@@ -35,7 +35,7 @@ public class CartItemList {
 	private int productCood;
 	private String productName;
 	private int productNumbers;
-	private int productSize;
+//	private int productSize;
 	private int Price;
 
 

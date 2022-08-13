@@ -58,10 +58,10 @@ function removeItem(key)
 			</div>
 			<div>물건 이름 :${c.productName}</div>
 			<div>구매 갯수 : ${c.productNumbers} 개</div>
-			<div>물건 사이즈 : ${c.productSize}</div>
-			<div>총 가격 : ${c.price} 원</div>
+			<%-- <div>물건 사이즈 : ${c.productSize}</div> --%>
+			<%-- <div>총 가격 : ${c.price} 원</div> --%>
 
-			<button type="button" onclick="removeItem(${c.productCood})">삭제</button>
+			<button type="button" onclick="removeItem(${c.productCood})">물건삭제</button>
 		</c:forEach>
 
 		<div>총가격은 : ${allPrice} 원 입니다</div>
