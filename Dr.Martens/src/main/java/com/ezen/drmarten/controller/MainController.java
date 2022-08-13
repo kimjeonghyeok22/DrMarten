@@ -133,4 +133,15 @@ public class MainController {
 	public String loginForm() {
 		return "main/loginForm";
 	}
+	
+	//회원가입
+	@GetMapping("/member/agreement")
+	public String agreement() {
+		return "main/mem/agreement";
+	}
+	
+	@GetMapping("/benefits")
+	public String benefits() {
+		return "main/benefits";
+	}
 }
