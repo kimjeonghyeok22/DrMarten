@@ -144,4 +144,14 @@ public class MainController {
 	public String benefits() {
 		return "main/benefits";
 	}
+	
+	@GetMapping("/membership_event")
+	public String mem_event() {
+		return "main/mem/event";
+	}
+	
+	@GetMapping("/balsam")
+	public String balsam() {
+		return "main/balsam";
+	}
 }
