@@ -52,12 +52,12 @@
 				</button>
 				<!-- 검색 -->
 				<div class="main_search_form">
-					<form method="get" action="" class="SearchForm">
+					<form action="/product/files/searchName" method="post" class="SearchForm">
 						<fieldset>
 							<legend class="text_hiden">검색</legend>
-							<div class="mainSearchForm_wrapper">
+							<div class="mainSearchForm_wrapper">	
 								<div class="mainSearchForm_input_box">
-									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해주세요." class="mainSearchForm_input">
+									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="제품 이름을 입력해주세요." class="mainSearchForm_input">
 									<!-- x버튼 -->
 									<button type="button" class="mainSearchForm_cancel">
 										<svg version="1.1" viewBox="0 0 24 24" class="" style="width: 24px; height: 24px;">

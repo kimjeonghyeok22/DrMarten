@@ -15,6 +15,7 @@
 </head>
 
 <body>
+ <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
 	<form action="/product/files/searchName" method="post">
 		<div id="ser">
 			<input  id="ser_input" type="text" class="fz20 fw500 cfff" name="name" placeholder="제품 이름을 입력해주세요.">
@@ -24,17 +25,17 @@
 		</div>
 	</form>
 <div class="left_menu">
-<form class="fz26 categoraegorae">
+<form class="fz26 fw700 categoraegorae">
 	<ul>
 		<li id="toc-toggle" onclick="openCloseToc()">
 		<span id="catVal">성별</span>
 		<span><img class="rowV" id="rowV" src="http://localhost/resources/img/Up_arrow_transparent.png"/></span>
 			<ul class="closeList" id="category">
 				<li>
-					<a href="/product/category/male" class="cate">남자</a>
+					<a href="/product/category/male" class="cate">　남자</a>
 				</li>
 				<li>
-					<a href="/product/category/female" class="cate">여자</a>
+					<a href="/product/category/female" class="cate">　여자</a>
 				</li>
 			</ul>
 		</li>
@@ -43,10 +44,10 @@
 		<span><img class="rowV" id="rowV2" src="http://localhost/resources/img/Up_arrow_transparent.png"/></span>
 			<ul class="closeList" id="category2">
 				<li>
-					<a href="/product/category/sandals" class="cate">샌들</a>
+					<a href="/product/category/sandals" class="cate">　샌들</a>
 				</li>
 				<li>
-					<a href="/product/category/boots" class="cate">부츠</a>
+					<a href="/product/category/boots" class="cate">　부츠</a>
 				</li>
 			</ul>
 		</li>
@@ -55,7 +56,7 @@
 		<span><img class="rowV" id="rowV3" src="http://localhost/resources/img/Up_arrow_transparent.png"/></span>
 			<ul class="closeList" id="category3">
 				<li>
-					<a href="/product/category/sandals/10" class="cate">샌들 10%</a>
+					<a href="/product/category/sandals/10" class="cate">　샌들 10%</a>
 				</li>
 			</ul>
 		</li>
@@ -70,13 +71,17 @@
 </div>
 
 <div id="right_list">
-<h3>제품 List 테스트</h3>
 		<div id="reset_by_category">
 	<c:forEach items="${product.list}" var="product">
 		<form id="list" onclick="location.href='/product/detail_product/${product.product_code}'">
 			<img   src="http://localhost/${product.attach[0].fpath}${product.name}_main.png"/>
 		<br>
-			<span class="fz26 fw700">${product.name}</span>
+			<div class="fz26 fw700 product_name">
+				<c:set value="${product.name}" var="deleName"/>
+				<%String name =  (String)pageContext.getAttribute("deleName");
+				name = name.replace("_"," ");%>
+				<%=name%>
+			</div>
 			<span class="fz20 fw700 priceRight">
 				<c:set value="${product.price}" var="priceNum"/>
 			<%Integer price = (Integer)pageContext.getAttribute("priceNum");
