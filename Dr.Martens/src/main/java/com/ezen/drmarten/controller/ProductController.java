@@ -41,7 +41,7 @@ import com.github.pagehelper.PageInfo;
 
 @SessionAttributes("itemCart")
 @Controller
-@RequestMapping("/DrMarten/product")
+@RequestMapping("/product")
 public class ProductController {
 
 	@Autowired
@@ -215,7 +215,7 @@ public class ProductController {
 	}
 	@PostMapping("/files/searchName")
 	public String searchLikeName( HttpServletRequest request,
-			@RequestParam(name = "name")String pName,Model model) {
+			@RequestParam(name = "search_text")String pName,Model model) {
 		//서비스로 짬때리기
 		List<Product> likeNameList = svc.searchLikeName(pName);
 		//유사이름으로 검색된 List정보를 view페이지로 전송

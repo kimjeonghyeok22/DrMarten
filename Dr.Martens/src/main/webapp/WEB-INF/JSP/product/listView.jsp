@@ -20,7 +20,12 @@
 		<form id="list" onclick="location.href='/product/detail_product/${lists.product_code}'">
 			<img src="http://localhost/${lists.attach[0].fpath}${lists.name}_main.png"/>
 		<br>
-			<span class="fz26 fw700">${lists.name}</span>
+			<div class="fz26 fw700 product_name">
+				<c:set value="${list.name}" var="deleName"/>
+				<%String name =  (String)pageContext.getAttribute("deleName");
+				name = name.replace("_"," ");%>
+				<%=name%>
+			</div>
 			<span class="fz20 fw700 priceRight">
 			<c:set value="${lists.price}" var="priceNum"/>
 						<%Integer price = (Integer)pageContext.getAttribute("priceNum");

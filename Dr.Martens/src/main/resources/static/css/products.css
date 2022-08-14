@@ -95,16 +95,19 @@ li:hover {
 .left_menu {
     display: inline-block;
     position: absolute;
+    top: 25%;
     left: 10%;
     width: 25%;
     overflow: auto;
     height: 400px;
+    line-height : 250%;
 }
 
 #right_list {
     display: inline-block;
     position: absolute;
     left: 40%;
+     top: 25%;
     height: 120%;
     width: 60%;
     overflow: auto;
@@ -118,6 +121,9 @@ li:hover {
     left: 40%;
     height: 100%;
     width: 65%;
+}
+.product_name{
+	 display: inline-block;
 }
 
 #list {

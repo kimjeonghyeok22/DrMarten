@@ -57,7 +57,12 @@
                                 0건
                             </c:if>
                         </div>
-                        ${product.name}
+                        <div class="fz26 product_name">
+							<c:set value="${product.name}" var="deleName"/>
+							<%String name =  (String)pageContext.getAttribute("deleName");
+							name = name.replace("_"," ");%>
+							<%=name%>
+						</div>
                         <hr size="1px">
                     </div>
                     <div align="right" class="underline">
