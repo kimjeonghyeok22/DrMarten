@@ -19,9 +19,13 @@
 
     <body>
         <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-        <div id="main" style="padding-top : 180px; position : relative; height : 6900px;"> <img src="/resources/img/balsam/1.jpg" style="width: 100%; margin-top : 70px;">
-            <div class="inner" style="width:1140px; position : absolute; top : 180px; left: 50%; transform : translateX(-50%);"> <span style="font-size : 36px; color : #000; font-weight: bold;">원더 발삼 사용법</span>
-                <div class="wrap" style="width : 100%;  margin : 1320px 0  0 0;">
+        <div id="main" style="padding-top : 180px;">
+         <div class="inner" style="width:1140px;">
+          <span style="font-size : 36px; color : #000; font-weight: bold;">원더 발삼 사용법</span>
+         </div>
+        <img src="/resources/img/balsam/1.jpg" style="width: 100%;">
+            <div class="inner" style="width:1140px;">
+                <div class="wrap" style="width : 100%; margin-top : -100px;">
                     <div class="mul_wrap" style="display:flex; flex-direction:row; justify-content:space-between; width: 100%; margin : 200px 0;">
                         <div class="img" style="display:inline-block; width : 45%"> <img src="/resources/img/balsam/2.jpg" style="display: inline-block; width: 100%;"> </div>
                         <div class="txt" style="display:inline-block; width : 54%; padding-left:30px;">
