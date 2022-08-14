@@ -55,7 +55,7 @@
 					<form action="/product/files/searchName" method="post" class="SearchForm">
 						<fieldset>
 							<legend class="text_hiden">검색</legend>
-							<div class="mainSearchForm_wrapper">
+							<div class="mainSearchForm_wrapper">	
 								<div class="mainSearchForm_input_box">
 									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="제품 이름을 입력해주세요." class="mainSearchForm_input">
 									<!-- x버튼 -->

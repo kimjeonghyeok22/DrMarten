@@ -21,10 +21,10 @@
 			<img src="http://localhost/${lists.attach[0].fpath}${lists.name}_main.png"/>
 		<br>
 			<div class="fz26 fw700 product_name">
-				<c:set value="${list.name}" var="deleName"/>
-				<%String name =  (String)pageContext.getAttribute("deleName");
-				name = name.replace("_"," ");%>
-				<%=name%>
+				<c:set value="${lists.name}" var="deleName"/>
+				<%String namez =  (String)pageContext.getAttribute("deleName");
+				namez = namez.replace("_"," ");%>
+				<%=namez%>
 			</div>
 			<span class="fz20 fw700 priceRight">
 			<c:set value="${lists.price}" var="priceNum"/>
