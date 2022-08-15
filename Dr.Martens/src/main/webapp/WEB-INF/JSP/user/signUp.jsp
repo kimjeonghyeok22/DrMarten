@@ -8,6 +8,7 @@
 </head>
 <body>
 <main>
+<%-- 회원가입시 이메일 인증 처음에 하는데 이메일 인증하는데--%>
 <form action="/user/emailSendAction" method="post" >
 아이디:<input type="text" id="u_email" name="u_email" placeholder="이메일 형식 입력"> 
 <button type="submit" >이메일 확인</button>

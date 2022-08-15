@@ -7,6 +7,7 @@
 <title>아이디 찾기</title>
 </head>
 <body>
+<%-- 아이디 찾기 --%>
 <form id="find_id_form" action="/user/find_id" method="post">
 <div>이름<input type="text" name="name" id="name"></div>
 <div>전화번호<input type="text" name="phone_num" id="phone_num" placeholder="숫자만 입력"></div>

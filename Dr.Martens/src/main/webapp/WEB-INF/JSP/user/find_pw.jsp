@@ -8,6 +8,7 @@
 </head>
 <body>
 <main>
+<%-- 비밀 번호 찾기--%>
 <form id="find_pw_form" action="/user/find_pw" method="post">
 <div>아이디<input type="text" name="u_email" id="u_email"></div>
 <div>이름<input type="text" name="name" id="name"></div>

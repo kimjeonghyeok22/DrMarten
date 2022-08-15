@@ -8,6 +8,7 @@
 </head>
 <body>
 <main>
+<%-- 회원가입시 이메일 인증후 나머지 부분 입력--%>
 <form action="/user/sign_Up" method="post">
 <div>아이디:<input id="u_email" name="u_email" value="${u_email }" readonly></div>
 <div>비밀번호:<input type="password" id="u_pw" name="u_pw"></div>

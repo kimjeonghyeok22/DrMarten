@@ -7,6 +7,7 @@
 <title>회원 정보 수정</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+<%--삭제 기능 제이슨--%>
 function deleteId(){
 	if(!confirm('정말로 탈퇴하시겠습니까?'))return;
 	$.ajax({
@@ -38,8 +39,10 @@ function deleteId(){
 <div>성별:<input id="gender" name="gender" value="${user.gender }" readonly></div>
 <div>생년월일:<input value="${user.birth }" name="birth" id="birth" readonly></div>
 <button type="submit">수정 저장</button>
+<%-- 수정 버튼 --%>
 </form>
 <button type="button" onclick="deleteId();">회원 탈퇴</button>
+<%--삭제 버튼 --%>
 </main>
 </body>
 </html>

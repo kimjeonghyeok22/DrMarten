@@ -21,11 +21,12 @@ public class UserService {
 	@Autowired
 	UserTableRepository rep;
 
+	//아이디 저장
 	public boolean save(@Valid User user) {
 		boolean signUp = rep.save(user) != null;
 		return signUp;
 	}
-
+	//아이디 찾기
 	public String findId(String name, int phone_num) {
 		String ufId = rep.findId(name, phone_num);
 		if (ufId == null) {
@@ -34,7 +35,7 @@ public class UserService {
 			return ufId;
 		}
 	}
-
+	//비밀번호 찾기
 	public String findPw(String u_email, String name, int phone_num) {
 		String ufPw = rep.findPw(u_email, name, phone_num);
 		if (ufPw == null) {
@@ -43,7 +44,7 @@ public class UserService {
 			return ufPw;
 		}
 	}
-
+	//로그인 
 	public String login(String u_email, String pw, HttpSession session) {
 		Optional<User> user = rep.findById(u_email);
 		if(user.isEmpty())
@@ -63,7 +64,7 @@ public class UserService {
 		return null;
 
 	}
-
+	//삭제
 	public boolean deleteById(Object attribute) {
 		rep.deleteById(attribute);
 		return true;
