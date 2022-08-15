@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/resources/css/products.css" />
     <link rel="stylesheet" href="/resources/css/style_guide.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/resources/js/product/main_page.js"></script>
+    <script src="/resources/js/product/detail_view.js"></script>
     <script type="text/javascript">
         function addCart() {
             $.ajax({
@@ -84,15 +84,6 @@
                             </c:otherwise>
                         </c:choose>
                     </c:forEach> 
-                    <div class="fz26 fw700 price" style="text-align:right;">
-                        <c:set value="${product.price}" var="priceNum" />
-                        <%Integer price = (Integer)pageContext.getAttribute("priceNum");
-				DecimalFormat formatter = new DecimalFormat("###,###");
-				%>
-                        <span class="fw500">₩</span>
-                        <%=formatter.format(price)%>
-                    </div>
-
 <div>
                 <!-- 장바구니에 추가//코드 , 이름 ,수량 사이즈, 세션. -->
                 <form id="addCartForm" action="/cart/cartAdd" method="post">
@@ -100,12 +91,27 @@
                     <input type="hidden" name="price" value="${product.price}">
                     <input type="hidden" name="name" value="${product.name}">
                     <input type="hidden" name="product_code" value="${product.product_code}">
-                    <input type="number" name="number" min="0" placeholder="수량을 입력하세요">
+                    <div class="fz20 dib temp1">
+                  		수량
+                   		<input id="count"class="count" type="number" name="number" value="1">
+	                    <div class="fz36 dib">
+		                    <button type="button" onclick="javascript:down_btn()">-</button>
+		                    <button type="button" onclick="javascript:up_btn()">+</button>
+	                    </div>
+                    </div>
+                    <div class="fz26 fw700 price dib" style="text-align:right;">
+                        <c:set value="${product.price}" var="priceNum" />
+                        <%Integer price = (Integer)pageContext.getAttribute("priceNum");
+				DecimalFormat formatter = new DecimalFormat("###,###");
+				%>
+                        <span class="fw500">₩</span>
+                        <%=formatter.format(price)%>
+                    </div>
                     <!--
                     		제이쿼리로 사이즈버튼눌렀을때값넘어오게수정예정
                     	   <select name="sized" required="required">
                         <option value="240" selected="selected">240</option>
-                        <option value="240">250</option>
+                        <option value="240">250</option> 
                         <option value="240">260</option>
                         <option value="240">270</option>
                         <option value="240">280</option>
