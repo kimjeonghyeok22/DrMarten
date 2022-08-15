@@ -44,7 +44,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+ 
 	@Autowired
 	UserService svc;
 	@Autowired
@@ -62,6 +62,7 @@ public class UserController {
 	public String signUpForm() {
 		return "/user/signUp";
 	}
+	
 	//로그인 페이지 이동
 	@GetMapping("/login")
 	public String login_form() {
