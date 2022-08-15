@@ -53,7 +53,7 @@ public class ItemCartService {
 		int items = getCart().get(itemChek).getProductNumbers();
 		int itemsChek = item.getProductNumbers();
 		int total = items - itemsChek;
-
+ 
 		// 만약 물건을 모두 삭제했다면
 		if (total == 0)
 			getCart().remove(itemChek);

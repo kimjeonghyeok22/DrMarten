@@ -34,7 +34,7 @@ public class CartController {
 		model.addAttribute("allPrice", svc.getAllPrice());
 		model.addAttribute("Cart", svc.getCart());
 		return "/cart/CartPage";
-	}
+	} 
 
 	@PostMapping("cartAdd")
 	@ResponseBody

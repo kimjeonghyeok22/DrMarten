@@ -125,7 +125,7 @@ public class MainController {
 		Board board = dao.getNotice(num);
 		model.addAttribute("board", board);
 		return "main/notice_detail";
-	}
+	} 
 	
 	
 	//로그인
