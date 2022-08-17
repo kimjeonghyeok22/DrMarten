@@ -188,10 +188,12 @@ li:hover {
     bottom: -10px;
     width: 30px;
     height: 40px;
+    
 }
 
 .rightInfo {
 	width : 100%; height : 700px; overflow-y:scroll;
+	-ms-overflow-style: none;
 }
 .rightInfo img.detail_img {
 	display : inline-block;
@@ -199,7 +201,9 @@ li:hover {
 	margin : 0 auto;
 	margin-bottom : 10px;
 }
-
+.rightInfo::-webkit-scrollbar {
+    display: none;
+}
 
 .underline {
     text-decoration-line: underline;
@@ -234,10 +238,14 @@ input[class="count"]::-webkit-inner-spin-button {
     margin: 0;
 }
 .count{
-	width: 10%;
-	text-align: center;
+	width: 23%;
+	text-align: right;
 }
 .temp1{
 	width: 200px;
 	height: 40px;
+}
+.price{
+	position: relative;
+	left: 29.5%;
 }
