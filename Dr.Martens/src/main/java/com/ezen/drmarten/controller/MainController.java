@@ -154,4 +154,19 @@ public class MainController {
 	public String balsam() {
 		return "main/balsam";
 	}
+	
+	@GetMapping("/service/agreement")
+	public String svcAgreement() {
+		return "main/service/agreement";
+	}
+	
+	@GetMapping("/service/privacy")
+	public String svcPrivacy() {
+		return "main/service/privacy";
+	}
+	
+	@GetMapping("/service/contacts")
+	public String svcContacts() {
+		return "main/service/contacts";
+	}
 }
