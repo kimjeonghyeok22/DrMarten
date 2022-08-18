@@ -169,4 +169,19 @@ public class MainController {
 	public String svcContacts() {
 		return "main/service/contacts";
 	}
+	
+	@GetMapping("/realtime-search")
+	public String realtime() {
+		return "main/realtime";
+	}
+	
+	@GetMapping("/sizeguide")
+	public String sizeguide() {
+		return "main/sizeguide";
+	}
+	
+	@GetMapping("/sitemap")
+	public String sitemap() {
+		return "main/sitemap";
+	}
 }
