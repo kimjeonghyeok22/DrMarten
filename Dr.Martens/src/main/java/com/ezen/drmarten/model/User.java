@@ -26,6 +26,7 @@ public class User {
 	private String adress;
 	private int phone_num;
 	private java.sql.Date birth;
-
+	private int point;
+	
 	private int userEmailChecked;
 }
