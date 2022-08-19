@@ -89,6 +89,9 @@
 			%>₩<%=formatter.format(price)%></span>
 			<br>${product.color}
 			<span class="priceRight">
+			<input type="hidden" name = "name" value="${product.name}">
+			<input type="hidden" name = "name" value="${product.product_code}">
+			<input type="hidden" name = "name" value="${product.price}">
 			<button type="button" id="goCart" onclick="">장바구니에 담기</button>
 			</span>
 		</form>
