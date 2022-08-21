@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -7,7 +7,7 @@
  	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>°ü¸®ÀÚ ÆäÀÌÁö : °øÁö»çÇ× ¸ñ·Ï</title>
+    <title>ê´€ë¦¬ìž íŽ˜ì´ì§€ : ê³µì§€ì‚¬í•­ ëª©ë¡</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,19 +18,19 @@
     <header id="header">
         <div class="inner">
 <div class="img_wrap"> <a href="/admin/main" ><img src="/resources/img/logo.svg" alt=""> </a></div>
-            <div class="title_wrap"> <span>´ÚÅÍ¸¶Æ¾ °ü¸®ÀÚÆäÀÌÁö</span> </div>
+            <div class="title_wrap"> <span>ë‹¥í„°ë§ˆí‹´ ê´€ë¦¬ìžíŽ˜ì´ì§€</span> </div>
             <div class="controller_wrap">
                 <div class="log_out">
                     <div class="welcome">
-                    	<span class="time sml gray">·Î±×ÀÎ : ${time}</span>
-                        <span>°ü¸®ÀÚ´Ô ¾È³çÇÏ¼¼¿ä : )</span>
+                    	<span class="time sml gray">ë¡œê·¸ì¸ : ${time}</span>
+                        <span>ê´€ë¦¬ìžë‹˜ ì•ˆë…•í•˜ì„¸ìš” : )</span>
                     </div>
-                    <button type="button">·Î±×¾Æ¿ô</button>
+                    <button type="button">ë¡œê·¸ì•„ì›ƒ</button>
                 </div>
                 <div class="search_box">
                     <div class="dmField_input_box">
-                        <input name="userid" type="text" class="dmField_input" placeholder="°Ë»ö" >
-                        <button type="button" class="cmBtn line yellow">°Ë»ö</button>
+                        <input name="userid" type="text" class="dmField_input" placeholder="ê²€ìƒ‰" >
+                        <button type="button" class="cmBtn line yellow">ê²€ìƒ‰</button>
                     </div>
                 </div>
             </div>
@@ -39,86 +39,86 @@
     <div class="wrap">
         <div id="gnb">
             <ul id="menu">
-                <li> <span>°í°´ °ü¸®</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
+                <li> <span>ê³ ê° ê´€ë¦¬</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                     <div class="sub_wrap">
                         <ul id="sub_menu">
-                            <li><a href="#">¼­ºê1</a></li>
-                            <li><a href="#">¼­ºê2</a></li>
-                            <li><a href="#">¼­ºê3</a></li>
-                            <li><a href="#">¼­ºê4</a></li>
+                            <li><a href="#">ì„œë¸Œ1</a></li>
+                            <li><a href="#">ì„œë¸Œ2</a></li>
+                            <li><a href="#">ì„œë¸Œ3</a></li>
+                            <li><a href="#">ì„œë¸Œ4</a></li>
                         </ul>
                     </div>
                 </li>
-                <li> <span>°Ô½ÃÆÇ °ü¸®</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
+                <li> <span>ê²Œì‹œíŒ ê´€ë¦¬</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                     <div class="sub_wrap">
                         <ul id="sub_menu">
-                            <li><a href="/admin/notice/list">°øÁö»çÇ× °ü¸®</a></li>
-                            <li><a href="/admin/notice/write">°øÁö»çÇ× ÀÛ¼º</a></li>
-                            <li><a href="/admin/myqna/list">1:1¹®ÀÇ °ü¸®</a></li>
-                            <li><a href="/admin/qa/write">ÀÚÁÖ¹¯´Â Áú¹® ÀÛ¼º</a></li>
-                            <li><a href="/admin/qa/list">ÀÚÁÖ¹¯´Â Áú¹® °ü¸®</a></li>
+                            <li><a href="/admin/notice/list">ê³µì§€ì‚¬í•­ ê´€ë¦¬</a></li>
+                            <li><a href="/admin/notice/write">ê³µì§€ì‚¬í•­ ìž‘ì„±</a></li>
+                            <li><a href="/admin/myqna/list">1:1ë¬¸ì˜ ê´€ë¦¬</a></li>
+                            <li><a href="/admin/qa/write">ìžì£¼ë¬»ëŠ” ì§ˆë¬¸ ìž‘ì„±</a></li>
+                            <li><a href="/admin/qa/list">ìžì£¼ë¬»ëŠ” ì§ˆë¬¸ ê´€ë¦¬</a></li>
                         </ul>
                     </div>
                 </li>
-                <li> <span>»óÇ° °ü¸®</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
+                <li> <span>ìƒí’ˆ ê´€ë¦¬</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                     <div class="sub_wrap">
                         <ul id="sub_menu">
-                            <li><a href="/admin/product/form">»óÇ° µî·Ï</a></li>
-                            <li><a href="#">»óÇ° ¸ñ·Ï</a></li>
+                            <li><a href="/admin/product/form">ìƒí’ˆ ë“±ë¡</a></li>
+                            <li><a href="#">ìƒí’ˆ ëª©ë¡</a></li>
                         </ul>
                     </div>
                 </li>
-                <li> <span>ÁÖ¹® °ü¸®</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
+                <li> <span>ì£¼ë¬¸ ê´€ë¦¬</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                     <div class="sub_wrap">
                         <ul id="sub_menu">
-                            <li><a href="#">ÀüÃ¼ÁÖ¹®¸ñ·Ï</a></li>
+                            <li><a href="#">ì „ì²´ì£¼ë¬¸ëª©ë¡</a></li>
                         </ul>
                     </div>
                 </li>
-                <li><span>Åë°èºÐ¼®</span></li>
+                <li><span>í†µê³„ë¶„ì„</span></li>
             </ul>
         </div>
         </div>
         <div id="main">
             <div class="container">
                 <div class="inner">
-					<!-- Á¦Ç° µî·Ï Æû ÀÔ´Ï´Ù. -->
+					<!-- ì œí’ˆ ë“±ë¡ í¼ ìž…ë‹ˆë‹¤. -->
 					<form action="/DrMarten/product/files/add" method="post"
 						enctype="multipart/form-data" id="product_form">
-						<h2 class="title">Á¦Ç° µî·Ï</h2>
+						<h2 class="title">ì œí’ˆ ë“±ë¡</h2>
 			            <div class="dmField dmInput w10">
-			            	<label class="dmField_label">ºÐ·ù</label>
+			            	<label class="dmField_label">ë¶„ë¥˜</label>
 			            	<select name="gender" class="dmField_select">
-			                	<option>³²¼º</option>
-			                	<option>¿©¼º</option>
-			                	<option>È¥¿ë</option>
+			                	<option>ë‚¨ì„±</option>
+			                	<option>ì—¬ì„±</option>
+			                	<option selected>í˜¼ìš©</option>
 			                </select>
 			            </div>
 			            <div class="dmField dmInput w10">
-			            	<label class="dmField_label">Ä«Å×°í¸®</label>
+			            	<label class="dmField_label">ì¹´í…Œê³ ë¦¬</label>
 			            	<select name="category" class="dmField_select">
 			                	<option>sandals</option>
 			                	<option>boots</option>
 			            </select>
 			            </div>	
 						<div class="dmField dmInput name">
-							<label class="dmField_label">Á¦Ç°ÀÌ¸§</label>
-						    <input type="text" name="name" value="" class="dmField_input" placeholder="Á¦Ç°_ÀÌ¸§À»_ÀÔ·ÂÇØÁÖ¼¼¿ä">
+							<label class="dmField_label">ì œí’ˆì´ë¦„</label>
+						    <input type="text" name="name" value="" class="dmField_input" placeholder="ì œí’ˆ_ì´ë¦„ì„_ìž…ë ¥í•´ì£¼ì„¸ìš”">
 						</div>
 						<div class="dmField dmInput mb30">
-							<label class="dmField_label">Á¦Ç° ÀÌ¹ÌÁö</label>
+							<label class="dmField_label">ì œí’ˆ ì´ë¯¸ì§€</label>
 							<input type="file" name="files" multiple="multiple" class="dmField_input">
 						</div>
 						<div class="dmField dmInput w33">
-							<label class="dmField_label">Á¦Á¶±¹°¡</label>
-						    <input type="text" name="made" value="" class="dmField_input" placeholder="Á¦Á¶±¹°¡">
+							<label class="dmField_label">ì œì¡°êµ­ê°€</label>
+						    <input type="text" name="made" value="" class="dmField_input" placeholder="ì œì¡°êµ­ê°€">
 						</div>
 								<div class="dmField dmInput w33">
-							<label class="dmField_label">¿øÀç·á</label>
-						    <input type="text" name="material" value="" class="dmField_input" placeholder="¿øÀç·á">
+							<label class="dmField_label">ì›ìž¬ë£Œ</label>
+						    <input type="text" name="material" value="" class="dmField_input" placeholder="ì›ìž¬ë£Œ">
 						</div>
 								<div class="dmField dmInput w33">
-							<label class="dmField_label">»ö»ó</label>
+							<label class="dmField_label">ìƒ‰ìƒ</label>
 							<select name="color" class="dmField_select">
 			                	<option>black</option>
 			                	<option>brown</option>
@@ -133,13 +133,13 @@
 			            </select>
 						</div>				
 			            <div class="dmField dmInput">
-							<label class="dmField_label">°¡°Ý</label>
-						    <input type="text" name="price" value="" class="dmField_input" placeholder="°¡°Ý">
+							<label class="dmField_label">ê°€ê²©</label>
+						    <input type="text" name="price" value="" class="dmField_input" placeholder="ê°€ê²©">
 						</div>
 						<div class="size_count_wrap">
 							<div class="size_count_sub">
 							            <div class="dmField dmInput">
-							<label class="dmField_label">»çÀÌÁî</label>
+							<label class="dmField_label">ì‚¬ì´ì¦ˆ</label>
 							<select name="size[0].product_size" class="dmField_select">
 			                	<option>220</option>
 			                	<option>230</option>
@@ -152,13 +152,13 @@
 			            	</select>
 						</div>
 			            <div class="dmField dmInput">
-							<label class="dmField_label">¼ö·®</label>
-						    <input type="text" name="size[0].product_count" value="" class="dmField_input">
+							<label class="dmField_label">ìˆ˜ëŸ‰</label>
+						    <input type="text" name="size[0].product_count" value="0" class="dmField_input">
 						</div>
 							</div>
 							<div class="size_count_sub">
 							            <div class="dmField dmInput">
-							<label class="dmField_label">»çÀÌÁî</label>
+							<label class="dmField_label">ì‚¬ì´ì¦ˆ</label>
 							<select name="size[1].product_size" class="dmField_select">
 			                	<option>220</option>
 			                	<option>230</option>
@@ -171,14 +171,38 @@
 			            	</select>
 						</div>
 			            <div class="dmField dmInput">
-							<label class="dmField_label">¼ö·®</label>
-						    <input type="text" name="size[1].product_count" value="" class="dmField_input">
+							<label class="dmField_label">ìˆ˜ëŸ‰</label>
+						    <input type="text" name="size[1].product_count" value="0" class="dmField_input">
 						</div>
 							</div>
+							
+							<!-- ì˜¨ë¼ì¸ ì „ìš© ìƒí’ˆ -->
+						<div class="dmField dmInput">
+							<label class="dmField_label">ì˜¨ë¼ì¸ ì „ìš©</label>
+							<select name="onlineonly" class="dmField_select">
+			                	<option selected>ì•„ë‹ˆìš”</option>
+			                	<option>ì˜ˆ</option>
+			            	</select>
+						</div>
+							<!-- ì¹œí™˜ê²½ ì œí’ˆ -->
+						<div class="dmField dmInput">
+							<label class="dmField_label">ì¹œí™˜ê²½ ì œí’ˆ</label>
+							<select name="vegan" class="dmField_select">
+			                	<option selected>ì•„ë‹ˆìš”</option>
+			                	<option>ì˜ˆ</option>
+			            	</select>
+						</div>
+							<!-- í• ì¸ìœ¨ -->
+						<div class="dmField dmInput">
+							<label class="dmField_label">í• ì¸ìœ¨</label>
+						    <input type="text" name="discount" value="0" class="dmField_input">
+						</div>
+						
+						
 						</div>
                         <div class="btn_wrap">
-                            <button type="reset" class="cmBtn black sml">Ãë¼Ò</button>
-                            <button type="submit" class="cmBtn black sml">ÀúÀå</button>
+                            <button type="reset" class="cmBtn black sml">ì·¨ì†Œ</button>
+                            <button type="submit" class="cmBtn black sml">ì €ìž¥</button>
                         </div>
 				</form>
 			</div>

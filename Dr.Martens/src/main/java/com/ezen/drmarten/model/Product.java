@@ -21,8 +21,8 @@ public class Product {
 	private String gender; 
 	private String onlineonly;
 	private String vegan;
-	
 	private Integer discount;
+	
 	private List<Product_attach> attach = new ArrayList<>();
 	private List<Product_size> size = new ArrayList<>();
 	

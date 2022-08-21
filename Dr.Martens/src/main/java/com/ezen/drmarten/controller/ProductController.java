@@ -99,7 +99,9 @@ public class ProductController {
 	public String add(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) {
 		ServletContext context = request.getServletContext();
-		String fileSavePath = context.getRealPath("/WEB-INF/files/"+pro.getName());
+		//String fileSavePath = context.getRealPath("/static/img/"+pro.getName()+"/");
+		
+		String fileSavePath = ("C:\\Users\\admin\\git\\DrMarten\\Dr.Martens\\src\\main\\resources\\static\\img\\"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
 		try {
 			//프로덕트 객체 생성.
@@ -108,9 +110,26 @@ public class ProductController {
 			product.setMade(pro.getMade());
 			product.setMaterial(pro.getMaterial());
 			product.setColor(pro.getColor());
+			System.out.println(pro.getGender());
 			product.setGender(pro.getGender());
 			product.setCategory(pro.getCategory());
 			product.setPrice(pro.getPrice());
+			product.setDiscount(pro.getDiscount());
+			
+			
+			if(pro.getOnlineonly().contentEquals("예")) {
+				product.setOnlineonly("yes");
+			}else {
+				product.setOnlineonly("no");
+			}
+			
+			if(pro.getVegan().contentEquals("예")) {
+				product.setVegan("yes");
+			}else {
+				product.setVegan("no");
+			}
+			
+			
 			
 			//제품 번호 생성
 			java.util.Date date= new Date();
@@ -137,7 +156,7 @@ public class ProductController {
 					  Path temp = Paths.get(fileSavePath);
 					  Files.createDirectory(temp);
 				  }
-				boolean added = svc.add_stock(pro);	
+			boolean added = svc.add_stock(pro);	
 				
 				
 				for (int i = 0; i < mfiles.length; i++) {
