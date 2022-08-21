@@ -186,7 +186,7 @@ public class ProductController {
 	public String addFiles(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) throws IllegalStateException, IOException {
 		ServletContext context = request.getServletContext();
-		String fileSavePath = context.getRealPath("/resources/img/"+pro.getName()+"/");
+		String fileSavePath = ("C:\\Users\\admin\\git\\DrMarten\\Dr.Martens\\src\\main\\resources\\static\\img\\"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
 		int code = dao.getCodeByName(pro.getName());
 		boolean add_attach = false; 

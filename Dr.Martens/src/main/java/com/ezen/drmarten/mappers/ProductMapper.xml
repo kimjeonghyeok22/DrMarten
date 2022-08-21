@@ -28,7 +28,7 @@
 	</insert>
 	
 	<insert id="add_attach" parameterType="com.ezen.drmarten.model.Product_attach">
-		INSERT INTO PRODUCT_ATTACH VALUES(#{product_code}+PRODUCT_NUM.CURRVAL, #{fname}, #{fpath})
+		INSERT INTO PRODUCT_ATTACH VALUES(#{product_code}, #{fname}, #{fpath})
 	</insert>
 	
 	<insert id="add_attach2" parameterType="com.ezen.drmarten.model.Product_attach">
