@@ -447,4 +447,9 @@ public class AdminController {
 		mv.addObject("user", rep.findById(u_email));
 		return mv;
 	}
+	//------------------------productFrom이동 메소드-------------
+	@GetMapping("/temp")
+	public String ProductForm() {
+		return "/product/productForm";
+	}
 }
