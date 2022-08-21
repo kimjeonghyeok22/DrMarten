@@ -2,6 +2,7 @@ package com.ezen.drmarten.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -99,9 +100,12 @@ public class ProductController {
 	public String add(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) {
 		ServletContext context = request.getServletContext();
-		//String fileSavePath = context.getRealPath("/static/img/"+pro.getName()+"/");
+		//상대경로로 이미 다른 파일들이 많이 지정되어있어서 물리적으로 상대경로를 뜯어 고침.
+		String rPath = context.getRealPath("");
+		String fileSavePath = rPath.substring(0,rPath.length()-7)+"/resources/static/img/"+pro.getName()+"/";
 		
-		String fileSavePath = ("C:\\Users\\admin\\git\\DrMarten\\Dr.Martens\\src\\main\\resources\\static\\img\\"+pro.getName()+"/");
+		//properties파일에 지정한 상대경로를 불러오는 코드.
+		//String fileSavePath = context.getRealPath("/resources/static/img/"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
 		try {
 			//프로덕트 객체 생성.
