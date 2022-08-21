@@ -54,7 +54,7 @@
 				</button>
 				<!-- 검색 -->
 				<div class="main_search_form">
-					<form method="get" action="" class="SearchForm">
+					<form action="/DrMarten/product/files/searchName" method="post" class="SearchForm"> 
 						<fieldset>
 							<legend class="text_hiden">검색</legend>
 							<div class="mainSearchForm_wrapper">

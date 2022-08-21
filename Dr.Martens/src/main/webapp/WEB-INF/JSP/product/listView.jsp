@@ -17,7 +17,7 @@
 </div>
 <div id="productList">
 	<c:forEach items="${list}" var="lists">
-		<form id="list" onclick="location.href='/product/detail_product/${lists.product_code}'">
+		<form id="list" onclick="location.href='/DrMarten/product/detail_product/${lists.product_code}'">
 			<img src="http://localhost/${lists.attach[0].fpath}${lists.name}_main.png"/>
 		<br>
 			<div class="fz26 fw700 product_name">

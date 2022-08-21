@@ -41,7 +41,7 @@ import com.github.pagehelper.PageInfo;
 
 @SessionAttributes("itemCart")
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/DrMarten/product")
 public class ProductController {
 
 	@Autowired
