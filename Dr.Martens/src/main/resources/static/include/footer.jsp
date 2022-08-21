@@ -39,38 +39,38 @@
 					<ul class="ft_top_menu">
 						<li><a href="javascript:;" class="">챗봇 상담</a></li>
 						<li><a href="javascript:;" class="">1 : 1 문의</a></li>
-						<li><a href="javascript:;" class="">자주 묻는 질문</a></li>
-						<li><a href="javascript:;" class="">공지사항</a></li>
+						<li><a href="/DrMarten/qna" class="">자주 묻는 질문</a></li>
+						<li><a href="/DrMarten/notice"  class="">공지사항</a></li>
 					</ul>
 				</div>
 				<div class="ft_right">
 					<h3 class="ft_tit">닥터마틴에 대하여</h3>
 					<ul class="ft_top_menu">
-						<li><a href="javascript:;" class="">브랜드 헤리티지</a></li>
-						<li><a href="javascript:;" class="">이벤트</a></li>
-						<li><a href="javascript:;" class="">SUSTAINABILITY</a></li>
-						<li><a href="javascript:;" class="">MODERN SLAVERY ACT</a></li>
-						<li><a href="javascript:;" class="">SOCIAL RESPONSIBILITY</a></li>
-						<li><a href="javascript:;" class="">사이즈가이드</a></li>
+						<li><a href="javascript:tnot_sup;" class="">브랜드 헤리티지</a></li>
+						<li><a href="/DrMarten/realtime-search" class="">이벤트</a></li>
+						<li><a href="https://www.drmartensplc.com/sustainability" class="">SUSTAINABILITY</a></li>
+						<li><a href="https://www.drmartens.co.kr/data/pdf/Modern_Slavery_Doc_2019_20_v7.pdf" class="">MODERN SLAVERY ACT</a></li>
+						<li><a href="https://www.drmartensplc.com/sustainability" class="">SOCIAL RESPONSIBILITY</a></li>
+						<li><a href="/DrMarten/sizeguide" class="">사이즈가이드</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="ft_btm">
 				<div class="ft_nav">
 					<ul class="ft_btm_list">
-						<li class="ft_btm_list_item"><a href="javascript:;">이용약관</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">개인정보취급방침</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">매장찾기</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">CONTACT</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:;">사이트 맵</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/agreement">이용약관</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/privacy">개인정보취급방침</a></li>
+						<li class="ft_btm_list_item"><a href="">매장찾기</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/contacts">CONTACT</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/sitemap">사이트 맵</a></li>
 					</ul>
 				</div>
 				
 				<div class="sns_box">
-					<a href="javascript:;" class="ml0"><i class="fa-brands fa-twitter"></i><span class="text_hiden">트위터</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-youtube"></i><span class="text_hiden">유투브</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-facebook-f"></i><span class="text_hiden">페이스북</span></a>
-					<a href="javascript:;"><i class="fa-brands fa-instagram"></i><span class="text_hiden">인스타그램</span></a>
+					<a href="https://twitter.com/drmartens" class="ml0"><i class="fa-brands fa-twitter"></i><span class="text_hiden">트위터</span></a>
+					<a href="https://www.youtube.com/user/DrMartensOfficial"><i class="fa-brands fa-youtube"></i><span class="text_hiden">유투브</span></a>
+					<a href="https://www.facebook.com/DR.MARTENSKR"><i class="fa-brands fa-facebook-f"></i><span class="text_hiden">페이스북</span></a>
+					<a href="https://www.instagram.com/drmartenskr/"><i class="fa-brands fa-instagram"></i><span class="text_hiden">인스타그램</span></a>
 				</div>
 			</div>
 		</div>

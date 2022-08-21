@@ -34,11 +34,11 @@
 			<div class="hd_inner">
 				<nav class="util_menu">
 					<ul class="util_menu_box">
-						<li class="util_item"><a href="javascript:;">로그인</a></li>
-						<li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
+						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
+						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
-						<li class="util_item"><a href="javascript:;">고객센터</a></li>
+						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
 					</ul>
 				</nav>
 			</div>

@@ -26,6 +26,10 @@ VALUES (
 <select id="getNoticeList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM NOTICE order By Board_num DESC
 </select>
+<select id="getLatestNotice"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM (
+	SELECT * FROM NOTICE order By Board_num DESC) <![CDATA[WHERE ROWNUM <= 2]]>
+</select>
 <select id="getQnaList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM QA order By Board_num DESC
 </select>

@@ -101,7 +101,9 @@ $(function () {
         }
     });
 
-
+	function not_sup(){
+		alert('지원하지 않는 링크입니다 : (');
+	}
 
     
   });
