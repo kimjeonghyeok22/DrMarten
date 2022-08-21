@@ -448,8 +448,8 @@ public class AdminController {
 		return mv;
 	}
 	//------------------------productFrom이동 메소드-------------
-	@GetMapping("/temp")
+	@GetMapping("/product/form")
 	public String ProductForm() {
-		return "/product/productForm";
+		return "/dr/productForm";
 	}
 }

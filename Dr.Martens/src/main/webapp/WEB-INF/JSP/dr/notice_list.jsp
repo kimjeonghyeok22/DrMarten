@@ -78,6 +78,7 @@
                 <li><span>통계분석</span></li>
             </ul>
         </div>
+        </div>
         <div id="main">
             <div class="container">
                 <div class="inner">
@@ -105,6 +106,5 @@
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>

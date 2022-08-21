@@ -25,7 +25,7 @@
 <div class="inner" style="width : 1100px; padding-top : 0;">
 <div class="btn_wrap" style="display : flex; flex-direction:row; justify-content : space-between; width : 100%; margin-top : -80px;">
 	<a href="#" class="cmBtn mid yellow fw700" style="width : 355px;">구매하기</a>
-		<a href="#" class="cmBtn mid yellow fw700" style="width : 355px;">샌들 전체보기</a>
+		<a href="/DrMarten/product/category/sandals" class="cmBtn mid yellow fw700" style="width : 355px;">샌들 전체보기</a>
 		<a href="#" class="cmBtn mid yellow fw700" style="width : 355px;">구매하기</a>
 </div>
 </div>

@@ -35,9 +35,9 @@ public class MainController {
 		return "thymeleaf/main/index";
 	}
 	
-	@GetMapping("/sendal")
-	public String sendal() {
-		return "main/sendal";
+	@GetMapping("/sandal")
+	public String sandal() {
+		return "main/sandal";
 	}
 	
 	@GetMapping("/qna")

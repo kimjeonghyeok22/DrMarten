@@ -46,7 +46,7 @@
 		<div class="hd_content">
 			<div class="hd_inner hd_content_box">
 				<div class="logo">
-					<a href="/" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
+					<a href="/DrMarten" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
 				</div>
 				<button type="button" tabindex="2" class="HamburgerButton category_menu">
 					<span class="category_btn_line"></span>
