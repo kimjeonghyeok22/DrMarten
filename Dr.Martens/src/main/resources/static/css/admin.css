@@ -188,6 +188,8 @@ height:inherit;align-items: center;}
 #write_form .wrap:nth-of-type(1) .dmInput:nth-of-type(1){width: 200px;}
 #write_form .wrap:nth-of-type(1) .dmInput:nth-of-type(2){width: calc(100% - 210px);}
 
+
+
 /* 공지 목록 스타일 */
 table {width : 100%; border-collapse: collapse; border-spacing: 0px;}
 td.title{width: 80%;}
