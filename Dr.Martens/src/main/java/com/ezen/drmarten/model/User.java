@@ -28,5 +28,5 @@ public class User {
 	private java.sql.Date birth;
 	private int point;
 	
-	private int userEmailChecked;
+	private int user_Email_Checked;
 }

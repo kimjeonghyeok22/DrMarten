@@ -136,7 +136,7 @@ public class UserController {
 	@ResponseBody
 	public String signUp(@Valid User user, BindingResult result, Model model, @RequestParam("u_pw2") String u_pw2) {
 		if (user.getU_pw().equals(u_pw2)) {
-			user.setUserEmailChecked(1);
+			user.setUser_Email_Checked(1);
 			rep.save(user);
 			return "<script>" + "alert('회원가입이 되었습니다');" + "location.href='/user/login'" + "</script>";
 		} else {
