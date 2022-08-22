@@ -25,10 +25,7 @@ public class ProductService {
 
 
 	public boolean add_stock(Product pro) {
-		//찾을 이름 가져오기.
-		String name = pro.getName();
-		//이름으로 코드번호 찾기
-		int code = dao.getCodeByName(name);
+		int code = pro.getProduct_code();
 		//List<Product_size> 를 전송하기 위한 키 code을 리스트에 삽입
 		for(int i=0; i < pro.getSize().size();i++) {
 			pro.getSize().get(i).setProduct_code(code);
@@ -129,7 +126,7 @@ public class ProductService {
 
 	@Transactional(rollbackFor = {Exception.class})
 	public boolean delete(Product pro) throws Exception {
-		int code = dao.getCodeByName(pro.getName());
+		int code = pro.getProduct_code();
 		boolean delAtt = dao.deleteAtt(code)>0;
 		if(!delAtt){throw new Exception("첨부파일 삭제하다 발생한 오류");}
 		boolean delSize = dao.deleteSize(code)>0;
@@ -143,7 +140,7 @@ public class ProductService {
 
 	public boolean sell(Product pro,Integer sellCount,Integer size) {
 		//이름을 입력 받아야 함.
-		Integer code = dao.getCodeByName(pro.getName());
+		Integer code = pro.getProduct_code();
 		boolean sellPoduct = dao.sellProduct(code,sellCount,size)>0;
 		return sellPoduct;
 	}
