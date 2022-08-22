@@ -26,7 +26,7 @@
 	입력하신 이메일을 사용하여<br>
 	본인확인을 합니다.</p><br><br>
 	<!--여기에 이메일인증 연결하기 -->
-	<a href="/user/signUp" class="cmBtn line big2 black cfff mb30">이메일 인증하기</a>	<br><br><br>
+	<a href="/DrMarten/user/signUp" class="cmBtn line big2 black cfff mb30">이메일 인증하기</a>	<br><br><br>
 	<div class="btn_back" style="position : absolute; top :0px; left:30px; width : 34px; height: 22px;">
 		<img src="/resources/img/icon/btn_back.jpeg" style="display: inline-block; width: 100%; margin : 0 auto;">
 	</div>

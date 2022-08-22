@@ -13,6 +13,6 @@
 <div>이름:${user.name}</div>
 <div>전화번호:0${user.phone_num}</div>
 <div>마일리지:${user.point}</div>
-<div><a href="/user/edit"><button type="button">회원 정보 수정</button></a></div>
+<div><a href="/DrMarten/user/edit"><button type="button">회원 정보 수정</button></a></div>
 </body>
 </html>

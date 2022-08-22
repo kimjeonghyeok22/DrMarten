@@ -25,7 +25,7 @@ function showPopUp() {
 	var left = (window.screen.width / 2) - (width/2);
 	var top = (window.screen.height / 4);
 	var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes';
-    const url = "http://localhost/user/recommend";
+    const url = "http://localhost/DrMarten/user/recommend";
 	window.open(url, "hello popup", windowStatus);
 }
 </script>
@@ -42,7 +42,7 @@ function showPopUp() {
 				<div class="wrap">
 					<div class="login_wrap mem">
 						<span>로그인</span>
-						<form id="login_form" action="/user/login" method="post">
+						<form id="login_form" action="/DrMarten/user/login" method="post">
 							<div class="dmField dmInput mb30">
 							<label class="dmField_label">아이디</label>
 							<div class="dmField_input_box">
@@ -55,9 +55,9 @@ function showPopUp() {
 								<input name="u_pw" type="password" class="dmField_input" placeholder="" >
 							</div>
 						</div>
-						<a href="/user/find_id" class="findIDPW">아이디</a>/<a href="/user/find_pw" class="findIDPW">비밀번호 찾기</a><br>
+						<a href="/DrMarten/user/find_id" class="findIDPW">아이디</a>/<a href="/DrMarten/user/find_pw" class="findIDPW">비밀번호 찾기</a><br>
 						<button type="submit" class="cmBtn fullWidth black large fw700 mb10">로그인</button><br>
-												<a href="/user/signUp" class="cmBtn fullWidth yellow large fw700">회원가입</a>
+												<a href="/DrMarten/user/signUp" class="cmBtn fullWidth yellow large fw700">회원가입</a>
 						</form>
 					</div>
 					<div class="login_wrap not_mem">						

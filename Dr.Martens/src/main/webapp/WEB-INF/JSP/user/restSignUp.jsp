@@ -9,7 +9,7 @@
 <body>
 <main>
 <%-- 회원가입시 이메일 인증후 나머지 부분 입력--%>
-<form action="/user/sign_Up" method="post">
+<form action="/DrMarten/user/sign_Up" method="post">
 <div>아이디:<input id="u_email" name="u_email" value="${u_email }" readonly></div>
 <div>비밀번호:<input type="password" id="u_pw" name="u_pw"></div>
 <div>비밀번호 확인:<input type="password" id="u_pw2" name="u_pw2"></div>
@@ -20,7 +20,7 @@
 		<input type="radio" name="gender" value="female">여성</div>
 <div>생년월일:<input type="date" value="nowTime" name="birth" id="birth"></div>
 <button type="submit">회원가입</button>
-<a href="/user/login"><button type="button">로그인 페이지로</button></a>
+<a href="/DrMarten/user/login"><button type="button">로그인 페이지로</button></a>
 
 
 </form>

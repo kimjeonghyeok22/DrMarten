@@ -42,7 +42,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/DrMarten/user")
 public class UserController {
  
 	@Autowired
@@ -125,9 +125,9 @@ public class UserController {
 			rep.deleteById(user.getU_email());
 			rep.save(user);
 			session.removeAttribute("u_email");
-			return "<script>" + "alert('회원정보가 수정 되었습니다, 다시 로그인 해주세요');" + "location.href='/user/login'" + "</script>";
+			return "<script>" + "alert('회원정보가 수정 되었습니다, 다시 로그인 해주세요');" + "location.href='/DrMarten/user/login'" + "</script>";
 		} else {
-			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/user/edit'" + "</script>";
+			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/DrMarten/user/edit'" + "</script>";
 		}
 	}
 
@@ -138,9 +138,9 @@ public class UserController {
 		if (user.getU_pw().equals(u_pw2)) {
 			user.setUser_Email_Checked(1);
 			rep.save(user);
-			return "<script>" + "alert('회원가입이 되었습니다');" + "location.href='/user/login'" + "</script>";
+			return "<script>" + "alert('회원가입이 되었습니다');" + "location.href='/DrMarten'" + "</script>";
 		} else {
-			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/user/restSignUp?u_email=" + user.getU_email()
+			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/DrMarten/user/restSignUp?u_email=" + user.getU_email()
 					+ "'" + "</script>";
 		}
 	}
@@ -150,7 +150,7 @@ public class UserController {
 	@ResponseBody
 	public String findId(@RequestParam("name") String name, @RequestParam("phone_num") int phone_num) {
 		String ufId = svc.findId(name, phone_num);
-		return "<script>" + "alert('귀하의 아이디는 " + ufId + "입니다.');" + "location.href='/user/login'" + "</script>";
+		return "<script>" + "alert('귀하의 아이디는 " + ufId + "입니다.');" + "location.href='/DrMarten/user/login'" + "</script>";
 	}
 
 	//아이디 삭제 메소드-
@@ -167,7 +167,7 @@ public class UserController {
 	public String findPw(@RequestParam("u_email") String u_email, @RequestParam("name") String name,
 			@RequestParam("phone_num") int phone_num) {
 		String ufPw = svc.findPw(u_email, name, phone_num);
-		return "<script>" + "alert('귀하의 비밀번호는 " + ufPw + "입니다.');" + "location.href='/user/login'" + "</script>";
+		return "<script>" + "alert('귀하의 비밀번호는 " + ufPw + "입니다.');" + "location.href='/DrMarten/user/login'" + "</script>";
 	}
 	//마이페이지 이동
 	@GetMapping("/mypage")
@@ -193,15 +193,15 @@ public class UserController {
 			HttpSession session) {
 		String ses = (String)session.getAttribute("u_email");
 		if(ses == null)
-			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/user/login'" + "</script>";
+			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
 		if(ses.equals(recommender))
-			return "<script>" + "alert('자기 자신을 추천할 수 없습니다.');" + "opener.parent.location='/user/login'" + "</script>";
+			return "<script>" + "alert('자기 자신을 추천할 수 없습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
 		if(rep.findById(recommender).isPresent()) {
 			rep.updatePoint(ses,500);
 			rep.updatePoint(recommender,500);
-			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "opener.parent.location='/user/login'" + "</script>";
+			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
 		}else {
-			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/user/recommend'" + "</script>";
+			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/DrMarten/user/recommend'" + "</script>";
 		}
 	}
 
@@ -210,13 +210,13 @@ public class UserController {
 	@ResponseBody
 	private String emailSendAction(@RequestParam("u_email") String u_email) {
 		if (u_email == null || u_email == "") {
-			return "<script>" + "alert('아이디를 입력해주세요');" + "location.href='/user/signUp'" + "</script>";
+			return "<script>" + "alert('아이디를 입력해주세요');" + "location.href='/DrMarten/user/signUp'" + "</script>";
 		}
 		Optional<User> op = rep.findById(u_email);
 		if (op.isPresent()) {
-			return "<script>" + "alert('이미 회원가입이된 회원입니다');" + "location.href='/user/login'" + "</script>";
+			return "<script>" + "alert('이미 회원가입이된 회원입니다');" + "location.href='/DrMarten/user/login'" + "</script>";
 		} else {
-			String host = "http://localhost/user/";
+			String host = "http://localhost/DrMarten/user/";
 			String from = "kojingon97@gmail.com";
 			String to = u_email;
 			String subject = "회원가입을 위한 이메일 인증";
@@ -248,7 +248,7 @@ public class UserController {
 				msg.setContent(content, "text/html;charset=UTF-8");
 				Transport.send(msg);
 
-				return "<script>" + "location.href='/user/emailwaitingroom'" + "</script>";
+				return "<script>" + "location.href='/DrMarten/user/emailwaitingroom'" + "</script>";
 			} catch (Exception e) {
 				e.printStackTrace();
 				return "<script>" + "alert('오류가 발생했습니다');" + "history.back();" + "</script>";
@@ -265,10 +265,10 @@ public class UserController {
 		new SHA256();
 		boolean isRight = (SHA256.getSHA245(u_email).equals(code)) ? true : false;
 		if (isRight) {
-			return "<script>" + "alert('인증에 성공했습니다');" + "location.href='/user/restSignUp?u_email=" + u_email + "'"
+			return "<script>" + "alert('인증에 성공했습니다');" + "location.href='/DrMarten/user/restSignUp?u_email=" + u_email + "'"
 					+ "</script>";
 		} else {
-			return "<script>" + "alert('유효하지않은 코드입니다');" + "location.href='/user/singUp'" + "</script>";
+			return "<script>" + "alert('유효하지않은 코드입니다');" + "location.href='/DrMarten/user/singUp'" + "</script>";
 		}
 
 	}

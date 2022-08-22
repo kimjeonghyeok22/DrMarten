@@ -8,11 +8,11 @@
 </head>
 <body>
 <%-- 아이디 찾기 --%>
-<form id="find_id_form" action="/user/find_id" method="post">
+<form id="find_id_form" action="/DrMarten/user/find_id" method="post">
 <div>이름<input type="text" name="name" id="name"></div>
 <div>전화번호<input type="text" name="phone_num" id="phone_num" placeholder="숫자만 입력"></div>
 <button type="submit">아이디 찾기</button>
-<a href="/user/login"><button type="button">로그인 창으로</button></a>
+<a href="/DrMarten/user/login"><button type="button">로그인 창으로</button></a>
 </form>
 </body>
 </html>

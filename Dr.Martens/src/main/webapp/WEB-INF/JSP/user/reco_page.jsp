@@ -8,7 +8,7 @@
 </head>
 <body>
 <%-- 팝업으로 띄어주는 추천인 입력--%>
-<form action="/user/recommend" method="post">
+<form action="/DrMarten/user/recommend" method="post">
 추천인 입력:<input type="text" name="recommender" id="recommender" placeholder="추천인 아이디 입력">
 <button type="submit">입력</button>
 </form>

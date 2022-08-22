@@ -11,7 +11,7 @@
 function deleteId(){
 	if(!confirm('정말로 탈퇴하시겠습니까?'))return;
 	$.ajax({
-		url:'/user/deleteId',
+		url:'/DrMarten/user/deleteId',
 		method:'post',
 		cache:false,
 		dataType:'json',
@@ -28,7 +28,7 @@ function deleteId(){
 </head>
 <body>
 <main>
-<form action="/user/edit" method="post">
+<form action="/DrMarten/user/edit" method="post">
 <input type="hidden" id="userEmailChecked" name="userEmailChecked" value="${user.userEmailChecked }">
 <div>아이디:<input id="u_email" name="u_email" value="${user.u_email}" readonly></div>
 <div>비밀번호:<input type="password" id="u_pw" name="u_pw"></div>

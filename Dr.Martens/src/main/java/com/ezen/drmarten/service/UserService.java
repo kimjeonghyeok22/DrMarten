@@ -48,18 +48,18 @@ public class UserService {
 	public String login(String u_email, String pw, HttpSession session) {
 		Optional<User> user = rep.findById(u_email);
 		if(user.isEmpty())
-			return "<script>" + "alert('없는 아이디입니다 ');" + "location.href='/user/login'"+ "</script>";
+			return "<script>" + "alert('없는 아이디입니다 ');" + "location.href='/DrMarten/loginForm'"+ "</script>";
 		User chek = user.get();
 
 		if (chek != null && chek.getU_pw().equals(pw)) {
 			 ItemCartService ics = new ItemCartService();
 			session.setAttribute("u_email", u_email);
 			session.setAttribute("u_cart", ics);
-			return "<script>" + "alert('성공');" + "location.href='/user/main'" + "</script>";
+			return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
 		}
 
 		if (chek != null && !(chek.getU_pw().equals(pw))) {
-			return "<script>" + "alert('비밀번호 틀림 ');" + "location.href='/user/login'" + "</script>";
+			return "<script>" + "alert('비밀번호 틀림 ');" + "location.href='/DrMarten/loginForm'" + "</script>";
 		}
 		return null;
 
