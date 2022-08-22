@@ -190,9 +190,13 @@ public class ProductController {
 	public String addFiles(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) throws IllegalStateException, IOException {
 		ServletContext context = request.getServletContext();
-		String fileSavePath = ("C:\\Users\\admin\\git\\DrMarten\\Dr.Martens\\src\\main\\resources\\static\\img\\"+pro.getName()+"/");
+		String rPath = context.getRealPath("");
+		String fileSavePath = rPath.substring(0,rPath.length()-7)+"/resources/static/img/"+pro.getName()+"/";
+		
+		//properties파일에 지정한 상대경로를 불러오는 코드.
+		//String fileSavePath = context.getRealPath("/resources/static/img/"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
-		int code = dao.getCodeByName(pro.getName());
+		int code = pro.getProduct_code();
 		boolean add_attach = false; 
 		Product_attach attach = new Product_attach();
 		if(mfiles.length>0) {
