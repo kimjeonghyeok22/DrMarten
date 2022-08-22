@@ -206,7 +206,7 @@ td.center{text-align: center;}
 /*제품등록폼*/
 #product_form{ width : 95%; height : fit-content; margin : 0 auto;}
 #product_form .dmInput{display : inline-block; width : 100%; margin-top : 10px;}
-#product_form .dmInput.name{width : calc(100% - 20.5%);}
+#product_form .dmInput.name{width : calc(100% - 21%);}
 #product_form .dmInput.w10 {width : 10%; }
 #product_form .dmInput.w33 {width : 33.1%; }
 #product_form .dmInput.mb30{margin : 10px 0 30px;}

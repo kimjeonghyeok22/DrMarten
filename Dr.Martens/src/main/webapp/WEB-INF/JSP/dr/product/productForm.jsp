@@ -97,8 +97,9 @@
                             <div class="dmField dmInput w10">
                                 <label class="dmField_label">카테고리</label>
                                 <select name="category" class="dmField_select">
-                                    <option>sandals</option>
-                                    <option>boots</option>
+                                    <option>SANDALS</option>
+                                    <option>BOOTS</option>
+                                    <option>SHOES</option>
                                 </select>
                             </div>
                             <div class="dmField dmInput name">
