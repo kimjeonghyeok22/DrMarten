@@ -15,6 +15,7 @@ public interface BoardMapper {
 	int saveReview(Board board);
 	int saveMyQna(Board board);
 	List<Board> getNoticeList();
+	List<Board> getLatestNotice();
 	List<Board> getQnaList();
 	List<Board> getReviewList();
 	List<Board> getMyQnaList();

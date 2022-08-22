@@ -30,8 +30,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.drmarten.repository.UserTableRepository;
 import com.ezen.drmarten.service.MainService;
+import com.ezen.drmarten.service.ProductService;
 import com.ezen.drmarten.mappers.BoardMapper;
+import com.ezen.drmarten.mappers.ProductMapper;
 import com.ezen.drmarten.model.Board;
+import com.ezen.drmarten.model.Product;
+import com.ezen.drmarten.model.Product_attach;
+import com.ezen.drmarten.model.Product_size;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -44,9 +49,13 @@ public class AdminController {
 	@Autowired
 	private BoardMapper dao;
 	@Autowired
+	private ProductMapper pdao;
+	@Autowired
 	private UserTableRepository rep;
 	@Autowired
 	private MainService svc;
+	@Autowired
+	private ProductService psvc;
 	
 	@GetMapping("")
 	public String loginForm() {
@@ -446,5 +455,96 @@ public class AdminController {
 		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_detail");
 		mv.addObject("user", rep.findById(u_email));
 		return mv;
+	}
+	//------------------------productFrom이동 메소드-------------
+	@GetMapping("/product/form")
+	public String productForm() {
+		return "/dr/product/productForm";
+	}
+	
+	@GetMapping("/product/list")
+	public String productList(Model model) {
+		PageHelper.startPage(1, 10);
+		PageInfo<Product> pageInfo = new PageInfo<Product>(psvc.getList());
+		model.addAttribute("pageInfo", pageInfo);
+		return "/dr/product/productList";
+	}
+	
+	@GetMapping("/product/detail/{product_code}")
+	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if(session.getAttribute(String.valueOf(product_code))!=null){
+				Product product = psvc.getProduct(product_code);
+				List<Product_attach> att = psvc.getAttByCode(product_code);
+				//제품이름_comments.png 는 제품설명의 이미지 파일 이기 때문에 배제하는 코드.
+				for(int i =0;i<att.size();i++) {
+					String[] temp = att.get(i).getFname().split("_");
+					String[] temp2 = temp[1].split(".png");
+					if(temp2[0].contentEquals("comments")) {
+						model.addAttribute("attComment",att.get(i));
+						att.remove(i);
+					}
+				}
+				List<Product_size> size = pdao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
+				model.addAttribute("att",att);
+				model.addAttribute("product", product);
+				return "/dr/product/productDetail";
+			}else {
+				session.setAttribute(String.valueOf(product_code), product_code);
+				    
+				psvc.addViewCount(product_code); 
+				Product product = psvc.getProduct(product_code);
+				List<Product_attach> att = psvc.getAttByCode(product_code);
+				List<Product_size> size = pdao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
+				model.addAttribute("att",att);
+				model.addAttribute("product", product);
+				return "/dr/product/productDetail";
+				}
+		}catch (Exception e) {
+			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
+			return "/dr/product/productDetail";
+		}
+	}
+	
+	@GetMapping("/product/edit/{product_code}")
+	public String editProduct(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if(session.getAttribute(String.valueOf(product_code))!=null){
+				Product product = psvc.getProduct(product_code);
+				List<Product_attach> att = psvc.getAttByCode(product_code);
+				//제품이름_comments.png 는 제품설명의 이미지 파일 이기 때문에 배제하는 코드.
+				for(int i =0;i<att.size();i++) {
+					String[] temp = att.get(i).getFname().split("_");
+					String[] temp2 = temp[1].split(".png");
+					if(temp2[0].contentEquals("comments")) {
+						model.addAttribute("attComment",att.get(i));
+						att.remove(i);
+					}
+				}
+				List<Product_size> size = pdao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
+				model.addAttribute("att",att);
+				model.addAttribute("product", product);
+				return "/dr/product/productEdit";
+			}else {
+				session.setAttribute(String.valueOf(product_code), product_code);
+				    
+				psvc.addViewCount(product_code); 
+				Product product = psvc.getProduct(product_code);
+				List<Product_attach> att = psvc.getAttByCode(product_code);
+				List<Product_size> size = pdao.serachSizeByCode(product_code);
+				model.addAttribute("size",size);
+				model.addAttribute("att",att);
+				model.addAttribute("product", product);
+				return "/dr/product/productEdit";
+				}
+		}catch (Exception e) {
+			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
+			return "/dr/product/productEdit";
+		}
 	}
 }

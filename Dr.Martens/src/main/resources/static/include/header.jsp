@@ -34,11 +34,11 @@
 			<div class="hd_inner">
 				<nav class="util_menu">
 					<ul class="util_menu_box">
-						<li class="util_item"><a href="javascript:;">로그인</a></li>
-						<li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
+						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
+						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
-						<li class="util_item"><a href="javascript:;">고객센터</a></li>
+						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -46,7 +46,7 @@
 		<div class="hd_content">
 			<div class="hd_inner hd_content_box">
 				<div class="logo">
-					<a href="/" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
+					<a href="/DrMarten" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
 				</div>
 				<button type="button" tabindex="2" class="HamburgerButton category_menu">
 					<span class="category_btn_line"></span>
@@ -54,7 +54,7 @@
 				</button>
 				<!-- 검색 -->
 				<div class="main_search_form">
-					<form method="get" action="" class="SearchForm">
+					<form action="/DrMarten/product/files/searchName" method="post" class="SearchForm"> 
 						<fieldset>
 							<legend class="text_hiden">검색</legend>
 							<div class="mainSearchForm_wrapper">

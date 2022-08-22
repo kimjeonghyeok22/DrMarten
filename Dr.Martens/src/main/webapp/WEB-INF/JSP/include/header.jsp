@@ -15,8 +15,7 @@
 <script src="/resources/js/style_action.js" type="text/javascript"></script>
 </head>
 <body>
-	<!-- 상단영역 -->
-	<header id="header">
+<header id="header">
 		<div class="top_bnr">
 			<svg width="22" height="19" viewBox="0 0 22 19" fill="none"
 				xmlns="http://www.w3.org/2000/svg" class="top_bnr_svg">
@@ -32,11 +31,11 @@
 			<div class="hd_inner">
 				<nav class="util_menu">
 					<ul class="util_menu_box">
-						<li class="util_item"><a href="javascript:;">로그인</a></li>
-						<li class="util_item"><a href="javascript:;" class="fw500">회원가입</a></li>
+						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
+						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
-						<li class="util_item"><a href="javascript:;">고객센터</a></li>
+						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -52,15 +51,15 @@
 				</button>
 				<!-- 검색 -->
 				<div class="main_search_form">
-					<form action="/product/files/searchName" method="post" class="SearchForm">
+					<form action="/DrMarten/product/files/searchName" method="post" class="SearchForm"> 
 						<fieldset>
 							<legend class="text_hiden">검색</legend>
-							<div class="mainSearchForm_wrapper">	
+							<div class="mainSearchForm_wrapper">
 								<div class="mainSearchForm_input_box">
-									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="제품 이름을 입력해주세요." class="mainSearchForm_input">
+									<input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해 주세요." class="mainSearchForm_input">
 									<!-- x버튼 -->
-									<button type="button" class="mainSearchForm_cancel">
-										<svg version="1.1" viewBox="0 0 24 24" class="" style="width: 24px; height: 24px;">
+									<button type="button">
+										<svg version="1.1" viewBox="0 0 24 24" class="mainSearchForm_cancel svg-icon svg-fill" style="width: 24px; height: 24px;">
 											<path pid="0" class="bg" fill="#DDD" fill-rule="evenodd" d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0z"></path>
 											<path pid="1" class="white" fill="#FFF" fill-rule="evenodd" d="M17.998 7.092L7.093 17.998l-1.091-1.091L16.907 6.002l1.091 1.09z"></path>
 											<path pid="2" class="white" fill="#FFF" fill-rule="evenodd" d="M16.907 17.998L6.002 7.092l1.091-1.09 10.905 10.905-1.091 1.091z"></path>
@@ -85,7 +84,7 @@
 				</div>
 				<!-- //검색 -->
 				<!-- 위시리스트 -->
-				<a href="javascript:;" class="hdBtn hdBtn_wish ml0">
+				<a href="javascript:;" class="hdBtn ml0">
 					<!-- 위시리스트 아이콘 -->
 					<svg version="1.1" viewBox="0 0 35 29" width="35" height="29"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--wish-pc">
@@ -96,7 +95,7 @@
 				</a>
 				<!-- //위시리스트 -->
 				<!-- 장바구니 -->
-				<a href="javascript:;" class="hdBtn hdBtn_cart">
+				<a href="javascript:;" class="hdBtn">
 					<!-- 장바구니 아이콘 -->
 					<svg version="1.1" viewBox="0 0 28 33" width="28" height="33"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
@@ -107,7 +106,7 @@
 				</a>
 				<!-- //장바구니 -->
 				<!-- 최근 본 상품 -->
-				<a href="javascript:;" class="hdBtn hdBtn_timeline">
+				<a href="javascript:;" class="hdBtn">
 					<!-- 최근 본 상품 아이콘 -->
 					<svg version="1.1" viewBox="0 0 39 28" width="39" height="28"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--timeline-pc">
@@ -118,7 +117,7 @@
 				</a>
 				<!-- //최근 본 상품 -->
 				<!-- 마이페이지 -->
-				<a href="javascript:;" class="hdBtn hdBtn_mypage">
+				<a href="javascript:;" class="hdBtn">
 					<!-- 마이페이지 아이콘 -->
 					<svg version="1.1" viewBox="0 0 33 32" width="33" height="32"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
@@ -133,37 +132,9 @@
 	</header>
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
-		<div class="gnb_top">
-			<a href="javascript:;" class="gnbTop_item gnb_cart">
-				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
-					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
-				</svg>
-				<span class="text_hiden">장바구니 열기</span>
-			</a>
-			<button type="button" class="gnbTop_item gnb_close">
-				<svg version="1.1" viewBox="0 0 56 56" width="28" height="28">
-					<path pid="0" fill="#111" fill-rule="evenodd" d="M55.994 4.213L51.769-.011l-23.78 23.779L4.21-.011-.015 4.213l23.78 23.78-23.78 23.78 4.225 4.225 23.779-23.78 23.78 23.78 4.225-4.225-23.78-23.78 23.78-23.78z"></path>
-				</svg>
-				<span class="text_hiden">카테고리 닫기</span>
-			</button>
-		</div>
-		<div class="gnb_search">
-			<div class="gnb_inner">
-				<div class="">
-					<form action="" method="get">
-						<div class="">
-							<input type="text" name="search_text" placeholder="검색어를 입력해주세요." class="">
-						</div>
-						<button type="submit" class="">
-							<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
-							<span class="text_hiden">검색하기</span>
-						</button>
-					</form>
-				</div>
-			</div>
-		</div>
 		<div id="gnb">
-						
+			<p>gnb</p>
+			<div class="category_close">close</div>
 		</div>
 	</nav>
 	<!-- //메뉴 카테고리 -->

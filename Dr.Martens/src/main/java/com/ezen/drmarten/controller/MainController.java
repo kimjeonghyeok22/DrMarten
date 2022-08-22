@@ -35,9 +35,9 @@ public class MainController {
 		return "thymeleaf/main/index";
 	}
 	
-	@GetMapping("/sendal")
-	public String sendal() {
-		return "main/sendal";
+	@GetMapping("/sandal")
+	public String sandal() {
+		return "main/sandal";
 	}
 	
 	@GetMapping("/qna")
@@ -184,4 +184,13 @@ public class MainController {
 	public String sitemap() {
 		return "main/sitemap";
 	}
+	
+	//고객센터
+	@GetMapping("/service/cs")
+	public String cs(Model model) {
+		List<Board> list = dao.getLatestNotice();
+		model.addAttribute("list", list);
+		return "main/service/cs";
+	}
+	
 }

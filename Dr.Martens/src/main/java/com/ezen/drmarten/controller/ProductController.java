@@ -2,6 +2,7 @@ package com.ezen.drmarten.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -41,7 +42,7 @@ import com.github.pagehelper.PageInfo;
 
 @SessionAttributes("itemCart")
 @Controller
-@RequestMapping("/product")
+@RequestMapping("/DrMarten/product")
 public class ProductController {
 
 	@Autowired
@@ -99,7 +100,12 @@ public class ProductController {
 	public String add(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) {
 		ServletContext context = request.getServletContext();
-		String fileSavePath = context.getRealPath("/WEB-INF/files/"+pro.getName());
+		//상대경로로 이미 다른 파일들이 많이 지정되어있어서 물리적으로 상대경로를 뜯어 고침.
+		String rPath = context.getRealPath("");
+		String fileSavePath = rPath.substring(0,rPath.length()-7)+"/resources/static/img/"+pro.getName()+"/";
+		
+		//properties파일에 지정한 상대경로를 불러오는 코드.
+		//String fileSavePath = context.getRealPath("/resources/static/img/"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
 		try {
 			//프로덕트 객체 생성.
@@ -108,9 +114,26 @@ public class ProductController {
 			product.setMade(pro.getMade());
 			product.setMaterial(pro.getMaterial());
 			product.setColor(pro.getColor());
+			System.out.println(pro.getGender());
 			product.setGender(pro.getGender());
 			product.setCategory(pro.getCategory());
 			product.setPrice(pro.getPrice());
+			product.setDiscount(pro.getDiscount());
+			
+			
+			if(pro.getOnlineonly().contentEquals("예")) {
+				product.setOnlineonly("yes");
+			}else {
+				product.setOnlineonly("no");
+			}
+			
+			if(pro.getVegan().contentEquals("예")) {
+				product.setVegan("yes");
+			}else {
+				product.setVegan("no");
+			}
+			
+			
 			
 			//제품 번호 생성
 			java.util.Date date= new Date();
@@ -137,7 +160,7 @@ public class ProductController {
 					  Path temp = Paths.get(fileSavePath);
 					  Files.createDirectory(temp);
 				  }
-				boolean added = svc.add_stock(pro);	
+			boolean added = svc.add_stock(pro);	
 				
 				
 				for (int i = 0; i < mfiles.length; i++) {
@@ -167,7 +190,7 @@ public class ProductController {
 	public String addFiles(@RequestParam("files") MultipartFile[] mfiles, HttpServletRequest request,
 			Product pro) throws IllegalStateException, IOException {
 		ServletContext context = request.getServletContext();
-		String fileSavePath = context.getRealPath("/resources/img/"+pro.getName()+"/");
+		String fileSavePath = ("C:\\Users\\admin\\git\\DrMarten\\Dr.Martens\\src\\main\\resources\\static\\img\\"+pro.getName()+"/");
 		String savePath ="resources/img/"+pro.getName()+"/";
 		int code = dao.getCodeByName(pro.getName());
 		boolean add_attach = false; 
@@ -211,7 +234,7 @@ public class ProductController {
 		boolean added = svc.add_stock(pro);
 		 
 		
-		return "재고 추가 성공";
+		return "{\"added\":" + added + "}";
 	}
 	@PostMapping("/files/searchName")
 	public String searchLikeName( HttpServletRequest request,
@@ -250,24 +273,27 @@ public class ProductController {
 	} 
 	 
 	@PostMapping("/erase")
+	@ResponseBody
 	public String delete(Product pro) throws Exception {
-		svc.delete(pro);
-		return "/product/listView";
+		boolean del = svc.delete(pro);
+		
+		return "{\"added\":" + del + "}";
 	}
 	 
 	@PostMapping("/sell")  
+	@ResponseBody
 	public String sell(Product pro
 			,@RequestParam(name = "sellCount", required = false, defaultValue = "1") int sellCount
 			,@RequestParam(name = "product_size")int product_size) throws Exception {
 		System.out.println("");
 		boolean res = svc.sell(pro,sellCount,product_size);
 		System.out.println(res);
-		return "/product/listView";
+		return "{\"added\":" + res + "}";
 	}
 	@PostMapping("/cartAdd")  
 	@ResponseBody
 	//장바니에 담기를 위한 메소드 장바구니가 어떤형식으로 진행되는지 파악 후 작업 가능.
-	public Map<String, Object> cartAdd(Model model,Product pro
+	public String cartAdd(Model model,Product pro
 			,@RequestParam("number")int count
 			,@RequestParam("sized")int size)throws Exception {
 		String imgPath = "resources/img/"+pro.getName()+"/"+pro.getName()+"_main.png";
@@ -276,14 +302,8 @@ public class ProductController {
 		int product_code = pro.getProduct_code();
 		String name = pro.getName();
 		
-		
-//		model.addAttribute("itemCart",pro);
-		//코드 , 이름, 갯수, 사이즈
-		
-		Map<String,Object> map = new HashMap<>();
-		map.put("product", pro);
-		map.put("saved", true);
-		
-		return map; 
+		//boolean temp = 장바구니쪽 db 추가.
+		boolean temp = true;
+		return "{\"added\":" + temp + "}";
 	}
 } 
