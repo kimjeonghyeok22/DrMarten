@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +32,14 @@
 			<div class="hd_inner">
 				<nav class="util_menu">
 					<ul class="util_menu_box">
+						<%
+							if((String)session.getAttribute("u_email")==null){
+						%>
 						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
 						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
+						<%} else { %>
+						<li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>
+						<%} %>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
 						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
