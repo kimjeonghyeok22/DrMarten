@@ -220,7 +220,7 @@ public class UserController {
 			String from = "kojingon97@gmail.com";
 			String to = u_email;
 			String subject = "회원가입을 위한 이메일 인증";
-			String content = "다음링크에 접속하여 인증을 완료 해주세요" + "<a href = ' " + host + "emailCheck?code="
+			String content = "다음링크에 접속하여 인증을 완료 해주세요<br>" + "<a href = ' " + host + "emailCheck?code="
 					+ SHA256.getSHA245(to) + "&u_email=" + u_email + " ' >이메일 인증하기</a>";
 
 			Properties p = new Properties();

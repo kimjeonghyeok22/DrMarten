@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="/resources/css/reset.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/main.css" />
+<link rel="stylesheet" href="/resources/css/style_guide.css" />
 </head>
 <body>
 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
