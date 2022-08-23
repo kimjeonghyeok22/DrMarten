@@ -58,6 +58,11 @@ html, body{min-width: 1140px;}
 .slim_line{position: relative;display: inline-block;}
 .slim_line:after{content: '';position: absolute;bottom: -7px;left: 0;display: inline-block;width: 100%;height: 1px;background: #111;}
 
+/* 줄간격 */
+.lh01{line-height: 1;}
+.lh015{line-height: 1.5;}
+.lh024{line-height: 2.4;}
+
 
 
 /*******************
@@ -200,6 +205,20 @@ html, body{min-width: 1140px;}
     width: 100%;
 }
 .dmField_input{
+	border: 1px solid #666;
+    padding: 20px 24px;
+    font-size: 18px;
+    height: 59px;
+    color: #666;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dmField_box{
 	border: 1px solid #666;
     padding: 20px 24px;
     font-size: 18px;

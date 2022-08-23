@@ -1,248 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <meta charset="UTF-8">
-        <title>닥터마틴 코리아</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/resources/css/reset.css" />
-        <link rel="stylesheet" href="/resources/css/style_guide.css" />
-        <link rel="stylesheet" href="/resources/css/style.css" />
-        <link rel="stylesheet" href="/resources/css/main.css" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="/resources/js/style_action.js" type="text/javascript"></script>
-        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script>
-            function sample6_execDaumPostcode() {
-                new daum.Postcode({
-                    oncomplete: function (data) {
-                        // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-                        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-                        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                        var addr = ''; // 주소 변수
-                        var extraAddr = ''; // 참고항목 변수
-                        //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                            addr = data.roadAddress;
-                        }
-                        else { // 사용자가 지번 주소를 선택했을 경우(J)
-                            addr = data.jibunAddress;
-                        }
-                        // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-                        if (data.userSelectedType === 'R') {
-                            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-                                extraAddr += data.bname;
-                            }
-                            // 건물명이 있고, 공동주택일 경우 추가한다.
-                            if (data.buildingName !== '' && data.apartment === 'Y') {
-                                extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                            }
-                            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                            if (extraAddr !== '') {
-                                extraAddr = ' (' + extraAddr + ')';
-                            }
-                            // 조합된 참고항목을 해당 필드에 넣는다.
-                            document.getElementById("sample6_extraAddress").value = extraAddr;
-                        }
-                        else {
-                            document.getElementById("sample6_extraAddress").value = '';
-                        }
-                        // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                        document.getElementById('sample6_postcode').value = data.zonecode;
-                        document.getElementById("sample6_address").value = addr;
-                        // 커서를 상세주소 필드로 이동한다.
-                        document.getElementById("sample6_detailAddress").focus();
+<jsp:include page="/WEB-INF/JSP/include/header.jsp" />
+<script>document.title = "DrMarten 로그인";</script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                }
+                else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if (data.userSelectedType === 'R') {
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                        extraAddr += data.bname;
                     }
-                }).open();
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraAddr !== '') {
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                }
+                else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
             }
-        </script>
-    </head>
-
-    <body>
-        <header id="header">
-            <div class="top_bnr">
-                <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" class="top_bnr_svg">
-                    <rect x="7.81081" width="14.1892" height="15.3243" rx="2" fill="white"></rect>
-                    <rect y="8" width="13" height="7" rx="2" fill="white"></rect>
-                    <path d="M20.1149 15.6081C20.1149 16.9179 19.0531 17.9797 17.7432 17.9797C16.4334 17.9797 15.3716 16.9179 15.3716 15.6081C15.3716 14.2983 16.4334 13.2365 17.7432 13.2365C19.0531 13.2365 20.1149 14.2983 20.1149 15.6081Z" fill="black" stroke="white" stroke-width="1.5"></path>
-                    <path d="M8.19594 15.6081C8.19594 16.9179 7.13413 17.9797 5.82432 17.9797C4.51451 17.9797 3.4527 16.9179 3.4527 15.6081C3.4527 14.2983 4.51451 13.2365 5.82432 13.2365C7.13413 13.2365 8.19594 14.2983 8.19594 15.6081Z" fill="black" stroke="white" stroke-width="1.5"></path>
-                    <path d="M5.97229 4.54053H7.52702L7.81081 8.5135L2 8.5L4.37294 5.33966C4.7507 4.83656 5.34316 4.54053 5.97229 4.54053Z" stroke="white" stroke-width="1.5"></path>
-                </svg>
-                <p>5만원 이상 무료 배송 및 사이즈 무료 교환 1회</p>
-            </div>
-            <div class="hd_top">
-                <div class="hd_inner">
-                    <nav class="util_menu">
-                        <ul class="util_menu_box">
-                            <li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
-                            <li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
-                            <li class="util_item"><a href="javascript:;">매장찾기</a></li>
-                            <li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
-                            <li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="hd_content">
-                <div class="hd_inner hd_content_box">
-                    <div class="logo">
-                        <a href="/DrMarten" tabindex="1"><img src="/resources/img/logo.svg" alt="닥터마틴 로고"></a>
-                    </div>
-                    <button type="button" tabindex="2" class="HamburgerButton category_menu"> <span class="category_btn_line"></span> <span class="category_btn_text text_hiden">카테고리 열기</span> </button>
-                    <!-- 검색 -->
-                    <div class="main_search_form">
-                        <form action="/DrMarten/product/files/searchName" method="post" class="SearchForm">
-                            <fieldset>
-                                <legend class="text_hiden">검색</legend>
-                                <div class="mainSearchForm_wrapper">
-                                    <div class="mainSearchForm_input_box">
-                                        <input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해 주세요." class="mainSearchForm_input">
-                                        <!-- x버튼 -->
-                                        <button type="button">
-                                            <svg version="1.1" viewBox="0 0 24 24" class="mainSearchForm_cancel svg-icon svg-fill" style="width: 24px; height: 24px;">
-                                                <path pid="0" class="bg" fill="#DDD" fill-rule="evenodd" d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0z"></path>
-                                                <path pid="1" class="white" fill="#FFF" fill-rule="evenodd" d="M17.998 7.092L7.093 17.998l-1.091-1.091L16.907 6.002l1.091 1.09z"></path>
-                                                <path pid="2" class="white" fill="#FFF" fill-rule="evenodd" d="M16.907 17.998L6.002 7.092l1.091-1.09 10.905 10.905-1.091 1.091z"></path>
-                                            </svg>
-                                        </button>
-                                        <!-- //x버튼 -->
-                                    </div>
-                                    <!-- 검색버튼 -->
-                                    <button type="submit" class="mainSearchForm_button mainSearchForm_button_black">
-                                        <!-- 검색버튼 아이콘 -->
-                                        <svg version="1.1" viewBox="0 0 32 32" width="32" height="32" class="mainSearchForm_button_icon">
-                                            <path pid="0" fill="#111" fill-rule="evenodd" d="M31.759 29.805l-6.605-6.604a13.571 13.571 0 002.996-8.537 13.59 13.59 0 00-4.007-9.674A13.591 13.591 0 0014.468.982c-3.653 0-7.09 1.423-9.675 4.008a13.596 13.596 0 00-4.007 9.674c0 3.655 1.423 7.091 4.007 9.675a13.594 13.594 0 009.675 4.008c3.143 0 6.12-1.059 8.536-2.997l6.605 6.605 2.15-2.15zm-17.291-4.499a10.572 10.572 0 01-7.525-3.117 10.572 10.572 0 01-3.117-7.525c0-2.841 1.107-5.514 3.117-7.525a10.574 10.574 0 017.525-3.116c2.842 0 5.515 1.106 7.525 3.116a10.572 10.572 0 013.116 7.525c0 2.844-1.106 5.516-3.116 7.525a10.57 10.57 0 01-7.525 3.117z"></path>
-                                        </svg>
-                                        <!-- //검색버튼 아이콘 --><span class="text_hiden">검색</span> </button>
-                                    <!-- //검색버튼 -->
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <!-- //검색 -->
-                    <!-- 위시리스트 -->
-                    <a href="javascript:;" class="hdBtn ml0">
-                        <!-- 위시리스트 아이콘 -->
-                        <svg version="1.1" viewBox="0 0 35 29" width="35" height="29" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--wish-pc">
-                            <path pid="0" fill="#111" fill-rule="evenodd" d="M17.433 29.002L3.459 15.198a8.847 8.847 0 010-12.605C5.157.915 7.423-.009 9.84-.009c2.417 0 4.683.924 6.38 2.602l1.213 1.198 1.214-1.198C20.345.915 22.611-.009 25.028-.009c2.417 0 4.682.924 6.381 2.602a8.847 8.847 0 010 12.605L17.433 29.002zM9.84 2.974c-1.61 0-3.118.613-4.246 1.728a5.85 5.85 0 00-1.75 4.193 5.85 5.85 0 001.75 4.194l11.839 11.696 11.841-11.696a5.854 5.854 0 001.75-4.194 5.853 5.853 0 00-1.75-4.193c-2.341-2.312-6.15-2.313-8.492 0l-3.349 3.307-3.348-3.307A5.993 5.993 0 009.84 2.974z"></path>
-                        </svg>
-                        <!-- //위시리스트 아이콘 --><span class="text_hiden">위시리스트</span> </a>
-                    <!-- //위시리스트 -->
-                    <!-- 장바구니 -->
-                    <a href="javascript:;" class="hdBtn">
-                        <!-- 장바구니 아이콘 -->
-                        <svg version="1.1" viewBox="0 0 28 33" width="28" height="33" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
-                            <path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
-                        </svg>
-                        <!-- //장바구니 아이콘 --><span class="text_hiden">장바구니</span> </a>
-                    <!-- //장바구니 -->
-                    <!-- 최근 본 상품 -->
-                    <a href="javascript:;" class="hdBtn">
-                        <!-- 최근 본 상품 아이콘 -->
-                        <svg version="1.1" viewBox="0 0 39 28" width="39" height="28" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--timeline-pc">
-                            <path pid="0" fill="#111" fill-rule="evenodd" d="M38.49 14.871c-.331.536-8.223 13.123-19.311 13.129h-.008C12.427 28 6.14 23.361.482 14.211l-.483-.781.476-.785C.781 12.14 8.087.285 18.964.005c.131-.003.262-.005.392-.005 6.714 0 13.137 4.452 19.099 13.24l.545.804-.51.827zM19.35 3c-.103 0-.205.002-.309.004-7.808.201-13.782 7.949-15.501 10.436C8.468 21.112 13.724 25 19.171 25h.007c7.965-.004 14.376-8.26 16.223-10.903C30.208 6.73 24.813 3 19.35 3zm.135 18.593c-4.183 0-7.587-3.406-7.587-7.593 0-4.186 3.404-7.593 7.587-7.593 4.184 0 7.588 3.407 7.588 7.593 0 4.187-3.404 7.593-7.588 7.593zm0-12.186A4.597 4.597 0 0014.896 14a4.597 4.597 0 004.589 4.593A4.597 4.597 0 0024.075 14a4.597 4.597 0 00-4.59-4.593z"></path>
-                        </svg>
-                        <!-- //최근 본 상품 아이콘 --><span class="text_hiden">최근 본 상품</span> </a>
-                    <!-- //최근 본 상품 -->
-                    <!-- 마이페이지 -->
-                    <a href="javascript:;" class="hdBtn">
-                        <!-- 마이페이지 아이콘 -->
-                        <svg version="1.1" viewBox="0 0 33 32" width="33" height="32" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
-                            <path pid="0" fill="#111" fill-rule="evenodd" d="M25.187 17.783h-6.918a8.942 8.942 0 004.595-2.458A8.906 8.906 0 0025.5 8.977a8.913 8.913 0 00-2.636-6.351A8.949 8.949 0 0016.5-.003a8.947 8.947 0 00-6.363 2.629A8.915 8.915 0 007.5 8.977a9.03 9.03 0 002.637 6.348 9.067 9.067 0 004.629 2.458H7.813L0 25.456v6.545h33v-6.545l-7.813-7.673zM10.5 8.977c0-1.576.641-3.12 1.758-4.234A6.047 6.047 0 0116.5 2.99c1.604 0 3.11.622 4.243 1.753A5.94 5.94 0 0122.5 8.977a6.023 6.023 0 01-1.757 4.232 6.048 6.048 0 01-4.243 1.754 6.046 6.046 0 01-4.242-1.754A6.021 6.021 0 0110.5 8.977zM30 29.008H3v-2.299l6.042-5.932h14.917L30 26.709v2.299z"></path>
-                        </svg>
-                        <!-- //마이페이지 아이콘 --><span class="text_hiden">마이페이지</span> </a>
-                    <!-- //마이페이지 -->
-                </div>
-            </div>
-        </header>
-        <!-- 메뉴 카테고리// -->
-        <nav id="nav">
-            <div id="gnb">
-                <p>gnb</p>
-                <div class="category_close">close</div>
-            </div>
-        </nav>
-        <!-- //메뉴 카테고리 -->
-        <!-- //상단영역 -->
-        <div id="main" style="margin-top : 125px;  min-height: calc(100vh - 429px);">
-            <div class="inner" style="height:fit-content; padding-top : 70px;">
-                <div class="ser_top"> <a href="#"><i class="fa-solid fa-arrow-left-long" style="font-size:40px; padding-bottom: 30px;"></i></a></div>
-                <div class="wrap">
-                    <form action="/DrMarten/user/sign_Up" method="post"> <strong style="display : inline-block; font-size : 28px; color:#000; font-weight: bold; margin-bottom : 30px;">회원가입</strong>
-                        <br>
-                        <div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">이름</label>
-                                <input type="text" id="name" name="name" class="dmField_input"> </div>
-                        </div>
-                        <div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">아이디</label>
-                                <input id="u_email" name="u_email" value="${u_email }" readonly class="dmField_input"> </div>
-                        </div>
-                        <div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">비밀번호</label>
-                                <input type="password" id="u_pw" name="u_pw" class="dmField_input"> </div>
-                        </div>
-                        <div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">비밀번호 확인</label>
-                                <input type="password" id="u_pw2" name="u_pw2" class="dmField_input"> </div>
-                        </div>
-                        <div class="dmField dmInput half">
-                            <div class="dmField_input_box half">
-                                <label class="dmField_label">우편번호</label>
-                                <input type="text" id="sample6_postcode" name="address1" placeholder="우편번호" class="dmField_input"> </div></div>
-                            <button type="button" onclick="sample6_execDaumPostcode()" class="cmBtn fullWidth black large fw700 mb10  half">우편번호 찾기</button>
-                            <div class="dmField dmInput half">
-                            <div class="dmField_input_box half">
-                            <label class="dmField_label">주소</label>
-                                <input type="text" id="sample6_address" name="address2" placeholder="주소" class="dmField_input"> </div></div>
-                                <div class="dmField dmInput  half">
-                            <div class="dmField_input_box half">
-                            <label class="dmField_label">상세주소</label>
-                                <input type="text" id="sample6_detailAddress" name="address3" placeholder="상세주소" class="dmField_input"> </div></div>
-                                <div class="dmField dmInput mb30 half">
-                            <div class="dmField_input_box half">
-                            <label class="dmField_label">기타</label>
-                                <input type="text" id="sample6_extraAddress" name="address4"  placeholder="참고항목" class="dmField_input"> </div></div>
-                        <div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">전화번호</label>
-                                <input type="text" id="phone_num" name="phone_num" placeholder="숫자만 입력해주세요." class="dmField_input"> </div>
-                        </div>
-                        <input type="hidden" id="adress" name="adress">
-                        <div class="dmField dmInput mb30">
-                        <p class="dmField_label">성별</p>
-                        <ul  class="dmField_input" style="background-color : #fff;">
-							<li class="ra_box dib mr10">
-								<input type="radio" id="rd1" name="gender"  value="male" checked/>
-								<label for="rd1"><span></span>남성</label>
-							</li>
-							<li class="ra_box dib">
-								<input type="radio" id="rd2" name="gender"  value="female"/>
-								<label for="rd2"><span></span>여성</label>
-							</li>
-						</ul>	
+        }).open();
+    }
+</script>
+<!--  -->
+<!-- 페이지 영역 -->
+<div id="container">
+	<div id="content">
+		<!-- 서브페이지 상단 -->
+		<div id="subHead">
+			<div class="subHead_back">
+				<button class="subHead_btn" onclick="history.go(-1)">
+					<span class="text_hiden">뒤로가기</span>
+					<svg version="1.1" viewBox="0 0 34 22" class="subHead_btn_icon">
+						<path pid="0" fill="#111" fill-rule="evenodd" d="M33.974 9.503H5.771l7.493-7.402L11.128-.01-.012 10.995 11.128 22l2.136-2.111-7.493-7.401h28.203V9.503z"></path>
+					</svg>
+				</button>
+				<!-- <div class="subHead_title">회원가입 상세정보</div> -->
+			</div>
+		</div>
+		<!-- //서브페이지 상단 -->    
+		<main id="user">
+			<h2 class="page_intro mt20">
+				<strong class="fw700 fz36">회원가입</strong>
+			</h2>
+			<div class="join_detail mt80">
+				<form action="/DrMarten/user/sign_Up" method="post">
+					<input type="hidden" id="adress" name="adress">
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<label class="dmField_label">이름</label> 
+							<input type="text" id="name" name="name" class="dmField_input">
 						</div>
-						<div class="dmField dmInput mb30">
-                            <div class="dmField_input_box">
-                                <label class="dmField_label">생년월일</label>
-                                <input type="date" value="nowTime" name="birth" id="birth" class="dmField_input"> </div>
-                        </div>
-                        <div class="btn_wrap signUp">
-                            <button type="submit" class="cmBtn fullWidth yellow large fw700">회원가입</button> <a href="/DrMarten/loginForm" class="cmBtn fullWidth black large fw700 mb10">로그인 페이지로</a> </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <jsp:include page="/WEB-INF/JSP/include/footer.jsp" /> </body>
-
-    </html>
+					</div>
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<label class="dmField_label">아이디</label>
+							<input id="u_email" name="u_email" value="${u_email }" readonly class="dmField_input">
+						</div>
+					</div>
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<label class="dmField_label">비밀번호</label>
+							<input type="password" id="u_pw" name="u_pw" class="dmField_input">
+						</div>
+					</div>
+					<div class="dmField dmInput mb60">
+						<div class="dmField_input_box">
+							<label class="dmField_label">비밀번호 확인</label>
+							<input type="password" id="u_pw2" name="u_pw2" class="dmField_input">
+						</div>
+					</div>
+					<div class="dmField dmInput mb20">
+						<div class="dmField_input_box">
+							<label class="dmField_label">우편번호</label>
+							<input type="text" id="sample6_postcode" name="address1" class="dmField_input">
+							<button type="button" onclick="sample6_execDaumPostcode()" class="cmBtn fullWidth black mid fw500 ml10 post_btn">우편번호찾기</button>
+						</div>
+					</div>
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<label class="dmField_label">주소</label>
+							<input type="text" id="sample6_address" name="address2" class="dmField_input">
+						</div>
+					</div>
+					<div class="dmField dmInput mb60">
+						<div class="dmField_input_box">
+							<label class="dmField_label">상세주소</label>
+							<input type="text" id="sample6_detailAddress" name="address3" class="dmField_input">
+						</div>
+					</div>
+					<!-- <div class="dmField dmInput mb60">
+						<div class="dmField_input_box">
+							<label class="dmField_label">기타</label>
+							<input type="text" id="sample6_extraAddress" name="address4" placeholder="참고항목" class="dmField_input">
+						</div>
+					</div> -->
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<label class="dmField_label">전화번호</label>
+							<input type="text" id="phone_num" name="phone_num" placeholder="01012345678" class="dmField_input">
+						</div>
+					</div>
+					<div class="dmField dmInput mb30">
+						<div class="dmField_input_box">
+							<p class="dmField_label">성별</p>
+							<ul class="dmField_box">
+								<li class="ra_box dib mr10">
+									<input type="radio" id="rd1" name="gender" value="male" />
+									<label for="rd1"><span></span>남성</label>
+								</li>
+								<li class="ra_box dib">
+									<input type="radio" id="rd2" name="gender" value="female" /> 
+									<label for="rd2"><span></span>여성</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="dmField dmInput mb100">
+						<div class="dmField_input_box">
+							<label class="dmField_label">생년월일</label>
+							<input type="date" value="nowTime" name="birth" id="birth" class="dmField_input">
+						</div>
+					</div>
+					<div class="btn_wrap">
+						<button type="submit" class="cmBtn black large fw700 join_exit">회원가입완료</button>
+					</div>
+				</form>
+			</div>
+		</main>
+	</div>
+</div>
+<!-- //페이지 영역 -->
+<!--  -->
+<jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
+    
+        

@@ -5,7 +5,7 @@
 .wrap {width : 100%; display : flex; flex-direction: row; justify-content: space-between;}
 
 
-
+/* 사용한 ul, li 외 태그명에 class지정해서 사용해야 합쳤을때 화면이 꺠지지 않습니다. class명 지정 부탁  */
 ul {
     font-weight: 540;
     list-style-type: none;
