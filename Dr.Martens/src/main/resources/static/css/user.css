@@ -11,7 +11,8 @@
 
 /* login */
 .page_intro{text-align: center;}
-.page_intro *{display: block;}
+.page_intro strong,
+.page_intro span{display: block;}
 .page_intro span{margin-top: 18px;}
 
 .login_wrap{
@@ -71,6 +72,25 @@
 .join_detail .btn_wrap{text-align: center;}
 .join_detail .join_exit{width: 350px;margin: 0 auto;}
 
+/* find id, pw */
+.find_util{overflow: hidden;width: 650px;margin: 0 auto;padding: 42px 0 15px;}
+.find_util li{width: 50%;display: block;float: left;border-bottom: 1px solid #ddd;text-align: center;cursor: pointer;padding-bottom: 3px;}
+.find_util li a{display: block;color: #999;font-size: 18px;line-height: 52px;}
+.find_util .find_on{border-bottom: 3px solid #111;padding-bottom: 1px;}
+.find_util .find_on a{color: #111;font-weight: 700;}
+.find_util .id_find{}
+.find_util .pw_find{}
+.find_wrap{width: 600px;margin: 0 auto;}
+
+/* mypage */
+
+
+
+
+
+
+/* recommend */
+#recommend{width: 390px;margin: 95px auto 0;}
 
 
 

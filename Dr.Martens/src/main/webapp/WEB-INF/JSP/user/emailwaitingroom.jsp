@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-<script type="text/javascript">document.title = "DrMarten 이메일인증 완료";</script>
+<script type="text/javascript">document.title = "DrMartens 이메일인증 완료";</script>
 <!--  -->
 <!-- 페이지 영역 -->
 <div id="container">

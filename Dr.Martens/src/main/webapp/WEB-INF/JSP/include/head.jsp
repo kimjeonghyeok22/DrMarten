@@ -29,3 +29,4 @@
 <script src="/resources/js/product/detail_view.js" type="text/javascript"></script>
 <script src="/resources/js/product/main_page.js" type="text/javascript"></script>
 </head>
+<body>

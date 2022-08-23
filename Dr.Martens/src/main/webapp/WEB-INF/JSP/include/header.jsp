@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/JSP/include/head.jsp" />
-<body>
 <header id="header">
 		<div class="top_bnr">
 			<svg width="22" height="19" viewBox="0 0 22 19" fill="none"
@@ -24,10 +23,9 @@
 						%>
 							<li class="util_item"><a href="/DrMarten/user/login">로그인</a></li>
 							<li class="util_item"><a href="/DrMarten/user/signUp" class="fw500">회원가입</a></li>
-							<li class="util_item"><a href="javascript:showPopUp()">추천인 입력</a></li>
 						<%} else { %>
 							<li class="util_item"><a href="/DrMarten/user/logout">로그아웃</a></li>
-							<li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>
+							<!-- <li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>//아래 마이페이지 아이콘으로 이동 -->
 						<%} %>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
@@ -113,7 +111,7 @@
 				</a>
 				<!-- //최근 본 상품 -->
 				<!-- 마이페이지 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="/DrMarten/user/mypage" class="hdBtn">
 					<!-- 마이페이지 아이콘 -->
 					<svg version="1.1" viewBox="0 0 33 32" width="33" height="32"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
