@@ -134,9 +134,17 @@ public class UserController {
 	//회원가입 메소드
 	@PostMapping("/sign_Up")
 	@ResponseBody
-	public String signUp(@Valid User user, BindingResult result, Model model, @RequestParam("u_pw2") String u_pw2) {
+	public String signUp(@Valid User user, BindingResult result, Model model, 
+			@RequestParam("u_pw2") String u_pw2,
+			@RequestParam("address1") String address1,
+			@RequestParam("address2") String address2,
+			@RequestParam("address3") String address3,
+			@RequestParam("address4") String address4
+			) {
 		if (user.getU_pw().equals(u_pw2)) {
 			user.setUser_Email_Checked(1);
+			String address = "("+address1 + ") " + address2 + " " + address3 + " " + address4;
+			user.setAdress(address);
 			rep.save(user);
 			return "<script>" + "alert('회원가입이 되었습니다');" + "location.href='/DrMarten'" + "</script>";
 		} else {
