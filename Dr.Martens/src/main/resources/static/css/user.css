@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+
+#user{width: 1140px;margin: 0 auto;padding: 0 0 144px;}
+
+/* user main */
+.user_pageList{padding: 100px 120px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.user_pageList li{font-size: 0;display: inline-block;margin: 0 20px 25px 0;}
+.user_pageList li a{display: inline-block;border: 1px solid #111;padding: 20px 30px;background: #111;color: #fff;font-size: 20px;}
+.user_pageList .end a{text-decoration: underline;}
+
+/* login */
+.page_intro{text-align: center;}
+.page_intro strong,
+.page_intro span{display: block;}
+.page_intro span{margin-top: 18px;}
+
+.login_wrap{
+	display: -ms-flexbox;
+    display: flex;
+    width: 980px;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 60px auto 0;}
+.login_box{
+	position: relative;
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 436px;}
+
+.login_box .mask{
+	position: absolute;
+    z-index: 90;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.65);
+    color: #898989;
+    padding: 20px;
+    text-align: center;
+    line-height: 55vh;
+    font-size: 40px;
+    letter-spacing: .15em;
+}
+.form_title{
+	font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+    font-size: 24px;
+}
+.login_util{
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.login_util input[type="checkbox"] + label{padding: 0;}
+.join_util{flex-direction: row-reverse;}
+
+/* join */
+.join_wrap{padding-top: 60px;width: 558px;margin: 0 auto;text-align: center;}
+.join_txt{}
+.join_txt p.txt2{padding: 15px 0 38px;line-height: 24px;}
+.join_box{width: 436px;margin: 0 auto;}
+.join_detail{}
+.join_detail form{width: 558px;margin: 0 auto;}
+.join_detail .post_btn{width: 200px;height: 59px;}
+.join_detail .btn_wrap{text-align: center;}
+.join_detail .join_exit{width: 350px;margin: 0 auto;}
+
+/* find id, pw */
+.find_util{overflow: hidden;width: 650px;margin: 0 auto;padding: 42px 0 15px;}
+.find_util li{width: 50%;display: block;float: left;border-bottom: 1px solid #ddd;text-align: center;cursor: pointer;padding-bottom: 3px;}
+.find_util li a{display: block;color: #999;font-size: 18px;line-height: 52px;}
+.find_util .find_on{border-bottom: 3px solid #111;padding-bottom: 1px;}
+.find_util .find_on a{color: #111;font-weight: 700;}
+.find_util .id_find{}
+.find_util .pw_find{}
+.find_wrap{width: 600px;margin: 0 auto;}
+
+/* mypage */
+
+
+
+
+
+
+/* recommend */
+#recommend{width: 390px;margin: 95px auto 0;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

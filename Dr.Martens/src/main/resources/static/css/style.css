@@ -97,6 +97,13 @@
 .new_join_right{float: right;margin-top: 47px;}
 .new_join_right a{width: 164px;height: 60px;line-height: 60px;letter-spacing: -.01em;}
 
+/* 페이지 영역 - sub */
+#subHead{padding: 0 8px 0;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#subHead .subHead_back{width: 1140px;margin: 0 auto;padding: 40px 20px;}
+#subHead .subHead_btn{position: relative;display: block;cursor: pointer;width: 34px;height: 22px;margin: 0;padding: 0;}
+#subHead .subHead_btn_icon{position: absolute;top: 0;left: 0;-webkit-filter: drop-shadow(0 0 3px hsla(0,0%,100%,.7));filter: drop-shadow(0 0 3px rgba(255,255,255,.7));-webkit-transform: translate(0);transform: translate(0);}
+#subHead .subHead_title{font-size: 36px;font-weight: 700;letter-spacing: -.36px;color: #000;padding-top: 37px;}
+
 
 
 /****************************************************/

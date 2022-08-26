@@ -1,21 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Dr.Martens</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-<link rel="stylesheet" href="/resources/css/reset.css" />
-<link rel="stylesheet" href="/resources/css/style_guide.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="/resources/js/style_action.js" type="text/javascript"></script>
-</head>
+<%-- thymleaf, thymleaf:include 아직 미적용 --%>
+<jsp:include page="/WEB-INF/JSP/include/head.jsp" />
 <body>
 	<!-- 상단영역 -->
 	<header id="header">
@@ -34,8 +20,15 @@
 			<div class="hd_inner">
 				<nav class="util_menu">
 					<ul class="util_menu_box">
+						<%
+							if((String)session.getAttribute("u_email")==null){
+						%>
 						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
 						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
+						<li class="util_item"><a href="javascript:showPopUp()">추천인 입력</a></li>
+						<%} else { %>
+						<li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>
+						<%} %>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
 						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
@@ -135,9 +128,37 @@
 	</header>
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
+		<div class="gnb_top">
+			<a href="javascript:;" class="gnbTop_item gnb_cart">
+				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
+				</svg>
+				<span class="text_hiden">장바구니 열기</span>
+			</a>
+			<button type="button" class="gnbTop_item gnb_close">
+				<svg version="1.1" viewBox="0 0 56 56" width="28" height="28">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M55.994 4.213L51.769-.011l-23.78 23.779L4.21-.011-.015 4.213l23.78 23.78-23.78 23.78 4.225 4.225 23.779-23.78 23.78 23.78 4.225-4.225-23.78-23.78 23.78-23.78z"></path>
+				</svg>
+				<span class="text_hiden">카테고리 닫기</span>
+			</button>
+		</div>
+		<div class="gnb_search">
+			<div class="gnb_inner">
+				<div class="">
+					<form action="" method="get">
+						<div class="">
+							<input type="text" name="search_text" placeholder="검색어를 입력해주세요." class="">
+						</div>
+						<button type="submit" class="">
+							<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
+							<span class="text_hiden">검색하기</span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div id="gnb">
-			<p>gnb</p>
-			<div class="category_close">close</div>
+						
 		</div>
 	</nav>
 	<!-- //메뉴 카테고리 -->

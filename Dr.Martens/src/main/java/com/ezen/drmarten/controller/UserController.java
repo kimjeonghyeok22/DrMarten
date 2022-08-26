@@ -66,7 +66,7 @@ public class UserController {
 	//로그인 페이지 이동
 	@GetMapping("/login")
 	public String login_form() {
-		return "/DrMartin/loginForm";
+		return "/user/login";
 	}
 	//이메일 확인 버튼 누르고 갈 페이지
 	@GetMapping("/emailwaitingroom")
@@ -88,6 +88,13 @@ public class UserController {
 			HttpSession session) {
 		String checked = svc.login(u_email, u_pw, session);
 		return checked;
+	}
+	
+	//로그아웃 메소드
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/DrMarten";
 	}
 
 	//아이디 찾기 페이지 이동
@@ -146,7 +153,7 @@ public class UserController {
 			String address = "("+address1 + ") " + address2 + " " + address3 + " " + address4;
 			user.setAdress(address);
 			rep.save(user);
-			return "<script>" + "alert('회원가입이 되었습니다');" + "location.href='/DrMarten'" + "</script>";
+			return "<script>" + "alert('회원가입이 완료되었습니다');" + "location.href='/DrMarten'" + "</script>";
 		} else {
 			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/DrMarten/user/restSignUp?u_email=" + user.getU_email()
 					+ "'" + "</script>";

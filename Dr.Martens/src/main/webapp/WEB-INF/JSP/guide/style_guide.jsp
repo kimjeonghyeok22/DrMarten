@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-	
 	<div id="container">
 		<div id="Guide">
 			<div class="gui_box ml80 mb60">

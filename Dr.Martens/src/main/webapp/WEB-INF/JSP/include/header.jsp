@@ -1,21 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Dr.Martens</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/resources/css/reset.css" />
-<link rel="stylesheet" href="/resources/css/style_guide.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="/resources/js/style_action.js" type="text/javascript"></script>
-</head>
-<body>
+<jsp:include page="/WEB-INF/JSP/include/head.jsp" />
 <header id="header">
 		<div class="top_bnr">
 			<svg width="22" height="19" viewBox="0 0 22 19" fill="none"
@@ -35,10 +21,11 @@
 						<%
 							if((String)session.getAttribute("u_email")==null){
 						%>
-						<li class="util_item"><a href="/DrMarten/loginForm">로그인</a></li>
-						<li class="util_item"><a href="/DrMarten/member/agreement" class="fw500">회원가입</a></li>
+							<li class="util_item"><a href="/DrMarten/user/login">로그인</a></li>
+							<li class="util_item"><a href="/DrMarten/user/signUp" class="fw500">회원가입</a></li>
 						<%} else { %>
-						<li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>
+							<li class="util_item"><a href="/DrMarten/user/logout">로그아웃</a></li>
+							<!-- <li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>//아래 마이페이지 아이콘으로 이동 -->
 						<%} %>
 						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
 						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
@@ -124,7 +111,7 @@
 				</a>
 				<!-- //최근 본 상품 -->
 				<!-- 마이페이지 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="/DrMarten/user/mypage" class="hdBtn">
 					<!-- 마이페이지 아이콘 -->
 					<svg version="1.1" viewBox="0 0 33 32" width="33" height="32"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--mypage-pc">
@@ -139,9 +126,37 @@
 	</header>
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
+		<div class="gnb_top">
+			<a href="javascript:;" class="gnbTop_item gnb_cart">
+				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
+				</svg>
+				<span class="text_hiden">장바구니 열기</span>
+			</a>
+			<button type="button" class="gnbTop_item gnb_close">
+				<svg version="1.1" viewBox="0 0 56 56" width="28" height="28">
+					<path pid="0" fill="#111" fill-rule="evenodd" d="M55.994 4.213L51.769-.011l-23.78 23.779L4.21-.011-.015 4.213l23.78 23.78-23.78 23.78 4.225 4.225 23.779-23.78 23.78 23.78 4.225-4.225-23.78-23.78 23.78-23.78z"></path>
+				</svg>
+				<span class="text_hiden">카테고리 닫기</span>
+			</button>
+		</div>
+		<div class="gnb_search">
+			<div class="gnb_inner">
+				<div class="">
+					<form action="" method="get">
+						<div class="">
+							<input type="text" name="search_text" placeholder="검색어를 입력해주세요." class="">
+						</div>
+						<button type="submit" class="">
+							<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
+							<span class="text_hiden">검색하기</span>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
 		<div id="gnb">
-			<p>gnb</p>
-			<div class="category_close">close</div>
+						
 		</div>
 	</nav>
 	<!-- //메뉴 카테고리 -->
