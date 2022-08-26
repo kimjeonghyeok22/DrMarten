@@ -33,3 +33,12 @@ function price_key(){
 	
 	document.getElementById('res_price').textContent=res;
 }
+$(function(){
+	$('.haveSize').on('click', function(){
+		var size = $(this).text();
+		$('#product_size').val(size);
+		console.log($('#product_size').val());
+	});
+
+	
+});

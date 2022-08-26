@@ -77,8 +77,9 @@
                                     <input type="hidden" name="price" value="${product.price}">
                                     <input type="hidden" name="name" value="${product.name}">
                                     <input type="hidden" name="product_code" value="${product.product_code}">
+                                    <input type="hidden" name="product_size"  id="product_size">
                                     <div class="fz26 dib temp1"> 수량
-                                        <input id="count" class="count" type="number" name="number" min="1" value="1" onkeyup="javascript:price_key()">
+                                        <input type="number" name="number" id="count" class="count"  min="1" value="1" onkeyup="javascript:price_key()">
                                         <div class="fz36 dib">
                                             <button type="button" class="count_btn" onclick="javascript:down_btn()">-</button>
                                             <button type="button" class="count_btn" onclick="javascript:up_btn()">+</button>
