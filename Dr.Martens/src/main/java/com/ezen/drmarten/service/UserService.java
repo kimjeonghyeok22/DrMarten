@@ -65,7 +65,7 @@ public class UserService {
 				svc.setCart(list);
 				session.setAttribute("u_email", u_email);
 				session.setAttribute("u_cart", svc);
-//				cartView.deleteByEmail(u_email);
+				cartView.deleteByEmail(u_email);
 				return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
 			}
 			

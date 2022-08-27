@@ -16,9 +16,11 @@ public interface CartViewRepository extends JpaRepository<CartView, Object> {
 	List<CartView> findByName(String u_email);
 	List<CartView> findByEmail(String email);
 	
-	@Transactional
-	@Query(value = " DELETE FROM Cart_View WHERE email = email ", nativeQuery = true)
-	void deleteByEmail(@Param("email")String email);
+//	@Modifying
+//	@Query(value = " DELETE FROM Cart_View WHERE email = email ", nativeQuery = true)
+//	void deleteByEmail(@Param("email")String email);
+	
+	Long deleteByEmail(String email);
 	
 
 }
