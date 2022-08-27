@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>document.title = "DrMartens 회원가입";</script>
 <script>
     function sample6_execDaumPostcode() {
@@ -115,12 +116,12 @@
 							<input type="text" id="sample6_detailAddress" name="address3" class="dmField_input">
 						</div>
 					</div>
-					<!-- <div class="dmField dmInput mb60">
+					<div class="dmField dmInput mb60">
 						<div class="dmField_input_box">
 							<label class="dmField_label">기타</label>
 							<input type="text" id="sample6_extraAddress" name="address4" placeholder="참고항목" class="dmField_input">
 						</div>
-					</div> -->
+					</div> 
 					<div class="dmField dmInput mb30">
 						<div class="dmField_input_box">
 							<label class="dmField_label">전화번호</label>

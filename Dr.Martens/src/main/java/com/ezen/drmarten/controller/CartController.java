@@ -65,6 +65,7 @@ public class CartController {
 		}
 
 		cart.setEmail(email);
+		System.out.println(cart.getDiscount()+cart.getDiscounted_price());
 		boolean itemAdd = svc.addCartItem(cart);
 		return "{\"saved \":" + itemAdd + "}";
 	}

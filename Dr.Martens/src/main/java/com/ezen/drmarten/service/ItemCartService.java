@@ -34,13 +34,19 @@ public class ItemCartService {
 			// 장바구니에아무물건도 없을떄
 
 			// 만약 할인률이 0% 이면 에러 예외처리
-			if (cart.getDiscount() == 0)
-				cart.setDiscount(cart.getPrice());
+			// 현지 : 할인율이 100이어서 0으로 나눌일 없으니 예외처리 안하셔도 괜찮습니다 코드 주석처리해둘게요
+			/*if (cart.getDiscount() == 0)
+				cart.setDiscount(cart.getPrice());*/
 
 			if (itemChek == -1) {
-
-				int price = cart.getProduct_count() * (cart.getPrice() - (cart.getPrice() / cart.getDiscount()));
-				cart.setDiscounted_price(price);
+				//희범씨가 작성한 코드
+				/*int price = cart.getProduct_count() * (cart.getPrice() - (cart.getPrice() / cart.getDiscount()));
+				 * cart.setDiscounted_price(price);
+				 * */
+				
+				int dc_price = (cart.getPrice()*(100 - cart.getDiscount())/100)*cart.getProduct_count();
+				
+				cart.setDiscounted_price(dc_price);
 				boolean cartchak = this.cart.add(cart);
 				return cartchak;
 
@@ -49,7 +55,9 @@ public class ItemCartService {
 				// 장바구니에 같은 물건이있을떄
 				int price = getCart().get(itemChek).getPrice();
 				int count = getCart().get(itemChek).getProduct_count();
-				int newPrice = cart.getProduct_count() * (cart.getPrice() - (cart.getPrice() / cart.getDiscount()));
+				//희범씨가 작성한 코드 , 마찬가지로 산출식이 잘못돼서 주석처리하고 새로 작성했습니다.
+//				int newPrice = cart.getProduct_count() * (cart.getPrice() - (cart.getPrice() / cart.getDiscount()));
+				int newPrice = (cart.getPrice()*(100 - cart.getDiscount())/100)*cart.getProduct_count();
 				getCart().get(itemChek).setDiscounted_price(newPrice + price);
 				getCart().get(itemChek).setProduct_count(count + cart.getProduct_count());
 

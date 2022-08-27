@@ -76,6 +76,7 @@
                                 <form id="addCartForm" action="/DrMarten/cart/cartAdd" method="post">
                                     <input type="hidden" name="price" value="${product.price}">
                                     <input type="hidden" name="name" value="${product.name}">
+                                    <input type="hidden" name="discount" value="${product.discount}">
                                     <input type="hidden" name="product_code" value="${product.product_code}">
                                     <input type="hidden" name="product_size"  id="product_size">
                                     <div class="fz26 dib temp1"> 수량
