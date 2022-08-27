@@ -29,6 +29,7 @@ public class CartView {
 	private int discount;
 	private int price;
 	private int discounted_price;
+	private int total_price;
 
 	@Override
 	public boolean equals(Object obj) {
