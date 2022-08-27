@@ -33,7 +33,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.repository.CartViewRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
+import com.ezen.drmarten.service.ItemCartService;
 import com.ezen.drmarten.service.UserService;
 import com.ezen.drmarten.util.Gmail;
 import com.ezen.drmarten.util.SHA256;
@@ -51,6 +53,9 @@ public class UserController {
 	HttpSession session;
 	@Autowired
 	UserTableRepository rep;
+	@Autowired
+	CartViewRepository cartView;
+	
 	//메인 페이지 이동
 	@GetMapping("")
 	public String main() {
@@ -74,6 +79,7 @@ public class UserController {
 		return "/user/emailwaitingroom";
 	}
 	
+	
 	//이메일 확인 후 나머지 회원가입 페이지
 	@GetMapping("/restSignUp")
 	public String restSignUp(@RequestParam("u_email") String u_email, Model model) {
@@ -92,9 +98,21 @@ public class UserController {
 	
 	//로그아웃 메소드
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();
-		return "redirect:/DrMarten";
+	public String logout(HttpSession session,
+			@SessionAttribute(name = "u_cart", required = false) ItemCartService svc) {
+		
+		try {
+			if(svc.getCart().size()>0 || svc.getCart() != null) {
+				cartView.saveAll(svc.getCart());
+			}
+			session.invalidate();
+			return "redirect:/DrMarten";
+			
+		} catch (Exception e) {
+			session.invalidate();
+			return "redirect:/DrMarten";
+		}
+		
 	}
 
 	//아이디 찾기 페이지 이동

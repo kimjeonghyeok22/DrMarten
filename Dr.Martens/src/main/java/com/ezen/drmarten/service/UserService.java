@@ -9,7 +9,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.drmarten.model.CartView;
 import com.ezen.drmarten.model.User;
+import com.ezen.drmarten.repository.CartViewRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +22,9 @@ public class UserService {
 
 	@Autowired
 	UserTableRepository rep;
+	
+	@Autowired
+	CartViewRepository cartView;
 
 	//아이디 저장
 	public boolean save(@Valid User user) {
@@ -52,9 +57,20 @@ public class UserService {
 		User chek = user.get();
 
 		if (chek != null && chek.getU_pw().equals(pw)) {
-			 ItemCartService ics = new ItemCartService();
+			ItemCartService svc = new ItemCartService();
+			
+			List<CartView>list = cartView.findByEmail(u_email);
+			if(list != null ) {
+				
+				svc.setCart(list);
+				session.setAttribute("u_email", u_email);
+				session.setAttribute("u_cart", svc);
+//				cartView.deleteByEmail(u_email);
+				return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
+			}
+			
 			session.setAttribute("u_email", u_email);
-			session.setAttribute("u_cart", ics);
+			session.setAttribute("u_cart", svc);
 			return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
 		}
 

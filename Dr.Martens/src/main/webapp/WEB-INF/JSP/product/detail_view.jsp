@@ -14,7 +14,7 @@
             <script type="text/javascript">
                 function addCart() {
                     $.ajax({
-                        url: '/cart/cartAdd'
+                        url: '/DrMarten/cart/cartAdd'
                         , method: 'post'
                         , cache: false
                         , dataType: 'json'
@@ -73,13 +73,13 @@
                             </c:forEach>
                             <!-- 장바구니에 추가//코드 , 이름 ,수량 사이즈, 세션. -->
                             <div>
-                                <form id="addCartForm" action="/cart/cartAdd" method="post">
+                                <form id="addCartForm" action="/DrMarten/cart/cartAdd" method="post">
                                     <input type="hidden" name="price" value="${product.price}">
                                     <input type="hidden" name="name" value="${product.name}">
                                     <input type="hidden" name="product_code" value="${product.product_code}">
                                     <input type="hidden" name="product_size"  id="product_size">
                                     <div class="fz26 dib temp1"> 수량
-                                        <input type="number" name="number" id="count" class="count"  min="1" value="1" onkeyup="javascript:price_key()">
+                                        <input type="number" name="product_count" id="count" class="count"  min="1" value="1" onkeyup="javascript:price_key()">
                                         <div class="fz36 dib">
                                             <button type="button" class="count_btn" onclick="javascript:down_btn()">-</button>
                                             <button type="button" class="count_btn" onclick="javascript:up_btn()">+</button>
@@ -97,7 +97,7 @@
                                             </div>
                                     </div>
                                     <div class="btn_wrap wrap">
-                                        <button type="button" class="cmBtn line mid"> 장바구니 </button>
+                                        <button type="submit" class="cmBtn line mid"> 장바구니 </button>
                                         <button type="button" class="cmBtn line mid black"> 구매하기 </button>
                                     </div>
                                 </form>
