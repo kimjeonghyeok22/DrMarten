@@ -94,18 +94,20 @@ public class CartController {
 				buy.setProduct_code(svc.getCart().get(i).getProduct_code());
 				buy.setProduct_size(svc.getCart().get(i).getProduct_size());
 				buy.setProduct_count(svc.getCart().get(i).getProduct_count());
-				buy.setDiscount(svc.getCart().get(i).getDiscount());
-				buy.setPrice(svc.getCart().get(i).getPrice());
 				buy.setDiscount(svc.getCart().get(i).getDiscounted_price());
+				buy.setPrice(svc.getCart().get(i).getPrice());
+				buy.setDiscount(svc.getCart().get(i).getDiscount());
 				buy.setTotal_price(svc.getCart().get(i).getTotal_price());
 				list.add(buy);
 				
 			
 
 			}
+			
 
 			Cart cart = new Cart();
 			cart.setUerEmail(email);
+			cart.setBuyTime(new java.sql.Date(System.currentTimeMillis()));
 			cart.setCart(list);
 			cartRepository.save(cart);
 			svc.getCart().clear();
