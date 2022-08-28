@@ -78,9 +78,11 @@ function removeItem()
 		<div>현재의 총물건 가격은 ${allPrice} 원입니다</div>
 
 		<div>
-			<span>
-				<button type="button">현재 장바구니 구매 하기</button>
-			</span>
+
+			<form action="/DrMarten/cart/cartItemBuy " method="post">
+				<button type="submit">현재 장바구니 구매 하기</button>
+			</form>
+
 		</div>
 
 	</c:if>

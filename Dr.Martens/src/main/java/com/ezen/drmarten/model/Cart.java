@@ -27,12 +27,16 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CARTNUM_NUM_SEQ")
 	@SequenceGenerator(sequenceName = "CARTNUM_NUM_SEQ", allocationSize = 1, name = "CARTNUM_NUM_SEQ")
 	private int cartNum;
-
 	private String uerEmail;
 	private java.sql.Date buyTime;
 
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="cart_Num",referencedColumnName = "cartNum")
+	@JoinColumn(name = "cart_num")
 	private List<CartItemList> cart;
+
+	public void setCart(List<CartItemList> list) {
+		this.cart = list;
+
+	}
 
 }

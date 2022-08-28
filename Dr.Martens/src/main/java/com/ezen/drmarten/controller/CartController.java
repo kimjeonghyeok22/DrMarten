@@ -1,7 +1,7 @@
 package com.ezen.drmarten.controller;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.ezen.drmarten.model.Cart;
+import com.ezen.drmarten.model.CartItemList;
 import com.ezen.drmarten.model.CartView;
 import com.ezen.drmarten.repository.CartRepository;
-import com.ezen.drmarten.repository.CartViewRepository;
 import com.ezen.drmarten.service.ItemCartService;
 
 @Controller
@@ -23,9 +24,6 @@ public class CartController {
 
 	@Autowired
 	CartRepository cartRepository;
-	
-	
-	
 
 	@GetMapping("getmycart") // 내가지금 무슨 물건을 카트에 담았는지 보는 페이지
 	public String getMyCart(@SessionAttribute(name = "u_cart", required = false) ItemCartService svc, Model model,
@@ -35,25 +33,13 @@ public class CartController {
 			model.addAttribute("Cart", null);
 			return "/cart/CartPage";
 		}
-		
-//		Optional<CartView> op = cartView.findById(email);
-//		
-//		if(op.isEmpty()||op.isPresent()) {
-//			model.addAttribute("allPrice", svc.getAllPrice());
-//			model.addAttribute("Cart", svc.getCart());
-//			return "/cart/CartPage";
-//		}
-		
-	
-		
-        // 만약 전에본 장바구니에 아이템이 있다면 
+
+		// 만약 전에본 장바구니에 아이템이 있다면
 		model.addAttribute("allPrice", svc.getAllPrice());
 		model.addAttribute("Cart", svc.getCart());
 		return "/cart/CartPage";
 	}
-	
-	
-	
+
 	@PostMapping("cartAdd")
 	@ResponseBody
 	public String cartAdd(CartView cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
@@ -65,12 +51,11 @@ public class CartController {
 		}
 
 		cart.setEmail(email);
-		System.out.println(cart.getDiscount()+cart.getDiscounted_price());
+		System.out.println(cart.getDiscount() + cart.getDiscounted_price());
 		boolean itemAdd = svc.addCartItem(cart);
 		return "{\"saved \":" + itemAdd + "}";
 	}
 
-	
 	
 	@PostMapping("cartRemove")
 	@ResponseBody
@@ -79,11 +64,65 @@ public class CartController {
 		boolean cartRemovChek = svc.removeCart(cart);
 		return "{\"cartRemove\":" + cartRemovChek + "}";
 
+
+	}
+	
+
+	@PostMapping("cartItemBuy")
+	@ResponseBody
+	public String buyItem(@SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
+			@SessionAttribute(name = "u_email", required = false) String email) {
+
+		if (email == null || svc == null) {
+			String script = "<script>" + "alert('로그인을 먼저해주세요');" + "location.href='/DrMarten/user/login'" + "</script>";
+			return script;
+		}
+
+		if (svc.getCart() == null)
+			return "<script>" + "alert('카트에 구매하실 물건이 없습니다');" + " history.back(); " + "</script>";
+		try {
+
+			Cart cartBuy = new Cart();
+			cartBuy.setUerEmail(email);
+			List<CartItemList> list = new ArrayList<>();
+
+			for (int i = 0; i < svc.getCart().size(); i++) {
+
+				CartItemList buy = new CartItemList();
+				buy.setEmail(svc.getCart().get(i).getEmail());
+				buy.setName(svc.getCart().get(i).getName());
+				buy.setProduct_code(svc.getCart().get(i).getProduct_code());
+				buy.setProduct_size(svc.getCart().get(i).getProduct_size());
+				buy.setProduct_count(svc.getCart().get(i).getProduct_count());
+				buy.setDiscount(svc.getCart().get(i).getDiscount());
+				buy.setPrice(svc.getCart().get(i).getPrice());
+				buy.setDiscount(svc.getCart().get(i).getDiscounted_price());
+				buy.setTotal_price(svc.getCart().get(i).getTotal_price());
+				list.add(buy);
+				
+			
+
+			}
+
+			Cart cart = new Cart();
+			cart.setUerEmail(email);
+			cart.setCart(list);
+			cartRepository.save(cart);
+			svc.getCart().clear();
+			
+			return "<script>" + "alert('물건구매가 완료되었습니다');" + "location.href='/DrMarten/user/login'" + "</script>";
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return "{\"buy\":"+false+"}";
+		}
+		
+		
+	
 	}
 
 	
-	
-
 //	@PostMapping("cartAdd")
 //	@ResponseBody
 //	// 장바니에 담기를 위한 메소드 장바구니가 어떤형식으로 진행되는지 파악 후 작업 가능.
