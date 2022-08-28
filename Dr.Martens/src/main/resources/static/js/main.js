@@ -100,6 +100,10 @@ $(function () {
             $('#sec1 li.on .pgn').eq(num-1).addClass('on');
         }
     });
+    
+    $('.modal_close_btn').on('click', function(){
+    	$('.addCart_modal').hide();
+    });
 
 	function not_sup(){
 		alert('지원하지 않는 링크입니다 : (');

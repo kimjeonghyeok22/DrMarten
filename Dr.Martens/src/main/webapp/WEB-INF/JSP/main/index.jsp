@@ -22,7 +22,7 @@
 </head>
 <body>
  <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-    <div id="container">
+    <div id="container" class="main_container">
     	<div id="content">
     		<main id="main_wrap">
     			<!-- 배너메뉴 -->
@@ -574,9 +574,39 @@
 				<!-- //신규회원 -->
     		</main>
     	</div>
+    		<div class="addCart_modal">
+    			<div class="modal_window">
+	    			<div class="modal_wrap">
+	    				<p class="modal_sub_title fz20">장바구니 담기</p><br>
+	    				<div class="product_info">
+	    				</div>
+	    				<div class="size_wrap">
+	    					<div class="modal_close_btn"><i class="fa-solid fa-xmark"></i></div>
+	    					<p class="modal_sub_title bold_line">사이즈</p><br>
+		    				<div class="fz16 fw500 size_btn">220</div>
+		    				<div class="fz16 fw500 size_btn">230</div>
+		    				<div class="fz16 fw500 size_btn">240</div>
+		    				<div class="fz16 fw500 size_btn">250</div>
+		    				<div class="fz16 fw500 size_btn">260</div>
+		    				<div class="fz16 fw500 size_btn">270</div>
+		    				<div class="fz16 fw500 size_btn">280</div>
+		    				<div class="fz16 fw500 size_btn">290</div><br>
+		    				<p class="modal_sub_title bold_line">수량</p><br>
+                            <input type="number" name="product_count" id="count" class="count"  min="1" value="1" onkeyup="javascript:price_key()">
+                            <button type="button" class="count_btn fz36" onclick="javascript:down_btn()">-</button>
+                            <button type="button" class="count_btn fz36" onclick="javascript:up_btn()">+</button><br>
+                            <p class="modal_sub_title bold_line">가격<p>
+                            <div class="price_wrap">
+                            <p class="modal_sub_title"><span class="price">170,000</span>원</p>
+                            <button type="button" class="cart_btn">장바구니 담기</button></div>
+	    				</div>
+	    			</div>
+	    	</div>
+	    </div>
     </div>
     <!-- //메인 끝 -->
     <!--  -->
+
   <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
 </body>
 </html>

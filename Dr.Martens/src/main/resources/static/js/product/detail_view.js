@@ -35,6 +35,8 @@ function price_key(){
 }
 $(function(){
 	$('.haveSize').on('click', function(){
+		$('.haveSize').removeClass('on');
+		$(this).addClass('on');
 		var size = $(this).text();
 		$('#product_size').val(size);
 		console.log($('#product_size').val());
