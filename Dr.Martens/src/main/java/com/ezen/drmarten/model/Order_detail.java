@@ -1,6 +1,5 @@
 package com.ezen.drmarten.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,23 +17,19 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "CartBuyList")
-public class CartItemList {
+@Table(name = "ORDER_DETAIL")
+public class Order_detail {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CARTBUY_NUM_SEQ")
-	@SequenceGenerator(sequenceName="CARTBUY_NUM_SEQ",allocationSize=1,name="CARTBUY_NUM_SEQ")
-	private int cartBuyId;
-	private String email;
-	private String name;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_DETAIL_NUM_SEQ")
+	@SequenceGenerator(sequenceName="ORDER_DETAIL_NUM_SEQ",allocationSize=1,name="ORDER_DETAIL_NUM_SEQ")
+	private int order_detail_num;
+	private String u_email;
+	private String product_name;
 	private int product_code;
 	private int product_size;
 	private int product_count;
-	private int discount;
-	private int price;
 	private int discounted_price;
 	private int total_price;
-
-
 
 }

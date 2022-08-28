@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.ezen.drmarten.model.Cart;
-import com.ezen.drmarten.model.CartItemList;
-import com.ezen.drmarten.model.CartView;
-import com.ezen.drmarten.repository.CartRepository;
+import com.ezen.drmarten.model.Order;
+import com.ezen.drmarten.model.Order_detail;
+import com.ezen.drmarten.repository.OrderRepository;
 import com.ezen.drmarten.service.ItemCartService;
 
 @Controller
@@ -23,7 +23,7 @@ import com.ezen.drmarten.service.ItemCartService;
 public class CartController {
 
 	@Autowired
-	CartRepository cartRepository;
+	OrderRepository orderRepository;
 
 	@GetMapping("getmycart") // 내가지금 무슨 물건을 카트에 담았는지 보는 페이지
 	public String getMyCart(@SessionAttribute(name = "u_cart", required = false) ItemCartService svc, Model model,
@@ -42,7 +42,7 @@ public class CartController {
 
 	@PostMapping("cartAdd")
 	@ResponseBody
-	public String cartAdd(CartView cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
+	public String cartAdd(Cart cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
 			@SessionAttribute(name = "u_email", required = false) String email) {
 
 		if (email == null || svc == null) {
@@ -59,7 +59,7 @@ public class CartController {
 	
 	@PostMapping("cartRemove")
 	@ResponseBody
-	public String cartRemove(CartView cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
+	public String cartRemove(Cart cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
 			@SessionAttribute(name = "u_email", required = false) String email) {
 		boolean cartRemovChek = svc.removeCart(cart);
 		return "{\"cartRemove\":" + cartRemovChek + "}";
@@ -82,21 +82,20 @@ public class CartController {
 			return "<script>" + "alert('카트에 구매하실 물건이 없습니다');" + " history.back(); " + "</script>";
 		try {
 
-			Cart cartBuy = new Cart();
-			cartBuy.setUerEmail(email);
-			List<CartItemList> list = new ArrayList<>();
-
+			Order cartBuy = new Order();
+			cartBuy.setU_email(email);
+			List<Order_detail> list = new ArrayList<>();
+			int price_sum = 0;
 			for (int i = 0; i < svc.getCart().size(); i++) {
 
-				CartItemList buy = new CartItemList();
-				buy.setEmail(svc.getCart().get(i).getEmail());
-				buy.setName(svc.getCart().get(i).getName());
+				price_sum += svc.getCart().get(i).getTotal_price();
+				Order_detail buy = new Order_detail();
+				buy.setU_email(svc.getCart().get(i).getEmail());
+				buy.setProduct_name(svc.getCart().get(i).getName());
 				buy.setProduct_code(svc.getCart().get(i).getProduct_code());
 				buy.setProduct_size(svc.getCart().get(i).getProduct_size());
 				buy.setProduct_count(svc.getCart().get(i).getProduct_count());
-				buy.setDiscount(svc.getCart().get(i).getDiscounted_price());
-				buy.setPrice(svc.getCart().get(i).getPrice());
-				buy.setDiscount(svc.getCart().get(i).getDiscount());
+				buy.setDiscounted_price(svc.getCart().get(i).getDiscounted_price());
 				buy.setTotal_price(svc.getCart().get(i).getTotal_price());
 				list.add(buy);
 				
@@ -105,11 +104,13 @@ public class CartController {
 			}
 			
 
-			Cart cart = new Cart();
-			cart.setUerEmail(email);
-			cart.setBuyTime(new java.sql.Date(System.currentTimeMillis()));
+			Order cart = new Order();
+			cart.setU_email(email);
+			cart.setOrder_date(new java.sql.Date(System.currentTimeMillis()));
+			cart.setTotal_price(price_sum);
 			cart.setCart(list);
-			cartRepository.save(cart);
+			
+			orderRepository.save(cart);
 			svc.getCart().clear();
 			
 			return "<script>" + "alert('물건구매가 완료되었습니다');" + "location.href='/DrMarten/user/login'" + "</script>";

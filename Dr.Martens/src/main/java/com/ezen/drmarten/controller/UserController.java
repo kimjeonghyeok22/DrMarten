@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.drmarten.model.User;
-import com.ezen.drmarten.repository.CartViewRepository;
+import com.ezen.drmarten.repository.CartRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
 import com.ezen.drmarten.service.ItemCartService;
 import com.ezen.drmarten.service.UserService;
@@ -54,7 +54,7 @@ public class UserController {
 	@Autowired
 	UserTableRepository rep;
 	@Autowired
-	CartViewRepository cartView;
+	CartRepository cartView;
 	
 	//메인 페이지 이동
 	@GetMapping("")

@@ -55,17 +55,25 @@ function removeItem()
 
 	<!-- // 물건이 있을 경우에  -->
 	<c:if test="${Cart!=null}">
-
+		<%
+			int total = 0;
+		%>
 		<c:forEach var="c" items="${Cart}" >
 
 			<form id="item" action="/DrMarten/cart/cartRemove" method="post">
 				<input type="hidden" name="product_size" value="${c.product_size}">
 				<input type="hidden" name="product_code" value="${c.product_code}">
-				<div>물건 이름 :${c.product_code}</div>
-				<div>물건 이름 : ${c.name}</div>
-				<div>구매 갯수 : ${c.product_count} 개</div>
-				<div>물건 사이즈 : ${c.product_size}</div>
+				<div>제품 코드 :${c.product_code}</div>
+				<div>제품명 : ${c.name}</div>
+				<div>사이즈 : ${c.product_size}</div>
 				<div>물건 가격 : ${c.discounted_price} 원</div>
+				<div>수량 : ${c.product_count} 개</div>
+				<div>합계 : ${c.total_price} 원</div>
+				<c:set var="total_price" value="${c.total_price}" />
+				<%
+					int price = (Integer)pageContext.getAttribute("total_price");
+					total += price;
+				%>
 				<div>
 					<button type="submit">물건삭제</button>
 				</div>
@@ -75,7 +83,7 @@ function removeItem()
 		</c:forEach>
 
 
-		<div>현재의 총물건 가격은 ${allPrice} 원입니다</div>
+		<div>현재의 총물건 가격은 <%=total%> 원입니다</div>
 
 		<div>
 

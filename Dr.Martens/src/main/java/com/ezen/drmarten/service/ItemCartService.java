@@ -3,12 +3,11 @@ package com.ezen.drmarten.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ezen.drmarten.model.CartItemList;
-import com.ezen.drmarten.model.CartView;
+import com.ezen.drmarten.model.Cart;
 
 public class ItemCartService {
 
-	private List<CartView> cart;
+	private List<Cart> cart;
 
 	// 객체생성
 	public ItemCartService() {
@@ -16,17 +15,17 @@ public class ItemCartService {
 	}
 
 	// 카트가져오기
-	public List<CartView> getCart() {
+	public List<Cart> getCart() {
 		return this.cart;
 	}
 	
 	//만약 데이터베이스에 자기의 데이터가있다면 카트 저장해주는 메서드
-	public void setCart(List<CartView> cart) {
+	public void setCart(List<Cart> cart) {
 		this.cart = cart;
 	}
 
 	// 카트에 물건담기
-	public boolean addCartItem(CartView cart) {
+	public boolean addCartItem(Cart cart) {
 
 		try {
 
@@ -76,7 +75,7 @@ public class ItemCartService {
 
 	
 	// 카트에물건 삭제할떄
-	public boolean removeCart(CartView cart) {
+	public boolean removeCart(Cart cart) {
 
 		int itemChek = getCart().indexOf(cart);
 		if (itemChek == -1)

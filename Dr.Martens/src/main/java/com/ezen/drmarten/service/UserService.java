@@ -9,9 +9,9 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.drmarten.model.CartView;
+import com.ezen.drmarten.model.Cart;
 import com.ezen.drmarten.model.User;
-import com.ezen.drmarten.repository.CartViewRepository;
+import com.ezen.drmarten.repository.CartRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +24,7 @@ public class UserService {
 	UserTableRepository rep;
 	
 	@Autowired
-	CartViewRepository cartView;
+	CartRepository cartView;
 
 	//아이디 저장
 	public boolean save(@Valid User user) {
@@ -59,7 +59,7 @@ public class UserService {
 		if (chek != null && chek.getU_pw().equals(pw)) {
 			ItemCartService svc = new ItemCartService();
 			
-			List<CartView>list = cartView.findByEmail(u_email);
+			List<Cart>list = cartView.findByEmail(u_email);
 			if(list != null ) {
 				
 				svc.setCart(list);
