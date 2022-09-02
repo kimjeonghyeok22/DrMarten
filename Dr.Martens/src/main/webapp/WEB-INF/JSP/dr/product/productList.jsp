@@ -21,7 +21,7 @@
 	</style>
 </head>
 <body>
-	<header id="header">
+	<header id="admin_header">
 		<div class="inner">
 			<div class="img_wrap">
 				<a href="/admin/main"><img src="/resources/img/logo.svg" alt=""> </a>
@@ -84,7 +84,7 @@
 				</ul>
 			</div>
 		</div>
-		<div id="main">
+		<div id="admin_main">
 			<div class="container">
                 <div class="inner">
                 	<h2 class="title">제품 리스트</h2><br>

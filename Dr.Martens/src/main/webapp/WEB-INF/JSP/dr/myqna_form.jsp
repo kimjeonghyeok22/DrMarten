@@ -36,7 +36,7 @@ function save(){
 </head>
 <body>
 
-    <header id="header">
+    <header id="admin_header">
         <div class="inner">
 <div class="img_wrap"> <a href="/admin/main" ><img src="/resources/img/logo.svg" alt=""> </a></div>
             <div class="title_wrap"> <span>닥터마틴 관리자페이지</span> </div>
@@ -99,7 +99,7 @@ function save(){
                 <li><span>통계분석</span></li>
             </ul>
         </div>
-        <div id="main">
+        <div id="admin_main">
             <div class="container">
                 <div class="inner">
 <h3>1:1질문 작성</h3>
