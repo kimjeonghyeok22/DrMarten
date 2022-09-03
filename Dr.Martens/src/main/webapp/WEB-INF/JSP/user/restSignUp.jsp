@@ -110,7 +110,7 @@
 							<input type="text" id="sample6_address" name="address2" class="dmField_input">
 						</div>
 					</div>
-					<div class="dmField dmInput mb60">
+					<div class="dmField dmInput mb30">
 						<div class="dmField_input_box">
 							<label class="dmField_label">상세주소</label>
 							<input type="text" id="sample6_detailAddress" name="address3" class="dmField_input">

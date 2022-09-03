@@ -196,7 +196,7 @@ td.title{width: 80%;}
 /*tr:first-of-type {border-bottom : 2px solid black; line-height: 40px;  font-size: 16px;}*/
 tr{ border-bottom : 0.5px solid gray; line-height: 40px;  font-size: 12px;}
 td.center{text-align: center;}
-.btn_wrap {width: fit-contentl; margin : 20px; text-align : right;}
+.btn_wrap {width: fit-contentl; /*margin : 20px;*/ text-align : right;}
 
 .category_btn{ display : inline-block; padding : 15px 20px; border-radius : 0px; border : 0.5px solid #666;
 	font-weight : bolder; line-height : 20px; background-color : #fcfcfc; margin : 5px 0; cursor: pointer;}

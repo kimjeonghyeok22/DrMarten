@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="/resources/css/reset.css" />
 <link rel="stylesheet" href="/resources/css/style_guide.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
 <link rel="stylesheet" href="/resources/css/main.css" />
 <link rel="stylesheet" href="/resources/css/admin.css" />
 <!-- <link rel="stylesheet" href="/resources/css/loginStyle.css" /> -->
@@ -22,12 +21,14 @@
 	--- admin 헤더/메인 수정했습니다
  -->
 <link rel="stylesheet" href="/resources/css/user.css" />
+<link rel="stylesheet" href="/resources/css/style.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="/resources/js/style_action.js" type="text/javascript"></script>
+<script src="/resources/js/jquery.mousewheel.min.js" type="text/javascript"></script>
 <script src="/resources/js/main.js" type="text/javascript"></script>
 <script src="/resources/js/login.js" type="text/javascript"></script>
 <script src="/resources/js/product/detail_view.js" type="text/javascript"></script>
 <script src="/resources/js/product/main_page.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="/resources/js/style_action.js" type="text/javascript"></script>
 </head>
 <body>

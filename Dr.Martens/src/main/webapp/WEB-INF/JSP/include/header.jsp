@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/JSP/include/head.jsp" />
 <header id="header">
-		<div class="top_bnr">
+		<!-- <div class="top_bnr">
 			<svg width="22" height="19" viewBox="0 0 22 19" fill="none"
 				xmlns="http://www.w3.org/2000/svg" class="top_bnr_svg">
 				<rect x="7.81081" width="14.1892" height="15.3243" rx="2" fill="white"></rect>
@@ -13,7 +13,7 @@
 				<path d="M5.97229 4.54053H7.52702L7.81081 8.5135L2 8.5L4.37294 5.33966C4.7507 4.83656 5.34316 4.54053 5.97229 4.54053Z" stroke="white" stroke-width="1.5"></path>
 			</svg>
 			<p>5만원 이상 무료 배송 및 사이즈 무료 교환 1회</p>
-		</div>
+		</div> -->
 		<div class="hd_top">
 			<div class="hd_inner">
 				<nav class="util_menu">
@@ -133,7 +133,7 @@
 				</svg>
 				<span class="text_hiden">장바구니 열기</span>
 			</a>
-			<button type="button" class="gnbTop_item gnb_close">
+			<button type="button" class="gnbTop_item gnb_close ml30">
 				<svg version="1.1" viewBox="0 0 56 56" width="28" height="28">
 					<path pid="0" fill="#111" fill-rule="evenodd" d="M55.994 4.213L51.769-.011l-23.78 23.779L4.21-.011-.015 4.213l23.78 23.78-23.78 23.78 4.225 4.225 23.779-23.78 23.78 23.78 4.225-4.225-23.78-23.78 23.78-23.78z"></path>
 				</svg>
@@ -141,23 +141,21 @@
 			</button>
 		</div>
 		<div class="gnb_search">
-			<div class="gnb_inner">
-				<div class="">
-					<form action="" method="get">
-						<div class="">
-							<input type="text" name="search_text" placeholder="검색어를 입력해주세요." class="">
-						</div>
-						<button type="submit" class="">
-							<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
-							<span class="text_hiden">검색하기</span>
-						</button>
-					</form>
-				</div>
+			<div class="gnb_sch_wrap">
+				<form action="/DrMarten/product/files/searchName" method="post">
+					<div class="gnb_sch_box">
+						<input type="text" name="search_text" aria-label="검색어 입력" placeholder="검색어를 입력해주세요." class="gnb_sch_input">
+					</div>
+					<button type="submit" class="gnb_sch_btn">
+						<img src="/resources/img/gnb_search_btn.png" alt="검색버튼">
+						<span class="text_hiden">검색하기</span>
+					</button>
+				</form>
 			</div>
 		</div>
-		<div id="gnb">
-						
-		</div>
+		<!-- 메인 gnb -->
+		<jsp:include page="/WEB-INF/JSP/include/gnb.jsp" />
+		<!-- //메인 gnb  -->
 	</nav>
 	<!-- //메뉴 카테고리 -->
 	<!-- //상단영역 -->

@@ -44,6 +44,9 @@
     line-height: 55vh;
     font-size: 40px;
     letter-spacing: .15em;
+    -webkit-box-sizing: unset;
+    -moz-box-sizing: unset;
+    box-sizing: unset;
 }
 .form_title{
 	font-weight: 700;

@@ -72,14 +72,71 @@
 
 /********** 상단 메뉴 : navigation */
 #nav{display: none;position: fixed;top: 0;left: 0;z-index: 9999;width: 100%;height: 100%;background: #fff;overflow: hidden;}
-#nav .gnb_top{position: relative;width: 1140px;margin: 0 auto;}
+#nav .gnb_top{position: relative;max-width: 1140px;min-width: 1024px;margin: 0 auto;display: -ms-flexbox;display: flex;-ms-flex-align: center;align-items: center;-ms-flex-pack: end;justify-content: flex-end;height: 100px;font-size: 0;}
 #nav .gnbTop_item{}
 #nav .gnb_cart{}
 #nav .gnb_close{cursor: pointer;}
 
-#gnb{}
+.gnb_search{width: 100%;min-width: 1024px;height: 114px;background: #111;}
+.gnb_sch_wrap{position: relative;max-width: 1140px;min-width: 1024px;height: 100%;margin: 0 auto;}
+.gnb_sch_wrap form{display: -ms-flexbox;display: flex;-ms-flex-align: center;align-items: center;width: 100%;height: 100%;}
+.gnb_sch_wrap .gnb_sch_box{
+	width: 100%;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 100px;}
+.gnb_sch_wrap .gnb_sch_box .gnb_sch_input::placeholder{color: #fff;}
+.gnb_sch_wrap .gnb_sch_btn{width: 46px;height: 46px;padding: 0;}
+.gnb_sch_wrap .gnb_sch_btn img{width: 100%;}
 
+#MainGnb{width: auto;min-width: 1140px;height: calc(100% - 114px);margin: 0 0 0 156px;padding:60px 0 100px;}
+#MainGnb .gnb_inr{display: flex;width: 100%;height: 100%;padding-bottom: 100px;-moz-box-sizing: border-box;box-sizing: border-box;overflow: hidden;}
+#MainGnb .gnb_menu_wrap{position: relative;width: 300px;height: 100%;margin-right: 53px;padding-right: 170px;}
+/* #gnb .gnb_menu_wrap::before{content: '';position: absolute;top: 0;width: 100%;height: 40px;background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0) );z-index: 10;} */
+/* #gnb .gnb_menu_wrap::after{content: '';position: absolute;bottom: -10px;width: 100%;height: 40px;background: linear-gradient(to top, rgba(255,255,255,1) 10%, rgba(255,255,255,0) );z-index: 10;} */
+#MainGnb .gnb_menu{width: 300px;height: 430px;}
+#MainGnb .gnb_list{width: auto;height: auto;}
+#MainGnb .gnb_list p{cursor: pointer;}
 
+#MainGnb .gnb_list .list01{margin-top: 30px;}
+#MainGnb .gnb_list .list01 > p,
+#MainGnb .gnb_list .list01 > a{display: block;width: 100%;text-align: left;font-size: 30px;font-weight: 700;letter-spacing: -.04rem;padding: 0;color: #111;}
+#MainGnb .gnb_list .list01 > ul{padding-left: 20px;}
+
+#MainGnb .gnb_list .list01 .sch_menu{width: 100%;margin-top: 30px;padding-left: 20px;}
+#MainGnb .gnb_list .list01 .sch_list{position: relative;margin-top: 20px;}
+#MainGnb .gnb_list .list01 .sch_list:first-child{margin-top: 0;}
+#MainGnb .gnb_list .list01 .sch_list a{display: -ms-flexbox;display: flex;-ms-flex-direction: column;flex-direction: column;width: 200px;} 
+#MainGnb .gnb_list .list01 .sch_list a img{width: 100%;height: 80px;}
+#MainGnb .gnb_list .list01 .sch_list a span{display: block;font-size: 18px;font-weight: 700;line-height: 1;margin-top: 0.5em;padding-left: 0.1rem;}
+
+#MainGnb .gnb_list .list02{margin-top: 14px;}
+#MainGnb .gnb_list .list02:first-child{margin-top: 30px;}
+#MainGnb .gnb_list .list02 > a{font-size: 26px;color: #111;letter-spacing: -.01em;text-align: left;padding: 0;}
+#MainGnb .gnb_list .list02 > p{font-size: 26px;color: #111;letter-spacing: -.01em;text-align: left;padding: 0;}
+#MainGnb .gnb_list .list02.li_.btn{}
+
+#MainGnb .gnb_list .list02 > ul{padding-left: 20px;}
+#MainGnb .gnb_list .list03{margin-top: 20px;}
+#MainGnb .gnb_list .list03:first-child{margin-top: 23px;}
+#MainGnb .gnb_list .list03 > a{display: block;width: 100%;font-size: 20px;color: #666;letter-spacing: -.01em;font-weight: 400;}
+
+#MainGnb .gnb_list li a{}
+
+.swiper-vertical > .gnb_menu_scroll{left: auto;right: 0;width: 10px;background: none;}
+
+.gnb_evt_wrap{height: 350px;overflow: hidden;}
+#MainGnb .gnb_evt{width: 100%;height: 100%;}
+#MainGnb .gnb_evt_list{width: 1450px;}
+#MainGnb .evt_list{width: auto;font-size: 0;}
+#MainGnb .evt_list li{display: inline-block;vertical-align: top;width: 300px;margin-left: 24px;text-align: right;}
+#MainGnb .evt_list li:first-child{margin-left: 0;}
+#MainGnb .evt_list li a{display: block;width: 100%;}
+#MainGnb .evt_list li a span{display: block;font-size: 26px;text-align: right;font-weight: 700;margin-bottom: 12px;padding-right: 8px;}
+#MainGnb .evt_list li a img{width: 100%;}
+#MainGnb .gnb_evt_scroll{display: none;}
 
 
 /****************************************************/
@@ -117,7 +174,7 @@
     top: auto;
     right: 20px;
     bottom: 20px;
-    z-index: 10;
+    z-index: 999;
     width: 60px;
     height: 60px;
     background: url(/resources/img/floating_top.png) no-repeat;
