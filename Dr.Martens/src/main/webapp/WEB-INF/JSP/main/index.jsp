@@ -2,35 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr.Martens</title>
-	<link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/resources/css/reset.css" />
-    <link rel="stylesheet" href="/resources/css/style_guide.css" />
-    <link rel="stylesheet" href="/resources/css/style.css" />
-    <link rel="stylesheet" href="/resources/css/main.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/resources/js/main.js"></script>
-    <script src="/resources/js/style_action.js" type="text/javascript"></script>
-    <script type="text/javascript">
-		function cart_modal(str){
-	        var title = '<p class="modal_sub_title fz18">'+str+'</p><br>'
-			var img_src = '<img src="/resources/img/'+str+'/'+str+'_main.png" class="cart_img">';
-			$('.product_info').empty();
-			$('.product_info').append(title);
-			$('.product_info').append(img_src);
-			$('.addCart_modal').show();
-		}
-    </script>
-</head>
-<body>
+    <script>document.title = "Dr.Martens";</script>
  <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
     <div id="container" class="main_container">
     	<div id="content">
@@ -40,7 +12,7 @@
 			        <div class="inner">
 			            <div class="wrap">
 			                <div class="bm">
-			                    <a href="#" class="width_100"> <img src="/resources/img/main/bm1.png" alt=""> <span class="txt">신규가입 10%쿠폰</span> </a>
+			                    <a href="/DrMarten/benefits" class="width_100"> <img src="/resources/img/main/bm1.png" alt=""> <span class="txt">신규가입 10%쿠폰</span> </a>
 			                </div>
 			                <div class="bm">
 			                    <a href="#" class="width_100"> <img src="/resources/img/main/bm2.jpg" alt=""> <span class="txt">BEST 슈즈</span> </a>
@@ -58,7 +30,7 @@
 			                    <a href="#" class="width_100"> <img src="/resources/img/main/bm6.jpg" alt=""> <span class="txt">카카오 간편가입 이벤트</span> </a>
 			                </div>
 			                <div class="bm">
-			                    <a href="#" class="width_100"> <img src="/resources/img/main/bm7.jpg" alt=""> <span class="txt">마일리지 정책 변경</span> </a>
+			                    <a href="/DrMarten/notice/detail/3" class="width_100"> <img src="/resources/img/main/bm7.jpg" alt=""> <span class="txt">마일리지 정책 변경</span> </a>
 			                </div>
 			            </div>
 			        </div>
@@ -109,15 +81,15 @@
 			                                        <div class="info"> <strong class="product_name">그리폰</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-1-1.png" alt=""> <img src="/resources/img/main/md_1-1-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button" >바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">마일즈</strong> <span><i class="fa-regular fa-heart"></i> 4333</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-1-3.png" alt=""> <img src="/resources/img/main/md_1-1-4.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('마일즈');">장바구니 담기</button>
-			                                        </div>ㄴ
+			                                            <button type="button">바로가기</button>
+			                                        </div>
 			                                    </div>
 			                                </div>
 			                            </div>
@@ -127,14 +99,14 @@
 			                                        <div class="info"> <strong class="product_name">나틸라</strong> <span><i class="fa-regular fa-heart"></i> 3257</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-2-1.png" alt=""> <img src="/resources/img/main/md_1-2-2.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('나틸라');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">리키3-스트랩</strong> <span><i class="fa-regular fa-heart"></i> 189</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-2-3.jpg" alt=""> <img src="/resources/img/main/md_1-2-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('리키3-스트랩');">장바구니 담기</button>
+			                                            <button type="button" >바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -145,14 +117,14 @@
 			                                        <div class="info"> <strong class="product_name">나틸라</strong> <span><i class="fa-regular fa-heart"></i> 212</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-3-1.jpg" alt=""> <img src="/resources/img/main/md_1-3-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('나틸라_브라운');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">마일즈 DB</strong> <span><i class="fa-regular fa-heart"></i> 448</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_1-3-3.jpg" alt=""> <img src="/resources/img/main/md_1-3-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('마일즈_DB');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -178,14 +150,14 @@
 			                                        <div class="info"> <strong class="product_name">1461 모노</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-1-1.png" alt=""> <img src="/resources/img/main/md_2-1-2.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('1461_모노');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">에봇</strong> <span><i class="fa-regular fa-heart"></i> 1517</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-1-3.png" alt=""> <img src="/resources/img/main/md_2-1-4.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -196,14 +168,14 @@
 			                                        <div class="info"> <strong class="product_name">1461 쿼드</strong> <span><i class="fa-regular fa-heart"></i> 1623</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-2-1.jpg" alt=""> <img src="/resources/img/main/md_2-2-2.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 230,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">1461 스무스</strong> <span><i class="fa-regular fa-heart"></i> 5849</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-2-3.png" alt=""> <img src="/resources/img/main/md_2-2-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -214,14 +186,14 @@
 			                                        <div class="info"> <strong class="product_name">단테</strong> <span><i class="fa-regular fa-heart"></i> 142</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-3-1.jpg" alt=""> <img src="/resources/img/main/md_2-3-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 120,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">리더</strong> <span><i class="fa-regular fa-heart"></i> 176</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_2-3-3.jpg" alt=""> <img src="/resources/img/main/md_2-3-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 140,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -247,14 +219,14 @@
 			                                        <div class="info"> <strong class="product_name">피어슨</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-1-1.jpg" alt=""> <img src="/resources/img/main/md_3-1-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 140,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">포스터</strong> <span><i class="fa-regular fa-heart"></i> 534</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-1-3.jpg" alt=""> <img src="/resources/img/main/md_3-1-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 120,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -265,14 +237,14 @@
 			                                        <div class="info"> <strong class="product_name">애브리</strong> <span><i class="fa-regular fa-heart"></i> 321</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-2-1.jpg" alt=""> <img src="/resources/img/main/md_3-2-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">애브리</strong> <span><i class="fa-regular fa-heart"></i> 103</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-2-3.jpg" alt=""> <img src="/resources/img/main/md_3-2-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -283,14 +255,14 @@
 			                                        <div class="info"> <strong class="product_name">블레어 페이턴트</strong> <span><i class="fa-regular fa-heart"></i> 91</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-3-1.jpg" alt=""> <img src="/resources/img/main/md_3-3-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">블레어 비건</strong> <span><i class="fa-regular fa-heart"></i> 167</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_3-3-3.jpg" alt=""> <img src="/resources/img/main/md_3-3-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 150,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -316,14 +288,14 @@
 			                                        <div class="info"> <strong class="product_name">블레어 비건</strong> <span><i class="fa-regular fa-heart"></i> 167</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_4-1-1.jpg" alt=""> <img src="/resources/img/main/md_4-1-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 150,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">1461 비건</strong> <span><i class="fa-regular fa-heart"></i> 534</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_4-1-3.png" alt="" class="wide_img"> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -334,14 +306,14 @@
 			                                        <div class="info"> <strong class="product_name">2967 비건</strong> <span><i class="fa-regular fa-heart"></i> 681</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_4-2-1.png" alt="" class="wide_img"> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 220,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">1460 비건</strong> <span><i class="fa-regular fa-heart"></i> 583</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_4-2-2.png" alt="" class="wide_img"> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 220,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -352,7 +324,7 @@
 			                                        <div class="info"> <strong class="product_name">제이든 II 모노</strong> <span><i class="fa-regular fa-heart"></i> 984</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_4-3-1.png" alt=""> <img src="/resources/img/main/md_4-3-2.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 260,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right"> </div>
@@ -379,14 +351,14 @@
 			                                        <div class="info"> <strong class="product_name">MIE 1461</strong> <span><i class="fa-regular fa-heart"></i> 7</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-1-1.jpg" alt=""> <img src="/resources/img/main/md_5-1-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 300,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">MIE 1461</strong> <span><i class="fa-regular fa-heart"></i> 6</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-1-3.jpg" alt=""> <img src="/resources/img/main/md_5-3-4.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 300,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -397,7 +369,7 @@
 			                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong> <span><i class="fa-regular fa-heart"></i> 153</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-2-1.jpg" alt=""> <img src="/resources/img/main/md_5-2-2.jpg" alt="">
 			                                            <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
-			                                                <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                                <button type="button"onclick="">바로가기</button>
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -405,7 +377,7 @@
 			                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong> <span><i class="fa-regular fa-heart"></i> 80</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-2-3.jpg" alt=""> <img src="/resources/img/main/md_5-2-4.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -416,14 +388,14 @@
 			                                        <div class="info"> <strong class="product_name">MIE 빈티지 1461</strong> <span><i class="fa-regular fa-heart"></i> 257</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-3-1.png" alt=""> <img src="/resources/img/main/md_5-3-2.jpg" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                    <div class="item right">
 			                                        <div class="info"> <strong class="product_name">MIE 빈티지 3989</strong> <span><i class="fa-regular fa-heart"></i> 222</span> </div>
 			                                        <div class="wrap imgw"> <img src="/resources/img/main/md_5-3-3.png" alt=""> <img src="/resources/img/main/md_5-3-4.png" alt=""> </div>
 			                                        <div class="wrap"> <span class="price"><span class="won_font">\</span> 290,000 </span>
-			                                            <button type="button" onclick="javascript:cart_modal('그리폰');">장바구니 담기</button>
+			                                            <button type="button"onclick="">바로가기</button>
 			                                        </div>
 			                                    </div>
 			                                </div>
@@ -463,7 +435,7 @@
 			            <div class="black_line short"></div>
 			        </div><img src="/resources/img/main/all_access_summer.jpg" alt="">
 			        <div class="inner">
-			            <a href="/DrMarten/sendal" class="cmBtn line hover mid">자세히 보기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
+			            <a href="/DrMarten/sandal" class="cmBtn line hover mid">자세히 보기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
 			        </div>
 			    </div>
 			    <!-- <div id="visual2">
@@ -528,7 +500,7 @@
 			                <div class="harf">
 			                	<img src="/resources/img/main/mem1.jpg" alt="">
 			                    <div class="text_wrap"> <strong class="sml">무료 사이즈 1회 교환</strong> <span class="gray">구매시 20% 적립금 사용 가능<br>구매하면 최대 20% 적립</span>
-			                        <a href="/DrMarten/member/agreement" class="cmBtn line hover mid">가입하러 가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
+			                        <a href="/DrMarten/user/signUp" class="cmBtn line hover mid">가입하러 가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
 			                    </div>
 			                </div>
 			                <div class="harf">
@@ -577,7 +549,7 @@
 							<p class="new_join_txt fz18 c999">신규 회원으로 가입하고 10% 쿠폰과 최신 소식을 받아보세요.</p>
 						</div>
 						<div class="new_join_right">
-							<a href="/DrMarten/member/agreement" class="cmBtn yellow fz18 fw700">회원가입</a>
+							<a href="/DrMarten/user/signUp" class="cmBtn yellow fz18 fw700">회원가입</a>
 						</div>
 					</div>
 				</div>
@@ -616,7 +588,4 @@
     </div>
     <!-- //메인 끝 -->
     <!--  -->
-
   <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
-</body>
-</html>

@@ -13,8 +13,7 @@
 <link rel="stylesheet" href="/resources/css/style_guide.css" />
 <link rel="stylesheet" href="/resources/css/main.css" />
 <link rel="stylesheet" href="/resources/css/admin.css" />
-<!-- <link rel="stylesheet" href="/resources/css/loginStyle.css" /> -->
-<!-- <link rel="stylesheet" href="/resources/css/products.css" /> -->
+<link rel="stylesheet" href="/resources/css/products.css" />
 <!-- ㄴ css 중복 class, id있어서 깨져요, 수정필요 
 	특히 #header, #main, #container, #content, #footer의 경우 
 	전체 헤더, 푸터, 페이지 틀을 짤때 사용됨으로 다른 이름으로 변경 부탁드립니다

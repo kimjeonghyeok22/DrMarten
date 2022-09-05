@@ -12,6 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="/resources/css/admin.css">
+            <link rel="stylesheet" href="/resources/css/style_guide.css">
         <script src="/resources/js/main.js"></script>
         <script type="text/javascript">
             function save() {
@@ -83,8 +84,8 @@
                     <li> <span>상품 관리</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                         <div class="sub_wrap">
                             <ul id="sub_menu">
-                                <li><a href="#">상품 등록</a></li>
-                                <li><a href="#">상품 목록</a></li>
+                            <li><a href="/admin/product/form">상품 등록</a></li>
+                            <li><a href="/admin/product/list">상품 목록</a></li>
                             </ul>
                         </div>
                     </li>

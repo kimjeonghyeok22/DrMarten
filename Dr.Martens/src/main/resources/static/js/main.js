@@ -52,7 +52,7 @@ $(function () {
 		$('#' + active).children('.category_detail').addClass('on');
 	})
     
-    $('#sec1 .prev').on('click', function(){
+    $('#sec1 .next').on('click', function(){
         var num = $('#category1 li.on .eq1').index();
         console.log(num);
         $('#category1 li.on .slide').removeClass('eq1'); 
@@ -76,7 +76,7 @@ $(function () {
             $('#sec1 li.on .pgn').eq(num-2).addClass('on');
         }
     });
-    $('#sec1 .next').on('click', function(){
+    $('#sec1 .prev').on('click', function(){
         var num = $('#category1 li.on .eq1').index();
         console.log(num);
         $('#category1 li.on .slide').removeClass('eq1');

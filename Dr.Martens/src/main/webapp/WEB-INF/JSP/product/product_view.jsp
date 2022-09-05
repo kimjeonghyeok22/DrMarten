@@ -2,18 +2,7 @@
     pageEncoding="UTF-8" import="java.text.DecimalFormat"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <!DOCTYPE html>
-            <html>
 
-            <head>
-                <meta charset="UTF-8">
-                <title>제품 목록</title>
-                <link rel="stylesheet" href="/resources/css/products.css" />
-                <link rel="stylesheet" href="/resources/css/style_guide.css" />
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-                <script src="/resources/js/product/main_page.js"></script>
-            </head>
-
-            <body>
                 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
                 <form action="/DrMarten/product/files/searchName" method="post">
                     <div id="ser">
@@ -21,10 +10,10 @@
                         <button id="ser_icon" type="submit"> <img id="ser_img" src="http://localhost/resources/img/btn_white_search.png" /> </button>
                     </div>
                 </form>
-                <div id="main">
+                <div id="main" class="pro">
                     <div class="inner">
                         <div class="left_menu">
-                            <ul class="fz26 fw700 categoraegorae">
+                            <ul class="fz26 fw700" id="pro_menu">
                                 <li id="toc-toggle" onclick="openCloseToc()"> <span id="catVal">성별</span> <span><img class="rowV" id="rowV" src="http://localhost/resources/img/Up_arrow_transparent.png"/></span>
                                     <ul class="closeList" id="category">
                                         <li> <a href="/DrMarten/product/category/male" class="cate">　남자</a> </li>
@@ -68,7 +57,7 @@
 												<input type="hidden" name = "name" value="${product.name}">
 												<input type="hidden" name = "name" value="${product.product_code}">
 												<input type="hidden" name = "name" value="${product.price}">
-												<button type="button" class="goCart" onclick="">장바구니 담기</button>
+												<button type="button" class="goCart" onclick="">바로가기</button>
 											</div>
 									</form>
                                 </c:forEach>
@@ -77,6 +66,3 @@
                     </div>
                 </div>
                 <jsp:include page="/WEB-INF/JSP/include/footer.jsp" /> 
-            </body>
-
-            </html>

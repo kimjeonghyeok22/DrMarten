@@ -1,27 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!DOCTYPE html>
-    <html>
-
-    <head>
-        <meta charset="UTF-8">
-        <title>닥터마틴 코리아</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/resources/css/reset.css" />
-        <link rel="stylesheet" href="/resource	s/css/style.css" />
-        <link rel="stylesheet" href="/resources/css/main.css" /> </head>
-
-    <body>
         <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-        <div id="main" style="padding-top : 180px; min-height:calc(100vh - 500px); height : fit-content;">
-            <div class="inner" style="width:1124px;">
-                <div class="ser_top"> <a href="#"><i class="fa-solid fa-arrow-left-long" style="font-size:40px; padding-bottom: 30px;"></i></a>
+        <div id="main">
+            <div class="inner">	
+                <!-- 서브페이지 상단 -->
+		<div id="subHead">
+			<div class="subHead_back fx">
+				<button class="subHead_btn" onclick="history.go(-1)">
+					<span class="text_hiden">뒤로가기</span>
+					<svg version="1.1" viewBox="0 0 34 22" class="subHead_btn_icon">
+						<path pid="0" fill="#111" fill-rule="evenodd" d="M33.974 9.503H5.771l7.493-7.402L11.128-.01-.012 10.995 11.128 22l2.136-2.111-7.493-7.401h28.203V9.503z"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
                     <br> <span style="font-size : 36px; color : #000; font-weight: bold;">개인정보 취급방침</span>
                     <div class="dmField dmInput mb30" style="margin-top : 50px; height: 300px;">
                         <label class="dmField_label">개인정보 취급방침</label>
@@ -172,6 +165,4 @@ e-mail: korea.ecommerce@drmartens.com
 						</div>
 		</div>
 	</div>
-</div>
- <jsp:include page="/WEB-INF/JSP/include/footer.jsp" /></body>
-</html>
+ <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
