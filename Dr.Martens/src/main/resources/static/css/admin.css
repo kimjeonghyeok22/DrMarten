@@ -153,7 +153,7 @@ h2.title{margin: 0 0 30px;} */
 #admin_header .inner{display:flex; flex-direction: row ;
 justify-content: space-between;
 height:inherit;align-items: center;}
-#admin_header .img_wrap{width: fit-content; height: inherit;}
+#admin_header .img_wrap{width: fit-content; height: 100px;}
 #admin_header .img_wrap img{display: inline-block; height: 60px; margin-top: 20px;}
 #admin_header .title_wrap{width : 1400px; height:74px; font-size: 30px; font-weight: bold; padding-left: 20px; line-height: 74px;}
 #admin_header .controller_wrap{width : 800px; height: 80px;}

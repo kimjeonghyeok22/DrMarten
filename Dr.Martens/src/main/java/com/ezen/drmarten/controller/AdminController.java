@@ -470,6 +470,17 @@ public class AdminController {
 		return "/dr/product/productList";
 	}
 	
+	@GetMapping("/product/list/page/{page}")
+	public String productListByPage(@PathVariable("page") int page, Model model) {
+		int pageNum = page;
+		int pageSize = 10;
+		PageHelper.startPage(pageNum, pageSize);
+		PageInfo<Product> pageInfo = new PageInfo<Product>(psvc.getList());
+		model.addAttribute("pageInfo", pageInfo);
+		return "/dr/product/productList";
+	}
+
+	
 	@GetMapping("/product/detail/{product_code}")
 	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request) {
 		HttpSession session = request.getSession();
