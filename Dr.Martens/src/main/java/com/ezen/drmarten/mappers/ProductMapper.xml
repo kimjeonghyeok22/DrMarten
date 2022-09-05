@@ -36,7 +36,7 @@
 	</insert>
 	
 	<select id="getCodeByName" resultType="Integer" parameterType="String">
-		SELECT PRODUCT_CODE FROM PRODUCT where NAME=#{name}
+		SELECT PRODUCT_CODE FROM PRODUCT where NAME=#{name} AND COLOR=#{color}
 	</select>
 	
 	<update id="addStock" parameterType="java.util.List">

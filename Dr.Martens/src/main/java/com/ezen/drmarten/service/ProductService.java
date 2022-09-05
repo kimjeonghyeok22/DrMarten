@@ -25,7 +25,7 @@ public class ProductService {
 
 
 	public boolean add_stock(Product pro) {
-		int code = pro.getProduct_code();
+		int code = dao.getCodeByName(pro.getName(),pro.getColor());
 		//List<Product_size> 를 전송하기 위한 키 code을 리스트에 삽입
 		for(int i=0; i < pro.getSize().size();i++) {
 			pro.getSize().get(i).setProduct_code(code);

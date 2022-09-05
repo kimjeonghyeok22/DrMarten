@@ -22,7 +22,7 @@ public interface ProductMapper {
 	int add_attach2(Product_attach attach);
 	
 	//제품명으로 제품코드 가져오기
-	int getCodeByName(String name);
+	int getCodeByName(String name,String color);
 
 	int addStock(List<Product_size> list);
 
