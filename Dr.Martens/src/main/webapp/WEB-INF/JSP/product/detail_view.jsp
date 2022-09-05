@@ -6,7 +6,7 @@
 
         <head>
             <meta charset="UTF-8">
-            <title>제품 상세보기</title>
+            <title>닥터마틴 코리아 :: 제품 상세보기</title>
             <link rel="stylesheet" href="/resources/css/products.css" />
             <link rel="stylesheet" href="/resources/css/style_guide.css" />
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
         <body>
             <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-            <div id="main" style="margin-top: 180px;">
+            <div id="main" class="pro_det">
                 <div class="inner">
                     <div class="wrap">
                         <div class="rightInfo half">

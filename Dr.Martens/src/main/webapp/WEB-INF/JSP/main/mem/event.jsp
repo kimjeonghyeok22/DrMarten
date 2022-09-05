@@ -19,8 +19,8 @@
 
     <body>
         <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-        <div id="main" style="padding-top : 180px;">
-            <div class="inner" style="width:1140px;"> <span style="font-size : 36px; color : #000; font-weight: bold;">멤버십 이벤트</span>
+        <div id="main">
+            <div class="inner" style="width:840px;"> <span style="font-size : 36px; color : #000; font-weight: bold;">멤버십 이벤트</span>
                 <div class="img_wrap" style="width : 840px; margin : 60px auto 0;"> <img src="/resources/img/event/mem_event.jpg" style="width: 100%;"> </div>
             </div>
         </div>

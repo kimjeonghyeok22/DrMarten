@@ -2,25 +2,9 @@
     pageEncoding="UTF-8"%>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항 | 닥터마틴 코리아</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis&family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/resources/css/reset.css" />
-<link rel="stylesheet" href="/resources/css/style.css" />
-<link rel="stylesheet" href="/resources/css/main.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-</head>
-<body>
+<script>document.title = "공지사항 | 닥터마틴 코리아";</script>
         <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
-       <div id="main"  style="margin-top : 180px;">
+       <div id="main">
        <div class="wrap qna">
        <div class="left_menu">
        		<strong>CS center</strong><br>
@@ -64,5 +48,3 @@
                 </div>
         </div>
      <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
-</body>
-</html>

@@ -2,20 +2,15 @@
     pageEncoding="UTF-8" import="java.text.DecimalFormat"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>요청하신 제품List</title>
-<link rel="stylesheet" href="/resources/css/products.css"/>
-<link rel="stylesheet" href="/resources/css/style_guide.css" />
-</head>
-<body>
+<jsp:include page="/WEB-INF/JSP/include/header.jsp" />
+<div id="main" class="pro_ser">
+<div class="inner">
 <div id="searchRes">
-<div class="fz36 fw900 c111 ">"${searchKey}"</div>
-<div class="fz20 fw700 c666 ">검색 결과를 확인하세요</div>
-<div class="fz26 fw700 c111 ">제품(${list.size()})</div>
+<div class="fz36 fw900 c111 ser_key">"${searchKey}"</div>
+<div class="fz20 fw700 c666 ser_txt">검색 결과를 확인하세요.</div>
+<div class="fz26 fw700 c111 ser_cnt">제품(${list.size()})</div>
 </div>
-<div id="productList">
+<div id="reset_by_category">
 	<c:forEach items="${list}" var="lists">
 		<form id="list" onclick="location.href='/DrMarten/product/detail_product/${lists.product_code}'">
 			<img src="http://localhost/${lists.attach[0].fpath}${lists.name}_main.png"/>
@@ -31,12 +26,16 @@
 						<%Integer price = (Integer)pageContext.getAttribute("priceNum");
 						DecimalFormat formatter = new DecimalFormat("###,###");
 						%>₩<%=formatter.format(price)%></span>
-			<br>${lists.color}
-			<span class="priceRight">
-				<button type="button" id="goCart" onclick="">장바구니에 담기</button>
-			</span>
+                                        	<div class="wrap">
+												<span class="color">${product.color}</span>
+												<input type="hidden" name = "name" value="${product.name}">
+												<input type="hidden" name = "name" value="${product.product_code}">
+												<input type="hidden" name = "name" value="${product.price}">
+												<button type="button" class="goCart" onclick="">바로가기</button>
+											</div>
 		</form>
 	</c:forEach>
 </div>
-</body>
-</html>
+</div>
+</div>
+ <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />

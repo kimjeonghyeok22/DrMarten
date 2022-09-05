@@ -3,7 +3,7 @@
 a{text-decoration: none; color: black;}
 ul, li, ol{list-style: none;}
 
-html,body{min-height:100vh; margin: 0;}
+html{min-height:100vh; margin: 0;}
 
 /* input:focus{outline: none;}
 textarea:focus{outline: none;}

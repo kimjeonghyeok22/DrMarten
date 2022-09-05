@@ -40,8 +40,9 @@ a.width_100{display: block; width: 100%;}
 .prev, .next{width: 64px; height: 64px; text-align: center; background-color: #000; cursor: pointer; z-index : 99;}
 .prev i, .next i{color: #fff; font-size: 50px; line-height: 60px;}
 
-.sec1{width: 100%; height: 900px;margin: 100px auto 120px;}
-.sec1 .inner{padding: 0;text-align: center;}
+#sec1{width: 100%; height: 900px;margin: 100px auto 120px;}
+#sec1 .inner{padding: 0;text-align: center;}
+#sec1 .cateBtn_wrap{text-align: center;}
 
 #category1{position:relative; width: 100%;text-align: center;}
 #category1>li{width: 100%;font-size: 0;}
@@ -62,7 +63,7 @@ a.width_100{display: block; width: 100%;}
 #category1 .item .imgw{width: 100%; height: 340px; margin:10px 0 20px; background-color: #e6e6e6;}
 #category1 .item img{display: inline-block; width: 50%; background-color: #e6e6e6;}
 #category1 .item img.wide_img{display: inline-block; height: 100%;margin: 0 auto; background-color: #e6e6e6;}
-#category1 button{border: 1px solid black;height: 52px;padding: 0 17px; background-color: #fff;font-size: 18px;letter-spacing: -0.015em;}
+#category1 button{border: 1px solid black;height: 52px;padding: 0 26px; background-color: #fff;font-size: 18px;letter-spacing: -0.015em;}
 #category1 .btn_wrap{position: absolute; left: 0; top: 530px; width: 100%; display: flex; flex-direction: row; justify-content: space-between; margin-top: 20px;}
 #category1 .pgn_wrap{display: flex; flex-direction: row; justify-content: space-between; width: 90px; margin-top: 26px;}
 #category1 .pgn{width: 12px; height: 12px; background-color: #000;}
@@ -107,8 +108,7 @@ a.width_100{display: block; width: 100%;}
 span.won_font {font-family : 'Nanum Gothic', sans-serif;}
 button {cursor: pointer;}
 
-/*공지사항*/
-#main {width : 100%; min-height : 1100px; margin : 0 0 60px 0;}
+#main {width : 100%; min-height : calc(100vh - 427px); margin : 150px 0  0 0;}
 #main .wrap.qna{width : 1140px; display : flex; flex-direction: row; justify-content: space-between; margin : 0 auto;}
 #main .left_menu{width : 292px;}
 #main .left_menu strong{display : inline-block; font-size : 30px; font-weight : bold; padding-bottom : 16px; font-family: 'Dosis', sans-serif;}
@@ -119,7 +119,7 @@ button {cursor: pointer;}
 #left_menu li img{display:inline-block; height: 100%; transform: translateY(7px); margin-right: 10px;}
 #left_menu li span{border-bottom : 4px solid #000;}
 
-#main .inner {width : 848px; padding : 10px 0 40px;}
+#main .inner {width : 1140px; padding : 0 0 40px;}
 #main .inner.auto{height : fit-contents; padding : 10px 0 60px;}
 #main .inner.qna h1{font-size : 36px; font-weight: bold; padding-bottom : 20px;}
 #main .search_wrap{width : 100%; line-height : 62px;  border : 1px solid #c4c4c4; padding: 0 30px; margin-bottom:10px;}
@@ -204,3 +204,26 @@ padding : 20px; box-sizing : border-box; text-align: center;}
 .size_btn{display: inline-block; padding: 0 50px 0 12px;  line-height: 36px; border: 1px solid #e6e6e6; margin : 0 4px 4px 0; cursor: pointer;}
 .size_btn:hover{background-color : #e6e6e6;}
 .cart_img{display: inline-block; width : 240px; margin : 0 auto 30px; background-color : #e2e2e2;}
+
+/*고객센터*/
+.cs_bigSpan {font-size: 26px; color: #000; font-weight: bold; line-height: 43px;}
+.cs_smlSpan {display: inline-block; font-size: 20px; color: #666666; line-height: 28px;  margin-top: 10px;}
+.cs_link {display: inline-block; font-size: 20px; color: #111111; font-weight: bold; border-bottom: 2px solid #999; margin: 10px 0;}
+.cs_link:first-of-type {margin-top: 20px;}
+.cs_icon{display:inline-block; height: 43px; margin: 0 20px 0 0; transform : translateY(10px);}
+.cs_icon2{margin: 0; transform : translate(-5px,10px);}
+.cs_ml65{margin-left:65px;}
+.cs_btn{display:inline-block; font-size : 16px; padding : 0 17px; border : 1px solid #000; margin-top : 20px; line-height: 40px;}
+.cs_notice_sub{padding : 20px 0 30px 20px;}
+.sub_title{font-size :20px ; color:#111111; font-weight:bold;}
+.sub_con{display:inline-block; width:100%; font-size : 18px; color: #666666; line-height:22px; margin : 10px 0; min-height: 48px; max-height: 48px; text-overflow: ellipsis; overflow: hidden;}
+.sub_date{font-size : 18px; color: #666666; line-height:22px;}
+
+
+#subHead .subHead_back.fx{width: 100%;margin: 0 auto;padding: 0;}
+
+/*사이트맵*/
+.sitemap_title1{font-size : 18px; color: #111111; font-weight: bold; line-height:26px;}
+.sitemap_title2{font-size : 16px; color: #666666; line-height:24px;;}
+.w187{width : 187px;}
+.w224{width : 224px;}
