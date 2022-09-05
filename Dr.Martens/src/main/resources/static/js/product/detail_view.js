@@ -4,6 +4,7 @@ function down_btn() {
 	var intemp = Number(temp)-1;
 	if(intemp<=0){
 		document.getElementById('count').value=1;
+		intemp = 1;
 	}else{
 	document.getElementById('count').value=intemp;
 	}
