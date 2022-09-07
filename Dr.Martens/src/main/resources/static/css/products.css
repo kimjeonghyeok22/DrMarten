@@ -80,7 +80,7 @@ input[class="count"]::-webkit-inner-spin-button {    -webkit-appearance: none;  
 .count{	width: 23%;	text-align: right;}
 .count_btn{transform : translateY(4px);}
 .temp1{	width: 200px;	height: 40px;}
-.price{	position: relative;	left: 29.5%;}
+#addCartForm .price{	position: relative;	left: 25%;}
 
 .btn_wrap{margin-top :10px; }
 .product_detail{display : flex; flex-direction: row; justify-content: space-between; width : 100%; border-bottom : 1px solid #111111;}

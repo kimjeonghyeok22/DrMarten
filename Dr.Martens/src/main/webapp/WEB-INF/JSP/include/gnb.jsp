@@ -9,7 +9,7 @@
 						<p>실시간 검색어</p>
 						<ul class="sch_menu">
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/benefits">
 									<img src="/resources/img/main/bm1.png" alt="" />
 									<span>신규가입 10% 쿠폰</span>
 								</a>
@@ -45,7 +45,7 @@
 								</a>
 							</li>
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/notice/detail/3">
 									<img src="/resources/img/main/bm7.jpg" alt="" />
 									<span>마일리지 정책 변경</span>
 								</a>
@@ -72,7 +72,7 @@
 							<li class="list02"><a href="/DrMarten/product/category/sandals">샌들</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
 							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
-							<li class="list02"><a href="">Trend Now</a></li>
+							<!-- <li class="list02"><a href="">Trend Now</a></li> -->
 						</ul>
 					</li>
 					<li class="list01">
