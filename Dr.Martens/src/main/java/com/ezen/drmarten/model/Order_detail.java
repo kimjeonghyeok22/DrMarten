@@ -31,5 +31,6 @@ public class Order_detail {
 	private int product_count;
 	private int discounted_price;
 	private int total_price;
+	private int order_num;
 
 }

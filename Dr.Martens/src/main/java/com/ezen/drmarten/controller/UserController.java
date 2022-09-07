@@ -1,6 +1,7 @@
 package com.ezen.drmarten.controller;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +33,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.drmarten.mappers.BoardMapper;
+import com.ezen.drmarten.mappers.OrderDetailMapper;
+import com.ezen.drmarten.mappers.OrderListMapper;
+import com.ezen.drmarten.model.Order;
+import com.ezen.drmarten.model.Order_detail;
 import com.ezen.drmarten.model.User;
 import com.ezen.drmarten.repository.CartRepository;
+import com.ezen.drmarten.repository.OrderRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
 import com.ezen.drmarten.service.ItemCartService;
 import com.ezen.drmarten.service.UserService;
@@ -55,6 +62,10 @@ public class UserController {
 	UserTableRepository rep;
 	@Autowired
 	CartRepository cartView;
+	@Autowired
+	private OrderListMapper odao;
+	@Autowired
+	private OrderDetailMapper oldao;
 	
 	//메인 페이지 이동
 	@GetMapping("")
@@ -304,6 +315,24 @@ public class UserController {
 			return "<script>" + "alert('유효하지않은 코드입니다');" + "location.href='/DrMarten/user/singUp'" + "</script>";
 		}
 
+	}
+	
+	@GetMapping("/mypage/orderlist")
+	private String getOrderList(HttpSession sessio, Model model) {
+		if (session.getAttribute("u_email") == null) {
+			return "/user/login";
+		} else {
+			String email = (String) session.getAttribute("u_email");
+			List <Order> orderList = odao.getOrderList(email);
+			List <Order_detail> list = new ArrayList<>();
+			for (int i = 0; i < orderList.size(); i++) {
+				list.addAll(oldao.getOrderDetail(orderList.get(i).getOrder_num()));
+				orderList.get(i).setCart(list);
+			}
+			model.addAttribute("orderDetail",list);
+			model.addAttribute("orderList",orderList);
+			return "/user/orderlist";
+		}
 	}
 
 }
