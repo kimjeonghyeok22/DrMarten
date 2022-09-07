@@ -79,6 +79,9 @@
 			<when test='category.equalsIgnoreCase("sandals")'>
 				CATEGORY = 'SANDALS'
 			</when>
+			<when test='category.equalsIgnoreCase("shoes")'>
+				CATEGORY = 'SHOES'
+			</when>
 			<when test='category.equalsIgnoreCase("vegan")'>
 				VEGAN = 'yes'
 			</when>

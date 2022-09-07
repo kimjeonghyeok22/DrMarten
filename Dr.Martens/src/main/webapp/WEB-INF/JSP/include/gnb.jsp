@@ -15,19 +15,19 @@
 								</a>
 							</li>
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/product/best">
 									<img src="/resources/img/main/bm2.jpg" alt="" />
 									<span>BEST 슈즈</span>
 								</a>
 							</li>
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/product/category/online_only">
 									<img src="/resources/img/main/bm3.jpg" alt="" />
 									<span>온라인 단독상품</span>
 								</a>
 							</li>
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/product/category/vegan">
 									<img src="/resources/img/main/bm4.jpg" alt="" />
 									<span>콜라보레이션</span>
 								</a>
@@ -56,22 +56,22 @@
 					<li class="list01">
 						<p>NEW</p>
 						<ul>
-							<li class="list02"><a href="">여성</a></li>
-							<li class="list02"><a href="">남성</a></li>
-							<li class="list02"><a href="">부츠</a></li>
-							<li class="list02"><a href="">슈즈</a></li>
-							<li class="list02"><a href="">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/female">여성</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/male">남성</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/shoes">슈즈</a></li>
+							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
 						</ul>
 					</li>
 					<li class="list01">
 						<p>BEST</p>
 						<ul>
-							<li class="list02"><a href="">여성</a></li>
-							<li class="list02"><a href="">남성</a></li>
-							<li class="list02"><a href="">슈즈</a></li>
-							<li class="list02"><a href="">샌들</a></li>
-							<li class="list02"><a href="">부츠</a></li>
-							<li class="list02"><a href="">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/female">여성</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/male">남성</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/shoes">슈즈</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/sandals">샌들</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
+							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
 							<li class="list02"><a href="">Trend Now</a></li>
 						</ul>
 					</li>
