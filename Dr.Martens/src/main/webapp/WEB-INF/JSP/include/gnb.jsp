@@ -179,7 +179,7 @@
 							<li class="list02"><a href="">지속가능성</a></li>
 						</ul>
 					</li>
-					<li class="list01 mt60"><a href="">/고객센터</a></li>
+					<li class="list01 mt60"><a href="/DrMarten/service/cs">/고객센터</a></li>
 					<li class="list01"><a href="">/매장찾기</a></li>
 				</ul>
 			</div>
@@ -189,7 +189,7 @@
 			<div class="gnb_evt swiper-wrapper">
 				<div class="gnb_evt_list swiper-slide">
 					<ul class="evt_list">
-						<li><a href="javascript:;">
+						<li><a href="/DrMarten/benefits">
 							<span>공식몰혜택</span>
 							<img src="/resources/img/gnb_evt_img01.jpg" alt="공식몰혜택" />
 						</a></li>

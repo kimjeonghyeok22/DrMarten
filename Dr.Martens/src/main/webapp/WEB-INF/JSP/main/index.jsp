@@ -17,10 +17,10 @@
                                     <a href="/DrMarten/benefits" class="width_100"> <img src="/resources/img/main/bm1.png" alt=""> <span class="txt">신규가입 10%쿠폰</span> </a>
                                 </div>
                                 <div class="bm">
-                                    <a href="#" class="width_100"> <img src="/resources/img/main/bm2.jpg" alt=""> <span class="txt">BEST 슈즈</span> </a>
+                                    <a href="/DrMarten/product/best" class="width_100"> <img src="/resources/img/main/bm2.jpg" alt=""> <span class="txt">BEST 슈즈</span> </a>
                                 </div>
                                 <div class="bm">
-                                    <a href="#" class="width_100"> <img src="/resources/img/main/bm3.jpg" alt=""> <span class="txt">온라인 단독상품</span> </a>
+                                    <a href="/DrMarten/product/category/online_only" class="width_100"> <img src="/resources/img/main/bm3.jpg" alt=""> <span class="txt">온라인 단독상품</span> </a>
                                 </div>
                                 <div class="bm">
                                     <a href="#" class="width_100"> <img src="/resources/img/main/bm4.jpg" alt=""> <span class="txt">콜라보레이션</span> </a>
