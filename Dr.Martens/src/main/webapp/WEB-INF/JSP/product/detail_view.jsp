@@ -207,15 +207,85 @@
                     </div>
                     <div class="product_detail  w100 bn">
                     	<div class="wrap bb">
-                    		<span class="detail_bigTitle">상품문의</span><a href="" class="detail_btn">글쓰기</a>
+                    		<span class="detail_bigTitle">상품후기</span>
                     	</div>
                     	<div class="wrap bb center">
-                    		<span class="detail_big2">후기 00개 / 별점 0.0</span>
+                    		<span class="detail_big2">후기 ${cnt}개 / 별점 ${score}</span>
                     	</div>
+                    	<c:forEach var="r" items="${review}">
+                    		<div class="review">
+                    			<c:set var="writer" value="${r.writer}"/>
+                    				 <%
+										String temp_name = (String)pageContext.getAttribute("writer");
+										String wname = temp_name.substring(0, 4)+"****";
+										pageContext.setAttribute("wname",wname);
+									%>
+                    			<span class="writer">${wname}</span><br>
+                    			<span class="title">${r.title}
+                    			<c:if test="${not empty r.fname}">
+                    				<svg data-v-5e0e8c6e="" version="1.1" viewBox="0 0 56 48" class="icon"><path pid="0" fill="#111" fill-rule="evenodd" d="M0 .001v47.996h56V.001H0zm50 6V17.49l-7.89-7.891-12.286 12.287-5.019-5.021L6 35.67V6.001h44zM8.156 41.999l16.649-16.646 8.987 8.987 4.242-4.242-3.969-3.971 8.045-8.044 7.89 7.89v16.026H8.156z"></path></svg>
+                    			</c:if>
+                    			</span><br>
+                    			<c:if test="${not empty r.fname}">
+                    			<img src="../../../resources/img/review/${r.fname}" class="img"><br>
+                    			</c:if>
+                    			<c:if test="${r.score eq 1}">
+                    				<span class="review_score">
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    				</span><br>
+                    			</c:if>
+                    			<c:if test="${r.score eq 2}">
+                    				<span class="review_score">
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    				</span><br>
+                    			</c:if>
+                    			<c:if test="${r.score eq 3}">
+                    				<span class="review_score">
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    				</span><br>
+                    			</c:if>
+                    			<c:if test="${r.score eq 4}">
+                    				<span class="review_score">
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-regular fa-star"></i>
+                    				</span><br>
+                    			</c:if>
+                    			<c:if test="${r.score eq 5}">
+                    				<span class="review_score">
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    					<i class="fa-solid fa-star"></i>
+                    				</span><br>
+                    			</c:if>
+                    			<span class="contents">작성일 | ${r.wdate}</span><br>
+                    			<span class="contents">${r.contents}</span>
+                    			<div class="review_btn">
+                    			<span class="open">펼쳐보기</span>
+                    			<span class="close">접기</span>
+                    			</div>
+                    		</div>
+                    	</c:forEach>
                     </div>
                     <div class="product_detail  w100 bn">
                     	<div class="wrap bb">
-                    		<span class="detail_bigTitle">상품문의</span><a href="" class="detail_btn">글쓰기</a>
+                    		<span class="detail_bigTitle">상품문의</span><a href="/DrMarten/writeQna/${product.product_code}" class="detail_btn">글쓰기</a>
                     	</div>
                     </div>
                     <div class="product_detail bn cn">

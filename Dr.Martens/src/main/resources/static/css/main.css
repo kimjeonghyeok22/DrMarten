@@ -238,3 +238,34 @@ padding : 20px; box-sizing : border-box; text-align: center;}
 .cart_list #item .center{text-align: center;}
 .cart_list .right{width : 100%; text-align: right; padding: 16px 0; line-height: 24px;}
 .cart_buy_wrap{width : 100%; margin-top : 20px; text-align : center;}
+
+#orderList .t{font-weight: bold; border-top : 2px solid #000;border-bottom : 2px solid #000;}
+#orderList .num{width:80px;}
+#orderList .review{width:60px;}
+#orderList .order_detail td{vertical-align: middle;}
+#orderList .order_detail .p_name{width: 60%;}
+#orderList .right{text-align: right;}
+#orderList img{display: inline-block; height : 70px; background-color : #e2e2e2; margin-top : 16px;}
+
+/*리뷰 작성폼*/
+#write_form .dmField_label{top:auto;}
+#write_form .image-container{display:flex; flex-direction: row; justify-content: space-between; width: 100%; height: 300px;}
+#write_form .dmField_input_box.img {width : 250px; }
+#write_form .dmField_input.img {display:inline-block; background-color: #fff; height: auto; margin: 0 auto;}
+#write_form .dmField_input.score {background-color: #fff;}
+#write_form .dmField.file {background-color: #fff; width : calc(100% - 270px);}
+.score .star{display:inline-block; cursor: pointer;}
+.score .star .full{display:none;}
+.score .star.on .empty{display:none;}
+.score .star.on .full{display:inline-block;}
+.score .star .full i{color: #fae100;}
+
+#write_form .btn_wrap{display:inline-block; width: 100%; text-align: right;}
+#write_form .btn_wrap .black{margin-right:10px;}
+
+/*1:1문의작성폼*/
+.myqna_form{width : 100%; display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap;}
+.myqna_form .ib{display: inline-block;}
+.myqna_form .cate{width : 200px !important; margin-right:18px;}
+.myqna_form .rtitle{width : calc(100% - 220px) !important;}
+}

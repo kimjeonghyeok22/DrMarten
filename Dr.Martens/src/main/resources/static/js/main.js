@@ -105,10 +105,25 @@ $(function () {
     	$('.addCart_modal').hide();
     });
 
-
-	function not_sup(){
-		alert('지원하지 않는 링크입니다 : (');
-	}
+$('.score .star').on('click', function(){
+		var star_idx = $(this).index();
+		$('.score').children('.star').removeClass('on');
+		$('#review_score').val(star_idx+1);
+		for(var i=0; i<=star_idx; i++){
+            $('.score').children('.star').eq(i).addClass('on');
+        }
+	});
+	
+	$('.review .review_btn').on('click', function(){
+		if($(this).hasClass('on')){
+			$(this).removeClass('on');
+			$(this).parent('.review').removeClass('on');
+		}else{
+			$(this).addClass('on');
+			$(this).parent('.review').addClass('on');
+		}
+	
+	});
 
     
   });
@@ -124,3 +139,39 @@ function showPopUp() {
     const url = "http://localhost/DrMarten/user/recommend";
 	window.open(url, "hello popup", windowStatus);
 }
+
+function saveMyQna(){
+	var serData = $('#write_form').serialize();
+	$.ajax({
+		url : '/dr/myqna/save',
+		method : 'post',
+		cache : false,
+		data : serData,
+		dataType : 'json',
+		success : function(res){
+			history.go(-1);
+		},
+		error : function(xhr, status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            document.getElementById('preview-image').src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+    else {
+        document.getElementById('preview-image').src = "";
+    }
+    
+}
+
+	function not_sup(){
+		alert('지원하지 않는 링크입니다 : (');
+	}

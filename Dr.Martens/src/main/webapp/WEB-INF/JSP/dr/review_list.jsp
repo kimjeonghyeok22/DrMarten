@@ -62,7 +62,7 @@ function deleteThis(e){
 				</tr>
 				<tr>
 					<td class="img">
-						<img src="../../../resources/static/${b.fname}" class="img">
+						<img src="../../../resources/img/review/${b.fname}" class="img">
 					</td>
 					<td colspan="3" class="contents">${b.contents}</td>
 					<td><button type="button" onclick="deleteThis(${b.board_num});">삭제</button></td>

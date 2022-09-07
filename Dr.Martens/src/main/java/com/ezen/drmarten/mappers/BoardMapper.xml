@@ -14,9 +14,9 @@ VALUES (
 	(select count(*)from QA)+1, #{title}, #{contents}, SYSDATE, '관리자', #{category}, 0)
 </insert>
 <insert id="saveReview" parameterType="com.ezen.drmarten.model.Board">
-INSERT INTO REVIEW (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, SCORE, FNAME, FPATH)
+INSERT INTO REVIEW (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, SCORE, FNAME, FPATH, ORDER_NUM)
 VALUES (
-	(select count(*)from REVIEW)+1, #{title}, #{contents}, SYSDATE, 'uid', '123123', #{score}, #{fname}, #{fpath})
+	(select count(*)from REVIEW)+1, #{title}, #{contents}, SYSDATE, #{writer}, #{product_code}, #{score}, #{fname}, #{fpath},#{order_num})
 </insert>
 <insert id="saveMyQna" parameterType="com.ezen.drmarten.model.Board">
 INSERT INTO MYQNA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, PCODE, ORDER_NUM, CATEGORY)
@@ -32,6 +32,12 @@ SELECT * FROM (
 </select>
 <select id="getQnaList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM QA order By Board_num DESC
+</select>
+<select id="getReview"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM REVIEW WHERE order_num=#{num}
+</select>
+<select id="getProductReview"  parameterType="Integer" resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM REVIEW WHERE PRODUCT_CODE=#{product_code}
 </select>
 <select id="getReviewList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM REVIEW order By Board_num DESC

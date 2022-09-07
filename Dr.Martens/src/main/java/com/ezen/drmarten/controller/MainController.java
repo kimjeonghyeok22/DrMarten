@@ -194,4 +194,22 @@ public class MainController {
 		model.addAttribute("list", list);
 		return "main/service/cs";
 	}
+	
+	@GetMapping("/review/{order_num}/{product_code}")
+	public String getReview(@PathVariable("order_num") int num,@PathVariable("product_code") int product_code, Model model) {
+		Board review = dao.getReview(num);
+		if(review==null) {
+			model.addAttribute("order_num",num);
+			model.addAttribute("product_code",product_code);
+			return "dr/review_form";
+		}else {
+			return "redirect:/DrMarten/product/detail_product/"+product_code;
+		}
+	}
+	
+	@GetMapping("/writeQna/{product_code}")
+	public String writeQna(@PathVariable("product_code") int product_code, Model model) {
+		model.addAttribute("product_code", product_code);
+		return "dr/myqna_form_main";
+	}
 }

@@ -1,60 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>리뷰작성</title>
-<link rel="stylesheet" href="/resources/css/style.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            document.getElementById('preview-image').src = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-    else {
-        document.getElementById('preview-image').src = "";
-    }
-}
-</script>
-</head>
-<body>
-<main>
-<h3>리뷰작성</h3>
-<form id="write_form" action="/dr/review/save" method="post" enctype="multipart/form-data">
-<div style="text-align: left;">
-	<label>상품명(=제목)</label>
-	<input type="text" name="title" id="title" value="상품명코드로받아올것" style="width:420px;">
-</div>
-<div style="text-align: left;">
-	<label>내용</label><br>
-	<textarea  name="contents" id="contents"  rows ="10" cols="73" ></textarea>
-</div>
-<div class="image-container">
-    <img  id="preview-image" src="https://dummyimage.com/300x300/ffffff/000000.png&text=preview+image">
-    <input style="display: block;" type="file" id="input-image" name="files" onchange="readURL(this);">
-</div><br>
- <div class="range">
-	<input type="range"  min="1" max="5" id="score" name="score" value="5">
+<jsp:include page="/WEB-INF/JSP/include/header.jsp" />
+<script>document.title = "닥터마틴 코리아 :: 리뷰작성";</script>
+<div id="main">
+<div class="inner">
+<form id="write_form" class="inputForm" action="/dr/review/save" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="order_num"  value="${order_num}">
+	<input type="hidden" name="product_code"  value="${product_code}">
+	<div class="dmField dmInput mb30">
+		<label class="dmField_label">제목</label>
+		<div class="dmField_input_box">
+			<input type="text" name="title" value="" class="dmField_input" placeholder="제목을 입력해주세요.">
+		</div>
 	</div>
-<ul class="range-labels">
-  <li class="active selected">1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-</ul>
-<br>
-<div class="btn_wrap">
-<button type="reset">취소</button>
-<button type="submit">저장</button>
+	<div class="dmField dmInput mb30">
+		<label class="dmField_label">내용</label>
+		<div class="dmField_input_box">
+			<textarea  name="contents" class="dmField_textarea" placeholder="내용을 입력해주세요."></textarea>
+		</div>
+	</div>
+<div class="image-container dmField dmInput mb30">
+    <div class="dmField_input_box img">
+    	<img  id="preview-image" src="https://dummyimage.com/300x300/ffffff/000000.png&text=preview+image" class="dmField_input img">
+    	<label class="dmField_label hide" >사진</label>
+    </div>
+    <div class="dmField dmInput mb30 file">
+	    <div class="dmField_input_box mb30">
+	    	<label class="dmField_label">첨부파일</label>
+	   	 	<input type="file" id="input-image" name="files" onchange="readURL(this);" class="dmField_input ">
+	   	 </div>
+	   	    <div class="dmField_input_box">
+	   	    	<label class="dmField_label">별점</label>
+	   	    	<div class="dmField_input score">
+	   	    		<div class="star on">
+	   	    			<span class="empty"><i class="fa-regular fa-star"></i></span>
+	   	    			<span class="full"><i class="fa-solid fa-star"></i></span>
+	   	    		</div>
+	   	    		<div class="star">
+	   	    			<span class="empty"><i class="fa-regular fa-star"></i></span>
+	   	    			<span class="full"><i class="fa-solid fa-star"></i></span>
+	   	    		</div>
+	   	    		<div class="star">
+	   	    			<span class="empty"><i class="fa-regular fa-star"></i></span>
+	   	    			<span class="full"><i class="fa-solid fa-star"></i></span>
+	   	    		</div>
+	   	    		<div class="star">
+	   	    			<span class="empty"><i class="fa-regular fa-star"></i></span>
+	   	    			<span class="full"><i class="fa-solid fa-star"></i></span>
+	   	    		</div>
+	   	    		<div class="star">
+	   	    			<span class="empty"><i class="fa-regular fa-star"></i></span>
+	   	    			<span class="full"><i class="fa-solid fa-star"></i></span>
+	   	    		</div>
+	   	    	</div>
+	   	    </div>
+	   	    <div class="btn_wrap">
+<button type="reset" class="cmBtn black mid">취소</button>
+<button type="submit" class="cmBtn yellow mid">저장</button>
 </div>
+   	 </div>
+</div>
+	<input type="hidden" name="score" id="review_score"  value="1">
+
 </form>
-</main>
-</body>
-</html>
+</div>
+</div>
+<jsp:include page="/WEB-INF/JSP/include/footer.jsp" />

@@ -31,7 +31,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.drmarten.mappers.BoardMapper;
 import com.ezen.drmarten.mappers.ProductMapper;
+import com.ezen.drmarten.model.Board;
 import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.Product_attach;
 import com.ezen.drmarten.model.Product_size;
@@ -47,6 +49,8 @@ public class ProductController {
 
 	@Autowired
 	private ProductMapper dao;
+	@Autowired
+	private BoardMapper bdao;
 	@Autowired
 	private ProductService svc;
  
@@ -74,8 +78,22 @@ public class ProductController {
 					}
 				}
 				List<Product_size> size = dao.serachSizeByCode(product_code);
+				List<Board> review = bdao.getProductReview(product_code);
+				int review_count = review.size();
+				float score = 0;
+				String writer = "";
+				for(int j = 0; j<review.size(); j++) {
+					writer = review.get(j).getWriter();
+					score += review.get(j).getScore();
+				}
+				score = score/review_count;
+				double score2 = Math.floor(score*10)/10;
+				System.out.print(review_count + "," + score +","+score2);
 				model.addAttribute("size",size);
 				model.addAttribute("att",att);
+				model.addAttribute("cnt",review_count);
+				model.addAttribute("score",score2);
+				model.addAttribute("review",review);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
 			}else {

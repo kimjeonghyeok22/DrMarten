@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.drmarten.mappers.BoardMapper;
@@ -236,30 +238,58 @@ public class BoardController {
 	public  String review_save(
 			@RequestParam("files") MultipartFile mfiles, HttpServletRequest request,
 			@RequestParam("title") String title,
+			@RequestParam("product_code") String product_code_str,
 			@RequestParam("contents") String contents, 
-			@RequestParam("score") int score) {
-		ServletContext context = request.getServletContext();
-		String savePath = context.getRealPath("../resources");
-		
-		Board board = new Board();
-		board.setFpath(savePath);
-		
-		String pName = mfiles.getOriginalFilename();
-		String[] token = pName.split("\\.");
-		String changed_pName = System.nanoTime() + "." + token[1];
-		board.setFname(changed_pName);
-		board.setTitle(title);
-		board.setContents(contents);
-		board.setScore(score);
-		try {
-			mfiles.transferTo(new File(savePath + "/" + changed_pName));
-		} catch (Exception e) {
-			e.printStackTrace();
+			@RequestParam("order_num") String order_num_str, 
+			@RequestParam("score") int score,
+			HttpSession session) {
+		int product_code = Integer.parseInt(product_code_str);
+		int order_num = Integer.parseInt(order_num_str);
+		if(!mfiles.isEmpty()) {
+			ServletContext context = request.getServletContext();
+//			String savePath = context.getRealPath("../resources");
+			String rPath = context.getRealPath("");
+			String fileSavePath = rPath.substring(0,rPath.length()-7)+"/resources/static/img/review/";
+			String savePath ="resources/img/review/";
+
+			
+			Board board = new Board();
+			board.setFpath(savePath);
+			String email = (String) session.getAttribute("u_email");
+			String pName = mfiles.getOriginalFilename();
+			String[] token = pName.split("\\.");
+			String changed_pName = System.nanoTime() + "." + token[1];
+			board.setWriter(email);
+			board.setProduct_code(product_code);
+			board.setOrder_num(order_num);
+			board.setFname(changed_pName);
+			board.setTitle(title);
+			board.setContents(contents);
+			board.setScore(score);
+			try {
+				mfiles.transferTo(new File(fileSavePath + "/" + changed_pName));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			dao.saveReview(board);
+//			Map<String, Object> map = new HashMap<>();
+//			map.put("saved", saved);
+			
+		}else {			
+			Board board = new Board();
+			String email = (String) session.getAttribute("u_email");
+			board.setWriter(email);
+			board.setProduct_code(product_code);
+			board.setOrder_num(order_num);
+			board.setTitle(title);
+			board.setFname("");
+			board.setFpath("");
+			board.setContents(contents);
+			board.setScore(score);
+
+			dao.saveReview(board);
 		}
-//		boolean saved = dao.saveReview(board) > 0;
-//		Map<String, Object> map = new HashMap<>();
-//		map.put("saved", saved);
-		return "redirect:/dr/review/list";
+		return "redirect:/DrMarten/user/mypage/orderlist";
 	}
 	
 	@GetMapping("/review/delete/{num}")
@@ -288,18 +318,23 @@ public class BoardController {
 	@ResponseBody
 	public Map<String, Object> myqna_save(@RequestParam("title") String title,
 			@RequestParam("contents") String contents, @RequestParam("category") String category,
-			@RequestParam("pcode") int pcode, @RequestParam("product_code") String str_product_code,
-			@RequestParam("order_num") String str_order_num) {
+			@RequestParam("pcode") int pcode, @RequestParam("product_code") int product_code,
+			@RequestParam("order_num") int order_num) {
 		Board board = new Board();
 		board.setTitle(title);
 		board.setContents(contents);
 		board.setCategory(category);
 		board.setPcode(pcode);
-		if (str_product_code != null)
-			board.setProduct_code(Integer.parseInt(str_product_code));
-		if (str_order_num != null)
-			board.setOrder_num(Integer.parseInt(str_order_num));
-
+		if (product_code != 0) {
+			board.setProduct_code(product_code);
+		} else {
+			board.setProduct_code(0);
+		}
+		if (order_num !=0) {
+			board.setOrder_num(order_num);
+		} else {
+			board.setOrder_num(0);
+		}
 		boolean saved = dao.saveMyQna(board) > 0;
 		Map<String, Object> map = new HashMap<>();
 		map.put("saved", saved);

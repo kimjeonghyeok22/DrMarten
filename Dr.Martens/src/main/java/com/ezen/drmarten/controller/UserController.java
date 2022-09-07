@@ -318,18 +318,17 @@ public class UserController {
 	}
 	
 	@GetMapping("/mypage/orderlist")
-	private String getOrderList(HttpSession sessio, Model model) {
+	private String getOrderList(HttpSession session, Model model) {
 		if (session.getAttribute("u_email") == null) {
 			return "/user/login";
 		} else {
 			String email = (String) session.getAttribute("u_email");
 			List <Order> orderList = odao.getOrderList(email);
-			List <Order_detail> list = new ArrayList<>();
+
 			for (int i = 0; i < orderList.size(); i++) {
-				list.addAll(oldao.getOrderDetail(orderList.get(i).getOrder_num()));
+				List <Order_detail> list = oldao.getOrderDetail(orderList.get(i).getOrder_num());
 				orderList.get(i).setCart(list);
 			}
-			model.addAttribute("orderDetail",list);
 			model.addAttribute("orderList",orderList);
 			return "/user/orderlist";
 		}

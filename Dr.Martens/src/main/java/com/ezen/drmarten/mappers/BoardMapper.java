@@ -21,6 +21,7 @@ public interface BoardMapper {
 	List<Board> getMyQnaList();
 	List<Board> getQnaListByCategory(String category);
 	List<Board> searchQnaList(String search);
+	Board getReview(int num);
 	Board getMyQna(int num);
 	Board getNotice(int num);
 	int deleteMyQna(int num);
@@ -33,4 +34,6 @@ public interface BoardMapper {
 	int updateMyQna(Board board);
 	int noticeView(int num);
 	int qaView(int num);
+	List<Board> getProductReview(int product_code);
+	
 }

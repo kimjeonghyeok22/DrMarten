@@ -14,24 +14,7 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-function save(){
-	var serData = $('#write_form').serialize();
-	$.ajax({
-		url : '/dr/myqna/save',
-		method : 'post',
-		cache : false,
-		data : serData,
-		dataType : 'json',
-		success : function(res){
-			alert(res.saved ? '작성성공' : 'Failed');
-			location.href='/dr/myqna/list';
-		},
-		error : function(xhr, status, err){
-			alert(err);
-		}
-	});
-	return false;
-}
+
 </script>
 </head>
 <body>
@@ -103,7 +86,7 @@ function save(){
             <div class="container">
                 <div class="inner">
 <h3>1:1질문 작성</h3>
-<form id="write_form" onsubmit="return save();">
+<form id="write_form" onsubmit="return saveMyQna();">
 <input type="hidden" name="pcode" value="0">
 <div>
 <label>카테고리</label>

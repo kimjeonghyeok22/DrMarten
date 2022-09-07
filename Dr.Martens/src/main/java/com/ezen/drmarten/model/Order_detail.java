@@ -1,5 +1,6 @@
 package com.ezen.drmarten.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,5 @@ public class Order_detail {
 	private int product_count;
 	private int discounted_price;
 	private int total_price;
-	private int order_num;
 
 }
