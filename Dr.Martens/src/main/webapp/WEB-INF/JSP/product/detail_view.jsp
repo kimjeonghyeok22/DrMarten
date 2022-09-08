@@ -287,6 +287,25 @@
                     	<div class="wrap bb">
                     		<span class="detail_bigTitle">상품문의</span><a href="/DrMarten/writeQna/${product.product_code}" class="detail_btn">글쓰기</a>
                     	</div>
+                    	                   	<c:forEach var="q" items="${qa}">
+                    		<div class="review">
+                    			<c:set var="qwriter" value="${q.writer}"/>
+                    				 <%
+										String temp_name = (String)pageContext.getAttribute("qwriter");
+										String wname = temp_name.substring(0, 4)+"****";
+										pageContext.setAttribute("wname",wname);
+									%>
+                    			<span class="writer">${wname}</span><br>
+                    			<span class="title">${q.title}
+                    			</span><br>
+                    			<span class="contents">작성일 | ${q.wdate}</span><br>
+                    			<span class="contents">${q.contents}</span>
+                    			<div class="review_btn">
+                    			<span class="open">펼쳐보기</span>
+                    			<span class="close">접기</span>
+                    			</div>
+                    		</div>
+                    	</c:forEach>
                     </div>
                     <div class="product_detail bn cn">
                         	<div class="center_box"><span>교환/환불 안내</span><span>─</span></div>

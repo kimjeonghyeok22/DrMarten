@@ -21,7 +21,7 @@ VALUES (
 <insert id="saveMyQna" parameterType="com.ezen.drmarten.model.Board">
 INSERT INTO MYQNA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, PCODE, ORDER_NUM, CATEGORY)
 VALUES (
-	(select count(*)from MYQNA)+1, #{title}, #{contents}, SYSDATE, 'uid', '123123',#{pcode}, #{order_num}, #{category})
+	(select count(*)from MYQNA)+1, #{title}, #{contents}, SYSDATE, #{writer}, #{product_code},#{pcode}, #{order_num}, #{category})
 </insert>
 <select id="getNoticeList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM NOTICE order By Board_num DESC
@@ -35,6 +35,15 @@ SELECT * FROM QA order By Board_num DESC
 </select>
 <select id="getReview"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM REVIEW WHERE order_num=#{num}
+</select>
+<select id="getMyQnaForProduct"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM MYQNA WHERE product_code=#{product_code} AND PCODE=0
+</select>
+<select id="getMyQna2"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM MYQNA WHERE writer=#{email} AND PCODE=0
+</select>
+<select id="getMyQnaRP"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM MYQNA WHERE PCODE!=0
 </select>
 <select id="getProductReview"  parameterType="Integer" resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM REVIEW WHERE PRODUCT_CODE=#{product_code}

@@ -319,8 +319,10 @@ public class BoardController {
 	public Map<String, Object> myqna_save(@RequestParam("title") String title,
 			@RequestParam("contents") String contents, @RequestParam("category") String category,
 			@RequestParam("pcode") int pcode, @RequestParam("product_code") int product_code,
-			@RequestParam("order_num") int order_num) {
+			@RequestParam("order_num") int order_num,HttpSession session) {
 		Board board = new Board();
+		String email = (String) session.getAttribute("u_email");
+		board.setWriter(email);
 		board.setTitle(title);
 		board.setContents(contents);
 		board.setCategory(category);

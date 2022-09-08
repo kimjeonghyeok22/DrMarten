@@ -13,7 +13,14 @@ public class Board {
 		private int order_num;
 		private String fname;
 		private String fpath;
+		private int origin_num;
 		
+		public int getOrigin_num() {
+			return origin_num;
+		}
+		public void setOrigin_num(int origin_num) {
+			this.origin_num = origin_num;
+		}
 		public String getFname() {
 			return fname;
 		}

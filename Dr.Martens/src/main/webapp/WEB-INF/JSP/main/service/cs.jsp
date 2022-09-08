@@ -53,7 +53,7 @@
 						<span class="cs_smlSpan cs_ml65">
 							상품에 대해 궁금하신 점이 있으신가요?
 						</span><br>
-						<a href="" class="cs_btn cs_ml65">게시글 더보기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
+						<a href="/DrMarten/myqna/list" class="cs_btn cs_ml65">게시글 더보기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a>
 						</div>
                 </div>
             </div>

@@ -79,6 +79,7 @@ public class ProductController {
 				}
 				List<Product_size> size = dao.serachSizeByCode(product_code);
 				List<Board> review = bdao.getProductReview(product_code);
+				List<Board> qa = bdao.getMyQnaForProduct(product_code);
 				int review_count = review.size();
 				float score = 0;
 				String writer = "";
@@ -86,14 +87,20 @@ public class ProductController {
 					writer = review.get(j).getWriter();
 					score += review.get(j).getScore();
 				}
-				score = score/review_count;
-				double score2 = Math.floor(score*10)/10;
-				System.out.print(review_count + "," + score +","+score2);
+				if (score>0) {
+					score = score/review_count;
+					double score2 = Math.floor(score*10)/10;
+					model.addAttribute("score",score2);
+				} else {
+					model.addAttribute("score",0.0);
+				}
+
 				model.addAttribute("size",size);
 				model.addAttribute("att",att);
 				model.addAttribute("cnt",review_count);
-				model.addAttribute("score",score2);
+
 				model.addAttribute("review",review);
+				model.addAttribute("qa",qa);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
 			}else {
