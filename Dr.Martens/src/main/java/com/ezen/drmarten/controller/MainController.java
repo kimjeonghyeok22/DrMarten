@@ -213,6 +213,17 @@ public class MainController {
 		return "dr/myqna_form_main";
 	}
 	
+	@GetMapping("/writeQna/order/{order_num}")
+	public String writeQnaWithOrderNum(@PathVariable("order_num") int order_num, Model model) {
+		model.addAttribute("order_num", order_num);
+		return "dr/myqna_form_main2";
+	}
+	@GetMapping("/writeQna")
+	public String writeQnaCS() {
+		return "dr/myqna_form_main3";
+	}
+	
+	
 	@GetMapping("/myqna/list")
 	public String getMyQna(HttpSession session, Model model) {
 		String email = (String) session.getAttribute("u_email");

@@ -14,7 +14,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="wrap" style="margin-bottom: 16px;"> <span style="font-size : 36px; color : #000; font-weight: bold;">1:1 문의</span> <a href="/DrMarten/writeQna/0" class="detail_btn">글쓰기</a></div>
+                <div class="wrap" style="margin-bottom: 16px;"> <span style="font-size : 36px; color : #000; font-weight: bold;">1:1 문의</span> <a href="/DrMarten/writeQna" class="detail_btn">글쓰기</a></div>
                 <div class="product_detail  w100 bn">
                     <c:forEach var="q" items="${qa}">
                     	<c:forEach var="r" items="${rp}">

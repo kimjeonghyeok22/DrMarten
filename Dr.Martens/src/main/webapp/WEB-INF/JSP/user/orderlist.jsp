@@ -16,7 +16,7 @@
 	<td class="center">가격</td>
 	<td class="center">수량</td>
 	<td class="right">계 : ${d.total_price}</td>
-	<td class="center review">리뷰</td>
+	<td class="center review"><a href="/DrMarten/writeQna/order/${d.order_num}">문의작성</a></td>
 </tr>
 <c:forEach var="o" items="${d.cart}"  varStatus="status2">
 	<tr class="order_detail">
@@ -27,7 +27,7 @@
 		<td class="center	">${o.discounted_price}</td>
 		<td class="center">${o.product_count}</td>
 		<td class="right">${o.total_price}</td>
-		<td class="center"><a href="/DrMarten/review/${o.order_detail_num}/${o.product_code}"><i class="fa-solid fa-chevron-right"></i></a></td>
+		<td class="center"><a href="/DrMarten/review/${o.order_detail_num}/${o.product_code}">리뷰</a></td>
 	</tr>
 </c:forEach>
 </c:forEach>
