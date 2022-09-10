@@ -285,6 +285,14 @@ public class ProductController {
 		model.addAttribute("product", productList);
 		return "/product/product_view";
 	} 
+	@GetMapping("/gender/category/{gender}/{cate}")
+	public String genderSearch(Model model,@PathVariable(name = "cate")String category
+			,@PathVariable(name = "gender")String gender) {
+		
+		PageInfo<Product> productList = new PageInfo<Product>(svc.genderSearch(gender,category));
+		model.addAttribute("product", productList);
+		return "/product/product_view";
+	} 
 	@GetMapping("/category/{category}/{discount}")
 	public String categoryAndDiscount(Model model,@PathVariable(name = "category")String category
 			,@PathVariable(name = "discount")Integer discount) {

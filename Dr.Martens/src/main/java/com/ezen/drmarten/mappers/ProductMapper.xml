@@ -16,7 +16,7 @@
 	</select>
 
 	<insert id="add_upload" parameterType="com.ezen.drmarten.model.Product">
-		
+								
 
 		insert into product
 			(PRODUCT_CODE,NAME,MADE,MATERIAL,GENDER,
@@ -91,8 +91,46 @@
 			<when test='category.equalsIgnoreCase("vietnam")'>
 				MADE = '베트남 외 기타'
 			</when>
+			<when test='category.equalsIgnoreCase("england")'>
+				MADE = '영국 외 기타'
+			</when>
+			<when test='category.equalsIgnoreCase("MIE")'>
+				name LIKE '%' || 'MIE' || '%'
+			</when>
 		</choose>
 	</select>
+	
+	<select id="genderAndCategorySearch" resultType="com.ezen.drmarten.model.Product">
+		SELECT * FROM PRODUCT
+		WHERE 
+		<choose>
+			<when test='gender.equalsIgnoreCase("male")'>
+				GENDER != '여성' 
+			</when>
+			<when test='gender.equalsIgnoreCase("female")'>
+				GENDER != '남성' 
+			</when>	
+			<when test='gender.equalsIgnoreCase("both")'>
+				GENDER != '전부' 
+			</when>		
+		</choose>
+		AND
+		<choose>
+			<when test='category.equalsIgnoreCase("boots")'>
+				CATEGORY = 'BOOTS'
+			</when>
+			<when test='category.equalsIgnoreCase("sandals")'>
+				CATEGORY = 'SANDALS'
+			</when>
+			<when test='category.equalsIgnoreCase("shoes")'>
+				CATEGORY = 'SHOES'
+			</when>
+			<when test='category.equalsIgnoreCase("discount")'>
+				DISCOUNT != 0
+			</when>
+		</choose>
+	</select>
+	
 	<select id="duelCategorySearch" resultType="com.ezen.drmarten.model.Product">
 		SELECT * FROM PRODUCT
 		WHERE 
@@ -103,6 +141,10 @@
 			<when test='category.equalsIgnoreCase("sandals")'>
 				CATEGORY = 'SANDALS'
 			</when>
+			<when test='category.equalsIgnoreCase("shoes")'>
+				CATEGORY = 'SHOES'
+			</when>
+			
 		</choose>
 		AND DISCOUNT = #{discount}
 	</select>
@@ -127,3 +169,10 @@
 		WHERE PRODUCT_CODE = #{product_code}
 	</update>   
 </mapper> 
+							<!--  MIE 이름 검색 url 맵핑 어떻게 연결 할 것인지 ? -->
+							
+							
+							
+							
+							
+							

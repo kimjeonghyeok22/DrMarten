@@ -93,6 +93,21 @@ public class ProductService {
 		}
 		return list;
 	}
+	public List<Product> genderSearch(String gender, String category) {
+		List<Product> list = dao.genderAndCategorySearch(gender,category);
+		List<Product_attach> attList;
+		List<Product_size> sizeList;
+		for(int i =0;i<list.size();i++) {
+			//list 로 불러온 값 중 code를 이용해 AttList 를 생성
+			attList = dao.searchAttachByCode(list.get(i).getProduct_code());
+			//마찬가지로 code를 이용해 SizeList를 생성
+			sizeList = dao.serachSizeByCode(list.get(i).getProduct_code());
+			//list에 해당 객체들을 추가.
+			list.get(i).setAttach(attList);
+			list.get(i).setSize(sizeList); 
+		}
+		return list;
+	}
 	public List<Product> duelCategorySearch(String category, Integer discount) {
 		List<Product> list = dao.duelCategorySearch(category,discount);
 		List<Product_attach> attList;
@@ -162,6 +177,9 @@ public class ProductService {
 		
 		return dao.searchAttachByCode(product_code);
 	}
+
+
+	
 
 
 	

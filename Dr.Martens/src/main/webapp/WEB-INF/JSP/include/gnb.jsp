@@ -33,7 +33,7 @@
 								</a>
 							</li>
 							<li class="sch_list">
-								<a href="javascript:;">
+								<a href="/DrMarten/product/category/england">
 									<img src="/resources/img/main/bm5.jpg" alt="" />
 									<span>Made In England</span>
 								</a>
@@ -79,26 +79,26 @@
 						<p>EXCLUSIVE</p>
 						<ul>
 							<li class="list02"><a href="">콜라보레이션</a></li>
-							<li class="list02"><a href="">MIE</a></li>
-							<li class="list02"><a href="">비건</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/MIE">MIE</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/vegen">비건</a></li>
 						</ul>
 					</li>
 					<li class="list01">
 						<p>여성</p>
 						<ul>
-							<li class="list02"><a href="">샌들</a></li>
-							<li class="list02"><a href="">슈즈</a></li>
-							<li class="list02"><a href="">부츠</a></li>
-							<li class="list02"><a href="">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/female/sandals">샌들</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/female/shoes">슈즈</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/female/boots">부츠</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/female">전체보기</a></li>
 						</ul>
 					</li>
 					<li class="list01">
 						<p>남성</p>
 						<ul>
-							<li class="list02"><a href="">샌들</a></li>
-							<li class="list02"><a href="">슈즈</a></li>
-							<li class="list02"><a href="">부츠</a></li>
-							<li class="list02"><a href="">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/male/sandals">샌들</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/male/shoes">슈즈</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/male/boots">부츠</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/female">전체보기</a></li>
 						</ul>
 					</li>
 					<li class="list01">
@@ -122,9 +122,9 @@
 					<li class="list01">
 						<p>샌들</p>
 						<ul>
-							<li class="list02"><a href="">여성</a></li>
-							<li class="list02"><a href="">남성</a></li>
-							<li class="list02"><a href="">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/female/sandals">여성</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/male/sandeals">남성</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/sandals">전체보기</a></li>
 						</ul>
 					</li>
 					<li class="list01">
@@ -155,9 +155,9 @@
 					<li class="list01">
 						<p>세일</p>
 						<ul>
-							<li class="list02"><a href="">전체보기</a></li>
-							<li class="list02"><a href="">여성 세일</a></li>
-							<li class="list02"><a href="">남성 세일</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/both/discount">전체보기</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/female/discount">여성 세일</a></li>
+							<li class="list02"><a href="/DrMarten/product/gender/category/male/discount">남성 세일</a></li>
 							<li class="list02"><a href="">키즈 세일</a></li>
 							<li class="list02"><a href="">액세서리 세일</a></li>
 						</ul>
