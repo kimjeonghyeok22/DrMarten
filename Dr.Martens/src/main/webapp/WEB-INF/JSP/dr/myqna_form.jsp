@@ -1,122 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>1:1¡˙πÆ ¿€º∫∆˚</title>
-<style type="text/css">
-
-	main{width : 350px; padding: 10px 10px 30px; margin : 50px auto;
-	border : 1px solid black; border-radius: 10px; text-align : center;}
-	textarea#title{width : 320px; height: 300px;}
-	.btn_wrap{margin : 10px auto 0;}
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-
-</script>
-</head>
-<body>
-
-    <header id="admin_header">
-        <div class="inner">
-<div class="img_wrap"> <a href="/admin/main" ><img src="/resources/img/logo.svg" alt=""> </a></div>
-            <div class="title_wrap"> <span>¥⁄≈Õ∏∂∆æ ∞¸∏Æ¿⁄∆‰¿Ã¡ˆ</span> </div>
-            <div class="controller_wrap">
-                <div class="log_out">
-                    <div class="welcome">
-                    	<span class="time sml gray">∑Œ±◊¿Œ : ${time}</span>
-                        <span>∞¸∏Æ¿⁄¥‘ æ»≥Á«œººø‰ : )</span>
-                    </div>
-                    <button type="button">∑Œ±◊æ∆øÙ</button>
-                </div>
-                <div class="search_box">
-                    <div class="dmField_input_box">
-                        <input name="userid" type="text" class="dmField_input" placeholder="∞Àªˆ" >
-                        <button type="button" class="cmBtn line yellow">∞Àªˆ</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="wrap">
-        <div id="gnb">
-            <ul id="menu">
-                <li> <span>∞Ì∞¥ ∞¸∏Æ</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
-                    <div class="sub_wrap">
-                        <ul id="sub_menu">
-                            <li><a href="#">º≠∫Í1</a></li>
-                            <li><a href="#">º≠∫Í2</a></li>
-                            <li><a href="#">º≠∫Í3</a></li>
-                            <li><a href="#">º≠∫Í4</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li> <span>∞‘Ω√∆« ∞¸∏Æ</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
-                    <div class="sub_wrap">
-                        <ul id="sub_menu">
-                            <li><a href="/admin/notice/list">∞¯¡ˆªÁ«◊ ∞¸∏Æ</a></li>
-                            <li><a href="/admin/notice/write">∞¯¡ˆªÁ«◊ ¿€º∫</a></li>
-                            <li><a href="/admin/myqna/list">1:1πÆ¿« ∞¸∏Æ</a></li>
-                            <li><a href="/admin/qa/write">¿⁄¡÷πØ¥¬ ¡˙πÆ ¿€º∫</a></li>
-                            <li><a href="/admin/qa/list">¿⁄¡÷πØ¥¬ ¡˙πÆ ∞¸∏Æ</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li> <span>ªÛ«∞ ∞¸∏Æ</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
-                    <div class="sub_wrap">
-                        <ul id="sub_menu">
-                            <li><a href="#">ªÛ«∞ µÓ∑œ</a></li>
-                            <li><a href="#">ªÛ«∞ ∏Ò∑œ</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li> <span>¡÷πÆ ∞¸∏Æ</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
-                    <div class="sub_wrap">
-                        <ul id="sub_menu">
-                            <li><a href="#">¿¸√º¡÷πÆ∏Ò∑œ</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><span>≈Î∞Ë∫–ºÆ</span></li>
-            </ul>
-        </div>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+        <!DOCTYPE html>
+        <jsp:include page="/WEB-INF/JSP/include/admin_header.jsp" />
         <div id="admin_main">
             <div class="container">
                 <div class="inner">
-<h3>1:1¡˙πÆ ¿€º∫</h3>
-<form id="write_form" onsubmit="return saveMyQna();">
-<input type="hidden" name="pcode" value="0">
-<div>
-<label>ƒ´≈◊∞Ì∏Æ</label>
-	<select name="category" id="category">
-		<option>¡÷πÆ∞¸∑√</option>
-		<option>πËº€∞¸∑√</option>
-		<option>±≥»Ø/»Ø∫“</option>
-		<option>ªÛ«∞∞¸∑√</option>
-		<option>±‚≈∏</option>
-	</select>
-	<label>map¿∏∑Œ ªÛ«∞π¯»£/¡÷πÆπ¯»£ ≥—∞‹πﬁ±‚</label>
-	<input type ="hidden" name="product_code" id="product_code" value="1234">
-	<input type="hidden" name="order_num" id="order_num" value="2022062801">
-	<br>
-	
-	<label>¡¶∏Ò</label>
-	<input type="text" name="title" id="title" >
-</div>
-<div>
-	<label>≥ªøÎ</label>
-	<textarea  name="contents" id="contents"></textarea>
-</div>
-<div class="btn_wrap">
-<button type="reset" class="cmBtn black sml">√Îº“</button>
-<button type="submit" class="cmBtn black sml">¿˙¿Â</button>
-</div>
-</form>
+                    <h3>1:1ÏßàÎ¨∏ ÎãµÎ≥Ä</h3>
+                    <form id="write_form" onsubmit="return saveRep();">
+                        <input type="hidden" name="pcode" value="1">
+                        <div class="dmField dmInput mb30 ib cate">
+                            <label class="dmField_label">Ïπ¥ÌÖåÍ≥†Î¶¨</label>
+                            <div class="dmField_input_box cate">
+                                <select name="category" id="category" class="dmField_select">
+                                    <option>Ï£ºÎ¨∏Í¥ÄÎ†®</option>
+                                    <option>ÏÉÅÌíàÍ¥ÄÎ†®</option>
+                                    <option>Î∞∞ÏÜ°Í¥ÄÎ†®</option>
+                                    <option>ÍµêÌôò/ÌôòÎ∂à</option>
+                                    <option>Í∏∞ÌÉÄ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="dmField dmInput mb30 ib rtitle">
+                            <label class="dmField_label">Ï†úÎ™©</label>
+                            <div class="dmField_input_box">
+                                <input type="text" name="title" value="" class="dmField_input qna_title" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî."> </div>
+                        </div>
+                        <input type="hidden" name="origin_num" value="${origin_num}">
+                        <br>
+                        <div class="dmField dmInput mb30">
+                            <label class="dmField_label">ÎÇ¥Ïö©</label>
+                            <div class="dmField_input_box">
+                                <textarea name="contents" class="dmField_textarea" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî."></textarea>
+                            </div>
+                        </div>
+                        <div class="btn_wrap">
+                            <button type="reset" class="cmBtn black sml">Ï∑®ÏÜå</button>
+                            <button type="submit" class="cmBtn black sml">Ï†ÄÏû•</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+        <jsp:include page="/WEB-INF/JSP/include/admin_footer.jsp" />

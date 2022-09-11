@@ -310,6 +310,9 @@ public class BoardController {
 	@GetMapping("/myqna/list")
 	public String myqna_list(Model model) {
 		List<Board> list = dao.getMyQnaList();
+		List<Board> rplist = dao.getMyQnaRP();
+		System.out.println(rplist.size());
+		model.addAttribute("rp",rplist);
 		model.addAttribute("list", list);
 		return "dr/myqna_list";
 	}

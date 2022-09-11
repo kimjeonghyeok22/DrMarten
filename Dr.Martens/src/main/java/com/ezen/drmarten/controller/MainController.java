@@ -227,8 +227,9 @@ public class MainController {
 	@GetMapping("/myqna/list")
 	public String getMyQna(HttpSession session, Model model) {
 		String email = (String) session.getAttribute("u_email");
+		if(email==null) return "redirect:/DrMarten/user/login";
 		List <Board> qalist = dao.getMyQna2(email);
-		List<Board> rplist = dao.getMyQnaRP(email);
+		List<Board> rplist = dao.getMyQnaRP();
 		model.addAttribute("qa",qalist);
 		model.addAttribute("rp",rplist);
 		return "main/service/myqa";

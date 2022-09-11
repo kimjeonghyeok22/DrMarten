@@ -9,4 +9,5 @@ import com.ezen.drmarten.model.Order;
 @Mapper
 public interface OrderListMapper {
 	List <Order> getOrderList(String email);
+	List <Order> getOrderListForAdmin();
 }

@@ -23,6 +23,11 @@ INSERT INTO MYQNA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, PCOD
 VALUES (
 	(select count(*)from MYQNA)+1, #{title}, #{contents}, SYSDATE, #{writer}, #{product_code},#{pcode}, #{order_num}, #{category})
 </insert>
+<insert id="saveRep" parameterType="com.ezen.drmarten.model.Board">
+INSERT INTO MYQNA (BOARD_NUM, TITLE, CONTENTS, WDATE, WRITER, PRODUCT_CODE, PCODE, ORDER_NUM, CATEGORY,ORIGIN_NUM)
+VALUES (
+	(select count(*)from MYQNA)+1, #{title}, #{contents}, SYSDATE, #{writer}, #{product_code},#{pcode}, #{order_num}, #{category},${origin_num})
+</insert>
 <select id="getNoticeList"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM NOTICE order By Board_num DESC
 </select>
@@ -37,7 +42,7 @@ SELECT * FROM QA order By Board_num DESC
 SELECT * FROM REVIEW WHERE order_num=#{num}
 </select>
 <select id="getMyQnaForProduct"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM MYQNA WHERE product_code=#{product_code} AND PCODE=0
+SELECT * FROM MYQNA WHERE product_code=#{product_code} AND PCODE=0 order By wdate DESC
 </select>
 <select id="getMyQna2"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM MYQNA WHERE writer=#{email} AND PCODE=0
@@ -49,10 +54,10 @@ SELECT * FROM MYQNA WHERE PCODE!=0
 SELECT * FROM REVIEW WHERE PRODUCT_CODE=#{product_code}
 </select>
 <select id="getReviewList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM REVIEW order By Board_num DESC
+SELECT * FROM REVIEW  order By Board_num DESC
 </select>
 <select id="getMyQnaList"  resultType="com.ezen.drmarten.model.Board">
-SELECT * FROM MYQNA order By Board_num DESC
+SELECT * FROM MYQNA WHERE PCODE=0 order By wdate DESC
 </select>
 <select id="getQnaListByCategory"  parameterType="String"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM QA WHERE category=#{category} order By Board_num 
@@ -63,6 +68,9 @@ SELECT * FROM QA WHERE title LIKE '%'||#{search}||'%'
 </select>
 <select id="getMyQna" parameterType="Integer" resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM MYQNA WHERE BOARD_NUM = #{num}
+</select>
+<select id="getMyQnaREP" parameterType="Integer" resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM MYQNA WHERE ORIGIN_NUM = #{num}
 </select>
 <select id="getNotice" parameterType="Integer" resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM NOTICE WHERE BOARD_NUM = #{num}

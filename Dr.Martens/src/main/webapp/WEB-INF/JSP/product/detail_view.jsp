@@ -287,8 +287,10 @@
                     	<div class="wrap bb">
                     		<span class="detail_bigTitle">상품문의</span><a href="/DrMarten/writeQna/${product.product_code}" class="detail_btn">글쓰기</a>
                     	</div>
-                    	                   	<c:forEach var="q" items="${qa}">
+                    	<c:forEach var="q" items="${qa}">
                     		<div class="review">
+                    		    <c:forEach var="r" items="${rp}">
+                    		     <c:if test="${r.origin_num eq q.board_num}"> <span class="rp_ok">답변완료</span> </c:if></c:forEach>
                     			<c:set var="qwriter" value="${q.writer}"/>
                     				 <%
 										String temp_name = (String)pageContext.getAttribute("qwriter");
@@ -299,12 +301,21 @@
                     			<span class="title">${q.title}
                     			</span><br>
                     			<span class="contents">작성일 | ${q.wdate}</span><br>
-                    			<span class="contents">${q.contents}</span>
+                    			<span class="contents">${q.contents}</span><br>
+                    				    <c:forEach var="r" items="${rp}">
+                    			                                <c:if test="${r.origin_num eq q.board_num}">
+                                    <div class="rp_line contents"></div> <span class="contents rp_title">${r.title}</span>
+                                    <br> <span class="contents">작성일 | ${r.wdate}</span>
+                                    <br> <span class="contents">작성자 | ${r.writer}</span>
+                                    <br> <span class="contents rp_con">${r.contents}</span>
+                                    <br> </c:if>
+                    			                    		</c:forEach>
                     			<div class="review_btn">
                     			<span class="open">펼쳐보기</span>
                     			<span class="close">접기</span>
                     			</div>
                     		</div>
+
                     	</c:forEach>
                     </div>
                     <div class="product_detail bn cn">

@@ -37,6 +37,8 @@ public interface BoardMapper {
 	List<Board> getProductReview(int product_code);
 	List<Board> getMyQnaForProduct(int product_code);
 	List<Board> getMyQna2(String email);
-	List<Board> getMyQnaRP(String email);
+	List<Board> getMyQnaRP();
+	List<Board> getMyQnaREP(int num);
+	int saveRep(Board board);
 	
 }

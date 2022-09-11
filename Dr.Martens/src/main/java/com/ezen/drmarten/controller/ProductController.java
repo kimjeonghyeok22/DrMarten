@@ -80,6 +80,8 @@ public class ProductController {
 				List<Product_size> size = dao.serachSizeByCode(product_code);
 				List<Board> review = bdao.getProductReview(product_code);
 				List<Board> qa = bdao.getMyQnaForProduct(product_code);
+				List<Board> rplist = bdao.getMyQnaRP();
+
 				int review_count = review.size();
 				float score = 0;
 				String writer = "";
@@ -101,6 +103,7 @@ public class ProductController {
 
 				model.addAttribute("review",review);
 				model.addAttribute("qa",qa);
+				model.addAttribute("rp",rplist);
 				model.addAttribute("product", product);
 				return "/product/detail_view";
 			}else {

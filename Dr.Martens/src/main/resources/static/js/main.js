@@ -157,6 +157,23 @@ function saveMyQna(){
 	});
 	return false;
 }
+function saveRep(){
+	var serData = $('#write_form').serialize();
+	$.ajax({
+		url : '/admin/myqna/save',
+		method : 'post',
+		cache : false,
+		data : serData,
+		dataType : 'json',
+		success : function(res){
+			history.go(-1);
+		},
+		error : function(xhr, status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -171,7 +188,134 @@ function readURL(input) {
     }
     
 }
+function deleteMyQA(){
+	if (!confirm('삭제하시겠습니까?')) return false;
+	$.ajax({
+		url : '/admin/myqna/delete/${board.board_num}',
+		method : 'get',
+		cacht : false,
+		dataType : 'json',
+		success : function(res){
+			alert(res.deleted?'삭제성공':'삭제실패');
+			location.href='/admin/myqna/list';
+		},
+		error : function(xhr,status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
 
+function deleteNotice(){
+	if (!confirm('삭제하시겠습니까?')) return false;
+	$.ajax({
+		url : '/admin/notice/delete/${board.board_num}',
+		method : 'get',
+		cacht : false,
+		dataType : 'json',
+		success : function(res){
+			alert(res.deleted?'삭제성공':'삭제실패');
+			location.href='/admin/notice/list';
+		},
+		error : function(xhr,status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
+
+          function editNotice() {
+                var serData = $('#write_form').serialize();
+                $.ajax({
+                    url: '/admin/notice/update'
+                    , method: 'post'
+                    , cache: false
+                    , data: serData
+                    , dataType: 'json'
+                    , success: function (res) {
+                        alert(res.updated ? '수정성공' : 'Failed');
+                        location.href = '/admin/notice/detail/${board.board_num}';
+                    }
+                    , error: function (xhr, status, err) {
+                        alert(err);
+                    }
+                });
+                return false;
+            }
+            
+            function saveNotice(){
+	var serData = $('#write_form').serialize();
+	$.ajax({
+		url : '/admin/notice/save',
+		method : 'post',
+		cache : false,
+		data : serData,
+		dataType : 'json',
+		success : function(res){
+			alert(res.saved ? '작성성공' : 'Failed');
+			location.href='/admin/notice/list';
+		},
+		error : function(xhr, status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
+            function deleteQA(){
+	if (!confirm('삭제하시겠습니까?')) return false;
+	$.ajax({
+		url : '/admin/qa/delete/${board.board_num}',
+		method : 'get',
+		cacht : false,
+		dataType : 'json',
+		success : function(res){
+			alert(res.deleted?'삭제성공':'삭제실패');
+			location.href='/admin/qa/list';
+		},
+		error : function(xhr,status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
+
+            function editQA() {
+                var serData = $('#write_form').serialize();
+                $.ajax({
+                    url: '/admin/qa/update'
+                    , method: 'post'
+                    , cache: false
+                    , data: serData
+                    , dataType: 'json'
+                    , success: function (res) {
+                        alert(res.updated ? '수정성공' : 'Failed');
+                        location.href = '/admin/qa/detail/${board.board_num}';
+                    }
+                    , error: function (xhr, status, err) {
+                        alert(err);
+                    }
+                });
+                return false;
+            }
+function saveQA(){
+	var serData = $('#write_form').serialize();
+	$.ajax({
+		url : '/admin/qa/save',
+		method : 'post',
+		cache : false,
+		data : serData,
+		dataType : 'json',
+		success : function(res){
+			alert(res.saved ? '작성성공' : 'Failed');
+			location.href='/admin/qa/list';
+		},
+		error : function(xhr, status, err){
+			alert(err);
+		}
+	});
+	return false;
+}
+            
 	function not_sup(){
 		alert('지원하지 않는 링크입니다 : (');
 	}

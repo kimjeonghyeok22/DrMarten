@@ -6,4 +6,7 @@
 <select id="getOrderList"  resultType="com.ezen.drmarten.model.Order">
 SELECT * FROM ORDER_LIST WHERE U_email =#{email} order by order_date DESC
 </select>
+<select id="getOrderListForAdmin"  resultType="com.ezen.drmarten.model.Order">
+SELECT * FROM ORDER_LIST order by order_date DESC
+</select>
 </mapper>

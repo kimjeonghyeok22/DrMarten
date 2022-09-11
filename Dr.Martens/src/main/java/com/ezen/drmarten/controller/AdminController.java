@@ -32,8 +32,12 @@ import com.ezen.drmarten.repository.UserTableRepository;
 import com.ezen.drmarten.service.MainService;
 import com.ezen.drmarten.service.ProductService;
 import com.ezen.drmarten.mappers.BoardMapper;
+import com.ezen.drmarten.mappers.OrderDetailMapper;
+import com.ezen.drmarten.mappers.OrderListMapper;
 import com.ezen.drmarten.mappers.ProductMapper;
 import com.ezen.drmarten.model.Board;
+import com.ezen.drmarten.model.Order;
+import com.ezen.drmarten.model.Order_detail;
 import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.Product_attach;
 import com.ezen.drmarten.model.Product_size;
@@ -50,6 +54,10 @@ public class AdminController {
 	private BoardMapper dao;
 	@Autowired
 	private ProductMapper pdao;
+	@Autowired
+	private OrderListMapper odao;
+	@Autowired
+	private OrderDetailMapper oldao;
 	@Autowired
 	private UserTableRepository rep;
 	@Autowired
@@ -81,7 +89,7 @@ public class AdminController {
 	public String main(Model model) {
 		String sTime = (String) session.getAttribute("time");
 		model.addAttribute("time", sTime);
-		return "thymeleaf/admin/admin";
+		return "dr/main";
 	}
 	
 	@GetMapping("/notice/write")
@@ -373,9 +381,13 @@ public class AdminController {
 		return "dr/myqna_form";
 	}
 
+
 	@GetMapping("/myqna/list")
 	public String myqna_list(Model model) {
 		List<Board> list = dao.getMyQnaList();
+		List<Board> rplist = dao.getMyQnaRP();
+		System.out.println(rplist.size());
+		model.addAttribute("rp",rplist);
 		model.addAttribute("list", list);
 		return "dr/myqna_list";
 	}
@@ -383,20 +395,19 @@ public class AdminController {
 	@PostMapping("/myqna/save")
 	@ResponseBody
 	public Map<String, Object> myqna_save(@RequestParam("title") String title,
-			@RequestParam("contents") String contents, @RequestParam("category") String category,
-			@RequestParam("pcode") int pcode, @RequestParam("product_code") String str_product_code,
-			@RequestParam("order_num") String str_order_num) {
+			@RequestParam("contents") String contents, 
+			@RequestParam("pcode") int pcode,@RequestParam("origin_num")int origin_num) {
+		Board b = dao.getMyQna(origin_num);
 		Board board = new Board();
 		board.setTitle(title);
 		board.setContents(contents);
-		board.setCategory(category);
 		board.setPcode(pcode);
-		if (str_product_code != null)
-			board.setProduct_code(Integer.parseInt(str_product_code));
-		if (str_order_num != null)
-			board.setOrder_num(Integer.parseInt(str_order_num));
-
-		boolean saved = dao.saveMyQna(board) > 0;
+		board.setCategory(b.getCategory());
+		board.setProduct_code(b.getProduct_code());
+		board.setOrder_num(b.getOrder_num());
+		board.setWriter("닥터마틴 코리아");
+		board.setOrigin_num(origin_num);
+		boolean saved = dao.saveRep(board) > 0;
 		Map<String, Object> map = new HashMap<>();
 		map.put("saved", saved);
 		return map;
@@ -405,9 +416,20 @@ public class AdminController {
 	@GetMapping("/myqna/detail/{num}")
 	public String myqna_detail(@PathVariable("num") int num, Model model) {
 		Board board = dao.getMyQna(num);
+		List <Board> rp = dao.getMyQnaREP(num); 
 		model.addAttribute("board", board);
+		model.addAttribute("rp", rp);
 		return "dr/myqna_detail";
 	}
+	
+	@GetMapping("/myqna/reply/{num}")
+	public String reply_myqna(@PathVariable("num") int num, Model model) {
+		model.addAttribute("origin_num", num);
+		return "dr/myqna_form";
+	}
+	
+	
+	
 
 	@GetMapping("/myqna/delete/{num}")
 	@ResponseBody
@@ -557,5 +579,18 @@ public class AdminController {
 			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
 			return "/dr/product/productEdit";
 		}
+	}
+	
+	@GetMapping("/order")
+	public String orderMain(Model model) {
+		List <Order> list = odao.getOrderListForAdmin();
+		model.addAttribute("list", list);
+		return "/dr/order/order";
+	}
+	@GetMapping("/order/detail/{num}")
+	public String orderDetail(@PathVariable("num") int num, Model model) {
+		List <Order_detail> list = oldao.getOrderDetail(num);
+		model.addAttribute("list", list);
+		return "/dr/order/order_detail";
 	}
 }
