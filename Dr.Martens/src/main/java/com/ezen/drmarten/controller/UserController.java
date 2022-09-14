@@ -258,7 +258,7 @@ public class UserController {
 		}
 		Optional<User> op = rep.findById(u_email);
 		if (op.isPresent()) {
-			return "<script>" + "alert('이미 회원가입이된 회원입니다');" + "location.href='/DrMarten/user/login'" + "</script>";
+			return "<script>" + "alert('이미 회원가입이된 회원입니다');" + "location.href='/DrMarten/user/find_pw'" + "</script>";
 		} else {
 			String host = "http://localhost/DrMarten/user/";
 			String from = "kojingon97@gmail.com";
@@ -309,7 +309,7 @@ public class UserController {
 		new SHA256();
 		boolean isRight = (SHA256.getSHA245(u_email).equals(code)) ? true : false;
 		if (isRight) {
-			return "<script>" + "alert('인증에 성공했습니다');" + "location.href='/DrMarten/user/restSignUp?u_email=" + u_email + "'"
+			return "<script>"  + "location.href='/DrMarten/user/restSignUp?u_email=" + u_email + "'"
 					+ "</script>";
 		} else {
 			return "<script>" + "alert('유효하지않은 코드입니다');" + "location.href='/DrMarten/user/singUp'" + "</script>";

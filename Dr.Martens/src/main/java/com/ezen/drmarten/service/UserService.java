@@ -66,12 +66,12 @@ public class UserService {
 				session.setAttribute("u_email", u_email);
 				session.setAttribute("u_cart", svc);
 				cartView.deleteByEmail(u_email);
-				return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
+				return "<script>" + "location.href='/DrMarten'" + "</script>";
 			}
 			
 			session.setAttribute("u_email", u_email);
 			session.setAttribute("u_cart", svc);
-			return "<script>" + "alert('성공');" + "location.href='/DrMarten'" + "</script>";
+			return "<script>"  + "location.href='/DrMarten'" + "</script>";
 		}
 
 		if (chek != null && !(chek.getU_pw().equals(pw))) {
