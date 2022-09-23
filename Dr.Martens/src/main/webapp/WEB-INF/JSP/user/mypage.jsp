@@ -25,7 +25,7 @@
 					<h4 class="welcome"><strong>${user.name}님</strong>, 환영합니다.</h4>
 					<div class="user_info_box">
 						<p class="user_mypage_id">${user.u_email}</p>
-						<p class="user_mypage_logout pl10"><a href="" class="link mid">로그아웃</a></p>
+						<p class="user_mypage_logout pl20"><a href="" class="link mid">로그아웃</a></p>
 					</div>
 					<div class="user_point">
 						<div class="img_box">

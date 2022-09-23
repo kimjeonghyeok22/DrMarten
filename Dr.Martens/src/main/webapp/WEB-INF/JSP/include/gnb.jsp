@@ -5,7 +5,7 @@
 		<div class="gnb_menu_wrap swiper">
 			<div class="gnb_menu swiper-wrapper">
 				<ul class="gnb_list swiper-slide">
-					<li class="list01 mt0">
+					<!-- <li class="list01 mt0">
 						<p>실시간 검색어</p>
 						<ul class="sch_menu">
 							<li class="sch_list">
@@ -50,31 +50,30 @@
 									<span>마일리지 정책 변경</span>
 								</a>
 							</li>
-							<!-- <li><a href="javascript:;">실시간 검색 전체보기</a></li> -->
+							<li><a href="javascript:;">실시간 검색 전체보기</a></li>
 						</ul>
-					</li>
-					<li class="list01">
-						<p>NEW</p>
+					</li> -->
+					<li class="list01"><a href="/DrMarten/product/category/female">NEW</a></li>
+						<!-- 
 						<ul>
 							<li class="list02"><a href="/DrMarten/product/category/female">여성</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/male">남성</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/shoes">슈즈</a></li>
 							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
-						</ul>
-					</li>
-					<li class="list01">
-						<p>BEST</p>
-						<ul>
-							<li class="list02"><a href="/DrMarten/product/category/female">여성</a></li>
+						</ul> 
+						-->
+					<li class="list01"><a href="/DrMarten/product/category/female">BEST</a>
+						<!-- <ul>
+							<li class="list02"></li>
 							<li class="list02"><a href="/DrMarten/product/category/male">남성</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/shoes">슈즈</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/sandals">샌들</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
 							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
-							<!-- <li class="list02"><a href="">Trend Now</a></li> -->
-						</ul>
-					</li>
+							<li class="list02"><a href="">Trend Now</a></li>
+						</ul> -->
+					</li> 
 					<!-- <li class="list01">
 						<p>EXCLUSIVE</p>
 						<ul>
@@ -101,7 +100,7 @@
 							<li class="list02"><a href="/DrMarten/product/category/female">전체보기</a></li>
 						</ul>
 					</li>
-					<li class="list01">
+					<!-- <li class="list01">
 						<p>키즈</p>
 						<ul>
 							<li class="list02"><a href="">토들러(2 - 6세)</a></li>
@@ -118,7 +117,7 @@
 							<li class="list02"><a href="">액세서리</a></li>
 							<li class="list02"><a href="">전체보기</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="list01">
 						<p>샌들</p>
 						<ul>
@@ -130,26 +129,8 @@
 					<li class="list01">
 						<p>ORIGINAL</p>
 						<ul>
-							<li class="list02 li_btn">
-								<p>부츠</p>
-								<ul>
-									<li class="list03"><a href="">1460(8홀)</a></li>
-									<li class="list03"><a href="">2976(첼시부츠)</a></li>
-									<li class="list03"><a href="">1490(10홀)</a></li>
-									<li class="list03"><a href="">1B99(14홀)</a></li>
-									<li class="list03"><a href="">1B60(20홀)</a></li>
-									<li class="list03"><a href="">전체보기</a></li>
-								</ul>
-							</li>
-							<li class="list02 li_btn">
-								<p>슈즈</p>
-								<ul>
-									<li class="list03"><a href="">1461(3홀)</a></li>
-									<li class="list03"><a href="">8065(메리제인)</a></li>
-									<li class="list03"><a href="">아드리안(로퍼)</a></li>
-									<li class="list03"><a href="">전체보기</a></li>
-								</ul>
-							</li>
+							<li class="list02"><a href="/DrMarten/product/category/boots">부츠</a></li>
+							<li class="list02"><a href="/DrMarten/product/category/shoes">슈즈</a></li>
 						</ul>
 					</li>
 					<li class="list01">
@@ -183,9 +164,9 @@
 			</div>
 			<div class="gnb_menu_scroll swiper-scrollbar"></div>
 		</div>
-		<div class="gnb_evt_wrap swiper">
-			<div class="gnb_evt swiper-wrapper">
-				<div class="gnb_evt_list swiper-slide">
+		<div class="gnb_evt_wrap">
+			<div class="gnb_evt">
+				<div class="gnb_evt_list">
 					<ul class="evt_list">
 						<li><a href="/DrMarten/benefits">
 							<span>공식몰혜택</span>
@@ -195,14 +176,14 @@
 							<span>콜라보레이션</span>
 							<img src="/resources/img/gnb_evt_img02.jpg" alt="콜라보레이션" />
 						</a></li>
-						<li><a href="javascript:;">
+						<!-- <li><a href="javascript:;">
 							<span>지속 가능성</span>
 							<img src="/resources/img/gnb_evt_img03.jpg" alt="지속 가능성" />
 						</a></li>
 						<li><a href="javascript:;">
 							<span>브랜드 헤리티지</span>
 							<img src="/resources/img/gnb_evt_img04.png" alt="브랜드 헤리티지" />
-						</a></li>
+						</a></li> -->
 					</ul>
 				</div>
 			</div>
