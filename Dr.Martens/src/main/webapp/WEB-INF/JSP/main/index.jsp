@@ -461,14 +461,14 @@
                                 <div class="img_wrap"> <img src="/resources/img/main/category4.jpg" alt=""> </div>
                                 <div class="text"> <strong class="db fz64 fw700 cfff mb40">오리지널 슈즈</strong> <a href="/DrMarten/product/category/shoes" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
-                            <div class="category_item">
+                            <!-- <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category5.jpg" alt=""> </div>
                                 <div class="text"> <strong class="db fz64 fw700 cfff mb40">EXPLORE</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category6.jpg" alt=""> </div>
                                 <div class="text"> <strong class="db fz64 fw700 cfff mb40">BRAND</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- //카테고리 -->
