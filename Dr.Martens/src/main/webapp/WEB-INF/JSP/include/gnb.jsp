@@ -50,7 +50,7 @@
 									<span>마일리지 정책 변경</span>
 								</a>
 							</li>
-							<li><a href="javascript:;">실시간 검색 전체보기</a></li>
+							<!-- <li><a href="javascript:;">실시간 검색 전체보기</a></li> -->
 						</ul>
 					</li>
 					<li class="list01">
@@ -75,14 +75,14 @@
 							<!-- <li class="list02"><a href="">Trend Now</a></li> -->
 						</ul>
 					</li>
-					<li class="list01">
+					<!-- <li class="list01">
 						<p>EXCLUSIVE</p>
 						<ul>
 							<li class="list02"><a href="">콜라보레이션</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/MIE">MIE</a></li>
 							<li class="list02"><a href="/DrMarten/product/category/vegen">비건</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="list01">
 						<p>여성</p>
 						<ul>
@@ -162,7 +162,7 @@
 							<li class="list02"><a href="">액세서리 세일</a></li>
 						</ul>
 					</li>
-					<li class="list01">
+					<!-- <li class="list01">
 						<p>EXPLORE</p>
 						<ul>
 							<li class="list02"><a href="">HOW TO BREAK IN</a></li>
@@ -170,17 +170,17 @@
 							<li class="list02"><a href="">HOW TO LACE</a></li>
 							<li class="list02"><a href="">전체보기</a></li>
 						</ul>
-					</li>
-					<li class="list01">
+					</li> -->
+					<!-- <li class="list01">
 						<p>브랜드</p>
 						<ul>
 							<li class="list02"><a href="">HERITAGE</a></li>
 							<li class="list02"><a href="">ABOUT DM</a></li>
 							<li class="list02"><a href="">지속가능성</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li class="list01 mt60"><a href="/DrMarten/service/cs">/고객센터</a></li>
-					<li class="list01"><a href="">/매장찾기</a></li>
+					<!-- <li class="list01"><a href="">/매장찾기</a></li> -->
 				</ul>
 			</div>
 			<div class="gnb_menu_scroll swiper-scrollbar"></div>

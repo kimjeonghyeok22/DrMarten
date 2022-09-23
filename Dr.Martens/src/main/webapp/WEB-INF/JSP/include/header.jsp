@@ -78,6 +78,7 @@
 				</div>
 				<!-- //검색 -->
 				<!-- 위시리스트 -->
+				<%--
 				<a href="javascript:;" class="hdBtn ml0">
 					<!-- 위시리스트 아이콘 -->
 					<svg version="1.1" viewBox="0 0 35 29" width="35" height="29"
@@ -87,9 +88,10 @@
 					<!-- //위시리스트 아이콘 -->
 					<span class="text_hiden">위시리스트</span>
 				</a>
+				 --%>
 				<!-- //위시리스트 -->
 				<!-- 장바구니 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="javascript:;" class="hdBtn ml0">
 					<!-- 장바구니 아이콘 -->
 					<svg version="1.1" viewBox="0 0 28 33" width="28" height="33"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
