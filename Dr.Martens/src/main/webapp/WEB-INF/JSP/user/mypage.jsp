@@ -7,17 +7,15 @@
 <div id="container">
 	<div id="content">
 		<!-- 서브페이지 상단 -->
-		<div id="subHead" class="sub_user">
-			<div class="subHead_inr">
-				<div class="subHead_bar">
-					<div class="subHead_title">마이페이지</div>
-					<!-- <ul class="mypage_util cf">
-						<li><a href="/DrMarten/user/mypage"><span>Home</span></a></li>
-						<li><a href="javascript:;"><span>Shopping</span></a></li>
-						<li><a href="javascript:;"><span>Activity</span></a></li>
-						<li><a href="/DrMarten/service/cs"><span>CS center</span></a></li>
-					</ul> -->
-				</div>
+		<div id="subHead">
+			<div class="subHead_back">
+				<button class="subHead_btn" onclick="history.go(-1)">
+					<span class="text_hiden">뒤로가기</span>
+					<svg version="1.1" viewBox="0 0 34 22" class="subHead_btn_icon">
+						<path pid="0" fill="#111" fill-rule="evenodd" d="M33.974 9.503H5.771l7.493-7.402L11.128-.01-.012 10.995 11.128 22l2.136-2.111-7.493-7.401h28.203V9.503z"></path>
+					</svg>
+				</button>
+				<div class="subHead_title">마이페이지</div>
 			</div>
 		</div>
 		<!-- //서브페이지 상단 -->
