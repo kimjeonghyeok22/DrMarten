@@ -142,7 +142,7 @@
 /****************************************************/
 
 /* 페이지 영역 */
-#container{position: relative;margin-top: 160px !important;overflow: hidden;}
+#container{position: relative;margin-top: 125px !important;overflow: hidden;}
 #content{}
 
 .main_inner{width: 1140px;margin: 0 auto;}
