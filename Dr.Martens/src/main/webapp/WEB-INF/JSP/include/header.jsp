@@ -27,9 +27,8 @@
 							<li class="util_item"><a href="/DrMarten/user/logout">로그아웃</a></li>
 							<!-- <li class="util_item"><a href="/DrMarten/user/mypage">마이페이지</a></li>//아래 마이페이지 아이콘으로 이동 -->
 						<%} %>
-						<li class="util_item"><a href="javascript:;">매장찾기</a></li>
-						<li class="util_item"><a href="javascript:;">브랜드헤리티지</a></li>
 						<li class="util_item"><a href="/DrMarten/service/cs">고객센터</a></li>
+						<li class="util_item"><a href="/DrMarten/service/contacts" class="contact">CONTACT</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -91,7 +90,7 @@
 				 --%>
 				<!-- //위시리스트 -->
 				<!-- 장바구니 -->
-				<a href="javascript:;" class="hdBtn ml0">
+				<a href="/DrMarten/cart/getmycart" class="hdBtn ml0">
 					<!-- 장바구니 아이콘 -->
 					<svg version="1.1" viewBox="0 0 28 33" width="28" height="33"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">

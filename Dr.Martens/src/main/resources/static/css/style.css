@@ -16,6 +16,7 @@
 #header .util_menu_box{display: -ms-flexbox;display: flex;-ms-flex-pack: end;justify-content: flex-end;line-height: 40px;}
 #header .util_item{margin-left: 20px;}
 #header .util_item a{font-size: 13px;font-weight: 300;line-height: 40px;vertical-align: top;}
+#header .util_item a.contact{background: #fae100;padding: 0 5px;}
 
 /* 상단 메뉴 */
 #header .hd_content{width: 100%;height: 85px;background: #fff;}
@@ -59,7 +60,7 @@
 .main_search_form{position: relative;margin-right: 32px;}
 .main_search_form .SearchForm{display: block;}
 .main_search_form .SearchForm fieldset{display: -ms-flexbox;display: flex;-ms-flex-align: center;align-items: center;}
-.main_search_form .mainSearchForm_wrapper{display: -ms-flexbox;display: flex;-ms-flex-direction: row;flex-direction: row;-ms-flex-align: center; align-items: center;width: 490px;}
+.main_search_form .mainSearchForm_wrapper{display: -ms-flexbox;display: flex;-ms-flex-direction: row;flex-direction: row;-ms-flex-align: center; align-items: center;width: 540px;}
 .main_search_form .mainSearchForm_input_box{position: relative;width: 100%;-ms-flex: 1 1 auto;flex: 1 1 auto;margin-right: 16px;}
 .main_search_form .mainSearchForm_input{width: calc(100% - 50px);font-size: 20px;}
 .main_search_form .mainSearchForm_input::placeholder{color: #aaa;letter-spacing: -0.015em;}
@@ -162,6 +163,13 @@
 #subHead .subHead_title{font-size: 36px;font-weight: 700;letter-spacing: -.36px;color: #000;padding-top: 37px;}
 
 
+/* contact */
+#conWrap{display:flex; flex-direction:row; justify-content:space-between; width : 1140px;  margin : 60px auto 0;}
+#conWrap .contacts{display:inline-block;margin-bottom:10px;}
+#conWrap .contacts img{display:inline-block; width: 33px; margin-bottom:10px;}
+#conWrap .contacts span{display: block;}
+#conWrap .contacts span.big_txt{display: block;font-size : 24px; color : #000; font-weight: bold; line-height:40px;}
+#conWrap .contacts span.sml_txt{display: block;font-size : 16px; color : #666666; line-height:26px;}
 
 /****************************************************/
 

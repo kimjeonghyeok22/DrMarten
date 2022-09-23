@@ -37,7 +37,6 @@
 				<div class="ft_right ml0">
 					<h3 class="ft_tit">고객센터</h3>
 					<ul class="ft_top_menu">
-						<li><a href="javascript:not_sup();" class="">챗봇 상담</a></li>
 						<li><a href="/DrMarten/myqna/list" class="">1 : 1 문의</a></li>
 						<li><a href="/DrMarten/qna" class="">자주 묻는 질문</a></li>
 						<li><a href="/DrMarten/notice"  class="">공지사항</a></li>
@@ -46,7 +45,6 @@
 				<div class="ft_right">
 					<h3 class="ft_tit">닥터마틴에 대하여</h3>
 					<ul class="ft_top_menu">
-						<li><a href="javascript:not_sup();" class="">브랜드 헤리티지</a></li>
 						<li><a href="/DrMarten/realtime-search" class="">이벤트</a></li>
 						<li><a href="https://www.drmartensplc.com/sustainability" class="">SUSTAINABILITY</a></li>
 						<li><a href="https://www.drmartens.co.kr/data/pdf/Modern_Slavery_Doc_2019_20_v7.pdf" class="">MODERN SLAVERY ACT</a></li>
@@ -60,7 +58,6 @@
 					<ul class="ft_btm_list">
 						<li class="ft_btm_list_item"><a href="/DrMarten/service/agreement">이용약관</a></li>
 						<li class="ft_btm_list_item"><a href="/DrMarten/service/privacy">개인정보취급방침</a></li>
-						<li class="ft_btm_list_item"><a href="javascript:not_sup();">매장찾기</a></li>
 						<li class="ft_btm_list_item"><a href="/DrMarten/service/contacts">CONTACT</a></li>
 						<li class="ft_btm_list_item"><a href="/DrMarten/sitemap">사이트 맵</a></li>
 					</ul>
