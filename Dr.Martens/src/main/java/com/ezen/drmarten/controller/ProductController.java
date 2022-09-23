@@ -54,7 +54,7 @@ public class ProductController {
 	private BoardMapper bdao;
 	@Autowired
 	private ProductService svc;
- 
+
 	@GetMapping("")
 	public String index(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") int page) {
 		PageHelper.startPage(page, 10);
@@ -62,21 +62,21 @@ public class ProductController {
 		model.addAttribute("product", productList);
 		return "/product/product_view";
 	}
-	
+
 	@GetMapping("detail_product/{product_code}")
 	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request,
 			@SessionAttribute(name = "FirstProduct", required = false) List<Product> firstProduct) {
 		HttpSession session = request.getSession();
 		try {
-			if(session.getAttribute(String.valueOf(product_code))!=null){
+			if (session.getAttribute(String.valueOf(product_code)) != null) {
 				Product product = svc.getProduct(product_code);
 				List<Product_attach> att = svc.getAttByCode(product_code);
-				//제품이름_comments.png 는 제품설명의 이미지 파일 이기 때문에 배제하는 코드.
-				for(int i =0;i<att.size();i++) {
+				// 제품이름_comments.png 는 제품설명의 이미지 파일 이기 때문에 배제하는 코드.
+				for (int i = 0; i < att.size(); i++) {
 					String[] temp = att.get(i).getFname().split("_");
 					String[] temp2 = temp[1].split(".png");
-					if(temp2[0].contentEquals("comments")) {
-						model.addAttribute("attComment",att.get(i));
+					if (temp2[0].contentEquals("comments")) {
+						model.addAttribute("attComment", att.get(i));
 						att.remove(i);
 					}
 				}
@@ -88,64 +88,44 @@ public class ProductController {
 				int review_count = review.size();
 				float score = 0;
 				String writer = "";
-				for(int j = 0; j<review.size(); j++) {
+				for (int j = 0; j < review.size(); j++) {
 					writer = review.get(j).getWriter();
 					score += review.get(j).getScore();
 				}
-				if (score>0) {
-					score = score/review_count;
-					double score2 = Math.floor(score*10)/10;
-					model.addAttribute("score",score2);
+				if (score > 0) {
+					score = score / review_count;
+					double score2 = Math.floor(score * 10) / 10;
+					model.addAttribute("score", score2);
 				} else {
-					model.addAttribute("score",0.0);
+					model.addAttribute("score", 0.0);
 				}
-				
-				
 
-				model.addAttribute("size",size);
-				model.addAttribute("att",att);
-				model.addAttribute("cnt",review_count);
-
-				model.addAttribute("review",review);
-				model.addAttribute("qa",qa);
-				model.addAttribute("rp",rplist);
+				model.addAttribute("size", size);
+				model.addAttribute("att", att);
+				model.addAttribute("cnt", review_count);
+				model.addAttribute("review", review);
+				model.addAttribute("qa", qa);
+				model.addAttribute("rp", rplist);
 				//
-				if (firstProduct == null) {
-					System.out.println("아무것도 안해두댐");
-				} else {
-					System.out.println("실행중");
-					int productDot = firstProduct.indexOf(product);
-					if (productDot == -1) {
-						firstProduct.add(product);
-						System.out.println("실행중1");
-					} else {
-						System.out.println("실행중2");
-						firstProduct.remove(productDot);
-						firstProduct.add(product);
-					}
+				addCurrent(firstProduct, product);
 
-				}
-				
-				
-				
 				model.addAttribute("product", product);
-				
-				
-				
+
 				return "/product/detail_view";
-			}else {
+			} else {
 				session.setAttribute(String.valueOf(product_code), product_code);
-				    
-				svc.addViewCount(product_code); 
+
+				svc.addViewCount(product_code);
 				Product product = svc.getProduct(product_code);
 				List<Product_attach> att = svc.getAttByCode(product_code);
 				List<Product_size> size = dao.serachSizeByCode(product_code);
-				model.addAttribute("size",size);
-				model.addAttribute("att",att);
+				model.addAttribute("size", size);
+				model.addAttribute("att", att);
 				model.addAttribute("product", product);
+				addCurrent(firstProduct, product);
 				return "/product/detail_view";
-				}
-		}catch (Exception e) {
+			}
+		} catch (Exception e) {
 			System.out.println("생성되어있지 않은 세션의 값을 검증하는 부분에서 발생하는에러");
 			return "/product/detail_view";
 		}
@@ -373,4 +353,27 @@ public class ProductController {
 		boolean temp = true;
 		return "{\"added\":" + temp + "}";
 	}
+	
+	
+	
+	// 최근 본 상품 페이지
+	private void addCurrent(List<Product> firstProduct, Product product) {
+
+		if (firstProduct == null) {
+			System.out.println("아무것도 안해두댐");
+		} else {
+
+			int productDot = firstProduct.indexOf(product);
+			if (productDot == -1) {
+				firstProduct.add(product);
+			} else {
+				firstProduct.remove(productDot);
+				firstProduct.add(product);
+			}
+
+		}
+	}
 } 
+
+
+

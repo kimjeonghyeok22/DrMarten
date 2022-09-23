@@ -2,6 +2,7 @@ package com.ezen.drmarten.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -123,4 +124,21 @@ public class Product {
 	public void setDiscount(Integer discount) {
 		this.discount = discount;
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(product_code);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return product_code == other.product_code;
+	}
+	
+	
 }
