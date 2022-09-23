@@ -64,6 +64,7 @@
 				</div>
 				<!-- //회원 로그인 -->
 				<!-- 비회원 로그인 -->
+				<%--
 				<div class="non_user_login_form login_box">
 					<h3 class="form_title">비회원 주문조회</h3>
 					<form id="login_form" action="/user/login" method="post">
@@ -85,6 +86,7 @@
 					</form>
 					<div class="mask">준비중</div>
 				</div>
+				 --%>
 				<!-- //비회원 로그인 -->
 			</div>
 		</main>
