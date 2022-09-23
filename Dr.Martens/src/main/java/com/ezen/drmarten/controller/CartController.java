@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import com.ezen.drmarten.model.Cart;
 import com.ezen.drmarten.model.Order;
 import com.ezen.drmarten.model.Order_detail;
+import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.repository.OrderRepository;
 import com.ezen.drmarten.service.ItemCartService;
 
@@ -45,6 +46,8 @@ public class CartController {
 	public String cartAdd(Cart cart, @SessionAttribute(name = "u_cart", required = false) ItemCartService svc,
 			@SessionAttribute(name = "u_email", required = false) String email) {
 
+		
+		
 		if (email == null) {
 			String script = "<script>" + "alert('로그인을 먼저해주세요');" + "location.href='/DrMarten/user/login'" + "</script>";
 			return script;
@@ -123,6 +126,10 @@ public class CartController {
 		
 		
 	
+
+		
+		
+		
 	}
 
 	

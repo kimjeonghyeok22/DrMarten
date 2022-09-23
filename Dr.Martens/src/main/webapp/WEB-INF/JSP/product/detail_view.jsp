@@ -4,33 +4,39 @@
         <!DOCTYPE html>
         <html>
 
-        <head>
-            <meta charset="UTF-8">
-            <title>닥터마틴 코리아 :: 제품 상세보기</title>
-            <link rel="stylesheet" href="/resources/css/products.css" />
-            <link rel="stylesheet" href="/resources/css/style_guide.css" />
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script src="/resources/js/product/detail_view.js"></script>
-            <script type="text/javascript">
-                function addCart() {
-                    $.ajax({
-                        url: '/DrMarten/cart/cartAdd'
-                        , method: 'post'
-                        , cache: false
-                        , dataType: 'json'
-                        , success: function (res) {
-                            alert(res.saved ? '장바구니에 추가 되었습니다!' : 'Failed');
-                        }
-                        , error: function (xhr, status, err) {
-                            alert('Error:' + err);
-                        }
-                    });
-                    return false;
-                }
-            </script>
-        </head>
+<head>
+<meta charset="UTF-8">
+<title>닥터마틴 코리아 :: 제품 상세보기</title>
+<link rel="stylesheet" href="/resources/css/products.css" />
+<link rel="stylesheet" href="/resources/css/style_guide.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<script src="/resources/js/product/detail_view.js"></script>
+<script type="text/javascript">
+function cartAdd() {
+	
+	
+	var serData = $('#addCartForm').serialize();
+		$.ajax({
+			url : '/DrMarten/cart/cartAdd',
+			method : 'post',
+			cache : false,
+			data : serData,
+			dataType : 'json',
+			success : function(res) {
+				alert(res.saved ? "카트에에 물건을 넣었습니다 확인해주세요" : "카트에에 물건을 넣었습니다 확인해주세요")
+			},
+			error : function(xhr, status, err) {
+				alert(err);
+			}
+		});
+		return false;
+	}
+</script>
+</head>
 
-        <body>
+<body>
             <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
             <div id="main" class="pro_det">
                 <div class="inner">
@@ -98,7 +104,7 @@
                                             </div>
                                     </div>
                                     <div class="btn_wrap wrap">
-                                        <button type="submit" class="cmBtn line mid"> 장바구니 </button>
+                                        <button type="button" onclick="cartAdd();" class="cmBtn line mid"> 장바구니 </button>
                                         <button type="button" class="cmBtn line mid black"> 구매하기 </button>
                                     </div>
                                 </form>

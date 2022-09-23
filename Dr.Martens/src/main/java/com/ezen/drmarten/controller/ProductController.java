@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -61,8 +62,10 @@ public class ProductController {
 		model.addAttribute("product", productList);
 		return "/product/product_view";
 	}
+	
 	@GetMapping("detail_product/{product_code}")
-	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request) {
+	public String detail(Model model, @PathVariable(name = "product_code") int product_code, HttpServletRequest request,
+			@SessionAttribute(name = "FirstProduct", required = false) List<Product> firstProduct) {
 		HttpSession session = request.getSession();
 		try {
 			if(session.getAttribute(String.valueOf(product_code))!=null){
@@ -96,6 +99,8 @@ public class ProductController {
 				} else {
 					model.addAttribute("score",0.0);
 				}
+				
+				
 
 				model.addAttribute("size",size);
 				model.addAttribute("att",att);
@@ -104,7 +109,29 @@ public class ProductController {
 				model.addAttribute("review",review);
 				model.addAttribute("qa",qa);
 				model.addAttribute("rp",rplist);
+				//
+				if (firstProduct == null) {
+					System.out.println("아무것도 안해두댐");
+				} else {
+					System.out.println("실행중");
+					int productDot = firstProduct.indexOf(product);
+					if (productDot == -1) {
+						firstProduct.add(product);
+						System.out.println("실행중1");
+					} else {
+						System.out.println("실행중2");
+						firstProduct.remove(productDot);
+						firstProduct.add(product);
+					}
+
+				}
+				
+				
+				
 				model.addAttribute("product", product);
+				
+				
+				
 				return "/product/detail_view";
 			}else {
 				session.setAttribute(String.valueOf(product_code), product_code);

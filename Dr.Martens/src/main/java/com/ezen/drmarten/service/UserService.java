@@ -1,5 +1,6 @@
 package com.ezen.drmarten.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.drmarten.model.Cart;
+import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.User;
 import com.ezen.drmarten.repository.CartRepository;
 import com.ezen.drmarten.repository.UserTableRepository;
@@ -61,10 +63,11 @@ public class UserService {
 			
 			List<Cart>list = cartView.findByEmail(u_email);
 			if(list != null ) {
-				
+				List<Product>firstProduct = new ArrayList<>();
 				svc.setCart(list);
 				session.setAttribute("u_email", u_email);
 				session.setAttribute("u_cart", svc);
+				session.setAttribute("FirstProduct", firstProduct );
 				cartView.deleteByEmail(u_email);
 				return "<script>" + "location.href='/DrMarten'" + "</script>";
 			}

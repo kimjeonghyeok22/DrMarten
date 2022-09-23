@@ -158,8 +158,6 @@
 							<li class="list02"><a href="/DrMarten/product/gender/category/both/discount">전체보기</a></li>
 							<li class="list02"><a href="/DrMarten/product/gender/category/female/discount">여성 세일</a></li>
 							<li class="list02"><a href="/DrMarten/product/gender/category/male/discount">남성 세일</a></li>
-							<li class="list02"><a href="">키즈 세일</a></li>
-							<li class="list02"><a href="">액세서리 세일</a></li>
 						</ul>
 					</li>
 					<!-- <li class="list01">

@@ -54,9 +54,10 @@
 											</span>
                                         	<div class="wrap">
 												<span class="color">${product.color}</span>
+												<input type="hidden" name = "product_code" value="${product.product_code}">
+												<input type="hidden" name = "color" value="${product.color}">
 												<input type="hidden" name = "name" value="${product.name}">
-												<input type="hidden" name = "name" value="${product.product_code}">
-												<input type="hidden" name = "name" value="${product.price}">
+												<input type="hidden" name = "price" value="${product.price}">
 												<button type="button" class="goCart" onclick="">바로가기</button>
 											</div>
 									</form>
