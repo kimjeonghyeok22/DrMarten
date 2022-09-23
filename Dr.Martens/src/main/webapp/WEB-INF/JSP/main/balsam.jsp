@@ -69,7 +69,7 @@
                                     <br>
                                     <br> <span><i class="fa-regular fa-heart"></i> 189</span> </div>
                                 <div style=" font-size:18px; font-weight:bold; color:#000;">
-                                    <button type="button" style="border: 1px solid black;height: 52px;padding: 0 17px; background-color: #fff;font-size: 18px;letter-spacing: -0.015em;">장바구니 담기</button>
+                                    <button type="button" style="border: 1px solid black;height: 52px;padding: 0 17px; background-color: #fff;font-size: 18px;letter-spacing: -0.015em;" onclick="location.href='/DrMarten/product/detail_product/22092302';">바로가기</button>
                                 </div>
                             </div>
                         </div>

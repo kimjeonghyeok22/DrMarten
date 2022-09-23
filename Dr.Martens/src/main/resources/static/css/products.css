@@ -108,7 +108,7 @@ ul.sq li{list-style : square; margin : 14px 0;}
 
 .detail_inner .review{position: relative; border : 1px solid #e6e6e6; background-color: #FAFAFA; padding: 19px 33px 33px; margin-top : 10px;}
 .detail_inner .review .writer{font-size : 18px; color : #111111; line-height: 50px;}
-.detail_inner .review .title{font-size : 24px; color: #1111111; margin-bottom : 16px;}
+.detail_inner .review .title{font-size : 24px; color: #111111; margin-bottom : 16px;}
 .detail_inner .review .img{height: 150px; display: none;}
 .detail_inner .review.on .img{display: inline-block;}
 .detail_inner .review .icon{height:21px;}

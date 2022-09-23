@@ -144,10 +144,28 @@
 #recommend{width: 390px;margin: 95px auto 0;}
 
 
+/*recently viewed*/
+#main.recent .subHead_back {padding: 40px 0;}
+#main.recent .msg{color:#999999; font-size : 18px; margin-left: 10px;}
+#main.recent .current_item{	display : inline-block;    width: 270px;    height : 580px;    cursor: pointer;    padding : 0 !important; margin-right:18px;}
+.current_item :nth-of-type(4n){	margin-right: 0;}
+.current_item > img {display : inline-block; width: 100%; margin : 0 auto 15px; background-color : #e2e2e2;}
+.current_item .product_name{display: inline-block; width : 65%; font-size : 18px;}
+.current_item .priceRight {display: inline-block; width: 30%; text-align:right; font-size : 20px !important;}
+.current_item .color{line-height:30px;}
+.current_item .goCart {background-color: transparent; font-size : 16px; padding : 12px 20px; border : 1px solid #111; cursor: pointer; margin: 8px -2px 0 0 ;}
 
 
+#main.wrote .inner{display : flex; flex-direction : row; justify-content: space-between;}
+#main.wrote .inner .wrote_gnb{width : 290px;}
+#main.wrote .inner .wrote_wrap{width :  calc(100% - 300px);}
 
+#main.wrote .link_box .link_tit:nth-of-type(1){margin-top : 0;}
+#main.wrote .link_box .link_tit {margin : 60px 0  0 0!important;}
+#main.wrote .link_box .link_tit span{padding-bottom : 20px !important;}
 
+#main.wrote .lick_con{height:max-content;}
+#main.wrote .lick_con li{height:24px !important; margin : 8px 0; opacity : 0.4;}
 
 
 

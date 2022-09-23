@@ -2,6 +2,7 @@ package com.ezen.drmarten.controller;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -244,7 +245,7 @@ public class UserController {
 		if(rep.findById(recommender).isPresent()) {
 			rep.updatePoint(ses,500);
 			rep.updatePoint(recommender,500);
-			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
+			return "<script>" + "alert('추천인과 고객님에게 500 포인트가 추가되었습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
 		}else {
 			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/DrMarten/user/recommend'" + "</script>";
 		}
@@ -340,19 +341,30 @@ public class UserController {
 	
 
 	// 최근 본상품 페이지 구성
-	@GetMapping("/mypage/current")
+	@GetMapping("/mypage/recently_viewed")
 	public String FirstProduct( @SessionAttribute(name = "FirstProduct", required = false) List<Product> firstProduct,
 			Model model) {
 
 		if (firstProduct == null) {
-			System.out.println("x");
 		    model.addAttribute("First", null);
-		    return "/user/current";
+		    if((String)session.getAttribute("u_email")==null) {
+		    	model.addAttribute("msg","로그인 후 이용하실 수 있습니다.");
+		    } else {
+		    	model.addAttribute("msg","최근 본 상품이 없습니다.");
+		    } 
+		    return "/user/recently_viewed";
 		}else {
-			System.out.println("0");
+			Collections.reverse(firstProduct);
 			model.addAttribute("First", firstProduct);
-			 return "/user/current";
+			 return "/user/recently_viewed";
 		}
 		
 	}
+	
+	@GetMapping("/mypage/wrote")
+	public String whatIWrote() {
+	
+		return "/user/wrote";
+	}
+	
 }

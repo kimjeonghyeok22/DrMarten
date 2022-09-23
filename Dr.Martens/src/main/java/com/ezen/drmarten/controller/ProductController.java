@@ -119,8 +119,31 @@ public class ProductController {
 				Product product = svc.getProduct(product_code);
 				List<Product_attach> att = svc.getAttByCode(product_code);
 				List<Product_size> size = dao.serachSizeByCode(product_code);
+				List<Board> review = bdao.getProductReview(product_code);
+				List<Board> qa = bdao.getMyQnaForProduct(product_code);
+				List<Board> rplist = bdao.getMyQnaRP();
+
+				int review_count = review.size();
+				float score = 0;
+				String writer = "";
+				for (int j = 0; j < review.size(); j++) {
+					writer = review.get(j).getWriter();
+					score += review.get(j).getScore();
+				}
+				if (score > 0) {
+					score = score / review_count;
+					double score2 = Math.floor(score * 10) / 10;
+					model.addAttribute("score", score2);
+				} else {
+					model.addAttribute("score", 0.0);
+				}
+
 				model.addAttribute("size", size);
 				model.addAttribute("att", att);
+				model.addAttribute("cnt", review_count);
+				model.addAttribute("review", review);
+				model.addAttribute("qa", qa);
+				model.addAttribute("rp", rplist);
 				model.addAttribute("product", product);
 				addCurrent(firstProduct, product);
 				return "/product/detail_view";
@@ -360,7 +383,7 @@ public class ProductController {
 	private void addCurrent(List<Product> firstProduct, Product product) {
 
 		if (firstProduct == null) {
-			System.out.println("아무것도 안해두댐");
+//			System.out.println("아무것도 안해두댐");
 		} else {
 
 			int productDot = firstProduct.indexOf(product);

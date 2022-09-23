@@ -101,7 +101,7 @@
 				</a>
 				<!-- //장바구니 -->
 				<!-- 최근 본 상품 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="/DrMarten/user/mypage/recently_viewed" class="hdBtn">
 					<!-- 최근 본 상품 아이콘 -->
 					<svg version="1.1" viewBox="0 0 39 28" width="39" height="28"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--timeline-pc">

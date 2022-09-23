@@ -53,8 +53,8 @@
 							<span>나의 쇼핑 정보를 확인하세요.</span>
 						</p>
 						<ul class="lick_con">
-							<li><a href=""><img src="/resources/img/icon/btn_shopping01.jpg" alt="" />주문/배송 조회<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
-							<li><a href="" class=""><svg version="1.1" viewBox="0 0 28 33" width="28" height="33" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
+							<li><a href="/DrMarten/user/mypage/orderlist"><img src="/resources/img/icon/btn_shopping01.jpg" alt="" />주문/배송 조회<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
+							<li><a href="/DrMarten/cart/getmycart" class=""><svg version="1.1" viewBox="0 0 28 33" width="28" height="33" class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--cart-pc">
 						<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path></svg>장바구니<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
 						</ul>
 					</div>
@@ -64,8 +64,8 @@
 							<span>나의 활동 정보를 확인하세요.</span>
 						</p>
 						<ul class="lick_con">
-							<li><a href=""><img src="/resources/img/icon/btn_activity04.jpg" alt="" />내가 쓴 글<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
-							<li><a href=""><img src="/resources/img/icon/btn_activity05.jpg" alt="" />내가 봤던 것들<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
+							<li><a href="/DrMarten/user/mypage/wrote"><img src="/resources/img/icon/btn_activity04.jpg" alt="" />내가 쓴 글<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
+							<li><a href="/DrMarten/user/mypage/recently_viewed"><img src="/resources/img/icon/btn_activity05.jpg" alt="" />내가 봤던 것들<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
 							<li><a href="/DrMarten/user/edit"><img src="/resources/img/icon/btn_activity06.jpg" alt="" />회원 정보 수정<span><i class="fa-solid fa-chevron-right"></i></span></a></li>
 						</ul>
 					</div>

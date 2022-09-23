@@ -54,7 +54,7 @@ function cartAdd() {
                             <div class="fz20 fw700">
                                 <div align="right">
                                     <c:if test="${score==null}"> ☆☆☆☆☆ </c:if>
-                                    <c:if test="${number==null}"> 0건 </c:if>
+                                    <c:if test="${number==null}"> ${cnt}건 </c:if>
                                 </div>
                                 <div class="fz26 product_name">
                                     <c:set value="${product.name}" var="deleName" />
