@@ -38,6 +38,7 @@ import com.ezen.drmarten.mappers.OrderDetailMapper;
 import com.ezen.drmarten.mappers.OrderListMapper;
 import com.ezen.drmarten.model.Order;
 import com.ezen.drmarten.model.Order_detail;
+import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.User;
 import com.ezen.drmarten.repository.CartRepository;
 import com.ezen.drmarten.repository.OrderRepository;
@@ -334,4 +335,24 @@ public class UserController {
 		}
 	}
 
+	
+	
+	
+
+	// 최근 본상품 페이지 구성
+	@GetMapping("/mypage/current")
+	public String FirstProduct( @SessionAttribute(name = "FirstProduct", required = false) List<Product> firstProduct,
+			Model model) {
+
+		if (firstProduct == null) {
+			System.out.println("x");
+		    model.addAttribute("First", null);
+		    return "/user/current";
+		}else {
+			System.out.println("0");
+			model.addAttribute("First", firstProduct);
+			 return "/user/current";
+		}
+		
+	}
 }

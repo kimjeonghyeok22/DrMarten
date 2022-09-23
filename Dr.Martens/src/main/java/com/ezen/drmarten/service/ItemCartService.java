@@ -48,25 +48,23 @@ public class ItemCartService {
 				cart.setDiscounted_price(dc_price);
 				cart.setTotal_price(dc_price * cart.getProduct_count());
 				boolean cartchak = this.cart.add(cart);
+				System.out.println(" 성공 "+cartchak);
 				return cartchak;
 
 			} else {
 
-				// 장바구니에 같은 물건이있을떄
+				
 				int discounted_price = getCart().get(itemChek).getDiscounted_price();
 				int count = getCart().get(itemChek).getProduct_count() + cart.getProduct_count();
-				//희범씨가 작성한 코드 , 마찬가지로 산출식이 잘못돼서 주석처리하고 새로 작성했습니다.
-//				int newPrice = cart.getProduct_count() * (cart.getPrice() - (cart.getPrice() / cart.getDiscount()));
-//				int newPrice = cart.getPrice()*(100 - cart.getDiscount())/100;
-//				getCart().get(itemChek).setDiscounted_price(newPrice + price);
 				getCart().get(itemChek).setProduct_count(count);
 				getCart().get(itemChek).setTotal_price(discounted_price * count);
-
+				System.out.println(" 성공 " );
 				return true;
 
 			}
 
 		} catch (Exception e) {
+			System.out.println(" 오류 ");
 			e.printStackTrace();
 			return false;
 		}
