@@ -23,13 +23,13 @@
                                     <a href="/DrMarten/product/category/online_only" class="width_100"> <img src="/resources/img/main/bm3.jpg" alt=""> <span class="txt">온라인 단독상품</span> </a>
                                 </div>
                                 <div class="bm">
-                                    <a href="#" class="width_100"> <img src="/resources/img/main/bm4.jpg" alt=""> <span class="txt">콜라보레이션</span> </a>
+                                    <a href="javascript:not_sup();" class="width_100"> <img src="/resources/img/main/bm4.jpg" alt=""> <span class="txt">콜라보레이션</span> </a>
                                 </div>
                                 <div class="bm">
-                                    <a href="#" class="width_100"> <img src="/resources/img/main/bm5.jpg" alt=""> <span class="txt">Made In England</span> </a>
+                                    <a href="/DrMarten/product/category/MIE" class="width_100"> <img src="/resources/img/main/bm5.jpg" alt=""> <span class="txt">Made In England</span> </a>
                                 </div>
                                 <div class="bm">
-                                    <a href="#" class="width_100"> <img src="/resources/img/main/bm6.jpg" alt=""> <span class="txt">카카오 간편가입 이벤트</span> </a>
+                                    <a href="javascript:not_sup();" class="width_100"> <img src="/resources/img/main/bm6.jpg" alt=""> <span class="txt">카카오 간편가입 이벤트</span> </a>
                                 </div>
                                 <div class="bm">
                                     <a href="/DrMarten/notice/detail/3" class="width_100"> <img src="/resources/img/main/bm7.jpg" alt=""> <span class="txt">마일리지 정책 변경</span> </a>
@@ -45,10 +45,10 @@
                                 <a href="/DrMarten/sandal"><img src="/resources/img/main/sl1.jpg" alt=""></a>
                             </div>
                             <div class="img_wrap slide2">
-                                <a href="javascript:;"><img src="/resources/img/main/sl2.jpg" alt=""></a>
+                                <a href="javascript:not_sup();"><img src="/resources/img/main/sl2.jpg" alt=""></a>
                             </div>
                             <div class="img_wrap slide3">
-                                <a href="javascript:;"><img src="/resources/img/main/sl3.jpg" alt=""></a>
+                                <a href="javascript:not_sup();"><img src="/resources/img/main/sl3.jpg" alt=""></a>
                             </div>
                         </div>
                         <div class="btn_wrap">
@@ -80,14 +80,14 @@
                                             <div class="slide eq1">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">그리폰</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
+                                                        <div class="info"> <strong class="product_name">그리폰</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-1-1.png" alt=""> <img src="/resources/img/main/md_1-1-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082206';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">마일즈</strong> <span><i class="fa-regular fa-heart"></i> 4333</span> </div>
+                                                        <div class="info"> <strong class="product_name">마일즈</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-1-3.png" alt=""> <img src="/resources/img/main/md_1-1-4.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082101';">바로가기</button>
@@ -98,14 +98,14 @@
                                             <div class="slide eq2">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">나틸라</strong> <span><i class="fa-regular fa-heart"></i> 3257</span> </div>
+                                                        <div class="info"> <strong class="product_name">나틸라</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-2-1.png" alt=""> <img src="/resources/img/main/md_1-2-2.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082201';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">리키3-스트랩</strong> <span><i class="fa-regular fa-heart"></i> 189</span> </div>
+                                                        <div class="info"> <strong class="product_name">리키3-스트랩</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-2-3.jpg" alt=""> <img src="/resources/img/main/md_1-2-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082207';">바로가기</button>
@@ -116,14 +116,14 @@
                                             <div class="slide eq3">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">나틸라</strong> <span><i class="fa-regular fa-heart"></i> 212</span> </div>
+                                                        <div class="info"> <strong class="product_name">나틸라</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-3-1.jpg" alt=""> <img src="/resources/img/main/md_1-3-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082208';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">마일즈 DB</strong> <span><i class="fa-regular fa-heart"></i> 448</span> </div>
+                                                        <div class="info"> <strong class="product_name">마일즈 DB</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_1-3-3.jpg" alt=""> <img src="/resources/img/main/md_1-3-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082205';">바로가기</button>
@@ -149,14 +149,14 @@
                                             <div class="slide eq1">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">1461 모노</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
+                                                        <div class="info"> <strong class="product_name">1461 모노</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_2-1-1.png" alt=""> <img src="/resources/img/main/md_2-1-2.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082209';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">에봇</strong> <span><i class="fa-regular fa-heart"></i> 1517</span> </div>
+                                                        <div class="info"> <strong class="product_name">에봇</strong></div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_2-1-3.png" alt=""> <img src="/resources/img/main/md_2-1-4.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090504';">바로가기</button>
@@ -167,14 +167,14 @@
                                             <div class="slide eq2">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">1461 쿼드</strong> <span><i class="fa-regular fa-heart"></i> 1623</span> </div>
+                                                        <div class="info"> <strong class="product_name">1461 쿼드</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_2-2-1.jpg" alt=""> <img src="/resources/img/main/md_2-2-2.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 230,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090506';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">1461 스무스</strong> <span><i class="fa-regular fa-heart"></i> 5849</span> </div>
+                                                        <div class="info"> <strong class="product_name">1461 스무스</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_2-2-3.png" alt=""> <img src="/resources/img/main/md_2-2-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 190,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090507';">바로가기</button>
@@ -185,14 +185,14 @@
                                             <div class="slide eq3">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">단테</strong> <span><i class="fa-regular fa-heart"></i> 142</span> </div>
+                                                        <div class="info"> <strong class="product_name">단테</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_2-3-1.jpg" alt=""> <img src="/resources/img/main/md_2-3-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 120,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090709';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">리더</strong> <span><i class="fa-regular fa-heart"></i> 176</span> </div>
+                                                        <div class="info"> <strong class="product_name">리더</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/리더/리더_main.png" alt=""> <img src="/resources/img/리더/리더_sub1.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 140,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090509';">바로가기</button>
@@ -218,14 +218,14 @@
                                             <div class="slide eq1">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">피어슨</strong> <span><i class="fa-regular fa-heart"></i> 2922</span> </div>
+                                                        <div class="info"> <strong class="product_name">피어슨</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_3-1-1.jpg" alt=""> <img src="/resources/img/main/md_3-1-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 140,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082202';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">포스터</strong> <span><i class="fa-regular fa-heart"></i> 534</span> </div>
+                                                        <div class="info"> <strong class="product_name">포스터</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_3-1-3.jpg" alt=""> <img src="/resources/img/main/md_3-1-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 120,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22082203';">바로가기</button>
@@ -236,14 +236,14 @@
                                             <div class="slide eq2">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">애브리</strong> <span><i class="fa-regular fa-heart"></i> 321</span> </div>
+                                                        <div class="info"> <strong class="product_name">애브리</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_3-2-1.jpg" alt=""> <img src="/resources/img/main/md_3-2-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090501';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">애브리</strong> <span><i class="fa-regular fa-heart"></i> 103</span> </div>
+                                                        <div class="info"> <strong class="product_name">애브리</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_3-2-3.jpg" alt=""> <img src="/resources/img/main/md_3-2-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090502';">바로가기</button>
@@ -254,14 +254,14 @@
                                             <div class="slide eq3">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">블레어 페이턴트</strong> <span><i class="fa-regular fa-heart"></i> 91</span> </div>
+                                                        <div class="info"> <strong class="product_name">블레어 페이턴트</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/블레어-페이턴트/블레어-페이턴트_main.png" alt=""> <img src="/resources/img/블레어-페이턴트/블레어-페이턴트_sub2.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 170,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090503';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">블레어 페이턴트</strong> <span><i class="fa-regular fa-heart"></i> 167</span> </div>
+                                                        <div class="info"> <strong class="product_name">블레어 페이턴트</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/블레어-페이턴트-화이트/블레어-페이턴트-화이트_main.png" alt=""> <img src="/resources/img/블레어-페이턴트-화이트/블레어-페이턴트-화이트_sub.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 150,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090701';">바로가기</button>
@@ -350,14 +350,14 @@
                                             <div class="slide eq1">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">MIE 1461</strong> <span><i class="fa-regular fa-heart"></i> 7</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 1461</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-1-1.jpg" alt=""> <img src="/resources/img/main/md_5-1-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 300,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090505';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">MIE 1461</strong> <span><i class="fa-regular fa-heart"></i> 6</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 1461</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-1-3.jpg" alt=""> <img src="/resources/img/MIE_1461-카키/MIE_1461-카키_sub4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 300,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090608';">바로가기</button>
@@ -368,7 +368,7 @@
                                             <div class="slide eq2">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong> <span><i class="fa-regular fa-heart"></i> 153</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-2-1.jpg" alt=""> <img src="/resources/img/main/md_5-2-2.jpg" alt="">
                                                         </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
@@ -376,7 +376,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong> <span><i class="fa-regular fa-heart"></i> 80</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 아드리안</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-2-3.jpg" alt=""> <img src="/resources/img/main/md_5-2-4.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090604';">바로가기</button>
@@ -387,14 +387,14 @@
                                             <div class="slide eq3">
                                                 <div class="wrap" style="overflow : hidden;">
                                                     <div class="item left">
-                                                        <div class="info"> <strong class="product_name">MIE 빈티지 1461</strong> <span><i class="fa-regular fa-heart"></i> 257</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 빈티지 1461</strong> </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-3-1.png" alt=""> <img src="/resources/img/main/md_5-3-2.jpg" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 280,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090605';">바로가기</button>
                                                         </div>
                                                     </div>
                                                     <div class="item right">
-                                                        <div class="info"> <strong class="product_name">MIE 빈티지 3989</strong> <span><i class="fa-regular fa-heart"></i> 222</span> </div>
+                                                        <div class="info"> <strong class="product_name">MIE 빈티지 3989</strong>  </div>
                                                         <div class="wrap imgw"> <img src="/resources/img/main/md_5-3-3.png" alt=""> <img src="/resources/img/main/md_5-3-4.png" alt=""> </div>
                                                         <div class="wrap"> <span class="price"><span class="won_font">\</span> 290,000 </span>
                                                             <button type="button" onclick="location.href='/DrMarten/product/detail_product/22090606';">바로가기</button>
@@ -447,19 +447,19 @@
                         <div class="inner">
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category1.jpg" alt=""> </div>
-                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">여성</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
+                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">여성</strong> <a href="/DrMarten/product/category/female" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category2.jpg" alt=""> </div>
-                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">남성</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
+                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">남성</strong> <a href="/DrMarten/product/category/male" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category3.jpg" alt=""> </div>
-                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">오리지널 부츠</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
+                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">오리지널 부츠</strong> <a href="/DrMarten/product/category/boots" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category4.jpg" alt=""> </div>
-                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">오리지널 슈즈</strong> <a href="javascript:;" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
+                                <div class="text"> <strong class="db fz64 fw700 cfff mb40">오리지널 슈즈</strong> <a href="/DrMarten/product/category/shoes" class="cmBtn line hover mid white">바로가기<span class="cmbtn_icon"><i class="fa-solid fa-chevron-right fz16"></i></span></a> </div>
                             </div>
                             <div class="category_item">
                                 <div class="img_wrap"> <img src="/resources/img/main/category5.jpg" alt=""> </div>

@@ -317,5 +317,5 @@ function saveQA(){
 }
             
 	function not_sup(){
-		alert('지원하지 않는 링크입니다 : (');
+		alert('이용 불가능한 서비스입니다 : (');
 	}
