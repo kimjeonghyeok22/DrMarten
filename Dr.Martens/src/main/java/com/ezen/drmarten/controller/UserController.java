@@ -187,7 +187,10 @@ public class UserController {
 			String address = "("+address1 + ") " + address2 + " " + address3 + " " + address4;
 			user.setAdress(address);
 			rep.save(user);
-			return "<script>" + "alert('회원가입이 완료되었습니다');" + "location.href='/DrMarten'" + "</script>";
+			session.setAttribute("u_email", user.getU_email());
+			session.setAttribute("u_cart", svc);
+			return "<script>" + "var reco = confirm('회원가입이 완료되었습니다. 추천인을 입력하여 추가 포인트를 받으시겠습니까?');"
+			+ "if(reco){location.href='/DrMarten/user/recommend'}else{location.href='/DrMarten'}</script>";
 		} else {
 			return "<script>" + "alert('비밀번호가 다릅니다');" + "location.href='/DrMarten/user/restSignUp?u_email=" + user.getU_email()
 					+ "'" + "</script>";
@@ -230,6 +233,9 @@ public class UserController {
 			return "/user/mypage";
 		}
 	}
+	
+	
+	
 	//추천인 이동(팝업창)
 	@GetMapping("/recommend")
 	public String reco_page() {
@@ -242,13 +248,13 @@ public class UserController {
 			HttpSession session) {
 		String ses = (String)session.getAttribute("u_email");
 		if(ses == null)
-			return "<script>" + "alert('로그인 후 이용해주세요');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
+			return "<script>" + "alert('로그인 후 이용해주세요');" + "location.href='/DrMarten/user/recommend'" + "</script>";
 		if(ses.equals(recommender))
-			return "<script>" + "alert('자기 자신을 추천할 수 없습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
+			return "<script>" + "alert('자기 자신을 추천할 수 없습니다.');" + "location.href='/DrMarten/user/recommend'" + "</script>";
 		if(rep.findById(recommender).isPresent()) {
 			rep.updatePoint(ses,500);
 			rep.updatePoint(recommender,500);
-			return "<script>" + "alert('추천인과 고객님에게 500 포인트가 추가되었습니다.');" + "opener.parent.location='/DrMarten/user/login'" + "</script>";
+			return "<script>" + "alert('추천인과 고객님에게 포인트 500이 추가되었습니다.');" + "location.href='/DrMarten'" + "</script>";
 		}else {
 			return "<script>" + "alert('존재하지 않는 아이디 입니다.');" + "location.href='/DrMarten/user/recommend'" + "</script>";
 		}

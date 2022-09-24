@@ -11,10 +11,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +43,7 @@ import com.ezen.drmarten.model.Order_detail;
 import com.ezen.drmarten.model.Product;
 import com.ezen.drmarten.model.Product_attach;
 import com.ezen.drmarten.model.Product_size;
+import com.ezen.drmarten.model.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -464,19 +467,37 @@ public class AdminController {
 		return map;
 	}
 	//회원정보 인덱스
-	@GetMapping("/user/index")
-	public ModelAndView admin_index() {
-		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_index");
-		mv.addObject("list", rep.findAll());
-		return mv;
+	@GetMapping("/user/list")
+	public String userList(Model model) {
+		List<User> list = rep.findAll();
+		model.addAttribute("list",list);
+		return "/dr/user/userList";
 	}
 	
 	@GetMapping("/user/detail/{u_email}")
-	public ModelAndView detail(@PathVariable("u_email")String u_email)
+	public String detail(@PathVariable("u_email")String u_email,Model model)
 	{
-		ModelAndView mv = new ModelAndView("thymeleaf/admin/user_detail");
-		mv.addObject("user", rep.findById(u_email));
-		return mv;
+		Optional<User> op = rep.findById(u_email);
+		User detail = op.get();
+		model.addAttribute("detail", detail);
+		return "/dr/user/user_detail";
+	}
+	
+	
+	@GetMapping("/user/edit/{u_email}")
+	public String edit_form(@PathVariable("u_email")String u_email,Model model) {
+		Optional<User> op = rep.findById(u_email);
+		User user = op.get();
+		model.addAttribute("user", user);
+		return "/dr/user/user_edit";
+	}
+	@PostMapping("/user/edit")
+	@ResponseBody
+	public String edit(@Valid User user) {
+		rep.deleteById(user.getU_email());
+		rep.save(user);
+		return "<script>"+"location='/admin/user/list'</script>";
+		
 	}
 	//------------------------productFrom이동 메소드-------------
 	@GetMapping("/product/form")

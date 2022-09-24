@@ -46,7 +46,8 @@ function deleteId(){
 			</h2>
 			<div class="join_detail mt80">
 				<form action="/DrMarten/user/sign_Up" method="post">
-					<input type="hidden" id="userEmailChecked" name="userEmailChecked" value="${user.userEmailChecked }">
+					<input type="hidden" id="user_Email_Checked" name="user_Email_Checked" value="${user.user_Email_Checked }">
+					<input type="hidden" id="point" name="point" value="${user.point }">
 					<div class="dmField dmInput mb30">
 						<div class="dmField_input_box">
 							<label class="dmField_label">이름</label>
