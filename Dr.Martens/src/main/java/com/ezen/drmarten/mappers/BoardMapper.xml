@@ -41,6 +41,9 @@ SELECT * FROM QA order By Board_num DESC
 <select id="getReview"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM REVIEW WHERE order_num=#{num}
 </select>
+<select id="getMyReview"  resultType="com.ezen.drmarten.model.Board">
+SELECT * FROM REVIEW WHERE writer=#{email}
+</select>
 <select id="getMyQnaForProduct"  resultType="com.ezen.drmarten.model.Board">
 SELECT * FROM MYQNA WHERE product_code=#{product_code} AND PCODE=0 order By wdate DESC
 </select>

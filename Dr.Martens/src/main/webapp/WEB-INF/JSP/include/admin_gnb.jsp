@@ -5,7 +5,7 @@
                 <li> <span>고객 관리</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
                     <div class="sub_wrap">
                         <ul id="sub_menu">
-                            <li><a href="#">서브1</a></li>
+                            <li><a href="#">고객 관리</a></li>
                             <li><a href="#">서브2</a></li>
                             <li><a href="#">서브3</a></li>
                             <li><a href="#">서브4</a></li>

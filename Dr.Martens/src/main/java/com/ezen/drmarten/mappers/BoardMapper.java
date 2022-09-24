@@ -40,5 +40,6 @@ public interface BoardMapper {
 	List<Board> getMyQnaRP();
 	List<Board> getMyQnaREP(int num);
 	int saveRep(Board board);
+	List<Board> getMyReview(String email);
 	
 }

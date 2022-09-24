@@ -45,8 +45,8 @@
 	<div class="wrote_wrap">
 				<strong class="title">내가 쓴 글</strong>
 				<div class="wrap">
-					<a class="wrote_category on" href="/DrMarten/user/mypage/wrote">나의 상품문의</a>
-					<a class="wrote_category" href="/DrMarten/user/mypage/wrote_review">나의 상품후기</a>
+					<a class="wrote_category" href="/DrMarten/user/mypage/wrote">나의 상품문의</a>
+					<a class="wrote_category on" href="/DrMarten/user/mypage/wrote_review">나의 상품후기</a>
 				</div>
 				<div class="table_container">
 				<table>	
@@ -55,10 +55,10 @@
 				<th>제목</th>
 				<th style="width:150px;">작성일</th>
 				</tr>
-				<c:forEach var="q" items="${qa}" varStatus="v">
+				<c:forEach var="q" items="${review}" varStatus="v">
 				<tr>
 				<td style="text-align:center;">${v.count}</td>
-				<td><a href="/DrMarten/myqna/list">${q.title}</a></td>
+				<td><a href="/DrMarten/product/detail_product/${q.product_code}">${q.title}</a></td>
 				<td style="text-align:center;">${q.wdate}</td>
 				</tr>
 				</c:forEach>

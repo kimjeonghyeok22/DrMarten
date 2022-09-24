@@ -37,6 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ezen.drmarten.mappers.BoardMapper;
 import com.ezen.drmarten.mappers.OrderDetailMapper;
 import com.ezen.drmarten.mappers.OrderListMapper;
+import com.ezen.drmarten.model.Board;
 import com.ezen.drmarten.model.Order;
 import com.ezen.drmarten.model.Order_detail;
 import com.ezen.drmarten.model.Product;
@@ -68,6 +69,8 @@ public class UserController {
 	private OrderListMapper odao;
 	@Autowired
 	private OrderDetailMapper oldao;
+	@Autowired
+	private BoardMapper bdao;
 	
 	//메인 페이지 이동
 	@GetMapping("")
@@ -362,9 +365,20 @@ public class UserController {
 	}
 	
 	@GetMapping("/mypage/wrote")
-	public String whatIWrote() {
-	
+	public String whatIWrote(Model model) {
+		String email = (String)session.getAttribute("u_email");
+		List <Board> qalist = bdao.getMyQna2(email);
+		model.addAttribute("qa",qalist);
+		
 		return "/user/wrote";
+	}
+	@GetMapping("/mypage/wrote_review")
+	public String wroteReview(Model model) {
+		String email = (String)session.getAttribute("u_email");
+		List <Board> list = bdao.getMyReview(email);
+		model.addAttribute("review", list);
+		
+		return "/user/wrote_review";
 	}
 	
 }
