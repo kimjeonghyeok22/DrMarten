@@ -94,6 +94,9 @@
 			<when test='category.equalsIgnoreCase("england")'>
 				MADE = '영국 외 기타'
 			</when>
+			<when test='category.equalsIgnoreCase("new")'>
+				NEW_TAG = 'NEW'
+			</when>
 			<when test='category.equalsIgnoreCase("MIE")'>
 				name LIKE '%' || 'MIE' || '%'
 			</when>

@@ -53,7 +53,7 @@
 							<li><a href="javascript:;">실시간 검색 전체보기</a></li>
 						</ul>
 					</li> -->
-					<li class="list01"><a href="/DrMarten/product/category/female">NEW</a></li>
+					<li class="list01"><a href="/DrMarten/product/category/new">NEW</a></li>
 						<!-- 
 						<ul>
 							<li class="list02"><a href="/DrMarten/product/category/female">여성</a></li>
@@ -63,7 +63,7 @@
 							<li class="list02"><a href="/DrMarten/product">전체보기</a></li>
 						</ul> 
 						-->
-					<li class="list01"><a href="/DrMarten/product/category/female">BEST</a>
+					<li class="list01"><a href="/DrMarten/product/best">BEST</a>
 						<!-- <ul>
 							<li class="list02"></li>
 							<li class="list02"><a href="/DrMarten/product/category/male">남성</a></li>
