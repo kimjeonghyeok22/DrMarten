@@ -466,7 +466,8 @@ public class AdminController {
 		map.put("updated", saved);
 		return map;
 	}
-	//회원정보 인덱스
+	
+	//회원 목록
 	@GetMapping("/user/list")
 	public String userList(Model model) {
 		List<User> list = rep.findAll();
@@ -474,6 +475,7 @@ public class AdminController {
 		return "/dr/user/userList";
 	}
 	
+	//회원 상세보기
 	@GetMapping("/user/detail/{u_email}")
 	public String detail(@PathVariable("u_email")String u_email,Model model)
 	{
@@ -483,7 +485,7 @@ public class AdminController {
 		return "/dr/user/user_detail";
 	}
 	
-	
+	//회원 정보 수정
 	@GetMapping("/user/edit/{u_email}")
 	public String edit_form(@PathVariable("u_email")String u_email,Model model) {
 		Optional<User> op = rep.findById(u_email);
@@ -491,6 +493,8 @@ public class AdminController {
 		model.addAttribute("user", user);
 		return "/dr/user/user_edit";
 	}
+	
+	
 	@PostMapping("/user/edit")
 	@ResponseBody
 	public String edit(@Valid User user) {

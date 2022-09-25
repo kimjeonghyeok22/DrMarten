@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/JSP/include/header.jsp" />
 <script>document.title = "DrMartens 회원정보수정";</script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 <%--삭제 기능 제이슨--%>
 function deleteId(){
@@ -21,6 +20,52 @@ function deleteId(){
 			alert(err);
 		}
 	});
+}
+</script>
+<script>
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function (data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            }
+            else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+            if (data.userSelectedType === 'R') {
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                    extraAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if (data.buildingName !== '' && data.apartment === 'Y') {
+                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if (extraAddr !== '') {
+                    extraAddr = ' (' + extraAddr + ')';
+                }
+                // 조합된 참고항목을 해당 필드에 넣는다.
+                document.getElementById("sample6_extraAddress").value = extraAddr;
+            }
+            else {
+                document.getElementById("sample6_extraAddress").value = '';
+            }
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
 }
 </script>
 <!--  -->
@@ -45,7 +90,7 @@ function deleteId(){
 				<strong class="fw700 fz36">회원가입</strong>
 			</h2>
 			<div class="join_detail mt80">
-				<form action="/DrMarten/user/sign_Up" method="post">
+				<form action="/DrMarten/user/edit" method="post">
 					<input type="hidden" id="user_Email_Checked" name="user_Email_Checked" value="${user.user_Email_Checked }">
 					<input type="hidden" id="point" name="point" value="${user.point }">
 					<div class="dmField dmInput mb30">
@@ -75,29 +120,29 @@ function deleteId(){
 					<div class="dmField dmInput mb20">
 						<div class="dmField_input_box">
 							<label class="dmField_label">우편번호</label>
-							<input type="text" id="sample6_postcode" name="address1" value="${user.adress1}" class="dmField_input">
+							<input type="text" id="sample6_postcode" name="address1" value="" class="dmField_input">
 							<button type="button" onclick="sample6_execDaumPostcode()" class="cmBtn fullWidth black mid fw500 ml10 post_btn">우편번호찾기</button>
 						</div>
 					</div>
 					<div class="dmField dmInput mb30">
 						<div class="dmField_input_box">
 							<label class="dmField_label">주소</label>
-							<input type="text" id="sample6_address" name="address2" value="${user.adress2}" class="dmField_input">
+							<input type="text" id="sample6_address" name="address2" value="" class="dmField_input">
 						</div>
 					</div>
 					<div class="dmField dmInput mb60">
 						<div class="dmField_input_box">
 							<label class="dmField_label">상세주소</label>
-							<input type="text" id="sample6_detailAddress" name="address3" value="${user.adress3}" class="dmField_input">
+							<input type="text" id="sample6_detailAddress" name="address3" value="" class="dmField_input">
 						</div>
 					</div>
-					<!-- <div class="dmField dmInput mb60">
+					<div class="dmField dmInput mb60">
 						<div class="dmField_input_box">
 							<label class="dmField_label">기타</label>
 							<input type="text" id="sample6_extraAddress" name="address4" placeholder="참고항목" class="dmField_input">
 						</div>
-					</div> -->
-					<div class="dmField dmInput mb30">
+					</div> 
+												<div class="dmField dmInput mb30">
 						<div class="dmField_input_box">
 							<label class="dmField_label">전화번호</label>
 							<input type="text" id="phone_num" name="phone_num" value="${user.phone_num}" placeholder="01012345678" class="dmField_input">
@@ -137,18 +182,3 @@ function deleteId(){
 <!-- //페이지 영역 -->
 <!--  -->
 <jsp:include page="/WEB-INF/JSP/include/footer.jsp" />
-<%--
-<form action="/DrMarten/user/edit" method="post">
-<input type="hidden" id="userEmailChecked" name="userEmailChecked" value="${user.userEmailChecked }">
-<div>아이디:<input id="u_email" name="u_email" value="${user.u_email}" readonly></div>
-<div>비밀번호:<input type="password" id="u_pw" name="u_pw"></div>
-<div>비밀번호 확인:<input type="password" id="u_pw2" name="u_pw2"></div>
-<div>이름:<input type="text" id="name" name="name" value="${user.name}" ></div>
-<div>주소:<input type="text" id="adress" name="adress"></div>
-<div>전화번호:<input type="text" id="phone_num" name="phone_num" placeholder="숫자만입력"></div>
-<div>성별:<input id="gender" name="gender" value="${user.gender }" readonly></div>
-<div>생년월일:<input value="${user.birth }" name="birth" id="birth" readonly></div>
-<button type="submit">수정 저장</button>
-</form>
-<button type="button" onclick="deleteId();">회원 탈퇴</button>
---%>

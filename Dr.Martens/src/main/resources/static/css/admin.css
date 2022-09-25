@@ -77,3 +77,6 @@ td.center{text-align: center;}
 
 /*주문목록*/
 .order_detail img{display: inline-block; height : 70px; background-color : #e2e2e2; margin-top : 16px;}
+
+
+.user.container .dmField{margin-bottom : 20px;}
