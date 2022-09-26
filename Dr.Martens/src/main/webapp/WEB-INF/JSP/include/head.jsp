@@ -14,11 +14,6 @@
 <link rel="stylesheet" href="/resources/css/main.css" />
 <link rel="stylesheet" href="/resources/css/admin.css" />
 <link rel="stylesheet" href="/resources/css/products.css" />
-<!-- ㄴ css 중복 class, id있어서 깨져요, 수정필요 
-	특히 #header, #main, #container, #content, #footer의 경우 
-	전체 헤더, 푸터, 페이지 틀을 짤때 사용됨으로 다른 이름으로 변경 부탁드립니다
-	--- admin 헤더/메인 수정했습니다
- -->
 <link rel="stylesheet" href="/resources/css/user.css" />
 <link rel="stylesheet" href="/resources/css/style.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

@@ -128,7 +128,7 @@
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
 		<div class="gnb_top">
-			<a href="javascript:;" class="gnbTop_item gnb_cart">
+			<a href="/DrMarten/cart/getmycart" class="gnbTop_item gnb_cart">
 				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
 					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
 				</svg>
