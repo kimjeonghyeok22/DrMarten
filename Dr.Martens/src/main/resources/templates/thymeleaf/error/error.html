@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Dr.Martens</title>
+<title>Dr.Marten - [[${code}]] error -</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="/resources/img/icon/favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -111,7 +111,7 @@
 				</a>
 				<!-- //장바구니 -->
 				<!-- 최근 본 상품 -->
-				<a href="javascript:;" class="hdBtn">
+				<a href="/DrMarten/user/mypage/recently_viewed" class="hdBtn">
 					<!-- 최근 본 상품 아이콘 -->
 					<svg version="1.1" viewBox="0 0 39 28" width="39" height="28"
 						class="BaseHeadButton__icon svg-icon svg-fill BaseHeadButton__icon--timeline-pc">
@@ -138,7 +138,7 @@
 	<!-- 메뉴 카테고리// -->
 	<nav id="nav">
 		<div class="gnb_top">
-			<a href="javascript:;" class="gnbTop_item gnb_cart">
+			<a href="/DrMarten/cart/getmycart" class="gnbTop_item gnb_cart">
 				<svg version="1.1" viewBox="0 0 28 33" width="28" height="33">
 					<path pid="0" fill="#111" fill-rule="evenodd" d="M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z"></path>
 				</svg>
@@ -289,7 +289,7 @@
 									<span>공식몰혜택</span>
 									<img src="/resources/img/gnb_evt_img01.jpg" alt="공식몰혜택" />
 								</a></li>
-								<li><a href="javascript:;">
+								<li><a href="javascript:alert('준비중입니다.');">
 									<span>콜라보레이션</span>
 									<img src="/resources/img/gnb_evt_img02.jpg" alt="콜라보레이션" />
 								</a></li>
@@ -332,78 +332,76 @@
 	</div>
 	<!-- 하단 영역 -->
 	<footer id="footer">
-			<!-- top btn -->
-			<div class="gotoTop">
-				<button class="gotoTop_btn">
-					<!-- <img src="/resources/img/floating_top.png" alt="맨위로 가기" /> -->
-				</button>
-			</div>
-			<!-- //top btn -->
-			<div class="ft_inner">
-				<div class="ft_top cf">
-					<div class="ft_left">
-						<h3 class="ft_top_tit">닥터마틴코리아프로젝트</h3>
-						<p class="ft_top_info_row">
-							<span class="ft_top_info_column">신림이젠컴퓨터아카데미</span>
-							<span class="ft_top_info_column">사업자번호 : 000-00-00000</span>
-						</p>
-						<p class="ft_top_info_row">
-							<span class="ft_top_info_column">통신판매업 신고 : 0000 - 서울관악 - 0000호</span>
-							<span class="ft_top_info_column">개인정보관리책임자 : 홍길동</span>
-							<span class="ft_top_info_column">대표이사 : 스프링부트</span>
-						</p>
-						<p class="ft_top_info_row">
-							<span class="ft_top_info_column"><strong>문의전화 : 0000-0000</strong> (9:30AM ~ 6PM 점심시간 13:10~14:10)</span>
-							<span class="ft_top_info_column">이메일 : hello@email.co.kr</span>
-						</p>
-						<p class="ft_top_info_row">
-							<span class="ft_top_info_column">팩스 : 02-000-0000</span>
-							<span class="ft_top_info_column">호스팅 제공 : localhost</span>
-						</p>
-						<p class="ft_top_info_row">
-							<span class="ft_top_info_column">All Images and Contents Copyright (c) 2022 Dr. Martens-Airwair Korea Ltd. All Rights Reserved.</span>
-						</p>
-					</div>
-					<div class="ft_right ml0">
-						<h3 class="ft_tit">고객센터</h3>
-						<ul class="ft_top_menu">
-							<li><a href="javascript:;" class="">챗봇 상담</a></li>
-							<li><a href="javascript:;" class="">1 : 1 문의</a></li>
-							<li><a href="javascript:;" class="">자주 묻는 질문</a></li>
-							<li><a href="javascript:;" class="">공지사항</a></li>
-						</ul>
-					</div>
-					<div class="ft_right">
-						<h3 class="ft_tit">닥터마틴에 대하여</h3>
-						<ul class="ft_top_menu">
-							<li><a href="javascript:;" class="">브랜드 헤리티지</a></li>
-							<li><a href="javascript:;" class="">이벤트</a></li>
-							<li><a href="javascript:;" class="">SUSTAINABILITY</a></li>
-							<li><a href="javascript:;" class="">MODERN SLAVERY ACT</a></li>
-							<li><a href="javascript:;" class="">SOCIAL RESPONSIBILITY</a></li>
-							<li><a href="javascript:;" class="">사이즈가이드</a></li>
-						</ul>
-					</div>
+		<!-- top btn -->
+		<div class="gotoTop">
+			<button class="gotoTop_btn">
+				<!-- <img src="/resources/img/floating_top.png" alt="맨위로 가기" /> -->
+			</button>
+		</div>
+		<!-- //top btn -->
+		<div class="ft_inner">
+			<div class="ft_top cf">
+				<div class="ft_left">
+					<h3 class="ft_top_tit">닥터마틴코리아프로젝트</h3>
+					<p class="ft_top_info_row">
+						<span class="ft_top_info_column">신림이젠컴퓨터아카데미</span>
+						<span class="ft_top_info_column">사업자번호 : 000-00-00000</span>
+					</p>
+					<p class="ft_top_info_row">
+						<span class="ft_top_info_column">통신판매업 신고 : 0000 - 서울관악 - 0000호</span>
+						<span class="ft_top_info_column">개인정보관리책임자 : 홍길동</span>
+						<span class="ft_top_info_column">대표이사 : 스프링부트</span>
+					</p>
+					<p class="ft_top_info_row">
+						<span class="ft_top_info_column"><strong>문의전화 : 0000-0000</strong> (9:30AM ~ 6PM 점심시간 13:10~14:10)</span>
+						<span class="ft_top_info_column">이메일 : hello@email.co.kr</span>
+					</p>
+					<p class="ft_top_info_row">
+						<span class="ft_top_info_column">팩스 : 02-000-0000</span>
+						<span class="ft_top_info_column">호스팅 제공 : localhost</span>
+					</p>
+					<p class="ft_top_info_row">
+						<span class="ft_top_info_column">All Images and Contents Copyright (c) 2022 Dr. Martens-Airwair Korea Ltd. All Rights Reserved.</span>
+					</p>
 				</div>
-				<div class="ft_btm">
-					<div class="ft_nav">
-						<ul class="ft_btm_list">
-							<li class="ft_btm_list_item"><a href="javascript:;">이용약관</a></li>
-							<li class="ft_btm_list_item"><a href="javascript:;">개인정보취급방침</a></li>
-							<li class="ft_btm_list_item"><a href="javascript:;">매장찾기</a></li>
-							<li class="ft_btm_list_item"><a href="javascript:;">CONTACT</a></li>
-							<li class="ft_btm_list_item"><a href="javascript:;">사이트 맵</a></li>
-						</ul>
-					</div>
-					
-					<div class="sns_box">
-						<a href="javascript:;" class="ml0"><i class="fa-brands fa-twitter"></i><span class="text_hiden">트위터</span></a>
-						<a href="javascript:;"><i class="fa-brands fa-youtube"></i><span class="text_hiden">유투브</span></a>
-						<a href="javascript:;"><i class="fa-brands fa-facebook-f"></i><span class="text_hiden">페이스북</span></a>
-						<a href="javascript:;"><i class="fa-brands fa-instagram"></i><span class="text_hiden">인스타그램</span></a>
-					</div>
+				<div class="ft_right ml0">
+					<h3 class="ft_tit">고객센터</h3>
+					<ul class="ft_top_menu">
+						<li><a href="/DrMarten/myqna/list" class="">1 : 1 문의</a></li>
+						<li><a href="/DrMarten/qna" class="">자주 묻는 질문</a></li>
+						<li><a href="/DrMarten/notice"  class="">공지사항</a></li>
+					</ul>
+				</div>
+				<div class="ft_right">
+					<h3 class="ft_tit">닥터마틴에 대하여</h3>
+					<ul class="ft_top_menu">
+						<li><a href="/DrMarten/realtime-search" class="">이벤트</a></li>
+						<li><a href="https://www.drmartensplc.com/sustainability" class="">SUSTAINABILITY</a></li>
+						<li><a href="https://www.drmartens.co.kr/data/pdf/Modern_Slavery_Doc_2019_20_v7.pdf" class="">MODERN SLAVERY ACT</a></li>
+						<li><a href="https://www.drmartensplc.com/sustainability" class="">SOCIAL RESPONSIBILITY</a></li>
+						<li><a href="/DrMarten/sizeguide" class="">사이즈가이드</a></li>
+					</ul>
 				</div>
 			</div>
-		</footer>
+			<div class="ft_btm">
+				<div class="ft_nav">
+					<ul class="ft_btm_list">
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/agreement">이용약관</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/privacy">개인정보취급방침</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/service/contacts">CONTACT</a></li>
+						<li class="ft_btm_list_item"><a href="/DrMarten/sitemap">사이트 맵</a></li>
+					</ul>
+				</div>
+				
+				<div class="sns_box">
+					<a href="https://twitter.com/drmartens" class="ml0"><i class="fa-brands fa-twitter"></i><span class="text_hiden">트위터</span></a>
+					<a href="https://www.youtube.com/user/DrMartensOfficial"><i class="fa-brands fa-youtube"></i><span class="text_hiden">유투브</span></a>
+					<a href="https://www.facebook.com/DR.MARTENSKR"><i class="fa-brands fa-facebook-f"></i><span class="text_hiden">페이스북</span></a>
+					<a href="https://www.instagram.com/drmartenskr/"><i class="fa-brands fa-instagram"></i><span class="text_hiden">인스타그램</span></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- //하단 영역 -->
 </body>
 </html>

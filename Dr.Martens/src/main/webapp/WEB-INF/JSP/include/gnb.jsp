@@ -172,7 +172,7 @@
 							<span>공식몰혜택</span>
 							<img src="/resources/img/gnb_evt_img01.jpg" alt="공식몰혜택" />
 						</a></li>
-						<li><a href="javascript:;">
+						<li><a href="javascript:alert('준비중입니다.');">
 							<span>콜라보레이션</span>
 							<img src="/resources/img/gnb_evt_img02.jpg" alt="콜라보레이션" />
 						</a></li>
