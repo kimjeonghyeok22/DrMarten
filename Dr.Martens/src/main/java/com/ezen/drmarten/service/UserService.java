@@ -78,7 +78,7 @@ public class UserService {
 		}
 
 		if (chek != null && !(chek.getU_pw().equals(pw))) {
-			return "<script>" + "alert('비밀번호 틀림 ');" + "location.href='/DrMarten/loginForm'" + "</script>";
+			return "<script>" + "alert('아이디와 비밀번호를 다시 확인해주세요 ');" + "location.href='/DrMarten/user/login'" + "</script>";
 		}
 		return null;
 
