@@ -618,4 +618,9 @@ public class AdminController {
 		model.addAttribute("list", list);
 		return "/dr/order/order_detail";
 	}
+	@GetMapping("/statistics")
+	public String statistics(Model model) {
+		return "/dr/statistics";
+	}
+	
 }

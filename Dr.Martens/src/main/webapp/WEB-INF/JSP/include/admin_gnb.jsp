@@ -35,6 +35,12 @@
                         </ul>
                     </div>
                 </li>
-                <li><span>통계분석</span></li>
+                <li><span>통계분석</span> <span class="off"><i class="fa-solid fa-chevron-down"></i></span> <span class="on"><i class="fa-solid fa-chevron-up"></i></span>
+                	<div class="sub_wrap">
+                        <ul id="sub_menu">
+                            <li><a href="/admin/statistics">통계분석</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
